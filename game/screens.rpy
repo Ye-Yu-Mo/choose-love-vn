@@ -144,7 +144,7 @@ style namebox:
     ypos gui.name_ypos
     ysize gui.namebox_height
 
-    background Frame("images/ui/paper_tag_idle.png", 22, 18)
+    background Frame("images/ui/paper_tag_idle.png", 18, 10)
     padding gui.namebox_borders.padding
 
 style say_label:

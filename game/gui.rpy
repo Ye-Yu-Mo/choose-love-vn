@@ -70,7 +70,7 @@ define gui.interface_text_font = "fonts/SourceHanSansLite.ttf"
 define gui.text_size = gui.scale(24)
 
 ## The size of character names.
-define gui.name_text_size = gui.scale(30)
+define gui.name_text_size = gui.scale(24)
 
 ## The size of text in the game's user interface.
 define gui.interface_text_size = gui.scale(22)
@@ -121,7 +121,7 @@ define gui.namebox_height = None
 
 ## The borders of the box containing the character's name, in left, top,
 ## right, bottom order.
-define gui.namebox_borders = Borders(24, 8, 24, 8)
+define gui.namebox_borders = Borders(20, 5, 20, 5)
 
 ## If True, the background of the namebox will be tiled, if False, the background
 ## of the namebox will be scaled.
