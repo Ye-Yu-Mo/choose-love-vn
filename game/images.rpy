@@ -12,6 +12,7 @@ image bg back room = "images/bg back room.png"
 image bg piano corner = "images/bg piano corner.png"
 image bg street rain = "images/bg street rain.png"
 image prop model funeral = "images/prop model funeral.png"
+image cg 347 = "images/cg/cg_347.png"
 
 # 结局 CG
 image cg ending together = "images/cg/ending_together.png"

@@ -17,6 +17,8 @@ default m8_invite = False
 default m8_hand = False
 default m10_signed = False
 default m10_told = False
+default m11_looked = False
+default m11_confront = False
 
 label story_days_early:
     jump scene_first_star
@@ -554,4 +556,75 @@ label scene_lease:
     scene black with warmfade
     "那张报价单一直压在柜台最里面。"
     "纸很薄，压在手里却很重。"
+    jump scene_three_am
+
+
+label scene_three_am:
+    scene black with warmfade
+    centered "{size=30}{color=#e8c7a8}那天夜里{/color}{/size}"
+
+    scene cg 347 with paperdissolve
+    "那天夜里，我落了东西在店里。"
+    "回来的时候，已经过了三点。"
+    "店门没有锁。"
+    "他趴在柜台上睡着了。"
+    "电脑还亮着。"
+    "屏幕右下角的时间是 3:47。"
+
+    "电脑没有合上。"
+    menu:
+        "看。":
+            $ m11_looked = True
+            "我把屏幕转过来一点。"
+            "店铺的支付后台，一行一行的提交记录。"
+            "最新一条，三点四十六分。"
+            "旁边开着一个文件夹：offer 信、租约、押金收据。"
+            "付款人那一栏，是他的名字。"
+            "我看了很久，才把屏幕合上。"
+        "不看，只给他盖外套。":
+            "我没有看。"
+            "我把外套脱下来，盖在他肩上。"
+            "他动了一下，没有醒。"
+            "屏幕的光照着他的侧脸。"
+            "有些事，不看也能猜到。"
+
+    "他睡得很沉，眉头还皱着。"
+    "柜台上放着一杯凉透的美式，只喝了一半。"
+
+    menu:
+        "叫醒他。":
+            $ m11_confront = True
+            "我伸手，碰到他的肩膀。"
+            "他猛地醒了，第一反应是去合电脑。"
+            luyao "……你怎么在这？"
+            shenlan "这是我想问的。"
+            "他看了一眼屏幕，又看我。"
+            "他张了张嘴，最后什么也没说。"
+            "我也没说话。"
+            "我们隔着一台电脑，站了很久。"
+        "不叫醒他。":
+            "我没有叫醒他。"
+            "我坐在旁边的椅子上，等到天快亮。"
+            "他醒来的时候，我已经把电脑合上了。"
+
+    scene bg shop day with paperdissolve
+    "天亮以后，他像什么都没发生过一样，点了一杯美式。"
+    luyao "昨晚……谢谢你。"
+    shenlan "谢什么？"
+    luyao "……外套。"
+    "他低头喝咖啡。"
+    "我们谁也没有提电脑。"
+    if m11_confront:
+        "他今天没有打开电脑。"
+        "走的时候，他站在门口，像要说什么。"
+        "最后还是只说了一句：「明天见。」"
+    else:
+        "走的时候，他照例在四点合上电脑。"
+        "我看着他出门，没有拦。"
+
+    $ unlock_record("truth_347")
+    scene black with warmfade
+    "后来我常常想起 3:47 这个时间。"
+    "那是我从来没有醒着见过的时刻。"
+    "他替我在那个时刻，守了很久。"
     jump puzzle_scene

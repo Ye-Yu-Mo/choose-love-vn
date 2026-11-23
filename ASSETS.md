@@ -58,6 +58,7 @@
 | 名称 | 文件 | 用途 |
 |---|---|---|
 | `cg piano lesson` | `images/cg piano lesson.png` | 教琴全景 |
+| `cg 347` | `images/cg/cg_347.png` | 凌晨 3:47，陆遥睡在柜台 |
 | `cg shenlan piano` | `images/cg shenlan piano.png` | 沈岚弹琴 |
 | `cg luyao piano` | `images/cg luyao piano.png` | 陆遥学琴 |
 | `cg ending together` | `images/cg/ending_together.png` | 一起开 |
@@ -93,6 +94,6 @@
 
 ## 待补资源（按 PLAN Milestone 1）
 
-- 记录 9、11 所需的背景/道具：小满的本子、深夜电脑屏幕。猫（年糕）直接复用 `mem cat` + `cat_sit` 变换。
+- 记录 9 所需的背景/道具：小满的本子。猫（年糕）直接复用 `mem cat` + `cat_sit` 变换。
 - 记录 10–11 的 CG 或特写（3:47 的屏幕、睡着的陆遥）。
 - 老周、房东、阿哲的立绘（或先用剪影/背影）。
