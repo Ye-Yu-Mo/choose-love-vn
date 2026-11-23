@@ -9,9 +9,14 @@ label start:
     call screen chapter_card("第一章", "葬礼", "现在")
 
     scene prop model funeral with paperdissolve
-    "那天下午，小满在店里给自己办了一场葬礼。"
-    "一座微型墓地摆在桌上。墓碑只有拇指大，前面摆着纸星、干花、一只缝歪耳朵的兔子。"
-    "小满趴在那儿，摆得很认真。"
+    if pov == "luyao":
+        "门铃响过之后，店里安静了一秒。"
+        "一个女孩趴在一座微型墓地前，另一个女人站在她身后。"
+        "墓碑只有拇指大，前面摆着纸星、干花、一只缝歪耳朵的兔子。"
+    else:
+        "那天下午，小满在店里给自己办了一场葬礼。"
+        "一座微型墓地摆在桌上。墓碑只有拇指大，前面摆着纸星、干花、一只缝歪耳朵的兔子。"
+        "小满趴在那儿，摆得很认真。"
 
     scene bg back room with paperdissolve
     show fx lamp back
@@ -21,33 +26,62 @@ label start:
     xiaoman "给我自己呀。"
     xiaoman "二十二岁的我，太乖了。我想把她埋掉。"
     "她笑得很开心。"
-    "我没有笑。"
+    if pov == "luyao":
+        "她笑起来的时候，眼睛是亮的。亮得有点用力。"
+    else:
+        "我没有笑。"
     show xiaoman worried_half at expr_right with dissolve
-    "小满看了我一眼。"
-    "我说没事。"
+    if pov == "luyao":
+        "她看见门口的我，愣了一下。"
+        "站在旁边的女人说没事。声音很轻。"
+        "然后小满低下头，把一只纸星摆正。"
+    else:
+        "小满看了我一眼。"
+        "我说没事。"
     show xiaoman neutral_half at half_right with dissolve
-    "因为我也给自己定了一个日子。"
-    "只是我没告诉她。"
+    if pov == "luyao":
+        "我站在门口，电脑包还在滴水。"
+        show luyao awkward_half at expr_left with dissolve
+        luyao "……这是葬礼吗？"
+    else:
+        "因为我也给自己定了一个日子。"
+        "只是我没告诉她。"
 
-    "门铃响了。"
-    show luyao awkward_half at expr_left with dissolve
-    "一个背着电脑包的男生站在门口，头发上还有雨。"
-    "他看了看那座小墓地，又看了看我。"
-    luyao "……这是葬礼吗？"
+        "门铃响了。"
+        show luyao awkward_half at expr_left with dissolve
+        "一个背着电脑包的男生站在门口，头发上还有雨。"
+        "他看了看那座小墓地，又看了看我。"
+        luyao "……这是葬礼吗？"
     xiaoman "对呀，我自己的。你要不要也埋一个？"
     luyao "……我可以先要一杯美式吗？"
     shenlan "……好。"
 
-    menu:
-        "问他为什么来":
-            shenlan "你……怎么找到这里的？"
-            luyao "……路过。"
-            "他说谎的样子很笨。"
-        "什么也不问":
-            "我没有问。"
-            "他也没有说。"
+    if pov == "luyao":
+        menu:
+            "老实说「路过」。":
+                shenlan "你……怎么找到这里的？"
+                luyao "……路过。"
+                "她看了我一眼。那个眼神告诉我，她不信。"
+            "什么也不说。":
+                "她没有问。"
+                "我也没有说。"
+    else:
+        menu:
+            "问他为什么来":
+                shenlan "你……怎么找到这里的？"
+                luyao "……路过。"
+                "他说谎的样子很笨。"
+            "什么也不问":
+                "我没有问。"
+                "他也没有说。"
 
-    "那天他坐在窗边，坐到打烊。"
+    if pov == "luyao":
+        "那天我坐在窗边，坐到打烊。"
+        "咖啡凉了，我也没有再点。"
+        if l_prologue == "wait":
+            "进门之前，我在雨里站的那一会儿，好像把什么留在了门外。"
+    else:
+        "那天他坐在窗边，坐到打烊。"
     "后来的事，要从两个月前说起。"
     $ unlock_record("funeral")
 

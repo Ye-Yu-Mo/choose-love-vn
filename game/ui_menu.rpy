@@ -46,8 +46,10 @@ screen main_menu():
 
     vbox:
         xpos 92
-        ypos 296
-        spacing 14
+        ypos (296 if not persistent.cleared_once else 258)
+        spacing (14 if not persistent.cleared_once else 10)
+        if persistent.cleared_once:
+            textbutton "以陆遥的视角重看" action Start("luyao_pov_start") style "paper_button" text_style "paper_button_text" at button_appear(0.02)
         textbutton "开始游戏" action Start() style "paper_button" text_style "paper_button_text" at button_appear(0.10)
         textbutton "读取游戏" action ShowMenu("load") style "paper_button" text_style "paper_button_text" at button_appear(0.20)
         textbutton "星图" action Show("star_map") style "paper_button" text_style "paper_button_text" at button_appear(0.30)

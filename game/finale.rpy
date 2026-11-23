@@ -118,6 +118,7 @@ label ending_funeral_confirm:
 
 label ending_together:
     $ f_ending = "一起开"
+    $ mark_cleared()
     $ bgm("ending")
     $ unlock_record("end_together")
     scene cg ending together with paperdissolve
@@ -143,6 +144,7 @@ label ending_together:
 
 label ending_xiaoman:
     $ f_ending = "朋友一个人开"
+    $ mark_cleared()
     $ bgm("funeral")
     $ unlock_record("end_xiaoman")
     scene cg ending xiaoman with paperdissolve
@@ -165,6 +167,7 @@ label ending_xiaoman:
 
 label ending_with_him:
     $ f_ending = "她和他走"
+    $ mark_cleared()
     $ bgm("ending")
     $ unlock_record("end_depart")
     scene cg ending depart with paperdissolve
@@ -185,6 +188,7 @@ label ending_with_him:
 
 label ending_alone:
     $ f_ending = "没有回头"
+    $ mark_cleared()
     $ bgm("night")
     $ unlock_record("end_alone")
     scene cg ending alone with paperdissolve
@@ -204,6 +208,7 @@ label ending_alone:
 
 label ending_funeral:
     $ f_ending = "完成葬礼"
+    $ mark_cleared()
     $ bgm("funeral")
     $ unlock_record("end_funeral")
     scene cg ending funeral with paperdissolve
