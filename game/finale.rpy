@@ -28,6 +28,7 @@ screen ending_title(title, line, no):
 
 label finale_scene:
     $ quick_menu = False
+    $ bgm("night")
     scene black with warmfade
     centered "{size=36}{color=#e8c7a8}第五章 — 琴盖合上{/color}{/size}"
 
@@ -116,6 +117,7 @@ label ending_funeral_confirm:
 
 label ending_together:
     $ f_ending = "一起开"
+    $ bgm("ending")
     $ unlock_record("end_together")
     scene cg ending together with paperdissolve
     "第二天，我照常开门。"
@@ -133,12 +135,14 @@ label ending_together:
     if m4_feed:
         "年糕还是喜欢跳上他的膝盖。"
     "那天下午，店里放了那首《满天星》。"
+    $ bgm("letter", fadein=2.5)
     call screen ending_title("一起开", "有些星星，要两个人一起抬头，才看得见。", "一")
     return
 
 
 label ending_xiaoman:
     $ f_ending = "朋友一个人开"
+    $ bgm("funeral")
     $ unlock_record("end_xiaoman")
     scene cg ending xiaoman with paperdissolve
     "我把钥匙放在她掌心。"
@@ -160,6 +164,7 @@ label ending_xiaoman:
 
 label ending_with_him:
     $ f_ending = "她和他走"
+    $ bgm("ending")
     $ unlock_record("end_depart")
     scene cg ending depart with paperdissolve
     "我把店交给小满，只带走一只杯子。"
@@ -179,6 +184,7 @@ label ending_with_him:
 
 label ending_alone:
     $ f_ending = "没有回头"
+    $ bgm("night")
     $ unlock_record("end_alone")
     scene cg ending alone with paperdissolve
     "我一个人走的。"
@@ -197,6 +203,7 @@ label ending_alone:
 
 label ending_funeral:
     $ f_ending = "完成葬礼"
+    $ bgm("funeral")
     $ unlock_record("end_funeral")
     scene cg ending funeral with paperdissolve
     "那天之后，店里空了三天。"

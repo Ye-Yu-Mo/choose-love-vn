@@ -28,7 +28,7 @@
 |---|---|---|
 | `audio/piano_touch_the_starlight.ogg` | 0:57 | **只在女主弹琴时**（教琴、结局回忆）；Funton - Touch the starlight，从 NCM 解码 |
 
-### 新入库（已转 OGG，-18 LUFS，待试听确认分配）
+### 新入库（已转 OGG，-18 LUFS，已接入脚本，待试听微调）
 
 源文件在 `assets/audio_src/new_tracks/`，成品在 `game/audio/bgm/`。
 
@@ -40,7 +40,7 @@
 | `sunset_galaxy.ogg` | 赵大鼾 - 落日星河不及你 | 3:18 | 纯音乐 | 一起开、星图、结局后的余韵 |
 | `love_letter.ogg` | やなぎなぎ - 恋文 | 6:28 | 日文歌曲 | 片尾/真结局/她和他走（有歌词，慎用，建议只放一次） |
 
-> 这些是按曲名和类型分的，不是按实际听感。试听后可在 `PLAN.md` Milestone 2 里调整。
+> 已按上表接入：`game/audio.rpy` 的 `BGM` 字典 + `bgm()`。试听后如果哪首不合适，改字典里的映射即可。
 
 ## 背景
 

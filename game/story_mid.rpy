@@ -27,6 +27,7 @@ label story_days_early:
 
 
 label scene_first_star:
+    $ bgm("rain")
     scene black with warmfade
     centered "{size=32}{color=#e8c7a8}两个月前{/color}{/size}"
 
@@ -175,6 +176,7 @@ label scene_card_reader:
     jump scene_useless_things
 
 label scene_useless_things:
+    $ bgm("night")
     scene black with warmfade
     centered "{size=30}{color=#e8c7a8}又一个打烊的晚上{/color}{/size}"
 
@@ -254,6 +256,7 @@ label story_days_middle:
 
 
 label scene_book_margin:
+    $ bgm("night")
     scene black with warmfade
     centered "{size=30}{color=#e8c7a8}又过了一阵子{/color}{/size}"
 
@@ -328,6 +331,7 @@ label scene_book_margin:
 
 
 label scene_door_light:
+    $ bgm("rain")
     scene black with warmfade
     centered "{size=30}{color=#e8c7a8}入秋以后{/color}{/size}"
 
@@ -634,6 +638,7 @@ label scene_three_am:
 
 
 label scene_notebook:
+    $ bgm("night")
     scene black with warmfade
     centered "{size=30}{color=#e8c7a8}离月底还有几天{/color}{/size}"
 

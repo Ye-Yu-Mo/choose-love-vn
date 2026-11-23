@@ -92,6 +92,7 @@ screen model_puzzle():
 
 label puzzle_scene:
     $ quick_menu = False
+    $ bgm("night")
     scene black with warmfade
     centered "{size=36}{color=#e8c7a8}第三章 — 底座{/color}{/size}"
 

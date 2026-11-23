@@ -71,6 +71,7 @@ screen argue_review():
 
 label argument_scene:
     $ quick_menu = False
+    $ bgm("rain")
     $ a_heat = 0
     $ a_choices = []
     $ a_review = ""

@@ -4,6 +4,7 @@
 # ============================================================
 
 label start:
+    $ bgm("funeral")
     scene black with warmfade
     centered "{size=48}{color=#e8c7a8}满天星{/color}{/size}\n\n{size=18}第一章 — 葬礼{/size}"
 
@@ -54,6 +55,7 @@ label start:
 
 
 label piano_scene:
+    stop music fadeout 2.0
     scene black with warmfade
     centered "{size=36}{color=#e8c7a8}第二章 — 满天星{/color}{/size}"
 
