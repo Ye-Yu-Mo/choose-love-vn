@@ -9,6 +9,8 @@ default m3_fix = False
 default m3_ask = False
 default m4_feed = False
 default m4_ask = False
+default m6_write = False
+default m6_ask = False
 
 label story_days_early:
     jump scene_first_star
@@ -235,3 +237,81 @@ label scene_useless_things:
     scene black with warmfade
     "后来我常常想，那天他摘牌子，真的是因为风大吗。"
     jump piano_scene
+
+
+label story_days_middle:
+    jump scene_book_margin
+
+
+label scene_book_margin:
+    scene black with warmfade
+    centered "{size=30}{color=#e8c7a8}又过了一阵子{/color}{/size}"
+
+    scene bg shop night with paperdissolve
+    show luyao awkward_half at expr_right with dissolve
+    "他每天下午都坐在窗边，对着电脑上同一个页面。"
+    "有一天，我从柜台下面翻出一本旧星图册。"
+    shenlan "你总看电脑，眼睛会坏。"
+    luyao "……这是给我的？"
+    shenlan "借你的。看完还我。"
+    "他接过去，翻了两页，停在一张星图上。"
+    "第二天，他把书还了回来。"
+
+    "书页的空白处，多了一行铅笔字。"
+    "「猎户座腰带的三颗星，和柜台上的三颗星排列一样。」"
+    "我愣了一下。"
+    "那是他第一天来，我在碟子边摆的三颗星。"
+
+    menu:
+        "在页边回他。":
+            $ m6_write = True
+            "我拿起铅笔，在下面写：「你数错了，是四颗。」"
+            "写完又觉得太认真，想擦掉，最后没擦。"
+        "只把书还回去。":
+            "我把书合上，放回柜台。"
+            "那一页的铅笔字，我没有动。"
+
+    "第二天，他来借书。"
+    "还回来的时候，页边又多了一行。"
+    if m6_write:
+        "「四颗就四颗。那第四颗是哪一颗？」"
+        "我看着那行字，笑了很久。"
+    else:
+        "「你那次没写。」"
+        "我盯着那四个字，不知道该怎么回。"
+
+    "书里夹着一朵压干的满天星。"
+    "花瓣很脆，像一碰就会碎。"
+    "再往后翻，有一行被划掉的字。划得很轻，还是看得见。"
+
+    menu:
+        "问他划掉的是什么。":
+            $ m6_ask = True
+            "我把书推回他面前。"
+            shenlan "这行划掉的是什么？"
+            luyao "……写错了。"
+            "他把书拿过去，用手指按住那一行。"
+            "我看见他的耳朵红了。"
+            "我还是看见了。那三个字是：留下来。"
+            "我没有再问。"
+        "不问。":
+            "我把书合上。"
+            "那行被划掉的字，像一句没有说出口的话。"
+
+    "那天晚上，我把书带回家。"
+    "桌上摊着店里的欠款单。我把书压在它上面。"
+    "书页里那朵满天星，被我夹回了原来的位置。"
+
+    scene bg shop day with paperdissolve
+    show xiaoman neutral_half at half_right with dissolve
+    "第二天，小满借走了那本书。"
+    "还回来的时候，她在最后一页画了一颗星。"
+    xiaoman "老板，这书挺好看的。"
+    "她什么也没问。"
+    "我把书放回柜台，压在收据下面。"
+    $ unlock_record("book_margin")
+
+    scene black with warmfade
+    "后来那本书一直在柜台上。"
+    "我们谁也没有再提页边的事。"
+    jump puzzle_scene

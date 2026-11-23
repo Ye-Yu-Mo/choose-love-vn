@@ -96,4 +96,4 @@ label piano_scene:
     stop music fadeout 2.0
     scene black with warmfade
     centered "{size=40}{color=#e8c7a8}满天星{/color}{/size}"
-    jump puzzle_scene
+    jump story_days_middle
