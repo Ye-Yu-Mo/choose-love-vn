@@ -5,6 +5,8 @@
 
 default m2_star = False
 default m2_talk = False
+default m3_fix = False
+default m3_ask = False
 
 label story_days_early:
     jump scene_first_star
@@ -76,4 +78,84 @@ label scene_first_star:
         "只有我知道，他口袋里有星星。"
     else:
         "只有我知道，他每天都会自己拿一颗星星。"
+    jump scene_card_reader
+
+
+label scene_card_reader:
+    scene black with warmfade
+    centered "{size=30}{color=#e8c7a8}几天后{/color}{/size}"
+
+    scene bg shop day with paperdissolve
+    show xiaoman neutral_half at half_right with dissolve
+    "几天后，刷卡机坏了。"
+    "客人排到门口，机器一直响，屏幕上跳出一行看不懂的字。"
+    shenlan "……等一下，马上好。"
+    xiaoman "老板，你按那个红色的——"
+    shenlan "哪个红色？"
+    "小满凑过来，按了两下，机器响得更凶了。"
+    show xiaoman pout_half at expr_right with dissolve
+    xiaoman "……不是我。"
+    "我正要拔电源，窗边那位常客站了起来。"
+
+    show luyao awkward_half at expr_left with dissolve
+    luyao "我看看。"
+    "他蹲到柜台后面，把线拔了，又插回去。"
+    "手指很稳。"
+
+    menu:
+        "让他修。":
+            $ m3_fix = True
+            "我退开半步，把位置让给他。"
+            xiaoman "老板，你就让他修嘛。"
+            "小满在旁边小声起哄。"
+            "他低头拧着什么，耳朵有点红。"
+        "自己修。":
+            "我说不用，自己来。"
+            "我把机器翻过来，学着他的样子拔线，拔错了。"
+            "他伸手，按住我的手。"
+            luyao "这根。"
+            "他的手指很凉。"
+
+    "几分钟后，机器吐出一张长长的小票。"
+    shenlan "……好了？"
+    luyao "好了。"
+    xiaoman "哇。"
+    shenlan "你是做什么的？"
+    luyao "程序员。"
+    shenlan "程序员还修这个？"
+    luyao "都是修东西。"
+    "他说得很自然。"
+    "我笑了一下。"
+    "他抬头，正好看见。"
+    "然后他低下头，去收工具。"
+
+    "手背上贴着一块创可贴，边缘已经卷起来了。"
+    "电脑包侧袋里，露出一角折起来的纸。"
+
+    menu:
+        "问他工作的事。":
+            $ m3_ask = True
+            shenlan "你以前……在哪家公司？"
+            luyao "说了你也不认识。"
+            "他把工具收进包里，动作停了一下。"
+            luyao "最近在休息。"
+            "他没有说「失业」。"
+            "我也没有再问。"
+        "什么也不问。":
+            "我没有问。"
+            "他把工具收好，回窗边坐下。"
+            "那角折纸从包里露出一小截，像一句没说完的话。"
+
+    "他走的时候，又点了一杯美式。"
+    "我在碟子边放了一颗星。"
+    if m3_fix:
+        "他把星和螺丝刀一起收进包里。"
+    else:
+        "他把星放在电脑旁边，看了很久。"
+    $ unlock_record("card_reader")
+
+    scene black with warmfade
+    "后来机器又坏过两次。"
+    "第二次，我自己修好了。"
+    "第三次，我没修，等他来。"
     jump piano_scene

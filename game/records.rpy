@@ -12,6 +12,8 @@ init python:
          "text": "小满给自己办了一场葬礼。她说，二十二岁的她太乖了，想把她埋掉。"},
         {"id": "first_star", "title": "一杯咖啡，一颗星", "short": "第一颗星", "x": 170, "y": 330, "obj": "mem paper star",
          "text": "他点了最便宜的美式，不加糖。我在碟子边放了一颗写着「撑住」的纸星。他把它放进了口袋。"},
+        {"id": "card_reader", "title": "刷卡机", "short": "刷卡机", "x": 120, "y": 500, "obj": "mem screwdriver",
+         "text": "刷卡机坏了。他蹲下去，把线拔了又插回去。「程序员还修这个？」「都是修东西。」"},
         {"id": "piano", "title": "满天星", "short": "满天星", "x": 360, "y": 300, "obj": "mem paper star",
          "text": "那首曲子是她自己写的，叫《满天星》。他学会的第一句旋律，后来才知道名字。"},
         {"id": "model", "title": "封好的底座", "short": "底座", "x": 500, "y": 420, "obj": "mem model",
@@ -57,6 +59,13 @@ image mem cup = "images/mem/mem_cup.png"
 image mem key = "images/mem/mem_key.png"
 image mem ticket = "images/mem/mem_ticket.png"
 image mem bouquet = "images/mem/mem_bouquet.png"
+image mem screwdriver = "images/mem/mem_screwdriver.png"
+image mem cat = "images/mem/mem_cat.png"
+image mem book = "images/mem/mem_book.png"
+image mem umbrella = "images/mem/mem_umbrella.png"
+image mem notebook = "images/mem/mem_notebook.png"
+image mem lease = "images/mem/mem_lease.png"
+image mem laptop = "images/mem/mem_laptop.png"
 
 # 记忆物件出现：淡入 + 轻微放大（不做持续位移，避免亚像素抖动）
 transform mem_appear:

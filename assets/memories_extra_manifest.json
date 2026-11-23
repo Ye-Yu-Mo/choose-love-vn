@@ -1,0 +1,51 @@
+[
+  {
+    "name": "mem_screwdriver",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "A single well-used screwdriver with a warm wooden handle, a few small screws beside it, soft warm light, cinematic anime, soft watercolor texture, warm amber palette, isolated object on a transparent background, no text, no logos."
+  },
+  {
+    "name": "mem_cat",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "A small fluffy calico shop cat sitting and looking up, warm amber light, cinematic anime, soft watercolor texture, warm palette, isolated object on a transparent background, no text, no logos."
+  },
+  {
+    "name": "mem_book",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "A worn paperback book with handwritten notes in the margins and a pressed dried flower tucked between the pages, warm lamp light, cinematic anime, soft watercolor texture, warm amber palette, isolated object on a transparent background, no readable text, no logos."
+  },
+  {
+    "name": "mem_umbrella",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "A transparent umbrella with raindrops and warm streetlight reflections, seen from a slight angle, cinematic anime, soft watercolor texture, warm amber and deep blue palette, isolated object on a transparent background, no text, no logos."
+  },
+  {
+    "name": "mem_notebook",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "A small handmade notebook with a stitched cover, open to pages of handwritten tally marks and tiny drawn stars, warm light, cinematic anime, soft watercolor texture, warm amber palette, isolated object on a transparent background, no readable text, no logos."
+  },
+  {
+    "name": "mem_lease",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "A folded paper lease contract with a red seal and a pen resting on it, no readable text, warm desk light, cinematic anime, soft watercolor texture, warm amber palette, isolated object on a transparent background, no readable text, no logos."
+  },
+  {
+    "name": "mem_laptop",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "A laptop open with a warm glowing screen in a dark room, no readable text, cinematic anime, soft watercolor texture, warm amber and deep blue palette, isolated object on a transparent background, no text, no logos."
+  }
+]
