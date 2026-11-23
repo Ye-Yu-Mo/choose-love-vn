@@ -15,6 +15,8 @@ default m7_star = False
 default m7_phone = False
 default m8_invite = False
 default m8_hand = False
+default m10_signed = False
+default m10_told = False
 
 label story_days_early:
     jump scene_first_star
@@ -469,4 +471,87 @@ label scene_umbrella:
     "那把伞后来一直放在店门口。"
     "黑色的，手柄上缠了一圈胶带。"
     "是他说「坏了，还能用」的那把。"
+    jump story_days_late
+
+
+label story_days_late:
+    # 记录 9（小满的本子）之后会插在这里
+    jump scene_lease
+
+
+label scene_lease:
+    scene black with warmfade
+    centered "{size=30}{color=#e8c7a8}月底{/color}{/size}"
+
+    scene bg shop day with paperdissolve
+    show xiaoman worried_half at expr_right with dissolve
+    "月底，房东来了。"
+    "他站在柜台外面，手里拿着一个牛皮纸文件袋。"
+    "小满给他倒了水，然后退到后间门口，没有走。"
+    "房东把一张纸推过来。"
+    landlord "楼要卖了。新房东要重新签，租金按市价。"
+    shenlan "……多少？"
+    "他说了一个数。"
+    "我在心里算了一遍，又算了一遍。"
+    "还是不够。"
+
+    landlord "我也不想涨。可新房东按合同来，我也没办法。"
+    shenlan "……期限呢？"
+    landlord "下个月十五号之前。签了，就按新价；不签，月底腾房。"
+    "他说完，看了我一眼。"
+    landlord "小沈，你这店开了几年了？"
+    shenlan "三年。"
+    landlord "嗯。"
+    "他没有再说别的。"
+
+    menu:
+        "签下续租。":
+            $ m10_signed = True
+            "我拿起笔，签了。"
+            "笔尖在纸上停了一下，还是落下去了。"
+            "房东把属于我的那份推回来。"
+            landlord "月底之前把第一笔打过来就行。"
+            "我点头。"
+        "先拖一拖。":
+            "我说：「我再想想。」"
+            landlord "行。十五号之前给我个准话。"
+            "他把文件袋收好，走了。"
+            "那张报价单留在柜台上，像一块烫手的铁。"
+
+    scene bg shop night with paperdissolve
+    show xiaoman worried_half at expr_right with dissolve
+    "打烊以后，我把报价单和欠款单叠在一起，塞进柜台最里面。"
+    "「转让」牌从抽屉里露出一角。"
+    "小满站在门口，看着我。"
+    xiaoman "老板。"
+    shenlan "嗯？"
+    xiaoman "……没事。"
+    "她把一杯温水放在我手边，转身去擦桌子。"
+    "她看见了。她没有问。"
+
+    menu:
+        "告诉陆遥。":
+            $ m10_told = True
+            "我给陆遥发了消息，只说了一句：店可能要关了。"
+            "他回得很快：「我马上过来。」"
+            "那天晚上，他来了，站在柜台外面，没有坐。"
+            luyao "差多少？"
+            shenlan "……不用你管。"
+            luyao "我问差多少。"
+            "我没有回答。"
+            "他站了一会儿，走了。"
+            "第二天，他没有来。"
+        "不告诉他。":
+            "我没有告诉他。"
+            "第二天下午，他照常来，点了一杯最便宜的美式。"
+            "他把电脑打开，又合上。"
+            luyao "房东最近来过吗？"
+            shenlan "……怎么突然问这个？"
+            luyao "随便问问。"
+            "他低头喝咖啡，没有再看我。"
+
+    $ unlock_record("lease")
+    scene black with warmfade
+    "那张报价单一直压在柜台最里面。"
+    "纸很薄，压在手里却很重。"
     jump puzzle_scene
