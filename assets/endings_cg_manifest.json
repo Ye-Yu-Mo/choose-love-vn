@@ -1,0 +1,27 @@
+[
+  {
+    "name": "cg_ending_together",
+    "size": "1536x1024",
+    "prompt": "Visual novel ending CG, morning light in a cozy Chinese coffee shop, a 24-year-old Chinese woman with messy shoulder-length hair in a dark apron and a 25-year-old Chinese man with glasses in a dark hoodie standing behind the wooden counter together, the woman laughing softly, the man looking at her, two coffee cups, the miniature funeral diorama with tiny tombstone and paper stars on the counter, an old upright piano open in the background, warm amber and soft blue, cinematic anime, soft watercolor texture, 16:9 composition, no text, no logos."
+  },
+  {
+    "name": "cg_ending_xiaoman",
+    "size": "1536x1024",
+    "prompt": "Visual novel ending CG, dusk, a 22-year-old Chinese girl with short hair and a handmade apron standing alone at the glass door of a small coffee shop, flipping the wooden open sign, warm lamp light inside, one empty cup left on the wooden counter, the miniature funeral diorama on the shelf, bittersweet quiet mood, cinematic anime, soft watercolor texture, warm amber and deep blue, 16:9 composition, no text, no logos."
+  },
+  {
+    "name": "cg_ending_with_him",
+    "size": "1536x1024",
+    "prompt": "Visual novel ending CG, early morning train platform, a 24-year-old Chinese woman with messy shoulder-length hair holding a suitcase and a 25-year-old Chinese man with glasses and a backpack standing side by side, seen from behind, one umbrella, soft dawn light, light mist, a small town station, hopeful quiet mood, cinematic anime, soft watercolor texture, warm amber and pale blue, 16:9 composition, no text, no logos."
+  },
+  {
+    "name": "cg_ending_alone",
+    "size": "1536x1024",
+    "prompt": "Visual novel ending CG, night train window, a 24-year-old Chinese woman with messy shoulder-length hair sitting alone by the window, her faint reflection in the glass, rain streaks, distant city lights passing, a folded paper star in her hand, cold blue tones with a single warm light, lonely quiet mood, cinematic anime, soft watercolor texture, 16:9 composition, no text, no logos."
+  },
+  {
+    "name": "cg_ending_funeral",
+    "size": "1536x1024",
+    "prompt": "Visual novel ending CG, interior of a small coffee shop in dim quiet light, a miniature handmade funeral diorama with a tiny tombstone on the wooden counter with a fresh bouquet of baby's breath, a 22-year-old Chinese girl with short hair and a 25-year-old Chinese man with glasses standing side by side facing it, seen from behind, piano lid closed, rain on the window, gentle grief, cinematic anime, soft watercolor texture, deep blue and warm amber, 16:9 composition, no text, no logos."
+  }
+]

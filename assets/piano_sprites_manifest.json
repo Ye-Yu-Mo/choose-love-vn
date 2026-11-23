@@ -1,0 +1,14 @@
+[
+  {
+    "name": "shenlan_piano_half",
+    "ref": "game/images/sprites/shenlan_neutral_half.png",
+    "size": "1024x1536",
+    "prompt": "Same character, same face and outfit. Seated at an upright piano, three-quarter view, hands resting on the keys, soft smile, waist-up half-body portrait, cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  },
+  {
+    "name": "luyao_piano_half",
+    "ref": "game/images/sprites/luyao_neutral_half.png",
+    "size": "1024x1536",
+    "prompt": "Same character, same face and outfit. Seated at an upright piano, leaning slightly toward the keys, awkward concentrated expression, hands on the keys, waist-up half-body portrait, cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  }
+]

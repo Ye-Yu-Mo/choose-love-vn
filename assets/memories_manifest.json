@@ -1,0 +1,72 @@
+[
+  {
+    "name": "mem_rabbit",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "A single handmade stitched cloth rabbit doll with one crooked ear and a faded red ribbon, sitting, soft warm light, cinematic anime, soft watercolor texture, warm amber palette, isolated object on a transparent background, no text, no logos."
+  },
+  {
+    "name": "mem_paper_star",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "A single folded paper star made of cream paper, glowing faintly warm from within, cinematic anime, soft watercolor texture, warm amber palette, isolated object on a transparent background, no text, no logos."
+  },
+  {
+    "name": "mem_model",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "A miniature handmade cemetery diorama with a tiny cardboard tombstone, soft grass, paper stars and dried flowers, warm desk lamp light, cinematic anime, soft watercolor texture, warm amber palette, isolated object on a transparent background, no text, no logos."
+  },
+  {
+    "name": "mem_letter_key",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "A cream paper envelope sealed with a brass shop key resting on top, warm light, cinematic anime, soft watercolor texture, warm amber palette, isolated object on a transparent background, no readable text, no logos."
+  },
+  {
+    "name": "mem_phone",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "A smartphone lying face up with a warm glowing screen, no readable text, dark glass and a few raindrops, cinematic anime, soft watercolor texture, warm amber palette, isolated object on a transparent background, no text, no logos."
+  },
+  {
+    "name": "mem_piano",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "Close-up of an old upright piano's closed wooden lid with a few visible keys, warm lamp light, cinematic anime, soft watercolor texture, warm amber palette, isolated object on a transparent background, no text, no logos."
+  },
+  {
+    "name": "mem_cup",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "A ceramic latte cup with latte art in the shape of a star, steam rising, warm light, cinematic anime, soft watercolor texture, warm amber palette, isolated object on a transparent background, no text, no logos."
+  },
+  {
+    "name": "mem_key",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "A single antique brass shop key on a leather keychain, warm light, cinematic anime, soft watercolor texture, warm amber palette, isolated object on a transparent background, no text, no logos."
+  },
+  {
+    "name": "mem_ticket",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "Two slightly worn paper train tickets with no readable text, warm light, cinematic anime, soft watercolor texture, warm amber palette, isolated object on a transparent background, no text, no logos."
+  },
+  {
+    "name": "mem_bouquet",
+    "size": "1024x1024",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "A small bouquet of baby's breath wrapped in cream paper and tied with a ribbon, soft warm light, cinematic anime, soft watercolor texture, warm amber palette, isolated object on a transparent background, no text, no logos."
+  }
+]

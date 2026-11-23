@@ -1,0 +1,27 @@
+[
+  {
+    "name": "bg_shop_night",
+    "size": "1536x1024",
+    "prompt": "Visual novel background, interior of a small cozy Chinese coffee shop at night after closing, warm amber pendant lights, wooden counter, coffee machine, an old upright piano in the corner, a wall covered with tiny handmade gifts and paper stars, a closed sign on the glass, rainy street outside, empty, no people, no text, no logos, cinematic anime, soft watercolor texture, warm amber and deep blue palette, 16:9 composition."
+  },
+  {
+    "name": "bg_back_room",
+    "size": "1536x1024",
+    "prompt": "Visual novel background, small back room of a cozy coffee shop, wooden workbench covered with craft materials, scissors, paper, glue, a miniature cemetery diorama with a tiny tombstone and handmade paper stars, warm desk lamp, shelves with boxes, a small rainy window, empty, no people, no text, no logos, cinematic anime, soft watercolor texture, warm amber and deep blue palette, 16:9 composition."
+  },
+  {
+    "name": "bg_piano_corner",
+    "size": "1536x1024",
+    "prompt": "Visual novel background, close-up corner of a cozy coffee shop with an old upright piano, sheet music on the stand, a metronome, a warm pendant lamp, paper stars hanging above, rainy window reflection, empty bench, no people, no text, no logos, cinematic anime, soft watercolor texture, warm amber and deep blue palette, 16:9 composition."
+  },
+  {
+    "name": "bg_street_rain",
+    "size": "1536x1024",
+    "prompt": "Visual novel background, rainy narrow street outside a small cozy coffee shop at night, warm glowing shop window, wet pavement reflections, bicycles, potted plants, no people, no text, no logos, cinematic anime, soft watercolor texture, warm amber and deep blue palette, 16:9 composition."
+  },
+  {
+    "name": "prop_model_funeral",
+    "size": "1536x1024",
+    "prompt": "Close-up still life of a handmade miniature cemetery diorama on a wooden table, tiny cardboard tombstone, tiny paper stars, dried flowers, a small cloth rabbit with one ear, warm desk lamp light, shallow depth of field, no people, no text, cinematic anime, soft watercolor texture, warm amber and deep blue palette."
+  }
+]

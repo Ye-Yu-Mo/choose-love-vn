@@ -1,0 +1,17 @@
+[
+  {
+    "name": "shen_lan_sheet",
+    "size": "1536x1024",
+    "prompt": "Character reference sheet of a 24-year-old Chinese woman, coffee shop owner, tired warm eyes, messy shoulder-length hair, beige shirt and dark apron with faint coffee stains, holding a small handmade paper star. Show the same character in front view and three-quarter view, with three facial expressions: polite smile, tired, quiet. Cinematic anime, soft watercolor texture, warm amber and deep blue palette, plain white background, no text, no logos, consistent face."
+  },
+  {
+    "name": "lu_yao_sheet",
+    "size": "1536x1024",
+    "prompt": "Character reference sheet of a 25-year-old Chinese man, programmer, slightly messy hair, dark hoodie, laptop bag strap, tired but kind eyes, a faint bandage on one hand. Show the same character in front view and three-quarter view, with three facial expressions: awkward smile, serious, guilty. Cinematic anime, soft watercolor texture, warm amber and deep blue palette, plain white background, no text, no logos, consistent face."
+  },
+  {
+    "name": "lin_xiaoman_sheet",
+    "size": "1536x1024",
+    "prompt": "Character reference sheet of a 22-year-old Chinese woman, art student and part-time barista, short ponytail, bright eyes, paint-stained apron, small handmade pins, holding a tiny paper star. Show the same character in front view and three-quarter view, with three facial expressions: bright smile, worried, pouting. Cinematic anime, soft watercolor texture, warm amber and deep blue palette, plain white background, no text, no logos, consistent face."
+  }
+]

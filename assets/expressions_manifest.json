@@ -1,0 +1,38 @@
+[
+  {
+    "name": "xiaoman_worried_half",
+    "ref": "game/images/sprites/xiaoman_neutral_half.png",
+    "size": "1024x1536",
+    "prompt": "Same character, same face and outfit. Waist-up half-body portrait, centered, filling the frame, worried expression, eyebrows slightly furrowed, eyes looking at viewer with concern, cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  },
+  {
+    "name": "xiaoman_pout_half",
+    "ref": "game/images/sprites/xiaoman_neutral_half.png",
+    "size": "1024x1536",
+    "prompt": "Same character, same face and outfit. Waist-up half-body portrait, centered, filling the frame, pouting expression, cheeks slightly puffed, eyebrows furrowed, cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  },
+  {
+    "name": "luyao_awkward_half",
+    "ref": "game/images/sprites/luyao_neutral_half.png",
+    "size": "1024x1536",
+    "prompt": "Same character, same face and outfit. Waist-up half-body portrait, centered, filling the frame, awkward smile, one hand scratching the back of his head, shoulders slightly hunched, cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  },
+  {
+    "name": "luyao_guilty_half",
+    "ref": "game/images/sprites/luyao_neutral_half.png",
+    "size": "1024x1536",
+    "prompt": "Same character, same face and outfit. Waist-up half-body portrait, centered, filling the frame, guilty expression, looking down, mouth slightly open as if about to explain, cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  },
+  {
+    "name": "shenlan_tired_half",
+    "ref": "game/images/sprites/shenlan_neutral_half.png",
+    "size": "1024x1536",
+    "prompt": "Same character, same face and outfit. Waist-up half-body portrait, centered, filling the frame, tired expression, faint dark circles, eyes half-closed, lips relaxed, cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  },
+  {
+    "name": "shenlan_quiet_half",
+    "ref": "game/images/sprites/shenlan_neutral_half.png",
+    "size": "1024x1536",
+    "prompt": "Same character, same face and outfit. Waist-up half-body portrait, centered, filling the frame, quiet expression, looking slightly away, lips pressed together, cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  }
+]

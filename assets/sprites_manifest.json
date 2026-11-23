@@ -1,0 +1,23 @@
+[
+  {
+    "name": "shenlan_neutral",
+    "size": "1024x1536",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "Full body character sprite for a visual novel, 24-year-old Chinese woman, coffee shop owner, tired warm eyes, messy shoulder-length hair, beige shirt and dark apron with faint coffee stains, standing straight, arms relaxed at sides, looking at viewer, neutral expression, full body from head to shoes, feet visible, cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  },
+  {
+    "name": "luyao_neutral",
+    "size": "1024x1536",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "Full body character sprite for a visual novel, 25-year-old Chinese man, programmer, slightly messy hair, glasses, dark hoodie, jeans, laptop bag strap, a faint bandage on one hand, standing slightly slouched, hands in pockets, looking at viewer, neutral expression, full body from head to shoes, feet visible, cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  },
+  {
+    "name": "xiaoman_neutral",
+    "size": "1024x1536",
+    "background": "transparent",
+    "output_format": "png",
+    "prompt": "Full body character sprite for a visual novel, 22-year-old Chinese woman, art student and part-time barista, short ponytail, bright eyes, paint-stained apron, small handmade pins, standing relaxed, one hand holding a tiny paper star, looking at viewer, neutral warm expression, full body from head to shoes, feet visible, cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  }
+]

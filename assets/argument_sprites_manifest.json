@@ -1,0 +1,26 @@
+[
+  {
+    "name": "shenlan_hurt_half",
+    "ref": "game/images/sprites/shenlan_neutral_half.png",
+    "size": "1024x1536",
+    "prompt": "Same character, same face and outfit. Waist-up half-body portrait, centered, filling the frame, hurt expression, eyes glistening with tears, trying not to cry, eyebrows slightly raised, lips pressed together, looking at viewer, cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  },
+  {
+    "name": "shenlan_angry_half",
+    "ref": "game/images/sprites/shenlan_neutral_half.png",
+    "size": "1024x1536",
+    "prompt": "Same character, same face and outfit. Waist-up half-body portrait, centered, filling the frame, angry expression, eyebrows knit, sharp defensive eyes, jaw tense, lips slightly parted as if speaking, looking at viewer, cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  },
+  {
+    "name": "luyao_sad_half",
+    "ref": "game/images/sprites/luyao_neutral_half.png",
+    "size": "1024x1536",
+    "prompt": "Same character, same face and outfit, glasses. Waist-up half-body portrait, centered, filling the frame, sad apologetic expression, eyes lowered, shoulders slumped, mouth slightly open as if he cannot find the words, cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  },
+  {
+    "name": "xiaoman_crying_half",
+    "ref": "game/images/sprites/xiaoman_neutral_half.png",
+    "size": "1024x1536",
+    "prompt": "Same character, same face and outfit. Waist-up half-body portrait, centered, filling the frame, crying expression, tears on cheeks, eyes red, mouth trembling, holding back sobs, cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  }
+]
