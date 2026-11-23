@@ -5,6 +5,7 @@
 # ============================================================
 
 default persistent.records = []
+default persistent.star_view = "her"
 
 init python:
     RECORDS = [
@@ -51,6 +52,34 @@ init python:
     ]
 
     RECORD_BY_ID = {r["id"]: r for r in RECORDS}
+
+    # 二周目「他没说的」视图；id / 星位 / 收集进度都不变
+    RECORD_ALT = {
+        "funeral": "我推门进去的时候，看见一个女孩在给自己办葬礼。她抬起头，眼睛很亮，亮得有点用力。",
+        "first_star": "我点了最便宜的美式，因为钱要留着。她在碟子边放了一颗写着「撑住」的星。那天之后，我每天四点走，去便利店换班。",
+        "card_reader": "手背上的伤是昨天搬货划的。包里那角纸，是我还没签的 offer。她笑的时候，我没敢多看。",
+        "shop_cat": "她每天进门都会先看那块「转让」牌。我把它摘下来，是不想让她再看见。四点我得去换班，一小时多十二块。",
+        "book_margin": "我在页边写了「留下来」，又划掉。书下面压着她的欠款单。我看见了，没有问。",
+        "door_light": "灯亮的时候，她在灯下看我。电话是阿哲打来的，我说再想想。包上那颗星，让我第一次觉得可以不用想。",
+        "umbrella": "我只带了一把伞，往她那边偏。我在店里睡了两晚，不敢上去。",
+        "lease": "房东的办公室在隔壁街。我用赔偿金付了欠租。他问我跟她什么关系，我说，我是她店里的客人。",
+        "truth_347": "三点四十我就醒了。她给我盖外套，我听见她哭。我没有睁眼——睁眼就得告诉她，我看见了租约。",
+        "notebook": "我骗小满说找到了工作。我问房东最近来过没有，是在算还能替她付多少。",
+        "piano": "最后一个音我是故意按错的。我想让她再教一次。",
+        "model": "我拨开土，打开抽屉。信上写着：如果我不在了，店交给你。她真的要走。",
+        "keys": "抽屉里是店的钥匙，和一封写给她的信。我把信放回去，手一直在抖。",
+        "argument": "我用自己的全部换她多留一天。她问「你为什么不告诉我」。因为告诉了她，她就走了。",
+        "finale": "最后一天，我拿着那封信站在门外。雨停了，我还是不敢推门。",
+        "end_together": "她留下了。这一次，我先问她愿不愿意让我留。",
+        "end_xiaoman": "她把钥匙交给小满。我没有拦她，只是把伞留在了门口。",
+        "end_depart": "她跟我走了。这一次，她没有逃，是出发。",
+        "end_alone": "她一个人走的。我在车站等到最后一班车开走。",
+        "end_funeral": "我没能把她留下。那天之后，店里空了三天。",
+    }
+
+    def set_star_view(view):
+        persistent.star_view = view
+        renpy.restart_interaction()
 
     def unlock_record(rid):
         if rid not in persistent.records:
@@ -109,6 +138,15 @@ screen star_map(standalone=False):
         text "星图" size 40 color "#f2ede4" outlines [(3, "#00000088", 0, 0)]
         text "已点亮 [len(persistent.records)] / [len(RECORDS)]" size 18 color "#c9b9a3" outlines [(2, "#00000088", 0, 0)]
 
+    if persistent.cleared_once:
+        hbox:
+            xalign 0.5
+            ypos 42
+            spacing 10
+            textbutton "她看到的" action Function(set_star_view, "her") text_size 17 text_color ("#e8c7a8" if persistent.star_view == "her" else "#8a7f74") text_hover_color "#f2ede4"
+            text "|" size 16 color "#5a5248"
+            textbutton "他没说的" action Function(set_star_view, "him") text_size 17 text_color ("#e8c7a8" if persistent.star_view == "him" else "#8a7f74") text_hover_color "#f2ede4"
+
     for rec in RECORDS:
         $ owned = rec["id"] in persistent.records
         button:
@@ -139,6 +177,8 @@ screen record_detail(rec):
     modal True
     zorder 160
     $ owned = rec["id"] in persistent.records
+    $ alt_view = persistent.cleared_once and persistent.star_view == "him"
+    $ body = RECORD_ALT.get(rec["id"], rec["text"]) if alt_view else rec["text"]
 
     add Solid("#040814bb")
 
@@ -165,7 +205,9 @@ screen record_detail(rec):
         xalign 0.5
         ypos 566
         spacing 10
-        text (rec["text"] if owned else "再走走看。有些记忆，要先把路走到那里。") size 20 color "#d8cfc2" xalign 0.5 xmaximum 780 text_align 0.5 outlines [(2, "#00000099", 0, 0)]
+        if owned and alt_view:
+            text "他没说的" size 13 color "#8a7f74" xalign 0.5
+        text (body if owned else "再走走看。有些记忆，要先把路走到那里。") size 20 color "#d8cfc2" xalign 0.5 xmaximum 780 text_align 0.5 outlines [(2, "#00000099", 0, 0)]
         text "点一下，把它放回去" size 13 color "#8a7f74" xalign 0.5
 
 

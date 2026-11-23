@@ -96,6 +96,10 @@ label puzzle_scene:
     scene black with warmfade
     call screen chapter_card("第三章", "底座", "D-10")
 
+    $ unlock_record("model")
+    if pov == "luyao":
+        jump luyao_pov_model
+
     scene prop model funeral with paperdissolve
     "打烊以后，模型还在桌上。"
     "底座比看上去厚。小满说，里面本来不该有东西。"
@@ -225,3 +229,26 @@ label puzzle_end_sample:
     scene black with warmfade
     centered "{size=30}{color=#e8c7a8}样片到此为止{/color}{/size}\n\n{size=18}下一场：第四章 — 争吵{/size}"
     return
+
+
+# 二周目 · 陆遥视角的底座：他打开模型，看见她的离开计划
+label luyao_pov_model:
+    $ quick_menu = True
+    scene black with warmfade
+
+    scene bg back room with paperdissolve
+    show fx lamp back
+    "我回店里拿充电器。"
+    "模型还在桌上。底座比看上去厚。"
+    "我拨开土，摸到一块薄木板。"
+    "抽屉里是店的钥匙，和一封写给小满的信。"
+    "信上写着：如果我不在了，店交给你。"
+    "我把信读了两遍。"
+    "她不是随便说说。她真的要走。"
+    "我把信放回去，把抽屉推回去。"
+    "手一直在抖。"
+    $ unlock_record("keys")
+    $ p_branch = "luyao_seen"
+    scene black with warmfade
+    "三天后。"
+    jump argument_scene

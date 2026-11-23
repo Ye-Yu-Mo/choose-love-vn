@@ -7,6 +7,10 @@ default persistent.cleared_once = False
 
 default pov = "shenlan"
 default l_prologue = ""
+default l_four_told = False
+default l_lease_told = False
+default l_awake = False
+default l_truth = False
 
 init python:
 

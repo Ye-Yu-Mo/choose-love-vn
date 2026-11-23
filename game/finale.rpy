@@ -27,6 +27,8 @@ screen ending_title(title, line, no):
 
 
 label finale_scene:
+    if pov == "luyao":
+        jump luyao_pov_finale
     $ quick_menu = False
     $ bgm("night")
     scene black with warmfade
@@ -70,26 +72,51 @@ label finale_scene:
             xiaoman "所以你是在问我，还是在通知我？"
             "我没有回答。"
 
+label finale_door:
     "门铃响了。"
     show luyao sad_half at expr_left with dissolve
-    "陆遥站在门口，手里拿着那封信。"
-    luyao "信我看了。"
-    "他没有问是不是写给他的。"
-    luyao "所以，你打算什么时候走？"
-    "他问得很轻，像怕把什么碰碎。"
-    "模型还在柜台上。底座是空的。"
-    if a_broke:
-        "那天之后，他一直没有再来。今天是他第一次回来。"
-    if m2_star:
-        "我想起他第一次来的时候，碟子边那颗写着「撑住」的星。"
-    if m3_fix:
-        "我想起他蹲在柜台下面修刷卡机，第一次抬头看我笑。"
-    if m6_write:
-        "我想起书页边那些字。"
-    if m8_invite:
-        "我想起楼下那晚，他说「下次吧」。"
-    if m7_phone:
-        "我想起那晚他在雨里接的电话。"
+    if pov == "luyao":
+        "我站在门口，手里拿着那封信。"
+        luyao "信我看了。"
+        "我没有问是不是写给我的。"
+        luyao "所以，你打算什么时候走？"
+        "我问得很轻，像怕把什么碰碎。"
+        "模型还在柜台上。底座是空的。"
+        if a_broke:
+            "那天之后，我一直没有再来。今天是我第一次回来。"
+        if m2_star:
+            "我想起她第一天放在碟子边的星。"
+        if m3_fix:
+            "我想起我蹲在柜台下面修刷卡机，第一次抬头看她笑。"
+        if m6_write:
+            "我想起书页边那些字。"
+        if m8_invite:
+            "我想起楼下那晚，我说「下次吧」。"
+        if m7_phone:
+            "我想起那晚在雨里接的电话。"
+        if l_truth:
+            "那天晚上我把话都说完了。可最后要选的人，还是她。"
+        "最后要选的人不是我。"
+        "可我还是站在那里，等她选。"
+    else:
+        "陆遥站在门口，手里拿着那封信。"
+        luyao "信我看了。"
+        "他没有问是不是写给他的。"
+        luyao "所以，你打算什么时候走？"
+        "他问得很轻，像怕把什么碰碎。"
+        "模型还在柜台上。底座是空的。"
+        if a_broke:
+            "那天之后，他一直没有再来。今天是他第一次回来。"
+        if m2_star:
+            "我想起他第一次来的时候，碟子边那颗写着「撑住」的星。"
+        if m3_fix:
+            "我想起他蹲在柜台下面修刷卡机，第一次抬头看我笑。"
+        if m6_write:
+            "我想起书页边那些字。"
+        if m8_invite:
+            "我想起楼下那晚，他说「下次吧」。"
+        if m7_phone:
+            "我想起那晚他在雨里接的电话。"
 
 label finale_choice:
     menu:
@@ -224,3 +251,27 @@ label ending_funeral:
     "只是我没有看。"
     call screen ending_title("完成葬礼", "满天星开在她的墓碑前。这一次，是别人替她抬头。", "五")
     return
+
+
+# ============================================================
+# 二周目 · 陆遥视角 · 琴盖合上
+# 他在门外，拿着那封信；进屋后接回共享的门铃段落
+# ============================================================
+
+label luyao_pov_finale:
+    $ quick_menu = False
+    $ bgm("night")
+    scene black with warmfade
+    call screen chapter_card("第五章", "琴盖合上", "D-1")
+
+    scene bg street rain with paperdissolve
+    "最后一天，我在门外站了很久。"
+    "门里，小满在问她是不是在交代什么。"
+    "我手里拿着那封信。"
+    "那天晚上，她把信留在模型的底座里，没有写收信人。"
+    "我看了。"
+    "雨停了。"
+    "我伸手，推门。"
+    $ unlock_record("finale")
+    scene bg shop night with paperdissolve
+    jump finale_door

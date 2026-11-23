@@ -83,30 +83,53 @@ label argument_scene:
     show fx lamp night
     show shenlan quiet_half at expr_left with dissolve
     show luyao guilty_half at expr_right with dissolve
-    "打烊以后，雨一直没有停。"
-    "柜台上摊着一张租约。缴费人一栏，是他的名字。"
-    "旁边是他的手机。屏幕还亮着，停在一份菜单草稿上。"
-    "最后一次修改，是凌晨三点四十七分。"
-    if p_branch == "luyao":
-        "三天前，他先看见了那封信。"
-        "所以他知道，我本来打算走。"
-    "我把他叫回来的时候，他连伞都没拿。"
-    luyao "……你看见了。"
-    "他站在门口，头发上还是雨。"
-    if m11_looked:
-        "我想起那天凌晨 3:47 的屏幕。付款人那一栏，是他的名字。"
-    if m10_told:
-        "那天晚上我告诉他店可能要关了。第二天，他没有来。"
-    if m7_star:
-        "他电脑包的拉链上，还挂着那颗写着「留下」的星。"
-    if m4_ask:
-        "我一直在想，他每天四点走，到底去了哪。"
-    if m11_confront:
-        "那天夜里我叫醒了他。我们隔着一台电脑，谁也没有把话说开。"
-    if m10_signed:
-        "我签了续租。每个月的数字压在那里，像另一张脸。"
-    if m2_talk or m3_ask:
-        "他早就告诉过我：「今天开始不用去了」，「最近在休息」。我那时候没有听懂。"
+    if pov == "luyao":
+        "打烊以后，雨一直没有停。"
+        "柜台上摊着一张租约。缴费人一栏，是我的名字。"
+        "旁边是我的手机。屏幕还亮着，停在一份菜单草稿上。"
+        "最后一次修改，是凌晨三点四十七分。"
+        if p_branch == "luyao_seen":
+            "三天前，我先打开了模型。我知道她打算走。"
+        "她把我叫回来。我连伞都没拿。"
+        luyao "……你看见了。"
+        "我站在门口，头发上还是雨。"
+        if l_awake:
+            "那天夜里她看见我醒着。我们坐到天亮，谁也没有把话说透。"
+        elif l_lease_told:
+            "她早就知道我付了租约。所以今晚，她没有问钱从哪来。"
+        else:
+            "她还不知道。她以为我只是每天来喝咖啡。"
+        if m7_star:
+            "我电脑包的拉链上，还挂着那颗写着「留下」的星。"
+        if l_four_told:
+            "她知道我四点去便利店。"
+        if m2_talk or m3_ask:
+            "我早就告诉过她：「今天开始不用去了」，「最近在休息」。她那时候没有听懂。"
+    else:
+        "打烊以后，雨一直没有停。"
+        "柜台上摊着一张租约。缴费人一栏，是他的名字。"
+        "旁边是他的手机。屏幕还亮着，停在一份菜单草稿上。"
+        "最后一次修改，是凌晨三点四十七分。"
+        if p_branch == "luyao":
+            "三天前，他先看见了那封信。"
+            "所以他知道，我本来打算走。"
+        "我把他叫回来的时候，他连伞都没拿。"
+        luyao "……你看见了。"
+        "他站在门口，头发上还是雨。"
+        if m11_looked:
+            "我想起那天凌晨 3:47 的屏幕。付款人那一栏，是他的名字。"
+        if m10_told:
+            "那天晚上我告诉他店可能要关了。第二天，他没有来。"
+        if m7_star:
+            "他电脑包的拉链上，还挂着那颗写着「留下」的星。"
+        if m4_ask:
+            "我一直在想，他每天四点走，到底去了哪。"
+        if m11_confront:
+            "那天夜里我叫醒了他。我们隔着一台电脑，谁也没有把话说开。"
+        if m10_signed:
+            "我签了续租。每个月的数字压在那里，像另一张脸。"
+        if m2_talk or m3_ask:
+            "他早就告诉过我：「今天开始不用去了」，「最近在休息」。我那时候没有听懂。"
 
     call screen argue_table
     $ r = _return
@@ -117,24 +140,39 @@ label argument_scene:
         shenlan "你什么时候签的？"
         luyao "上个月。"
         shenlan "用你的钱？"
-        "他没有否认。"
+        if pov == "luyao":
+            "我没有否认。"
+        else:
+            "他没有否认。"
     elif r == "phone":
         $ a_heat += 1
         $ a_choices.append(("先拿起他的手机", 1, "你想问他几点睡，出口却成了另一句话。"))
-        "我拿起他的手机。"
-        "凌晨三点四十七分，他还在改店里的菜单。"
+        if pov == "luyao":
+            "她拿起我的手机。"
+            "凌晨三点四十七分，我还在改店里的菜单。"
+        else:
+            "我拿起他的手机。"
+            "凌晨三点四十七分，他还在改店里的菜单。"
         shenlan "你几点睡的？"
         luyao "……记不清了。"
     elif r == "cup":
         $ a_heat -= 1
         $ a_choices.append(("先给他倒一杯水", -1, "你先把水递过去，才把问题递过去。"))
-        "我起身，给自己倒水，也给他倒了一杯。"
-        "他的手很凉。"
+        if pov == "luyao":
+            "她起身，给自己倒水，也给我倒了一杯。"
+            "我的手很凉。"
+        else:
+            "我起身，给自己倒水，也给他倒了一杯。"
+            "他的手很凉。"
         luyao "……谢谢。"
     else:
         $ a_choices.append(("什么也不拿", 0, "你坐在他对面，等他先开口。"))
-        "我在他对面坐下，什么也没拿。"
-        "雨声填满了我们中间的空隙。"
+        if pov == "luyao":
+            "她在我对面坐下，什么也没拿。"
+            "雨声填满了我们中间的空隙。"
+        else:
+            "我在他对面坐下，什么也没拿。"
+            "雨声填满了我们中间的空隙。"
 
     show screen argue_meter
     "他先开口了。"
@@ -157,19 +195,33 @@ label argument_scene:
             shenlan "你连工作都推了？"
             luyao "那个 offer 可以等。"
             shenlan "等不了的是我吗？"
-            "他张了张嘴，没有声音。"
+            if pov == "luyao":
+                "我张了张嘴，没有声音。"
+            else:
+                "他张了张嘴，没有声音。"
         "“你继续说，我听。”":
             $ a_heat -= 1
             $ a_choices.append(("听他把话说完", -1, "你没有打断他。他第一次把账算到了自己身上。"))
-            "我没有打断他。"
-            "他把每个月的账算给我听，像在汇报一个 bug。"
-            "算到最后，他自己停住了。"
+            if pov == "luyao":
+                "她没有打断我。"
+                "我把每个月的账算给她听，像在汇报一个 bug。"
+                "算到最后，我自己停住了。"
+            else:
+                "我没有打断他。"
+                "他把每个月的账算给我听，像在汇报一个 bug。"
+                "算到最后，他自己停住了。"
             luyao "……我不是想让你欠我。"
 
-    "他说，晚上在便利店做兼职。"
-    "他说，等店缓过来，再去找工作。"
-    "他说，他什么都不需要我做。"
-    "他只是不想让我走。"
+    if pov == "luyao":
+        "我说，晚上在便利店做兼职。"
+        "我说，等店缓过来，再去找工作。"
+        "我说，我什么都不需要她做。"
+        "我只是不想让她走。"
+    else:
+        "他说，晚上在便利店做兼职。"
+        "他说，等店缓过来，再去找工作。"
+        "他说，他什么都不需要我做。"
+        "他只是不想让我走。"
 
     menu:
         "“你有没有想过，我想不想留？”":
@@ -188,17 +240,39 @@ label argument_scene:
             $ a_heat -= 1
             $ a_choices.append(("承认自己也不知道", -1, "你没有把刀递出去。你把手摊开了。"))
             shenlan "我不知道。"
-            "这是那天晚上，我说的唯一一句真话。"
+            if pov == "luyao":
+                "这是那天晚上，她说的唯一一句真话。"
+            else:
+                "这是那天晚上，我说的唯一一句真话。"
             luyao "……我也是。"
 
-    if m9_told or m11_looked:
+    if pov == "luyao":
+        menu:
+            "说真话。":
+                $ l_truth = True
+                $ a_heat -= 1
+                luyao "租约是我付的。offer 我也推了。"
+                luyao "我每天晚上在这里改菜单，白天去便利店。"
+                luyao "我不是想让你欠我。我是怕你走。"
+                shenlan "……你为什么不早说？"
+                luyao "因为说了，你就走了。"
+                "这句话一出口，我自己也听见了它有多自私。"
+            "用「我只是想帮你」挡。":
+                luyao "我只是想帮你。"
+                "她没有说话。"
+                "我知道这句话挡不住什么。"
+
+    if m9_told or m11_looked or l_truth:
         "门被推开了一条缝。"
         "小满站在门口，没有进来。"
         xiaoman "……我在外面都听见了。"
         if m9_support:
             xiaoman "老板，你说过我可以当店长的。"
         xiaoman "陆哥，你把自己押上去，我拿什么还？"
-        "陆遥没有看她。"
+        if pov == "luyao":
+            "我没有看她。"
+        else:
+            "陆遥没有看她。"
         "她把那本记星星的本子放在门口的地上。"
         "然后转身走了，门没有关。"
     else:
@@ -216,8 +290,12 @@ label argument_scene:
 label argument_calm:
     show shenlan hurt_half at expr_left with dissolve
     show luyao sad_half at expr_right with dissolve
-    "他坐到我旁边，没有再解释。"
-    "我们第一次把话说完。"
+    if pov == "luyao":
+        "她坐到我旁边，没有再解释。"
+        "我们第一次把话说完。"
+    else:
+        "他坐到我旁边，没有再解释。"
+        "我们第一次把话说完。"
     luyao "下次……我先问你。"
     shenlan "嗯。"
     "窗外的雨小了一点。"
@@ -229,7 +307,10 @@ label argument_stuck:
     show shenlan quiet_half at expr_left with dissolve
     show luyao sad_half at expr_right with dissolve
     "我们谁也没有说服谁。"
-    "他把手机扣在桌上，像认错，又像不服。"
+    if pov == "luyao":
+        "我把手机扣在桌上，像认错，又像不服。"
+    else:
+        "他把手机扣在桌上，像认错，又像不服。"
     "雨还在下。"
     $ a_review = "你们都说了话，但没有一句真正落到对方那里。"
     jump argument_review_scene
@@ -240,9 +321,14 @@ label argument_break:
     show luyao sad_half at expr_right with dissolve
     shenlan "你走吧。"
     luyao "……"
-    "他把钥匙放在桌上。"
-    "门铃响了一声。"
-    "雨声把他吞掉了。"
+    if pov == "luyao":
+        "我把钥匙放在桌上。"
+        "门铃响了一声。"
+        "雨声把我吞掉了。"
+    else:
+        "他把钥匙放在桌上。"
+        "门铃响了一声。"
+        "雨声把他吞掉了。"
     $ a_broke = True
     $ a_review = "那天晚上，你赢了。你也把他推远了。"
     jump argument_review_scene
@@ -251,13 +337,22 @@ label argument_break:
 label argument_review_scene:
     $ unlock_record("argument")
     scene black with warmfade
-    "那天晚上，我在本子上记了三句话。"
+    if pov == "luyao":
+        "那天晚上，她在本子上记了三句话。"
+    else:
+        "那天晚上，我在本子上记了三句话。"
     call screen argue_review
     $ quick_menu = True
     if a_broke:
-        "钥匙还在桌上。"
+        if pov == "luyao":
+            "我的钥匙还在桌上。"
+        else:
+            "钥匙还在桌上。"
     else:
-        "他还在。"
+        if pov == "luyao":
+            "我还在。"
+        else:
+            "他还在。"
     jump finale_scene
 
 
