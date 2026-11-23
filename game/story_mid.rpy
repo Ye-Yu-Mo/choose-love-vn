@@ -141,6 +141,7 @@ label scene_card_reader:
     luyao "都是修东西。"
     "他说得很自然。"
     "我笑了一下。"
+    show luyao warm_half at expr_left with dissolve
     "他抬头，正好看见。"
     "然后他低下头，去收工具。"
 
@@ -181,7 +182,7 @@ label scene_useless_things:
     call screen time_card("又一个打烊的晚上")
 
     scene bg back room with paperdissolve
-    show luyao awkward_half at expr_right with dissolve
+    show luyao quiet_half at expr_right with dissolve
     "打烊以后，我在后间捏一个泥人。"
     "他坐在旁边看，电脑包放在脚边。"
     "后间的架子上摆着小满做的兔子，耳朵是缝歪的。"
@@ -192,6 +193,7 @@ label scene_useless_things:
     luyao "那你为什么还做？"
     shenlan "……那你写的代码，有人用吗？"
     luyao "以前有。现在没了。"
+    show luyao warm_half at expr_right with dissolve
     "我们同时笑了一下。"
     "笑完，谁都没有说话。"
 
@@ -261,7 +263,7 @@ label scene_book_margin:
     call screen time_card("又过了一阵子")
 
     scene bg shop night with paperdissolve
-    show luyao awkward_half at expr_right with dissolve
+    show luyao quiet_half at expr_right with dissolve
     "他每天下午都坐在窗边，对着电脑上同一个页面。"
     "有一天，我从柜台下面翻出一本旧星图册。"
     shenlan "你总看电脑，眼睛会坏。"
@@ -302,6 +304,7 @@ label scene_book_margin:
             $ m6_ask = True
             "我把书推回他面前。"
             shenlan "这行划掉的是什么？"
+            show luyao awkward_half at expr_right with dissolve
             luyao "……写错了。"
             "他把书拿过去，用手指按住那一行。"
             "我看见他的耳朵红了。"
@@ -336,7 +339,7 @@ label scene_door_light:
     call screen time_card("入秋以后")
 
     scene bg street rain with paperdissolve
-    show luyao awkward_half at expr_right with dissolve
+    show luyao quiet_half at expr_right with dissolve
     "入秋以后，天黑得越来越早。"
     "店招的灯不亮了。"
     "他站在门口，仰头看了一会儿。"
@@ -348,6 +351,7 @@ label scene_door_light:
     "雨落在他的肩上。"
     "灯亮的时候，整条街都亮了一下。"
     shenlan "……好了。"
+    show luyao warm_half at expr_right with dissolve
     luyao "好了。"
 
     "我从口袋里摸出一颗星。"
@@ -411,7 +415,7 @@ label scene_umbrella:
     call screen time_card("那之后")
 
     scene bg street rain with paperdissolve
-    show luyao awkward_half at expr_right with dissolve
+    show luyao warm_half at expr_right with dissolve
     "那天下班，雨下得很大。"
     "他撑着一把黑色的伞，站在门口等我。"
     shenlan "你还没走？"
@@ -493,6 +497,7 @@ label scene_lease:
     scene bg shop day with paperdissolve
     show xiaoman worried_half at expr_right with dissolve
     "月底，房东来了。"
+    show landlord neutral_half at expr_left with dissolve
     "他站在柜台外面，手里拿着一个牛皮纸文件袋。"
     "小满给他倒了水，然后退到后间门口，没有走。"
     "房东把一张纸推过来。"
@@ -523,6 +528,7 @@ label scene_lease:
             "我说：「我再想想。」"
             landlord "行。十五号之前给我个准话。"
             "他把文件袋收好，走了。"
+            hide landlord with dissolve
             "那张报价单留在柜台上，像一块烫手的铁。"
 
     scene bg shop night with paperdissolve
@@ -711,7 +717,7 @@ label scene_notebook:
 
     scene bg shop day with paperdissolve
     show xiaoman neutral_half at half_right with dissolve
-    show luyao awkward_half at expr_left with dissolve
+    show luyao quiet_half at expr_left with dissolve
     "傍晚，陆遥来了。"
     "小满给他端咖啡，顺口问了一句：「陆哥，听说你找到工作了？」"
     luyao "……嗯。找到了。"

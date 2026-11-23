@@ -1,0 +1,14 @@
+[
+  {
+    "name": "luyao_warm_half",
+    "ref": "game/images/sprites/luyao_awkward_half.png",
+    "size": "1024x1536",
+    "prompt": "Same character, same face, hair, glasses, outfit and same waist-up close-up framing and lighting. Change the expression only: warm gentle smile, eyes soft and relaxed, brows relaxed, natural and at ease, no sweat drop. Lower his raised hand and rest it in his hoodie pocket. Keep everything else identical. Cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  },
+  {
+    "name": "luyao_quiet_half",
+    "ref": "game/images/sprites/luyao_awkward_half.png",
+    "size": "1024x1536",
+    "prompt": "Same character, same face, hair, glasses, outfit and same waist-up close-up framing and lighting. Change the expression only: quiet thoughtful expression, looking slightly away to the side, lips gently closed, calm and attentive, no smile, no sweat drop. Lower his raised hand and rest it in his hoodie pocket. Keep everything else identical. Cinematic anime, soft watercolor texture, warm palette, transparent background, no text, no logos."
+  }
+]
