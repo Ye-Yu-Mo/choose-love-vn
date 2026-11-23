@@ -19,6 +19,8 @@ default m10_signed = False
 default m10_told = False
 default m11_looked = False
 default m11_confront = False
+default m9_told = False
+default m9_support = False
 
 label story_days_early:
     jump scene_first_star
@@ -477,8 +479,7 @@ label scene_umbrella:
 
 
 label story_days_late:
-    # 记录 9（小满的本子）之后会插在这里
-    jump scene_lease
+    jump scene_notebook
 
 
 label scene_lease:
@@ -628,3 +629,95 @@ label scene_three_am:
     "那是我从来没有醒着见过的时刻。"
     "他替我在那个时刻，守了很久。"
     jump puzzle_scene
+
+
+label scene_notebook:
+    scene black with warmfade
+    centered "{size=30}{color=#e8c7a8}离月底还有几天{/color}{/size}"
+
+    scene bg shop day with paperdissolve
+    show xiaoman neutral_half at half_right with dissolve
+    "下午没什么客人，小满趴在柜台上写东西。"
+    "她写得很快，写两笔就抬头数一遍罐子里的星星。"
+    shenlan "在写什么？"
+    xiaoman "秘密。"
+    "她把本子合上，又忍不住翻开给我看。"
+    "「今天送出去 17 个星星。」"
+    "下面还有一行小字：「第 4 位客人问能不能多要一颗，给了。」"
+    "本子已经写了小半本。"
+
+    "她的手机响了。"
+    "她看了一眼屏幕，脸上的笑收了一点。"
+    xiaoman "……我妈。"
+    "她走到后间门口去接。"
+    "门没有关严。"
+
+    xiaoman "……嗯，在上班。"
+    xiaoman "不是玩，是工作。"
+    xiaoman "……我知道。"
+    xiaoman "妈，我会想的。"
+    "她挂了电话，站在那里没有动。"
+
+    show xiaoman worried_half at expr_right with dissolve
+    "她回来的时候，眼睛有点红。"
+    xiaoman "我妈说，让我回老家考编。"
+    shenlan "……你怎么说？"
+    xiaoman "我说我再干一年。"
+    "她低头，把本子翻到新的一页。"
+    xiaoman "老板，我是不是很没出息？"
+
+    menu:
+        "支持她当店长。":
+            $ m9_support = True
+            shenlan "不会。你比我认真。"
+            "她愣了一下。"
+            xiaoman "……真的？"
+            shenlan "本子都记了小半本了。"
+            "她笑了，眼睛还是红的。"
+        "劝她走。":
+            shenlan "你妈说得也有道理。"
+            "她低下头，把本子合上。"
+            xiaoman "……嗯。"
+            "她没有再说话。"
+
+    xiaoman "老板。"
+    shenlan "嗯？"
+    xiaoman "如果有一天你不想开了，我可以当店长。"
+    "她说完，自己先愣住了。"
+    "我也愣住了。"
+
+    menu:
+        "告诉她店的事。":
+            $ m9_told = True
+            shenlan "……店可能要关了。"
+            "她看着我，很久没有说话。"
+            xiaoman "什么时候的事？"
+            shenlan "月底之前。"
+            xiaoman "……那你刚才还让我当店长。"
+            "她的声音很轻。"
+            "我没有回答。"
+        "瞒着她。":
+            "我没有说。"
+            "我说：「好啊。」"
+            "她笑了，把本子抱在怀里。"
+            "那个笑让我更难受。"
+
+    scene bg shop day with paperdissolve
+    show xiaoman neutral_half at half_right with dissolve
+    show luyao awkward_half at expr_left with dissolve
+    "傍晚，陆遥来了。"
+    "小满给他端咖啡，顺口问了一句：「陆哥，听说你找到工作了？」"
+    luyao "……嗯。找到了。"
+    "他说得很自然。"
+    xiaoman "那挺好的。"
+    "她端着托盘走了。"
+    "陆遥低头喝咖啡。"
+    luyao "房东最近来过吗？"
+    "我看着他。"
+    luyao "……随便问问。"
+
+    $ unlock_record("notebook")
+    scene black with warmfade
+    "那天晚上，小满把本子落在柜台上。"
+    "我没有翻，只看见封面上画着一颗歪歪的星。"
+    jump scene_lease

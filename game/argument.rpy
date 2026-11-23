@@ -91,6 +91,14 @@ label argument_scene:
     "我把他叫回来的时候，他连伞都没拿。"
     luyao "……你看见了。"
     "他站在门口，头发上还是雨。"
+    if m11_looked:
+        "我想起那天凌晨 3:47 的屏幕。付款人那一栏，是他的名字。"
+    if m10_told:
+        "那天晚上我告诉他店可能要关了。第二天，他没有来。"
+    if m7_star:
+        "他电脑包的拉链上，还挂着那颗写着「留下」的星。"
+    if m4_ask:
+        "我一直在想，他每天四点走，到底去了哪。"
 
     call screen argue_table
     $ r = _return
@@ -174,6 +182,19 @@ label argument_scene:
             shenlan "我不知道。"
             "这是那天晚上，我说的唯一一句真话。"
             luyao "……我也是。"
+
+    if m9_told or m11_looked:
+        "门被推开了一条缝。"
+        "小满站在门口，没有进来。"
+        xiaoman "……我在外面都听见了。"
+        if m9_support:
+            xiaoman "老板，你说过我可以当店长的。"
+        xiaoman "陆哥，你把自己押上去，我拿什么还？"
+        "陆遥没有看她。"
+        "她把那本记星星的本子放在门口的地上。"
+        "然后转身走了，门没有关。"
+    else:
+        "门外有脚步声停了一下，又走远了。"
 
     hide screen argue_meter
     if a_heat <= 1:
