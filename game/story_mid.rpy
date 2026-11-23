@@ -7,6 +7,8 @@ default m2_star = False
 default m2_talk = False
 default m3_fix = False
 default m3_ask = False
+default m4_feed = False
+default m4_ask = False
 
 label story_days_early:
     jump scene_first_star
@@ -158,4 +160,78 @@ label scene_card_reader:
     "后来机器又坏过两次。"
     "第二次，我自己修好了。"
     "第三次，我没修，等他来。"
+    jump scene_useless_things
+
+label scene_useless_things:
+    scene black with warmfade
+    centered "{size=30}{color=#e8c7a8}又一个打烊的晚上{/color}{/size}"
+
+    scene bg back room with paperdissolve
+    show luyao awkward_half at expr_right with dissolve
+    "打烊以后，我在后间捏一个泥人。"
+    "他坐在旁边看，电脑包放在脚边。"
+    "后间的架子上摆着小满做的兔子，耳朵是缝歪的。"
+    "墙上贴着她剪的星星，胶带都翘起来了。"
+    "这个店里到处都是她。"
+    luyao "你做的这些，有人买吗？"
+    shenlan "没有。"
+    luyao "那你为什么还做？"
+    shenlan "……那你写的代码，有人用吗？"
+    luyao "以前有。现在没了。"
+    "我们同时笑了一下。"
+    "笑完，谁都没有说话。"
+
+    "门口传来一声很轻的响动。"
+    "一只三花猫从纸箱后面探出头。"
+    show mem cat at cat_sit with dissolve
+    "它脖子上挂着一个小小的牌子，上面写着：年糕。"
+    "是小满的字。"
+    luyao "……它叫年糕？"
+    shenlan "小满取的。"
+    luyao "挺合适的。"
+    "年糕看了我们一会儿，慢吞吞地走过来。"
+
+    menu:
+        "一起喂它。":
+            $ m4_feed = True
+            "我把猫粮倒在手心，他把手伸过来，和我一起托着。"
+            "年糕低头吃，胡须扫过我们的手指。"
+            "他的手很暖。"
+        "让他自己喂。":
+            "我把猫粮递给他。"
+            "他蹲下去，手心摊开，很认真地等。"
+            "年糕闻了闻，才低头吃。"
+            "他笑得很轻，像怕吓到它。"
+
+    "年糕吃完，跳上窗台，团成一团。"
+    "他站起来，看见玻璃门上的「转让」牌子。"
+    "他伸手，把它摘了下来。"
+    shenlan "……你干嘛？"
+    luyao "风大。"
+    "他把牌子折好，塞进自己的电脑包。"
+    "我没有问。"
+
+    menu:
+        "问他为什么四点走。":
+            $ m4_ask = True
+            shenlan "你每天四点走……是有事吗？"
+            "他把包带往肩上提了提。"
+            luyao "有点事。"
+            "他没有说是什么事。"
+            "我也没有再问。"
+        "什么也不问。":
+            "我没有问。"
+            "四点的时候，他照例合上电脑。"
+            "走到门口，他回头看了一眼，像要说什么。"
+            "最后只说了一句：「明天见。」"
+
+    "那天他走后，我把泥人捏完了。"
+    "一个很小的、没有名字的人。"
+    "年糕从窗台上跳下来，蹭了蹭我的脚踝。"
+    "我忽然意识到，这家店不只是我的。"
+    "架子上有兔子，墙上有星星，猫碗上有一个歪歪扭扭的「年糕」。"
+    $ unlock_record("shop_cat")
+
+    scene black with warmfade
+    "后来我常常想，那天他摘牌子，真的是因为风大吗。"
     jump piano_scene

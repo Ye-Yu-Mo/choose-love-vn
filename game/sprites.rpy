@@ -61,3 +61,9 @@ transform full_center:
     xalign 0.5
     yalign 1.0
     zoom 0.44
+
+# 年糕（店猫），直接用记忆物件的图
+transform cat_sit:
+    xalign 0.27
+    yalign 0.96
+    zoom 0.52
