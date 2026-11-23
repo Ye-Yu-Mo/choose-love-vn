@@ -13,6 +13,8 @@ default m6_write = False
 default m6_ask = False
 default m7_star = False
 default m7_phone = False
+default m8_invite = False
+default m8_hand = False
 
 label story_days_early:
     jump scene_first_star
@@ -391,4 +393,80 @@ label scene_door_light:
         "他的电脑包上，也多了一点光。"
     else:
         "我的围裙口袋里，那颗星一直没有送出去。"
+    jump scene_umbrella
+
+
+label scene_umbrella:
+    scene black with warmfade
+    centered "{size=30}{color=#e8c7a8}那之后{/color}{/size}"
+
+    scene bg street rain with paperdissolve
+    show luyao awkward_half at expr_right with dissolve
+    "那天下班，雨下得很大。"
+    "他撑着一把黑色的伞，站在门口等我。"
+    shenlan "你还没走？"
+    luyao "顺路。"
+    "他住在相反的方向。"
+    "我没有拆穿他。"
+    "走进雨里以后，伞一点一点往我这边偏。"
+    "他的右肩很快就湿了。"
+
+    menu:
+        "牵住他的手。":
+            $ m8_hand = True
+            "我把手从口袋里拿出来，碰了碰他的手背。"
+            "他愣了一下，然后把伞换到另一只手。"
+            "他的手很凉，但握得很稳。"
+        "把手插回口袋。":
+            "我把手插回口袋。"
+            "伞还是往我这边偏。"
+            "我们隔着一小段距离，走得很慢。"
+
+    "到楼下的时候，雨小了一点。"
+    "他站在台阶下面，没有往上走。"
+    "楼道的灯坏了一盏，亮一盏。"
+
+    menu:
+        "问他要不要上来。":
+            $ m8_invite = True
+            shenlan "要不要上来坐一会儿？"
+            "他抬头看了看楼上。"
+            luyao "……下次吧。"
+            "他说完，又补了一句：「你早点睡。」"
+            "我知道他不是不想，是不敢。"
+        "说晚安。":
+            "我说：「谢谢你送我。」"
+            luyao "顺路。"
+            "他又说了那个谎。"
+            "我笑了笑，说晚安。"
+            "他站在楼下，看我上楼，才走。"
+
+    scene black with dissolve
+    "那之后的日子，像被人偷偷调亮了。"
+    scene bg shop day with dissolve
+    "他每天下午来，点一杯最便宜的美式。"
+    "我开始在碟子边放两颗星。"
+    scene cg piano lesson with dissolve
+    "打烊后，我教他弹琴。"
+    "他还是总弹错同一个音。"
+    "我从来不纠正。"
+    scene bg back room with dissolve
+    "书在柜台下面传来传去，页边的字越来越多。"
+    "年糕开始在窗台上等他的四点。"
+    "墙上的星星，多了一排。"
+
+    scene bg shop day with paperdissolve
+    show xiaoman neutral_half at half_right with dissolve
+    "第二天，小满一边擦杯子一边问我。"
+    xiaoman "老板，昨晚谁送你回来的？"
+    shenlan "顺路。"
+    xiaoman "哦——"
+    "她拖长了声音，什么也没再问。"
+    "但她笑了。"
+    $ unlock_record("umbrella")
+
+    scene black with warmfade
+    "那把伞后来一直放在店门口。"
+    "黑色的，手柄上缠了一圈胶带。"
+    "是他说「坏了，还能用」的那把。"
     jump puzzle_scene
