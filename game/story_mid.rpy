@@ -32,7 +32,7 @@ label scene_first_star:
     call screen time_card("两个月前")
 
     scene bg shop day with paperdissolve
-    show fx lamp shop
+    show fx lamp day
     "两个月前。那天下雨。"
     "店里没有客人，只有窗边坐了一个人。"
     show luyao sad_half at expr_right with dissolve
@@ -102,7 +102,7 @@ label scene_card_reader:
     call screen time_card("几天后")
 
     scene bg shop day with paperdissolve
-    show fx lamp shop
+    show fx lamp day
     show xiaoman neutral_half at half_right with dissolve
     "几天后，刷卡机坏了。"
     "客人排到门口，机器一直响，屏幕上跳出一行看不懂的字。"
@@ -266,7 +266,7 @@ label scene_book_margin:
     call screen time_card("又过了一阵子")
 
     scene bg shop night with paperdissolve
-    show fx lamp shop
+    show fx lamp night
     show luyao quiet_half at expr_right with dissolve
     "他每天下午都坐在窗边，对着电脑上同一个页面。"
     "有一天，我从柜台下面翻出一本旧星图册。"
@@ -323,7 +323,7 @@ label scene_book_margin:
     "书页里那朵满天星，被我夹回了原来的位置。"
 
     scene bg shop day with paperdissolve
-    show fx lamp shop
+    show fx lamp day
     show xiaoman neutral_half at half_right with dissolve
     "第二天，小满借走了那本书。"
     "还回来的时候，她在最后一页画了一颗星。"
@@ -344,7 +344,7 @@ label scene_door_light:
     call screen time_card("入秋以后")
 
     scene bg street rain with paperdissolve
-    show fx rain scroll at fx_rain_far
+    show fx rain slow
     show luyao quiet_half at expr_right with dissolve
     "入秋以后，天黑得越来越早。"
     "店招的灯不亮了。"
@@ -399,7 +399,7 @@ label scene_door_light:
             "灯下只有雨声。"
 
     scene bg shop night with paperdissolve
-    show fx lamp shop
+    show fx lamp night
     show xiaoman neutral_half at half_right with dissolve
     "回到店里，小满正踩在凳子上挂一串小灯。"
     xiaoman "老板，你看。"
@@ -422,7 +422,7 @@ label scene_umbrella:
     call screen time_card("那之后")
 
     scene bg street rain with paperdissolve
-    show fx rain scroll at fx_rain_far
+    show fx rain slow
     show luyao warm_half at expr_right with dissolve
     "那天下班，雨下得很大。"
     "他撑着一把黑色的伞，站在门口等我。"
@@ -503,7 +503,7 @@ label scene_lease:
     call screen time_card("月底")
 
     scene bg shop day with paperdissolve
-    show fx lamp shop
+    show fx lamp day
     show xiaoman worried_half at expr_right with dissolve
     "月底，房东来了。"
     show landlord neutral_half at expr_left with dissolve
@@ -541,7 +541,7 @@ label scene_lease:
             "那张报价单留在柜台上，像一块烫手的铁。"
 
     scene bg shop night with paperdissolve
-    show fx lamp shop
+    show fx lamp night
     show xiaoman worried_half at expr_right with dissolve
     "打烊以后，我把报价单和欠款单叠在一起，塞进柜台最里面。"
     "「转让」牌从抽屉里露出一角。"
@@ -631,7 +631,7 @@ label scene_three_am:
             "他醒来的时候，我已经把电脑合上了。"
 
     scene bg shop day with paperdissolve
-    show fx lamp shop
+    show fx lamp day
     "天亮以后，他像什么都没发生过一样，点了一杯美式。"
     luyao "昨晚……谢谢你。"
     shenlan "谢什么？"
@@ -660,7 +660,7 @@ label scene_notebook:
     call screen time_card("离月底还有几天")
 
     scene bg shop day with paperdissolve
-    show fx lamp shop
+    show fx lamp day
     show xiaoman neutral_half at half_right with dissolve
     "下午没什么客人，小满趴在柜台上写东西。"
     "她写得很快，写两笔就抬头数一遍罐子里的星星。"
@@ -728,7 +728,7 @@ label scene_notebook:
             "那个笑让我更难受。"
 
     scene bg shop day with paperdissolve
-    show fx lamp shop
+    show fx lamp day
     show xiaoman neutral_half at half_right with dissolve
     show luyao quiet_half at expr_left with dissolve
     "傍晚，陆遥来了。"
