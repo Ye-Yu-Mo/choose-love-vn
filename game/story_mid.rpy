@@ -11,6 +11,8 @@ default m4_feed = False
 default m4_ask = False
 default m6_write = False
 default m6_ask = False
+default m7_star = False
+default m7_phone = False
 
 label story_days_early:
     jump scene_first_star
@@ -314,4 +316,79 @@ label scene_book_margin:
     scene black with warmfade
     "后来那本书一直在柜台上。"
     "我们谁也没有再提页边的事。"
+    jump scene_door_light
+
+
+label scene_door_light:
+    scene black with warmfade
+    centered "{size=30}{color=#e8c7a8}入秋以后{/color}{/size}"
+
+    scene bg street rain with paperdissolve
+    show luyao awkward_half at expr_right with dissolve
+    "入秋以后，天黑得越来越早。"
+    "店招的灯不亮了。"
+    "他站在门口，仰头看了一会儿。"
+    luyao "有梯子吗？"
+    shenlan "……你要修？"
+    luyao "试试。"
+    "我把后间的梯子搬出来。"
+    "他爬上去，把灯罩拆下来，换了一根线。"
+    "雨落在他的肩上。"
+    "灯亮的时候，整条街都亮了一下。"
+    shenlan "……好了。"
+    luyao "好了。"
+
+    "我从口袋里摸出一颗星。"
+    "上面写着两个字：留下。"
+    "我在柜台里写了很多颗星，这一颗，我一直没放回罐子里。"
+
+    menu:
+        "把星给他。":
+            $ m7_star = True
+            "我把星递过去。"
+            shenlan "给你。"
+            luyao "……这上面写的什么？"
+            shenlan "你自己看。"
+            "他低头看了很久。"
+            "然后把它挂在了电脑包的拉链上。"
+        "把星收回来。":
+            "我把手缩回口袋。"
+            "他没有看见。"
+            "那颗星后来一直放在我的围裙口袋里。"
+
+    "他的手机响了。"
+    "他看了一眼屏幕，走到街对面去接。"
+    "雨还在下。他没有打伞。"
+    "我站在灯下，看见他的背影越来越远。"
+    "他回来的时候，头发全湿了。"
+
+    menu:
+        "问他刚才的电话。":
+            $ m7_phone = True
+            shenlan "谁的电话？"
+            luyao "……工作的事。"
+            shenlan "这么晚？"
+            luyao "嗯。"
+            "他把湿头发往后拨了一下，没有看我。"
+            "我没有再问。"
+        "不问。":
+            "我没有问。"
+            "他也没有说。"
+            "灯下只有雨声。"
+
+    scene bg shop night with paperdissolve
+    show xiaoman neutral_half at half_right with dissolve
+    "回到店里，小满正踩在凳子上挂一串小灯。"
+    xiaoman "老板，你看。"
+    "暖黄色的小灯从柜台一直挂到窗边。"
+    xiaoman "这样晚上也像有人等。"
+    "她说这话的时候，没有看我。"
+    $ unlock_record("door_light")
+
+    scene black with warmfade
+    "那天之后，店招的灯每天晚上都亮着。"
+    if m7_star:
+        "他的电脑包上，也多了一点光。"
+    else:
+        "我的围裙口袋里，那颗星一直没有送出去。"
     jump puzzle_scene
