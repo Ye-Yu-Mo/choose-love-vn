@@ -77,7 +77,7 @@ label argument_scene:
     $ a_review = ""
     $ a_broke = False
     scene black with warmfade
-    centered "{size=36}{color=#e8c7a8}第四章 — 争吵{/color}{/size}"
+    call screen chapter_card("第四章", "争吵", "D-7")
 
     scene bg shop night with paperdissolve
     show shenlan quiet_half at expr_left with dissolve

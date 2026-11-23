@@ -6,7 +6,7 @@
 label start:
     $ bgm("funeral")
     scene black with warmfade
-    centered "{size=48}{color=#e8c7a8}满天星{/color}{/size}\n\n{size=18}第一章 — 葬礼{/size}"
+    call screen chapter_card("第一章", "葬礼", "现在")
 
     scene prop model funeral with paperdissolve
     "那天下午，小满在店里给自己办了一场葬礼。"
@@ -57,7 +57,7 @@ label start:
 label piano_scene:
     stop music fadeout 2.0
     scene black with warmfade
-    centered "{size=36}{color=#e8c7a8}第二章 — 满天星{/color}{/size}"
+    call screen chapter_card("第二章", "满天星", "D-45")
 
     scene cg piano lesson with paperdissolve
     "打烊以后，店里只剩钢琴上的那盏灯。"

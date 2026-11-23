@@ -29,7 +29,7 @@ label story_days_early:
 label scene_first_star:
     $ bgm("rain")
     scene black with warmfade
-    centered "{size=32}{color=#e8c7a8}两个月前{/color}{/size}"
+    call screen time_card("两个月前")
 
     scene bg shop day with paperdissolve
     "两个月前。那天下雨。"
@@ -98,7 +98,7 @@ label scene_first_star:
 
 label scene_card_reader:
     scene black with warmfade
-    centered "{size=30}{color=#e8c7a8}几天后{/color}{/size}"
+    call screen time_card("几天后")
 
     scene bg shop day with paperdissolve
     show xiaoman neutral_half at half_right with dissolve
@@ -178,7 +178,7 @@ label scene_card_reader:
 label scene_useless_things:
     $ bgm("night")
     scene black with warmfade
-    centered "{size=30}{color=#e8c7a8}又一个打烊的晚上{/color}{/size}"
+    call screen time_card("又一个打烊的晚上")
 
     scene bg back room with paperdissolve
     show luyao awkward_half at expr_right with dissolve
@@ -258,7 +258,7 @@ label story_days_middle:
 label scene_book_margin:
     $ bgm("night")
     scene black with warmfade
-    centered "{size=30}{color=#e8c7a8}又过了一阵子{/color}{/size}"
+    call screen time_card("又过了一阵子")
 
     scene bg shop night with paperdissolve
     show luyao awkward_half at expr_right with dissolve
@@ -333,7 +333,7 @@ label scene_book_margin:
 label scene_door_light:
     $ bgm("rain")
     scene black with warmfade
-    centered "{size=30}{color=#e8c7a8}入秋以后{/color}{/size}"
+    call screen time_card("入秋以后")
 
     scene bg street rain with paperdissolve
     show luyao awkward_half at expr_right with dissolve
@@ -408,7 +408,7 @@ label scene_door_light:
 
 label scene_umbrella:
     scene black with warmfade
-    centered "{size=30}{color=#e8c7a8}那之后{/color}{/size}"
+    call screen time_card("那之后")
 
     scene bg street rain with paperdissolve
     show luyao awkward_half at expr_right with dissolve
@@ -488,7 +488,7 @@ label story_days_late:
 
 label scene_lease:
     scene black with warmfade
-    centered "{size=30}{color=#e8c7a8}月底{/color}{/size}"
+    call screen time_card("月底")
 
     scene bg shop day with paperdissolve
     show xiaoman worried_half at expr_right with dissolve
@@ -566,7 +566,7 @@ label scene_lease:
 
 label scene_three_am:
     scene black with warmfade
-    centered "{size=30}{color=#e8c7a8}那天夜里{/color}{/size}"
+    call screen time_card("那天夜里")
 
     scene cg 347 with paperdissolve
     "那天夜里，我落了东西在店里。"
@@ -640,7 +640,7 @@ label scene_three_am:
 label scene_notebook:
     $ bgm("night")
     scene black with warmfade
-    centered "{size=30}{color=#e8c7a8}离月底还有几天{/color}{/size}"
+    call screen time_card("离月底还有几天")
 
     scene bg shop day with paperdissolve
     show xiaoman neutral_half at half_right with dissolve

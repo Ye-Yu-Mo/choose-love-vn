@@ -135,7 +135,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background Image("images/ui/paper_window.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos
@@ -144,16 +144,19 @@ style namebox:
     ypos gui.name_ypos
     ysize gui.namebox_height
 
-    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
+    background Frame("images/ui/paper_tag_idle.png", 22, 18)
     padding gui.namebox_borders.padding
 
 style say_label:
     properties gui.text_properties("name", accent=True)
+    color "#5a3a24"
     xalign gui.name_xalign
     yalign 0.5
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
+    color "#3a2c1e"
+    line_spacing 6
 
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
@@ -225,6 +228,9 @@ style choice_vbox:
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
+    background Frame("images/ui/paper_tag_idle.png", 24, 16)
+    hover_background Frame("images/ui/paper_tag_hover.png", 24, 16)
+    padding (30, 12)
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")

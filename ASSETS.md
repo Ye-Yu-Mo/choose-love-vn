@@ -81,7 +81,10 @@
 
 | 文件 | 用途 |
 |---|---|
-| `images/ui/paper_tag_idle.png` / `hover` | 主菜单纸质按钮 |
+| `images/ui/paper_tag_idle.png` / `hover` | 主菜单按钮、选项按钮、名字牌 |
+| `images/ui/paper_window.png` | 对话框纸张 |
+| `images/ui/paper_card.png` | 章节卡纸片 |
+| `images/ui/paper_card_small.png` | 时间卡纸片 |
 | `images/ui/vignette.png` | 主菜单暗角 |
 | `images/ui/menu_left_shade.png` | 主菜单左侧压暗 |
 | `images/ui/paper_mask.png` | `paperdissolve` 翻页转场 |

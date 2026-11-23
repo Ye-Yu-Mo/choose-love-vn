@@ -94,7 +94,7 @@ label puzzle_scene:
     $ quick_menu = False
     $ bgm("night")
     scene black with warmfade
-    centered "{size=36}{color=#e8c7a8}第三章 — 底座{/color}{/size}"
+    call screen chapter_card("第三章", "底座", "D-10")
 
     scene prop model funeral with paperdissolve
     "打烊以后，模型还在桌上。"

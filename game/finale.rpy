@@ -30,7 +30,7 @@ label finale_scene:
     $ quick_menu = False
     $ bgm("night")
     scene black with warmfade
-    centered "{size=36}{color=#e8c7a8}第五章 — 琴盖合上{/color}{/size}"
+    call screen chapter_card("第五章", "琴盖合上", "D-1")
 
     scene bg shop night with paperdissolve
     show xiaoman worried_half at expr_right with dissolve

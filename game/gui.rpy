@@ -26,7 +26,7 @@ define config.check_conflicting_properties = True
 
 ## An accent color used throughout the interface to label and highlight
 ## text.
-define gui.accent_color = "#00b8c3"
+define gui.accent_color = "#e8c7a8"
 
 ## The color used for a text button when it is neither selected nor hovered.
 define gui.idle_color = "#888888"
@@ -98,7 +98,7 @@ define gui.game_menu_background = "gui/game_menu.png"
 ## at a time.
 
 ## The height of the textbox containing dialogue.
-define gui.textbox_height = gui.scale(185)
+define gui.textbox_height = gui.scale(210)
 
 ## The placement of the textbox vertically on the screen. 0.0 is the top, 0.5 is
 ## center, and 1.0 is the bottom.
@@ -107,8 +107,8 @@ define gui.textbox_yalign = 1.0
 
 ## The placement of the speaking character's name, relative to the textbox.
 ## These can be a whole number of pixels from the left or top, or 0.5 to center.
-define gui.name_xpos = gui.scale(240)
-define gui.name_ypos = gui.scale(0)
+define gui.name_xpos = gui.scale(48)
+define gui.name_ypos = gui.scale(8)
 
 ## The horizontal alignment of the character's name. This can be 0.0 for
 ## left-aligned, 0.5 for centered, and 1.0 for right-aligned.
@@ -121,7 +121,7 @@ define gui.namebox_height = None
 
 ## The borders of the box containing the character's name, in left, top,
 ## right, bottom order.
-define gui.namebox_borders = Borders(5, 5, 5, 5)
+define gui.namebox_borders = Borders(24, 8, 24, 8)
 
 ## If True, the background of the namebox will be tiled, if False, the background
 ## of the namebox will be scaled.
@@ -131,11 +131,11 @@ define gui.namebox_tile = False
 ## The placement of dialogue relative to the textbox. These can be a whole
 ## number of pixels relative to the left or top side of the textbox, or 0.5
 ## to center.
-define gui.dialogue_xpos = gui.scale(268)
-define gui.dialogue_ypos = gui.scale(50)
+define gui.dialogue_xpos = gui.scale(56)
+define gui.dialogue_ypos = gui.scale(58)
 
 ## The maximum width of dialogue text, in pixels.
-define gui.dialogue_width = gui.scale(744)
+define gui.dialogue_width = gui.scale(1168)
 
 ## The horizontal alignment of the dialogue text. This can be 0.0 for
 ## left-aligned, 0.5 for centered, and 1.0 for right-aligned.
@@ -191,8 +191,8 @@ define gui.page_button_borders = Borders(gui.scale(10), gui.scale(4), gui.scale(
 
 define gui.quick_button_borders = Borders(gui.scale(10), gui.scale(4), gui.scale(10), gui.scale(0))
 define gui.quick_button_text_size = gui.scale(14)
-define gui.quick_button_text_idle_color = gui.idle_small_color
-define gui.quick_button_text_selected_color = gui.accent_color
+define gui.quick_button_text_idle_color = "#6a5a46"
+define gui.quick_button_text_selected_color = "#8a4a20"
 
 ## You can also add your own customizations, by adding properly-named variables.
 ## For example, you can uncomment the following line to set the width of a
@@ -205,16 +205,16 @@ define gui.quick_button_text_selected_color = gui.accent_color
 ##
 ## Choice buttons are used in the in-game menus.
 
-define gui.choice_button_width = gui.scale(790)
+define gui.choice_button_width = gui.scale(820)
 define gui.choice_button_height = None
 define gui.choice_button_tile = False
-define gui.choice_button_borders = Borders(gui.scale(100), gui.scale(5), gui.scale(100), gui.scale(5))
+define gui.choice_button_borders = Borders(gui.scale(28), gui.scale(16), gui.scale(28), gui.scale(16))
 define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
-define gui.choice_button_text_idle_color = "#cccccc"
-define gui.choice_button_text_hover_color = "#ffffff"
-define gui.choice_button_text_insensitive_color = "#444444"
+define gui.choice_button_text_idle_color = "#3a2c1e"
+define gui.choice_button_text_hover_color = "#8a4a20"
+define gui.choice_button_text_insensitive_color = "#a89a88"
 
 
 ## File Slot Buttons ###########################################################

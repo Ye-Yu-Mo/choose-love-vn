@@ -1,8 +1,8 @@
 # 角色定义
 # 一周目：玩家是沈岚；陆遥和小满用卡片显示
 
-define shenlan = Character("沈岚", who_color="#e8c7a8")
-define xiaoman = Character("小满", who_color="#f0c9a0")
-define luyao = Character("陆遥", who_color="#a8c4e8")
-define landlord = Character("房东", who_color="#c9b9a3")
-define narrator = Character(None, what_color="#efe9df")
+define shenlan = Character("沈岚", who_color="#8a5a3a")
+define xiaoman = Character("小满", who_color="#b06a3a")
+define luyao = Character("陆遥", who_color="#4a6a8a")
+define landlord = Character("房东", who_color="#6a5a4a")
+define narrator = Character(None, what_color="#3a2c1e")
