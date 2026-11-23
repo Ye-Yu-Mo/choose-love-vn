@@ -567,6 +567,8 @@ label scene_three_am:
     scene cg 347 with paperdissolve
     "那天夜里，我落了东西在店里。"
     "回来的时候，已经过了三点。"
+    if m10_told:
+        "白天他没有来。夜里，他却在这里。"
     "店门没有锁。"
     "他趴在柜台上睡着了。"
     "电脑还亮着。"

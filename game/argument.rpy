@@ -99,6 +99,12 @@ label argument_scene:
         "他电脑包的拉链上，还挂着那颗写着「留下」的星。"
     if m4_ask:
         "我一直在想，他每天四点走，到底去了哪。"
+    if m11_confront:
+        "那天夜里我叫醒了他。我们隔着一台电脑，谁也没有把话说开。"
+    if m10_signed:
+        "我签了续租。每个月的数字压在那里，像另一张脸。"
+    if m2_talk or m3_ask:
+        "他早就告诉过我：「今天开始不用去了」，「最近在休息」。我那时候没有听懂。"
 
     call screen argue_table
     $ r = _return

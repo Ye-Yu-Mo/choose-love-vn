@@ -78,6 +78,16 @@ label finale_scene:
     "模型还在柜台上。底座是空的。"
     if a_broke:
         "那天之后，他一直没有再来。今天是他第一次回来。"
+    if m2_star:
+        "我想起他第一次来的时候，碟子边那颗写着「撑住」的星。"
+    if m3_fix:
+        "我想起他蹲在柜台下面修刷卡机，第一次抬头看我笑。"
+    if m6_write:
+        "我想起书页边那些字。"
+    if m8_invite:
+        "我想起楼下那晚，他说「下次吧」。"
+    if m7_phone:
+        "我想起那晚他在雨里接的电话。"
 
 label finale_choice:
     menu:
@@ -120,6 +130,8 @@ label ending_together:
     "琴盖打开着。"
     if m8_hand:
         "他先伸出手。我牵住了。"
+    if m4_feed:
+        "年糕还是喜欢跳上他的膝盖。"
     "那天下午，店里放了那首《满天星》。"
     call screen ending_title("一起开", "有些星星，要两个人一起抬头，才看得见。", "一")
     return
@@ -177,6 +189,8 @@ label ending_alone:
     "后来听说，店一直开着。"
     if m9_told:
         "小满知道我要走。我没有回头。"
+    if m6_ask:
+        "他划掉的那三个字，我到最后也没有问。"
     call screen ending_title("没有回头", "她走得很干脆，像从来没有来过。", "四")
     return
 
