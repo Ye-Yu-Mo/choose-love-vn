@@ -14,6 +14,7 @@ label start:
     "小满趴在那儿，摆得很认真。"
 
     scene bg back room with paperdissolve
+    show fx lamp back
     show xiaoman neutral_half at half_right with dissolve
     xiaoman "老板，你看，像不像真的？"
     shenlan "……这是给谁的？"

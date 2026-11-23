@@ -164,6 +164,7 @@ label puzzle_xiaoman:
     $ quick_menu = True
     $ p_branch = "xiaoman"
     scene bg back room with paperdissolve
+    show fx lamp back
     show xiaoman neutral_half at half_right with dissolve
     "小满来得很快。她看见桌上的模型，又看见我手里的螺丝刀。"
     xiaoman "老板，这是什么？"
@@ -183,6 +184,7 @@ label puzzle_luyao:
     $ quick_menu = True
     $ p_branch = "luyao"
     scene bg back room with paperdissolve
+    show fx lamp back
     show luyao guilty_half at expr_left with dissolve
     "陆遥来得很快。他看见模型，愣了一下。"
     "抽屉里是钥匙和一封信。他没有伸手。"

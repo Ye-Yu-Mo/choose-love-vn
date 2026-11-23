@@ -45,6 +45,33 @@ transform fog_drift_b:
     linear 80.0 xoffset 0
     repeat
 
+# 室内灯光呼吸：加成混合的暖色光晕，盖在背景上、立绘下
+image fx lamp shop:
+    "images/ui/glow_warm.png"
+    xcenter 0.62
+    ycenter 0.10
+    zoom 1.45
+    blend "add"
+    alpha 0.035
+    linear 4.2 alpha 0.090
+    linear 5.4 alpha 0.035
+    repeat
+
+image fx lamp back:
+    "images/ui/glow_warm.png"
+    xcenter 0.48
+    ycenter 0.27
+    zoom 1.05
+    blend "add"
+    alpha 0.035
+    linear 3.8 alpha 0.090
+    linear 5.0 alpha 0.035
+    repeat
+
+# 雨丝压淡，避免盖过背景里已经画好的雨
+transform fx_rain_far:
+    alpha 0.30
+
 screen weather_fx(ai=True):
     zorder -5
     add "fx fog" at fog_drift_a

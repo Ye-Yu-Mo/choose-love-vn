@@ -33,6 +33,7 @@ label finale_scene:
     call screen chapter_card("第五章", "琴盖合上", "D-1")
 
     scene bg shop night with paperdissolve
+    show fx lamp shop
     show xiaoman worried_half at expr_right with dissolve
     $ unlock_record("finale")
     "最后一天，店里没有客人。"

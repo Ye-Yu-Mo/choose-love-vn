@@ -80,6 +80,7 @@ label argument_scene:
     call screen chapter_card("第四章", "争吵", "D-7")
 
     scene bg shop night with paperdissolve
+    show fx lamp shop
     show shenlan quiet_half at expr_left with dissolve
     show luyao guilty_half at expr_right with dissolve
     "打烊以后，雨一直没有停。"
