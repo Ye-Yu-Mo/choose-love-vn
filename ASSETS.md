@@ -66,6 +66,8 @@
 | `cg ending depart` | `images/cg/ending_with_him.png` | 她和他走 |
 | `cg ending alone` | `images/cg/ending_alone.png` | 没有回头 |
 | `cg ending funeral` | `images/cg/ending_funeral.png` | 完成葬礼 |
+| `cg ending together`（冷色调复用） | `images/cg/ending_together.png` | 白夜（暂不新出图） |
+| `cg ending told`（待生成） | `images/cg/cg_ending_told.png` | 如果那天我说了；暂用 `cg ending together` + 柔光占位 |
 
 ## 立绘
 
