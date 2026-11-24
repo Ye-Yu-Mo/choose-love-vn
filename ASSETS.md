@@ -19,6 +19,7 @@
 | `tools/process_memories.py` | 记忆物件裁切、统一 560 画布 |
 | `tools/make_star.py` | 生成星图点亮/未点亮星星 |
 | `tools/make_paper_ui.py` | 生成暗角、纸质按钮、翻页遮罩 |
+| `tools/make_documents.py` | 程序化生成邮件、租约、offer、信、本子、3:47 屏幕 |
 
 ## 音乐
 
@@ -68,6 +69,20 @@
 | `cg ending funeral` | `images/cg/ending_funeral.png` | 完成葬礼 |
 | `cg ending together`（冷色调复用） | `images/cg/ending_together.png` | 白夜（暂不新出图） |
 | `cg ending told`（待生成） | `images/cg/cg_ending_told.png` | 如果那天我说了；暂用 `cg ending together` + 柔光占位 |
+
+## 文档 / 屏幕特写（程序化生成）
+
+| 名称 | 文件 | 用途 |
+|---|---|---|
+| `prop layoff mail` | `images/props/layoff_mail.png` | 裁员邮件（记录 2、二周目序章） |
+| `prop lease doc` | `images/props/lease_doc.png` | 续约合同（记录 10） |
+| `prop offer letter` | `images/props/offer_letter.png` | 录用通知书（二周目记录 9） |
+| `prop letter xiaoman` | `images/props/letter_xiaoman.png` | 底座里给小满的信 |
+| `prop letter luyao` | `images/props/letter_luyao.png` | finale 柜台上没有署名的信 |
+| `prop screen 347` | `images/props/screen_347.png` | 3:47 店铺后台 |
+| `prop notebook page` | `images/props/notebook_page.png` | 小满的本子 |
+
+> 这些图由 `tools/make_documents.py` 生成，中文由 `SourceHanSansLite.ttf` 渲染，避免 AI 出字糊字。
 
 ## 立绘
 
