@@ -11,6 +11,14 @@ transform end_title_in:
     alpha 0.0
     linear 1.0 alpha 1.0
 
+# 白夜：复用「一起开」CG，压低饱和度
+transform cold_wash:
+    matrixcolor SaturationMatrix(0.35) * BrightnessMatrix(-0.02)
+
+# 真话结局占位：复用「一起开」CG，轻微提亮
+transform warm_soft:
+    matrixcolor BrightnessMatrix(0.04)
+
 screen ending_title(title, line, no):
     modal True
     add Solid("#00000055")
@@ -121,6 +129,8 @@ label finale_door:
 label finale_choice:
     menu:
         "留下来，一起把店开下去。":
+            if pov == "luyao" and a_heat >= 2:
+                jump ending_white_night
             jump ending_together
         "把钥匙交给小满。":
             jump ending_xiaoman
@@ -222,6 +232,9 @@ label ending_alone:
     "我一个人走的。"
     "没有告诉小满日期，也没有告诉陆遥。"
     "我把信留在了模型底座里。"
+    if p_branch == "closed":
+        "底座没有打开。写给谁的信，谁也没有看见。"
+        "模型留在柜台上，像一场没有办完的葬礼。"
     "火车开动的时候，我一次也没有回头。"
     "车窗上倒映着我的脸。我看了很久，还是没有认出她。"
     "后来听说，店一直开着。"
@@ -250,6 +263,67 @@ label ending_funeral:
     "可窗外的星星，其实一直亮着。"
     "只是我没有看。"
     call screen ending_title("完成葬礼", "满天星开在她的墓碑前。这一次，是别人替她抬头。", "五")
+    return
+
+
+# ---------------- 白夜 / 真话结局 ----------------
+
+label ending_white_night:
+    $ f_ending = "白夜"
+    $ mark_cleared()
+    $ bgm("night")
+    $ unlock_record("end_white")
+    scene cg ending together at cold_wash with paperdissolve
+    "第二天，店照常开了。"
+    "他把赔偿金剩下的部分转给房东。租约上写的是我的名字，钱是他出的。"
+    "我没有问他以后怎么办。他也没有说。"
+    "他还是四点走，还是点最便宜的美式。"
+    "我还是在碟子边放星，一颗，两颗。"
+    "店里看起来和以前一样。"
+    "只有我知道，每一杯咖啡里，都有一半是他的夜班。"
+    if a_broke:
+        "那天晚上他走了。第二天，他还是回来了。"
+        "我们谁也没有提钥匙的事。"
+    "灯还亮着。"
+    "可有些东西，从那天晚上起就没有再平过。"
+    call screen ending_title("白夜", "灯还亮着，账没有算平。", "六")
+    return
+
+
+label ending_told:
+    $ quick_menu = False
+    $ f_ending = "如果那天我说了"
+    $ mark_cleared()
+    $ bgm("ending")
+    $ unlock_record("finale")
+    $ unlock_record("end_told")
+    scene black with warmfade
+    call screen chapter_card("第五章", "如果那天我说了", "D-1")
+    scene cg ending together at warm_soft with paperdissolve
+    if l_lease_told:
+        "她早就知道房租的事。所以这一晚不是揭穿，是一起算账。"
+    else:
+        "她把柜台里的收据摊开，什么都明白了。"
+    "我把赔偿金、拒掉的 offer、夜班、睡在店里的那几晚，一次说完。"
+    "她没有打断我。"
+    "说完以后，我们很久都没有说话。"
+    shenlan "……店可能要关了。"
+    luyao "我知道。"
+    shenlan "你早就知道？"
+    luyao "我一直在算。"
+    "她把模型底座打开，把钥匙和一封写给小满的信放在桌上。"
+    "门被推开。小满站在门口，手里还拿着扫帚。"
+    xiaoman "……我在外面都听见了。"
+    xiaoman "那店怎么办？"
+    "我们三个人坐在同一张桌子边，把账算了一遍又一遍。"
+    "最后决定：退掉一半座位，只留窗口和外带；我接远程的活；小满当店长。"
+    "店会变小，但不会再有人一个人扛。"
+    "那天下午，我们在门口挂了一块新的小木牌。"
+    "上面写着：营业中。"
+    "那天我说了。"
+    "店还是小了，但我们都在。"
+    $ bgm("letter", fadein=2.5)
+    call screen ending_title("如果那天我说了", "那天我说了。店还是小了，但我们都在。", "七")
     return
 
 

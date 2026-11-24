@@ -49,6 +49,10 @@ init python:
          "text": "她走得很干脆，像从来没有来过。"},
         {"id": "end_funeral", "title": "结局 — 完成葬礼", "short": "完成葬礼", "x": 900, "y": 540, "obj": "mem bouquet",
          "text": "满天星开在她的墓碑前。这一次，是别人替她抬头。"},
+        {"id": "end_white", "title": "结局 — 白夜", "short": "白夜", "x": 1150, "y": 190, "obj": "mem cup",
+         "text": "店保住了，债在他身上。灯还亮着，可有些东西从那天晚上起就没有再平过。"},
+        {"id": "end_told", "title": "结局 — 如果那天我说了", "short": "说出口", "x": 830, "y": 120, "obj": "mem letter key",
+         "text": "那天我把赔偿金、offer、夜班和睡在店里的夜晚一次说完。店小了，但我们都在。"},
     ]
 
     RECORD_BY_ID = {r["id"]: r for r in RECORDS}
@@ -75,6 +79,8 @@ init python:
         "end_depart": "她跟我走了。这一次，她没有逃，是出发。",
         "end_alone": "她一个人走的。我在车站等到最后一班车开走。",
         "end_funeral": "我没能把她留下。那天之后，店里空了三天。",
+        "end_white": "她留下了。可账还在我身上，我们都假装没有看见。",
+        "end_told": "那天我把所有的事都说了。她没有走。店小了，但我们第一次站在同一边。",
     }
 
     def set_star_view(view):

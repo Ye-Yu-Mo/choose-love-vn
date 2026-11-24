@@ -353,6 +353,8 @@ label argument_review_scene:
             "我还在。"
         else:
             "他还在。"
+    if pov == "luyao" and l_truth:
+        jump ending_told
     jump finale_scene
 
 
