@@ -6,7 +6,7 @@
 label start:
     $ bgm("funeral")
     scene black with warmfade
-    call screen chapter_card("第一章", "葬礼", "现在")
+    call screen chapter_card("第一章", "葬礼", "D-60")
 
     scene prop model funeral with paperdissolve
     if pov == "luyao":
@@ -82,7 +82,7 @@ label start:
             "进门之前，我在雨里站的那一会儿，好像把什么留在了门外。"
     else:
         "那天他坐在窗边，坐到打烊。"
-    "后来的事，要从两个月前说起。"
+    "后来的事，都从那天开始。"
     $ unlock_record("funeral")
 
     scene black with warmfade

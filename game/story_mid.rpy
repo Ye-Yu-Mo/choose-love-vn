@@ -29,21 +29,27 @@ label story_days_early:
 label scene_first_star:
     $ bgm("rain")
     scene black with warmfade
-    call screen time_card("两个月前")
+    call screen time_card("那天")
 
     scene bg shop day with paperdissolve
     show fx lamp day
     if pov == "luyao":
-        "两个月前，也是这样的雨。"
+        "那天，也是这样的雨。"
         "我没有地方去，就走进这家店，点了最便宜的美式。"
         show luyao sad_half at expr_right with dissolve
         "电脑打开着，屏幕停在那封邮件上。「裁员」两个字，隔着半个店也看得见。"
+        show prop layoff mail at doc_center with dissolve
+        "发件人是人事部。标题是「调整」。"
+        hide prop layoff mail with dissolve
         "她端来咖啡，什么也没说。"
     else:
-        "两个月前。那天下雨。"
+        "那天下雨。"
         "店里没有客人，只有窗边坐了一个人。"
         show luyao sad_half at expr_right with dissolve
         "他背着一个旧电脑包，电脑开着。屏幕停在一封邮件上。"
+        show prop layoff mail at doc_center with dissolve
+        "屏幕上只有一封邮件，标题是「调整」。"
+        hide prop layoff mail with dissolve
         "离得很远，也能看见「裁员」两个字。"
         "他点了最便宜的美式，不加糖。"
         "我做好咖啡，端过去。"
@@ -636,6 +642,7 @@ label scene_door_light:
         "我的手机响了。"
         "我看了一眼屏幕，走到街对面去接。"
         "是阿哲。他问 offer 考虑得怎么样。"
+        "那份 offer 在包里放了一个月。我还没有回。"
         "我说：再想想。"
         "雨还在下。我没有打伞。"
         "挂掉电话，我回头看了一眼。她还站在灯下。"
@@ -855,6 +862,9 @@ label scene_lease:
     "他站在柜台外面，手里拿着一个牛皮纸文件袋。"
     "小满给他倒了水，然后退到后间门口，没有走。"
     "房东把一张纸推过来。"
+    show prop lease doc at doc_center with dissolve
+    "上面写着新的租金和期限。"
+    hide prop lease doc with dissolve
     landlord "楼要卖了。新房东要重新签，租金按市价。"
     shenlan "……多少？"
     "他说了一个数。"
@@ -889,7 +899,7 @@ label scene_lease:
     show fx lamp night
     show xiaoman worried_half at expr_right with dissolve
     "打烊以后，我把报价单和欠款单叠在一起，塞进柜台最里面。"
-    "「转让」牌从抽屉里露出一角。"
+    "欠款单从抽屉里露出一角。"
     "小满站在门口，看着我。"
     xiaoman "老板。"
     shenlan "嗯？"
@@ -946,10 +956,12 @@ label scene_three_am:
         "看。":
             $ m11_looked = True
             "我把屏幕转过来一点。"
+            show prop screen 347 at doc_center with dissolve
             "店铺的支付后台，一行一行的提交记录。"
             "最新一条，三点四十六分。"
             "旁边开着一个文件夹：offer 信、租约、押金收据。"
             "付款人那一栏，是他的名字。"
+            hide prop screen 347 with dissolve
             "我看了很久，才把屏幕合上。"
         "不看，只给他盖外套。":
             "我没有看。"
@@ -1019,6 +1031,9 @@ label scene_notebook:
     "「今天送出去 17 个星星。」"
     "下面还有一行小字：「第 4 位客人问能不能多要一颗，给了。」"
     "本子已经写了小半本。"
+    show prop notebook page at doc_center with dissolve
+    "字迹很密，最后一行还没写完。"
+    hide prop notebook page with dissolve
 
     "她的手机响了。"
     "她看了一眼屏幕，脸上的笑收了一点。"
@@ -1117,6 +1132,9 @@ label luyao_pov_notebook:
     "「今天送出去 17 个星星。」"
     "下面还有一行小字：「第 4 位客人问能不能多要一颗，给了。」"
     "本子已经写了小半本。"
+    show prop notebook page at doc_center with dissolve
+    "字迹很密，最后一行还没写完。"
+    hide prop notebook page with dissolve
 
     "我在门口听见她妈妈在电话里说：「你不能一辈子在咖啡店。」"
     "她没有顶嘴，只说：「妈，我会想的。」"
@@ -1130,6 +1148,9 @@ label luyao_pov_notebook:
     "我说得很自然。"
     "其实我还没有。"
     "offer 在包里，我还没有签。"
+    show prop offer letter at doc_center with dissolve
+    "职位、薪水、入职日期，都写得很清楚。"
+    hide prop offer letter with dissolve
     xiaoman "那挺好的。"
     "她端着托盘走了。"
     "沈岚看了我一眼。"

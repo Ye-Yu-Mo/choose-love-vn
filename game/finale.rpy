@@ -83,13 +83,19 @@ label finale_scene:
 label finale_door:
     "门铃响了。"
     show luyao sad_half at expr_left with dissolve
+    show prop letter luyao at doc_center with dissolve
+    "信很短，没有署名。"
+    hide prop letter luyao with dissolve
     if pov == "luyao":
-        "我站在门口，手里拿着那封信。"
+        "我站在门口，手里拿着一封没有署名的信。"
         luyao "信我看了。"
         "我没有问是不是写给我的。"
         luyao "所以，你打算什么时候走？"
         "我问得很轻，像怕把什么碰碎。"
-        "模型还在柜台上。底座是空的。"
+        if p_branch == "closed":
+            "模型还在柜台上。底座没有打开。"
+        else:
+            "模型还在柜台上。底座开着。"
         if a_broke:
             "那天之后，我一直没有再来。今天是我第一次回来。"
         if m2_star:
@@ -107,12 +113,15 @@ label finale_door:
         "最后要选的人不是我。"
         "可我还是站在那里，等她选。"
     else:
-        "陆遥站在门口，手里拿着那封信。"
+        "陆遥站在门口，手里拿着一封没有署名的信。"
         luyao "信我看了。"
         "他没有问是不是写给他的。"
         luyao "所以，你打算什么时候走？"
         "他问得很轻，像怕把什么碰碎。"
-        "模型还在柜台上。底座是空的。"
+        if p_branch == "closed":
+            "模型还在柜台上。底座没有打开。"
+        else:
+            "模型还在柜台上。底座开着。"
         if a_broke:
             "那天之后，他一直没有再来。今天是他第一次回来。"
         if m2_star:
@@ -167,7 +176,12 @@ label ending_together:
     luyao "这次，我先问你。"
     shenlan "问什么？"
     luyao "你愿不愿意，让我留下来。"
-    "我把模型底座重新封好。里面没有信了。"
+    if p_branch == "xiaoman":
+        "我把模型底座重新封好。信已经在她那里了。"
+    elif p_branch == "closed":
+        "我把模型底座重新封好。里面那封给她的信，我没有动。"
+    else:
+        "我把模型底座重新封好。"
     "琴盖打开着。"
     if m8_hand:
         "他先伸出手。我牵住了。"
@@ -185,7 +199,7 @@ label ending_xiaoman:
     $ bgm("funeral")
     $ unlock_record("end_xiaoman")
     scene cg ending xiaoman with paperdissolve
-    "我把钥匙放在她掌心。"
+    "我把店门的钥匙放在她掌心。"
     xiaoman "老板。"
     shenlan "嗯。"
     xiaoman "店我给你留着。"
@@ -193,7 +207,7 @@ label ending_xiaoman:
     "她把那只缝歪耳朵的兔子摆在收银台上。"
     "我走到街口，回头看了一眼。"
     "她把门口的牌子翻到了「营业」。"
-    if m9_told:
+    if m9_told or (pov == "luyao" and l_truth):
         "她早就知道我要走。所以她没有问。"
     else:
         "她一直以为，店只是暂时关门。"
@@ -231,10 +245,18 @@ label ending_alone:
     scene cg ending alone with paperdissolve
     "我一个人走的。"
     "没有告诉小满日期，也没有告诉陆遥。"
-    "我把信留在了模型底座里。"
-    if p_branch == "closed":
+    if p_branch == "xiaoman":
+        "那封写给她的信，已经在她手里。"
+    elif p_branch == "luyao" or p_branch == "luyao_seen":
+        if pov == "luyao":
+            "信还在底座里。我把它放了回去。"
+        else:
+            "信还在底座里。他没有拿走。"
+    elif p_branch == "closed":
         "底座没有打开。写给谁的信，谁也没有看见。"
         "模型留在柜台上，像一场没有办完的葬礼。"
+    else:
+        "我把信留在了模型底座里。"
     "火车开动的时候，我一次也没有回头。"
     "车窗上倒映着我的脸。我看了很久，还是没有认出她。"
     "后来听说，店一直开着。"
@@ -258,7 +280,10 @@ label ending_funeral:
     "陆遥站在门口，手里拿着一束满天星。"
     "他们并排站着，像来参加一场很安静的葬礼。"
     "我的模型放在柜台上。墓碑前面，多了一只缝歪耳朵的兔子。"
-    "信的最后一行写着："
+    if p_branch == "closed":
+        "底座后来被小满打开了。信的最后一行写着："
+    else:
+        "信的最后一行写着："
     "「如果你们看到这封信，说明我终于还是没能学会抬头。」"
     "可窗外的星星，其实一直亮着。"
     "只是我没有看。"
@@ -341,8 +366,8 @@ label luyao_pov_finale:
     scene bg street rain with paperdissolve
     "最后一天，我在门外站了很久。"
     "门里，小满在问她是不是在交代什么。"
-    "我手里拿着那封信。"
-    "那天晚上，她把信留在模型的底座里，没有写收信人。"
+    "我手里拿着一封没有署名的信。"
+    "那天晚上，她把信留在柜台上。是给我的。"
     "我看了。"
     "雨停了。"
     "我伸手，推门。"

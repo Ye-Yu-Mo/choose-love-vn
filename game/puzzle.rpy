@@ -173,6 +173,9 @@ label puzzle_xiaoman:
     "小满来得很快。她看见桌上的模型，又看见我手里的螺丝刀。"
     xiaoman "老板，这是什么？"
     "她打开抽屉。里面是店的钥匙，和一封写给她的信。"
+    show prop letter xiaoman at doc_center with dissolve
+    "信封上写着「小满」。"
+    hide prop letter xiaoman with dissolve
     $ unlock_record("keys")
     xiaoman "……给我的？"
     "我没有说话。"
@@ -192,6 +195,9 @@ label puzzle_luyao:
     show luyao guilty_half at expr_left with dissolve
     "陆遥来得很快。他看见模型，愣了一下。"
     "抽屉里是钥匙和一封信。他没有伸手。"
+    show prop letter xiaoman at doc_center with dissolve
+    "信封上写着「小满」。"
+    hide prop letter xiaoman with dissolve
     $ unlock_record("keys")
     luyao "你早就想好了？"
     "我没有回答。"
@@ -206,6 +212,9 @@ label puzzle_alone:
     $ quick_menu = True
     $ p_branch = "alone"
     "我自己掰开了抽屉。钥匙和信都在里面。"
+    show prop letter xiaoman at doc_center with dissolve
+    "信封上写着「小满」。"
+    hide prop letter xiaoman with dissolve
     $ unlock_record("keys")
     "我看了一遍，又放回去。"
     "我把模型盖好，放回柜台。"
@@ -242,7 +251,10 @@ label luyao_pov_model:
     "模型还在桌上。底座比看上去厚。"
     "我拨开土，摸到一块薄木板。"
     "抽屉里是店的钥匙，和一封写给小满的信。"
+    show prop letter xiaoman at doc_center with dissolve
+    "信封上写着「小满」。"
     "信上写着：如果我不在了，店交给你。"
+    hide prop letter xiaoman with dissolve
     "我把信读了两遍。"
     "她不是随便说说。她真的要走。"
     "我把信放回去，把抽屉推回去。"

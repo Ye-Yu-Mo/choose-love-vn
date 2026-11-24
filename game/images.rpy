@@ -20,3 +20,18 @@ image cg ending xiaoman = "images/cg/ending_xiaoman.png"
 image cg ending depart = "images/cg/ending_with_him.png"
 image cg ending alone = "images/cg/ending_alone.png"
 image cg ending funeral = "images/cg/ending_funeral.png"
+
+
+# 文档 / 屏幕特写（程序化生成，中文清晰）
+image prop layoff mail = "images/props/layoff_mail.png"
+image prop lease doc = "images/props/lease_doc.png"
+image prop offer letter = "images/props/offer_letter.png"
+image prop letter xiaoman = "images/props/letter_xiaoman.png"
+image prop letter luyao = "images/props/letter_luyao.png"
+image prop screen 347 = "images/props/screen_347.png"
+image prop notebook page = "images/props/notebook_page.png"
+
+transform doc_center:
+    xalign 0.5
+    yalign 0.06
+    zoom 0.72
