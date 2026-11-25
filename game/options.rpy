@@ -29,13 +29,16 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "0.1"
+define config.version = "1.0"
 
 
 ## Text that is placed on the game's about screen. Place the text between
 ## the triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+《满天星》是一个关于留下、抬头和看见星星的短篇故事。
+
+一杯咖啡，一件小手工，和一个愿意陪你坐到打烊的人。
 """)
 
 
@@ -191,6 +194,15 @@ init python:
     build.classify('**/.**', None)
     build.classify('**/#**', None)
     build.classify('**/thumbs.db', None)
+
+    ## 开发用文件不进入发行包
+    build.classify('assets/**', None)
+    build.classify('tools/**', None)
+    build.classify('docs/**', None)
+    build.classify('build/**', None)
+    build.classify('*.md', None)
+    build.classify('*.txt', None)
+    build.classify('project.json', None)
 
     ## To archive files, classify them as 'archive'.
 
