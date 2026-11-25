@@ -1,9 +1,9 @@
 [
   {
-    "name": "ending_alone_v2",
-    "ref": "game/images/cg/ending_alone.png",
+    "name": "ending_with_him_v2",
+    "ref": "game/images/cg/ending_with_him.png",
     "size": "1536x1024",
     "transparent": false,
-    "prompt": "Same image, same composition, same pose, same lighting, same train interior and star. Change only the woman to match the game's protagonist: short messy shoulder-length hair instead of long hair, no glasses, same dark coat and scarf, same face and quiet expression. Keep everything else identical. No text, no logos."
+    "prompt": "Same image, same composition, same two people seen from behind, same train platform, umbrella, suitcase, sunset and town. Change only the woman's hair: short messy shoulder-length hair instead of long hair. Keep her coat, posture, suitcase and the man identical. No text, no logos."
   }
 ]

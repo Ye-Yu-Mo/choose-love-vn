@@ -69,7 +69,7 @@
 | `cg luyao piano` | `images/cg luyao piano.png` | 未使用（钢琴场景统一用 `cg piano lesson`） |
 | `cg ending together` | `images/cg/ending_together.png` | 一起开 |
 | `cg ending xiaoman` | `images/cg/ending_xiaoman.png` | 朋友一个人开 |
-| `cg ending depart` | `images/cg/ending_with_him.png` | 她和他走 |
+| `cg ending depart` | `images/cg/ending_with_him.png` | 她和他走（沈岚发型已对齐立绘） |
 | `cg ending alone` | `images/cg/ending_alone.png` | 没有回头（沈岚造型已对齐立绘） |
 | `cg ending funeral` | `images/cg/ending_funeral.png` | 完成葬礼 |
 | `cg ending together`（冷色调复用） | `images/cg/ending_together.png` | 白夜（暂不新出图） |
