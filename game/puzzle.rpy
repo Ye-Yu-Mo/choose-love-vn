@@ -173,6 +173,9 @@ label puzzle_xiaoman:
     "小满来得很快。她看见桌上的模型，又看见我手里的螺丝刀。"
     xiaoman "老板，这是什么？"
     "她打开抽屉。里面是店的钥匙，和一封写给她的信。"
+    show cg base inside with dissolve
+    "抽屉里铺着深色绒布。钥匙和一封信并排放着。"
+    hide cg base inside with dissolve
     show prop letter xiaoman at doc_center with dissolve
     "信封上写着「小满」。"
     hide prop letter xiaoman with dissolve
@@ -195,6 +198,9 @@ label puzzle_luyao:
     show luyao guilty_half at expr_left with dissolve
     "陆遥来得很快。他看见模型，愣了一下。"
     "抽屉里是钥匙和一封信。他没有伸手。"
+    show cg base inside with dissolve
+    "抽屉里铺着深色绒布。钥匙和一封信并排放着。"
+    hide cg base inside with dissolve
     show prop letter xiaoman at doc_center with dissolve
     "信封上写着「小满」。"
     hide prop letter xiaoman with dissolve
@@ -212,6 +218,9 @@ label puzzle_alone:
     $ quick_menu = True
     $ p_branch = "alone"
     "我自己掰开了抽屉。钥匙和信都在里面。"
+    show cg base inside with dissolve
+    "抽屉里铺着深色绒布。钥匙和一封信并排放着。"
+    hide cg base inside with dissolve
     show prop letter xiaoman at doc_center with dissolve
     "信封上写着「小满」。"
     hide prop letter xiaoman with dissolve
@@ -251,6 +260,9 @@ label luyao_pov_model:
     "模型还在桌上。底座比看上去厚。"
     "我拨开土，摸到一块薄木板。"
     "抽屉里是店的钥匙，和一封写给小满的信。"
+    show cg base inside with dissolve
+    "抽屉里铺着深色绒布。钥匙和一封信并排放着。"
+    hide cg base inside with dissolve
     show prop letter xiaoman at doc_center with dissolve
     "信封上写着「小满」。"
     "信上写着：如果我不在了，店交给你。"

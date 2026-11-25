@@ -324,7 +324,7 @@ label ending_told:
     $ unlock_record("end_told")
     scene black with warmfade
     call screen chapter_card("第五章", "如果那天我说了", "D-1")
-    scene cg ending together at warm_soft with paperdissolve
+    scene cg ending told with paperdissolve
     if l_lease_told:
         "她早就知道房租的事。所以这一晚不是揭穿，是一起算账。"
     else:
