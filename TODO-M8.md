@@ -22,8 +22,9 @@
 
 ## 待做
 
-- [ ] 生成全部 293 句对白。
-- [ ] lint 通过。
+- [x] 生成全部 293 句对白（`game/audio/voice/`，6.0 MB）。
+- [x] 插入 `voice` 语句；`voice` 与下一句对白逐条校验，0 条错位。
+- [x] lint 通过。
 - [ ] 用户试听三条声线，确认不像 AI、角色可区分。
 - [ ] 如需调整：改 `assets/voice_refs/refs.json` 的 instruct 或 seed，重新生成对应角色。
 - [ ] 打包：Mac/Windows 构建、存档说明、制作名单。
