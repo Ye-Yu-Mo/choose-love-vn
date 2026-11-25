@@ -36,6 +36,9 @@ label scene_first_star:
     if pov == "luyao":
         "那天，也是这样的雨。"
         "我没有地方去，就走进这家店，点了最便宜的美式。"
+        show prop menu board at doc_center with dissolve
+        "菜单上最便宜的是美式，18 元。"
+        hide prop menu board with dissolve
         show luyao sad_half at expr_right with dissolve
         "电脑打开着，屏幕停在那封邮件上。「裁员」两个字，隔着半个店也看得见。"
         show prop layoff mail at doc_center with dissolve
@@ -52,6 +55,9 @@ label scene_first_star:
         hide prop layoff mail with dissolve
         "离得很远，也能看见「裁员」两个字。"
         "他点了最便宜的美式，不加糖。"
+        show prop menu board at doc_center with dissolve
+        "菜单上最便宜的是美式，18 元。"
+        hide prop menu board with dissolve
         "我做好咖啡，端过去。"
         "柜台上放着一罐纸星，每一颗上面都写着一句话。"
         "有一颗写着：撑住。"
@@ -70,6 +76,11 @@ label scene_first_star:
                 "她把咖啡放下，收走了托盘。"
             else:
                 "我把咖啡放下，收走了托盘。"
+
+    if m2_star:
+        show prop coffee star at doc_center with dissolve
+        "咖啡的热气把纸星的边角吹得微微翘起来。"
+        hide prop coffee star with dissolve
 
     if pov == "luyao":
         if m2_star:
@@ -365,6 +376,9 @@ label scene_useless_things:
                 "他笑得很轻，像怕吓到它。"
 
     "年糕吃完，跳上窗台，团成一团。"
+    show prop transfer sign at doc_center with dissolve
+    "玻璃门上那张「转让」，边角已经被雨泡白了。"
+    hide prop transfer sign with dissolve
     if pov == "luyao":
         "我站起来，看见玻璃门上的「转让」牌子。"
         "她每天进门都会先看它一眼。我把它摘了下来。"

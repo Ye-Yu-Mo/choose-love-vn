@@ -30,6 +30,9 @@ image prop letter xiaoman = "images/props/letter_xiaoman.png"
 image prop letter luyao = "images/props/letter_luyao.png"
 image prop screen 347 = "images/props/screen_347.png"
 image prop notebook page = "images/props/notebook_page.png"
+image prop menu board = "images/props/menu_board.png"
+image prop transfer sign = "images/props/transfer_sign.png"
+image prop coffee star = "images/props/coffee_star.png"
 
 transform doc_center:
     xalign 0.5

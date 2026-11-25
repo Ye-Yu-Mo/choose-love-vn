@@ -20,6 +20,7 @@
 | `tools/make_star.py` | 生成星图点亮/未点亮星星 |
 | `tools/make_paper_ui.py` | 生成暗角、纸质按钮、翻页遮罩 |
 | `tools/make_documents.py` | 程序化生成邮件、租约、offer、信、本子、3:47 屏幕 |
+| `tools/make_object_props.py` | 程序化生成菜单板、转让牌、咖啡+纸星静物 |
 
 ## 音乐
 
@@ -81,6 +82,9 @@
 | `prop letter luyao` | `images/props/letter_luyao.png` | finale 柜台上没有署名的信 |
 | `prop screen 347` | `images/props/screen_347.png` | 3:47 店铺后台 |
 | `prop notebook page` | `images/props/notebook_page.png` | 小满的本子 |
+| `prop menu board` | `images/props/menu_board.png` | 菜单（美式 18 / 拿铁 22 / 手冲 28） |
+| `prop transfer sign` | `images/props/transfer_sign.png` | 玻璃门上的「转让」牌 |
+| `prop coffee star` | `images/props/coffee_star.png` | 咖啡 + 纸星静物 |
 
 > 这些图由 `tools/make_documents.py` 生成，中文由 `SourceHanSansLite.ttf` 渲染，避免 AI 出字糊字。数字以上海陆家嘴 2025 年租金/薪资为参考：58 平方米、原租 10,000 → 续租 18,000，offer 32,000×15 薪，N+1 约 96,000。
 
