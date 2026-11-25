@@ -61,6 +61,7 @@
 |---|---|---|
 | `cg piano lesson` | `images/cg piano lesson.png` | 教琴全景 |
 | `cg 347` | `images/cg/cg_347.png` | 凌晨 3:47，陆遥睡在柜台 |
+| `cg base inside` | `images/cg/cg_base_inside.png` | 底座内部：钥匙 + 信 |
 | `cg shenlan piano` | `images/cg shenlan piano.png` | 沈岚弹琴 |
 | `cg luyao piano` | `images/cg luyao piano.png` | 陆遥学琴 |
 | `cg ending together` | `images/cg/ending_together.png` | 一起开 |
@@ -69,7 +70,7 @@
 | `cg ending alone` | `images/cg/ending_alone.png` | 没有回头 |
 | `cg ending funeral` | `images/cg/ending_funeral.png` | 完成葬礼 |
 | `cg ending together`（冷色调复用） | `images/cg/ending_together.png` | 白夜（暂不新出图） |
-| `cg ending told`（待生成） | `images/cg/cg_ending_told.png` | 如果那天我说了；暂用 `cg ending together` + 柔光占位 |
+| `cg ending told` | `images/cg/cg_ending_told.png` | 如果那天我说了（三个人在柜台，清晨） |
 
 ## 文档 / 屏幕特写（程序化生成）
 

@@ -229,5 +229,5 @@
 - 功能 4：✅ `p_branch == "closed"` 时 `ending_alone` 追加「收进盒子」文本，不新增结局。
 - 功能 5：✅ 星图追加 `end_white` / `end_told`，总数 22；RECORD_ALT 同步；结局卡编号「六」「七」。
 - 功能 6：✅ PLAN / STORY / SCENES / ASSETS 已同步；11 条触发路径清单在 TODO 中。
-- 待办：`cg ending told` 正式 CG 尚未生成；当前占位可跑通。
+- `cg ending told` 正式 CG 已生成并替换占位（2026-11-25）。
 - 待实测：11 条结局路径、白夜与真话结局观感、星图 22 条、旧存档兼容。
