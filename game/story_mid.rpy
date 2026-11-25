@@ -29,7 +29,7 @@ label story_days_early:
 label scene_first_star:
     $ bgm("rain")
     scene black with warmfade
-    call screen time_card("第二天")
+    call screen time_card("第二天", "记录 2 · 一杯咖啡，一颗星")
 
     scene bg shop day with paperdissolve
     show fx lamp day
@@ -172,7 +172,7 @@ label scene_first_star:
 
 label scene_card_reader:
     scene black with warmfade
-    call screen time_card("几天后")
+    call screen time_card("几天后", "记录 3 · 刷卡机")
 
     scene bg shop day with paperdissolve
     show fx lamp day
@@ -311,7 +311,7 @@ label scene_card_reader:
 label scene_useless_things:
     $ bgm("night")
     scene black with warmfade
-    call screen time_card("又一个打烊的晚上")
+    call screen time_card("又一个打烊的晚上", "记录 4 · 两个做没用东西的人")
 
     scene bg back room with paperdissolve
     show fx lamp back
@@ -454,7 +454,7 @@ label story_days_middle:
 label scene_book_margin:
     $ bgm("night")
     scene black with warmfade
-    call screen time_card("又过了一阵子")
+    call screen time_card("又过了一阵子", "记录 6 · 书页边")
 
     scene bg shop night with paperdissolve
     show fx lamp night
@@ -589,7 +589,7 @@ label scene_book_margin:
 label scene_door_light:
     $ bgm("rain")
     scene black with warmfade
-    call screen time_card("入秋以后")
+    call screen time_card("入秋以后", "记录 7 · 门口的灯")
 
     scene bg street rain with paperdissolve
     show fx rain slow
@@ -720,7 +720,7 @@ label scene_door_light:
 
 label scene_umbrella:
     scene black with warmfade
-    call screen time_card("那之后")
+    call screen time_card("那之后", "记录 8 · 雨里的伞")
 
     scene bg street rain with paperdissolve
     show fx rain slow
@@ -864,7 +864,7 @@ label scene_lease:
     if pov == "luyao":
         jump luyao_pov_landlord
     scene black with warmfade
-    call screen time_card("月底")
+    call screen time_card("月底", "记录 10 · 租约")
 
     scene bg shop day with paperdissolve
     show fx lamp day
@@ -951,7 +951,7 @@ label scene_three_am:
     if pov == "luyao":
         jump luyao_pov_347
     scene black with warmfade
-    call screen time_card("那天夜里")
+    call screen time_card("那天夜里", "记录 11 · 凌晨 3:47")
 
     scene cg 347 with paperdissolve
     "那天夜里，我落了东西在店里。"
@@ -1030,7 +1030,7 @@ label scene_notebook:
         jump luyao_pov_notebook
     $ bgm("night")
     scene black with warmfade
-    call screen time_card("离月底还有几天")
+    call screen time_card("离月底还有几天", "记录 9 · 小满的本子")
 
     scene bg shop day with paperdissolve
     show fx lamp day
@@ -1133,7 +1133,7 @@ label scene_notebook:
 label luyao_pov_notebook:
     $ bgm("night")
     scene black with warmfade
-    call screen time_card("离月底还有几天")
+    call screen time_card("离月底还有几天", "记录 9 · 小满的本子")
 
     scene bg shop day with paperdissolve
     show fx lamp day
@@ -1196,7 +1196,7 @@ label luyao_pov_notebook:
 
 label luyao_pov_landlord:
     scene black with warmfade
-    call screen time_card("月底")
+    call screen time_card("月底", "记录 10 · 租约")
 
     "房东的办公室在隔壁街，招牌很小。"
     "我把赔偿金转了过去。卡里只剩下这个月的房租。"
@@ -1233,7 +1233,7 @@ label luyao_pov_landlord:
 
 label luyao_pov_347:
     scene black with warmfade
-    call screen time_card("那天夜里")
+    call screen time_card("那天夜里", "记录 11 · 凌晨 3:47")
 
     scene bg shop night with paperdissolve
     show fx lamp night

@@ -116,13 +116,8 @@ label piano_scene:
     play music "audio/piano_touch_the_starlight.ogg" fadein 1.0
     "是那首她自己写的曲子。"
 
-    scene cg shenlan piano with dissolve
     shenlan "你想学吗？"
-
-    scene cg luyao piano with dissolve
     luyao "我五音不全。"
-
-    scene cg piano lesson with dissolve
     shenlan "没关系，我也不是教音乐的。"
     if pov == "luyao":
         "她把我的手放在琴键上。"

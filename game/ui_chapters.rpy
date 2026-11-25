@@ -38,7 +38,7 @@ screen chapter_card(num, title, date=""):
     text "点击继续" size 13 color "#8a7f74" xalign 0.5 ypos 682
 
 
-screen time_card(label_text):
+screen time_card(label_text, record_title=""):
     modal True
     zorder 150
 
@@ -57,6 +57,8 @@ screen time_card(label_text):
             spacing 12
             add "star lit" zoom 0.16 xalign 0.5
             text label_text size 32 color "#3a2c1e" xalign 0.5
+            if record_title:
+                text record_title size 15 color "#8a7a66" xalign 0.5
 
     button:
         xysize (1280, 720)

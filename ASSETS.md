@@ -65,8 +65,8 @@
 | `cg piano lesson` | `images/cg piano lesson.png` | 教琴全景 |
 | `cg 347` | `images/cg/cg_347.png` | 凌晨 3:47，陆遥睡在柜台（已去掉错误挂钟） |
 | `cg base inside` | `images/cg/cg_base_inside.png` | 底座内部：钥匙 + 信（墓园模型，与道具一致） |
-| `cg shenlan piano` | `images/cg shenlan piano.png` | 沈岚弹琴 |
-| `cg luyao piano` | `images/cg luyao piano.png` | 陆遥学琴 |
+| `cg shenlan piano` | `images/cg shenlan piano.png` | 未使用（钢琴场景统一用 `cg piano lesson`） |
+| `cg luyao piano` | `images/cg luyao piano.png` | 未使用（钢琴场景统一用 `cg piano lesson`） |
 | `cg ending together` | `images/cg/ending_together.png` | 一起开 |
 | `cg ending xiaoman` | `images/cg/ending_xiaoman.png` | 朋友一个人开 |
 | `cg ending depart` | `images/cg/ending_with_him.png` | 她和他走 |
