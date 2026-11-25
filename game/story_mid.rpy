@@ -179,7 +179,7 @@ label scene_card_reader:
 
     scene bg shop day with paperdissolve
     show fx lamp day
-    show xiaoman neutral_half at half_right with dissolve
+    show xiaoman neutral_bust at expr_right with dissolve
     if pov == "luyao":
         "几天后，我推门进去，看见柜台前排着队。"
         "刷卡机一直响。店里的女孩手忙脚乱。"
@@ -577,7 +577,7 @@ label scene_book_margin:
 
     scene bg shop day with paperdissolve
     show fx lamp day
-    show xiaoman neutral_half at half_right with dissolve
+    show xiaoman neutral_bust at expr_right with dissolve
     if pov == "luyao":
         "第二天，小满借走了那本书。还回来的时候，最后一页多了一颗星。"
         xiaoman "老板，这书挺好看的。"
@@ -713,7 +713,7 @@ label scene_door_light:
 
     scene bg shop night with paperdissolve
     show fx lamp night
-    show xiaoman neutral_half at half_right with dissolve
+    show xiaoman neutral_bust at expr_right with dissolve
     "回到店里，小满正踩在凳子上挂一串小灯。"
     xiaoman "老板，你看。"
     "暖黄色的小灯从柜台一直挂到窗边。"
@@ -853,7 +853,7 @@ label scene_umbrella:
     "墙上的星星，多了一排。"
 
     scene bg shop day with paperdissolve
-    show xiaoman neutral_half at half_right with dissolve
+    show xiaoman neutral_bust at expr_right with dissolve
     if pov == "luyao":
         "第二天，小满一边擦杯子一边问她。"
         xiaoman "老板，昨晚谁送你回来的？"
@@ -1058,7 +1058,7 @@ label scene_notebook:
 
     scene bg shop day with paperdissolve
     show fx lamp day
-    show xiaoman neutral_half at half_right with dissolve
+    show xiaoman neutral_bust at expr_right with dissolve
     "下午没什么客人，小满趴在柜台上写东西。"
     "她写得很快，写两笔就抬头数一遍罐子里的星星。"
     shenlan "在写什么？"
@@ -1129,7 +1129,7 @@ label scene_notebook:
 
     scene bg shop day with paperdissolve
     show fx lamp day
-    show xiaoman neutral_half at half_right with dissolve
+    show xiaoman neutral_bust at expr_right with dissolve
     show luyao quiet_half at expr_left with dissolve
     "傍晚，陆遥来了。"
     "小满给他端咖啡，顺口问了一句：「陆哥，听说你找到工作了？」"
@@ -1203,7 +1203,7 @@ label luyao_pov_book:
 
     scene bg shop day with paperdissolve
     show fx lamp day
-    show xiaoman neutral_half at half_right with dissolve
+    show xiaoman neutral_bust at expr_right with dissolve
     "第二天，小满借走了那本书。还回来的时候，最后一页多了一颗星。"
     xiaoman "老板，这书挺好看的。"
     "她什么也没问。"
@@ -1228,7 +1228,7 @@ label luyao_pov_notebook:
 
     scene bg shop day with paperdissolve
     show fx lamp day
-    show xiaoman neutral_half at half_right with dissolve
+    show xiaoman neutral_bust at expr_right with dissolve
     show luyao quiet_half at expr_left with dissolve
     "傍晚，我到店里的时候，小满正趴在柜台上写东西。"
     "她看见我，把本子合上，又忍不住翻开给我看。"

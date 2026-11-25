@@ -54,6 +54,14 @@
 - 展览画面：`cg exhibition`（模型、纸星罐、星图册）接入「一起开」「朋友一个人开」。
 - 假选择补后果：`f_piano` 在争吵开头回收；`f_told` 影响「朋友一个人开」；`m10_signed` / `l_lease_told` 影响「一起开 / 白夜」。
 
+## 已完成（第三批：收尾修复）
+
+- **立绘镜头跳变**：新增 `xiaoman neutral_bust`（与小满其他表情同一半身构图），11 处 `neutral_half at half_right` 全部换成 `neutral_bust at expr_right`；不再出现全身→大头半身的跳变。
+- **模型统一**：`ending_funeral`、`ending_xiaoman`、`ending_together` 里的模型改为同一只蓝色墓园纸盒（白栅栏、纸星、歪耳布兔）；`mem_model` 也换成透明底蓝色墓园，星图里保持 1024 画布。
+- **死代码清理**：删除未使用的 `cards.rpy`（头像卡系统）、`puzzle_end_sample`、`warm_soft`、`doc_center`、`half_left` / `full_*` 变换、`bg konbini*`、未使用的全身/表情/钢琴 CG 定义；`screens.rpy` 里与自定义主菜单重复的默认 `main_menu` 删除。
+- **UI 中文化**：帮助页（键盘/鼠标/手柄）、历史空状态、存档时间格式、空存档、自动/快存页签、同步按钮、触摸快捷菜单全部改为中文。
+- lint 通过；图片 98 → 87，屏幕 37 → 36。
+
 ## 待办
 
 - `doc_center` 是否仍压脸需要实机看；必要时显示文件时临时隐藏立绘。

@@ -358,32 +358,7 @@ style navigation_button_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
-screen main_menu():
-
-    ## This ensures that any other menu screen is replaced.
-    tag menu
-
-    add gui.main_menu_background
-
-    ## This empty frame darkens the main menu.
-    frame:
-        style "main_menu_frame"
-
-    ## The use statement includes another screen inside this one. The actual
-    ## contents of the main menu are in the navigation screen.
-    use navigation
-
-    if gui.show_name:
-
-        vbox:
-            style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
-
+## 主菜单由 ui_menu.rpy 的自定义版本接管；这里只保留通用样式。
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox
@@ -568,13 +543,13 @@ screen about():
         vbox:
 
             label "[config.name!t]"
-            text _("Version [config.version!t]\n")
+            text _("版本 [config.version!t]\n")
 
             ## gui.about is usually set in options.rpy.
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            text _("使用 {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] 制作。\n\nRen'Py 引擎版权归其作者所有。")
 
 
 style about_label is gui_label
@@ -652,7 +627,7 @@ screen file_slots(title):
 
                         add FileScreenshot(slot) xalign 0.5
 
-                        text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
+                        text FileTime(slot, format=_("{#file_time}%Y年%m月%d日 %H:%M"), empty=_("空存档")):
                             style "slot_time_text"
 
                         text FileSaveName(slot):
@@ -676,10 +651,10 @@ screen file_slots(title):
                     key "save_page_prev" action FilePagePrevious()
 
                     if config.has_autosave:
-                        textbutton _("{#auto_page}A") action FilePage("auto")
+                        textbutton _("{#auto_page}自动") action FilePage("auto")
 
                     if config.has_quicksave:
-                        textbutton _("{#quick_page}Q") action FilePage("quick")
+                        textbutton _("{#quick_page}快存") action FilePage("quick")
 
                     ## range(1, 10) gives the numbers from 1 to 9.
                     for page in range(1, 10):
@@ -690,11 +665,11 @@ screen file_slots(title):
 
                 if config.has_sync:
                     if CurrentScreenName() == "save":
-                        textbutton _("Upload Sync"):
+                        textbutton _("上传同步"):
                             action UploadSync()
                             xalign 0.5
                     else:
-                        textbutton _("Download Sync"):
+                        textbutton _("下载同步"):
                             action DownloadSync()
                             xalign 0.5
 
@@ -933,7 +908,7 @@ screen history():
                     substitute False
 
         if not _history_list:
-            label _("The dialogue history is empty.")
+            label _("还没有对话记录。")
 
 
 ## This determines what tags are allowed to be displayed on the history
@@ -1002,11 +977,11 @@ screen help():
 
             hbox:
 
-                textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
-                textbutton _("Mouse") action SetScreenVariable("device", "mouse")
+                textbutton _("键盘") action SetScreenVariable("device", "keyboard")
+                textbutton _("鼠标") action SetScreenVariable("device", "mouse")
 
                 if GamepadExists():
-                    textbutton _("Gamepad") action SetScreenVariable("device", "gamepad")
+                    textbutton _("手柄") action SetScreenVariable("device", "gamepad")
 
             if device == "keyboard":
                 use keyboard_help
@@ -1019,104 +994,104 @@ screen help():
 screen keyboard_help():
 
     hbox:
-        label _("Enter")
-        text _("Advances dialogue and activates the interface.")
+        label _("回车")
+        text _("推进对话，或确认界面操作。")
 
     hbox:
-        label _("Space")
-        text _("Advances dialogue without selecting choices.")
+        label _("空格")
+        text _("推进对话，但不会替你做选择。")
 
     hbox:
-        label _("Arrow Keys")
-        text _("Navigate the interface.")
+        label _("方向键")
+        text _("在界面中移动。")
 
     hbox:
-        label _("Escape")
-        text _("Accesses the game menu.")
+        label _("Esc")
+        text _("打开游戏菜单。")
 
     hbox:
         label _("Ctrl")
-        text _("Skips dialogue while held down.")
+        text _("按住时快速跳过对话。")
 
     hbox:
         label _("Tab")
-        text _("Toggles dialogue skipping.")
+        text _("切换跳过对话。")
 
     hbox:
         label _("Page Up")
-        text _("Rolls back to earlier dialogue.")
+        text _("回退到前面的对话。")
 
     hbox:
         label _("Page Down")
-        text _("Rolls forward to later dialogue.")
+        text _("前进到后面的对话。")
 
     hbox:
         label "H"
-        text _("Hides the user interface.")
+        text _("隐藏界面。")
 
     hbox:
         label "S"
-        text _("Takes a screenshot.")
+        text _("截一张图。")
 
     hbox:
         label "V"
-        text _("Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}.")
+        text _("开启或关闭{a=https://www.renpy.org/l/voicing}自动朗读{/a}。")
 
     hbox:
         label "Shift+A"
-        text _("Opens the accessibility menu.")
+        text _("打开无障碍菜单。")
 
 
 screen mouse_help():
 
     hbox:
-        label _("Left Click")
-        text _("Advances dialogue and activates the interface.")
+        label _("左键")
+        text _("推进对话，或确认界面操作。")
 
     hbox:
-        label _("Middle Click")
-        text _("Hides the user interface.")
+        label _("中键")
+        text _("隐藏界面。")
 
     hbox:
-        label _("Right Click")
-        text _("Accesses the game menu.")
+        label _("右键")
+        text _("打开游戏菜单。")
 
     hbox:
-        label _("Mouse Wheel Up")
-        text _("Rolls back to earlier dialogue.")
+        label _("滚轮向上")
+        text _("回退到前面的对话。")
 
     hbox:
-        label _("Mouse Wheel Down")
-        text _("Rolls forward to later dialogue.")
+        label _("滚轮向下")
+        text _("前进到后面的对话。")
 
 
 screen gamepad_help():
 
     hbox:
-        label _("Right Trigger\nA/Bottom Button")
-        text _("Advances dialogue and activates the interface.")
+        label _("右扳机\nA/下键")
+        text _("推进对话，或确认界面操作。")
 
     hbox:
-        label _("Left Trigger\nLeft Shoulder")
-        text _("Rolls back to earlier dialogue.")
+        label _("左扳机\n左肩键")
+        text _("回退到前面的对话。")
 
     hbox:
-        label _("Right Shoulder")
-        text _("Rolls forward to later dialogue.")
+        label _("右肩键")
+        text _("前进到后面的对话。")
 
     hbox:
-        label _("D-Pad, Sticks")
-        text _("Navigate the interface.")
+        label _("方向键、摇杆")
+        text _("在界面中移动。")
 
     hbox:
-        label _("Start, Guide, B/Right Button")
-        text _("Accesses the game menu.")
+        label _("Start、Guide、B/右键")
+        text _("打开游戏菜单。")
 
     hbox:
-        label _("Y/Top Button")
-        text _("Hides the user interface.")
+        label _("Y/上键")
+        text _("隐藏界面。")
 
-    textbutton _("Calibrate") action GamepadCalibrate()
+    textbutton _("校准手柄") action GamepadCalibrate()
 
 
 style help_button is gui_button
@@ -1228,7 +1203,7 @@ screen skip_indicator():
         hbox:
             spacing gui.scale(6)
 
-            text _("Skipping")
+            text _("跳过中")
 
             text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
             text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
@@ -1539,10 +1514,10 @@ screen quick_menu():
             style "quick_menu"
             style_prefix "quick"
 
-            textbutton _("Back") action Rollback()
+            textbutton _("回退") action Rollback()
             textbutton _("跳过") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Menu") action ShowMenu()
+            textbutton _("自动") action Preference("auto-forward", "toggle")
+            textbutton _("菜单") action ShowMenu()
 
 
 style window:

@@ -15,10 +15,6 @@ transform end_title_in:
 transform cold_wash:
     matrixcolor SaturationMatrix(0.35) * BrightnessMatrix(-0.02)
 
-# 真话结局占位：复用「一起开」CG，轻微提亮
-transform warm_soft:
-    matrixcolor BrightnessMatrix(0.04)
-
 screen ending_title(title, line, no):
     modal True
     add Solid("#00000055")

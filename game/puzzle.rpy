@@ -168,7 +168,7 @@ label puzzle_xiaoman:
     $ p_branch = "xiaoman"
     scene bg back room with paperdissolve
     show fx lamp back
-    show xiaoman neutral_half at half_right with dissolve
+    show xiaoman neutral_bust at expr_right with dissolve
     "小满来得很快。她看见桌上的模型，又看见我手里的螺丝刀。"
     xiaoman "老板，这是什么？"
     "她打开抽屉。里面是店的钥匙，和一封写给她的信。"
@@ -243,12 +243,6 @@ label puzzle_put_away:
     scene black with warmfade
     "三天后。"
     jump argument_scene
-
-
-label puzzle_end_sample:
-    scene black with warmfade
-    centered "{size=30}{color=#e8c7a8}样片到此为止{/color}{/size}\n\n{size=18}下一场：第四章 — 争吵{/size}"
-    return
 
 
 # 二周目 · 陆遥视角的底座：他打开模型，看见她的离开计划

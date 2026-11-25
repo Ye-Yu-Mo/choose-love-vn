@@ -5,8 +5,8 @@
 - 分辨率 1280x720；所有全屏背景/CG 都裁成 16:9 再缩到 1280x720。
 - 字体：`game/fonts/SourceHanSansLite.ttf`，**缺 U+00B7（·）**，章节/结局标题统一用「—」；也缺 ★☆，星图星星是 PNG 贴图，不要用字符。
 - 图片名可以带空格，但不能用 Ren'Py 关键字（例如 `with`）；`cg ending with him` 会解析失败，已改成 `cg ending depart`。
-- 对话立绘：`expr_left` / `expr_right`（zoom 0.32）；小图半身：`half_left` / `half_right`（zoom 0.40）。
-- 记忆物件统一画布 560x560，星图里直接叠加。
+- 对话立绘统一用半身表情差分：`expr_left` / `expr_right`（zoom 0.32）。小满的 `neutral_bust` 与 `worried/pout/crying` 同一构图，避免全身→半身跳变。
+- 记忆物件统一画布 1024x1024，星图里直接叠加。
 
 ## 工具链
 
@@ -64,14 +64,12 @@
 |---|---|---|
 | `cg piano lesson` | `images/cg piano lesson.png` | 教琴全景（沈岚短发已对齐立绘） |
 | `cg 347` | `images/cg/cg_347.png` | 凌晨 3:47，陆遥睡在柜台（无挂钟，咖啡为美式） |
-| `cg base inside` | `images/cg/cg_base_inside.png` | 底座内部：钥匙 + 信（墓园模型，与道具一致） |
-| `cg shenlan piano` | `images/cg shenlan piano.png` | 未使用（钢琴场景统一用 `cg piano lesson`） |
-| `cg luyao piano` | `images/cg luyao piano.png` | 未使用（钢琴场景统一用 `cg piano lesson`） |
-| `cg ending together` | `images/cg/ending_together.png` | 一起开 |
-| `cg ending xiaoman` | `images/cg/ending_xiaoman.png` | 朋友一个人开 |
+| `cg base inside` | `images/cg/cg_base_inside.png` | 底座内部：钥匙 + 信（蓝色墓园纸盒，与道具一致） |
+| `cg ending together` | `images/cg/ending_together.png` | 一起开（模型已统一为蓝色墓园纸盒） |
+| `cg ending xiaoman` | `images/cg/ending_xiaoman.png` | 朋友一个人开（架上的模型已统一为蓝色墓园纸盒） |
 | `cg ending depart` | `images/cg/ending_with_him.png` | 她和他走（沈岚发型已对齐立绘） |
 | `cg ending alone` | `images/cg/ending_alone.png` | 没有回头（沈岚造型已对齐立绘） |
-| `cg ending funeral` | `images/cg/ending_funeral.png` | 完成葬礼 |
+| `cg ending funeral` | `images/cg/ending_funeral.png` | 完成葬礼（模型已统一为蓝色墓园纸盒） |
 | `cg ending together`（冷色调复用） | `images/cg/ending_together.png` | 白夜（暂不新出图） |
 | `cg ending told` | `images/cg/cg_ending_told.png` | 如果那天我说了（三个人在柜台，清晨；模型已改为墓园） |
 | `cg coffee star` | `images/cg/cg_coffee_star.png` | 美式 + 纸星近景（记录 2） |
@@ -90,7 +88,8 @@
 | `prop notebook page` | `images/props/notebook_page.png` | 小满的本子 |
 | `prop menu board` | `images/props/menu_board.png` | 菜单（美式 18 / 拿铁 22 / 手冲 28） |
 | `prop transfer sign` | `images/props/transfer_sign.png` | 玻璃门上的「转让」牌 |
-| `prop coffee star` | `images/props/coffee_star.png` | 旧合成图，已被 `cg coffee star` 取代 |
+
+> `prop coffee star` 与 `cards.rpy` 的头像卡系统已移除；咖啡近景统一用 `cg coffee star`。
 
 > 这些图由 `tools/make_documents.py` 生成，中文由 `SourceHanSansLite.ttf` 渲染，避免 AI 出字糊字。数字以上海陆家嘴 2025 年租金/薪资为参考：58 平方米、原租 10,000 → 续租 18,000，offer 32,000×15 薪，N+1 约 96,000。
 
@@ -98,9 +97,10 @@
 
 | 角色 | 表情 | 备注 |
 |---|---|---|
-| 沈岚 | neutral / tired / quiet / hurt / angry | 半身，透明底 |
-| 陆遥 | neutral / awkward / guilty / sad | 半身，透明底，眼镜 |
-| 小满 | neutral / worried / pout / crying / kneel | 半身，透明底 |
+| 沈岚 | quiet / hurt / angry | 半身，透明底；对话统一用半身 |
+| 陆遥 | awkward / guilty / sad / warm / quiet | 半身，透明底，眼镜 |
+| 小满 | neutral_bust / worried / pout / crying | 半身，透明底；neutral_bust 与表情同一构图 |
+| 房东 | neutral_half | 半身，夹着文件袋 |
 
 源图在 `game/images/sprites/raw/`，处理后的成品在 `game/images/sprites/`。
 
@@ -120,7 +120,7 @@
 
 ## 记忆物件（星图）
 
-信封+钥匙、兔子、纸星星、模型、手机、琴盖、咖啡、钥匙、车票、花束、螺丝刀、猫、书、伞、本子、租约、笔记本电脑，共 17 个，统一 560x560，文件在 `game/images/mem/`。
+信封+钥匙、兔子、纸星星、模型、手机、琴盖、咖啡、钥匙、车票、花束、螺丝刀、猫、书、伞、本子、租约、笔记本电脑，共 17 个，统一 1024x1024，文件在 `game/images/mem/`。
 
 ## 待补资源（按 PLAN Milestone 1）
 

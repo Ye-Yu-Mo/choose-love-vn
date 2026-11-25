@@ -1,10 +1,6 @@
 # 图片资源定义
 # 文件名里有空格，用显式定义避免歧义
 
-image bg konbini = "images/bg konbini.png"
-image bg konbini pixel = "images/bg konbini pixel.png"
-image bg konbini ai = "images/bg konbini ai.png"
-
 # 《满天星》场景
 image bg shop day = ConditionSwitch(
     "sign_removed", "images/bg shop day no sign.png",
@@ -40,12 +36,6 @@ image prop screen 347 = "images/props/screen_347.png"
 image prop notebook page = "images/props/notebook_page.png"
 image prop menu board = "images/props/menu_board.png"
 image prop transfer sign = "images/props/transfer_sign.png"
-image prop coffee star = "images/props/coffee_star.png"
-
-transform doc_center:
-    xalign 0.5
-    yalign 0.02
-    zoom 0.64
 
 
 screen doc_overlay(img):

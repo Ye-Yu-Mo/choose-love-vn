@@ -22,7 +22,7 @@ label start:
 
     scene bg back room with paperdissolve
     show fx lamp back
-    show xiaoman neutral_half at half_right with dissolve
+    show xiaoman neutral_bust at expr_right with dissolve
     xiaoman "老板，你看，像不像真的？"
     shenlan "……这是给谁的？"
     xiaoman "给我自己呀。"
@@ -40,7 +40,7 @@ label start:
     else:
         "小满看了我一眼。"
         "我说没事。"
-    show xiaoman neutral_half at half_right with dissolve
+    show xiaoman neutral_bust at expr_right with dissolve
     show screen doc_overlay("prop transfer sign") with dissolve
     "玻璃门上挂着一张「转让」，边角已经卷起来了。"
     hide screen doc_overlay with dissolve
