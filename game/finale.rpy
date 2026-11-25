@@ -44,7 +44,7 @@ label finale_scene:
     $ unlock_record("finale")
     "最后一天，店里没有客人。"
     "小满把同一只杯子擦了三遍。"
-    "钢琴盖合着。她已经很久没有弹了。"
+    "钢琴盖合着。我已经很久没有弹了。"
     xiaoman "老板。"
     shenlan "嗯。"
     xiaoman "你最近……是不是在交代什么？"
@@ -54,11 +54,11 @@ label finale_scene:
     menu:
         "告诉她实话。":
             $ f_told = "truth"
-            shenlan "……我给自己定了一个日子。"
+            shenlan "……我给自己定了个日子。"
             show xiaoman crying_half at expr_right with dissolve
             xiaoman "什么日子？"
             shenlan "……不在了的日子。"
-            "她哭的时候没有声音，只是眼泪一直掉。"
+            "她没出声，眼泪一滴一滴往下掉。"
             xiaoman "你连我都不要了。"
         "说“没有”。":
             $ f_told = "lie"
@@ -89,7 +89,7 @@ label finale_door:
         luyao "信我看了。"
         "我没有问是不是写给我的。"
         luyao "所以，你打算什么时候走？"
-        "我问得很轻，像怕把什么碰碎。"
+        "我把声音放低。"
         if p_branch == "closed":
             "模型还在柜台上。底座没有打开。"
         elif p_branch == "luyao_seen" or p_branch == "alone":
@@ -101,11 +101,11 @@ label finale_door:
         if m2_star:
             "我想起她第一天放在碟子边的星。"
         if m3_fix:
-            "我想起我蹲在柜台下面修刷卡机，第一次抬头看她笑。"
+            "我想起修刷卡机那天，抬头第一次看见她笑。"
         if m6_write:
             "我想起书页边那些字。"
         if m8_invite:
-            "我想起楼下那晚，我问她要不要上去。"
+            "我想起楼下那晚，她问我要不要上去。"
         if m7_phone:
             "我想起那晚在雨里接的电话。"
         if l_truth:
@@ -116,7 +116,7 @@ label finale_door:
         luyao "信我看了。"
         "他没有问是不是写给他的。"
         luyao "所以，你打算什么时候走？"
-        "他问得很轻，像怕把什么碰碎。"
+        "他把声音放低。"
         if p_branch == "closed":
             "模型还在柜台上。底座没有打开。"
         elif p_branch == "luyao_seen" or p_branch == "alone":
@@ -156,13 +156,13 @@ label finale_choice:
 
 label ending_funeral_confirm:
     if pov == "luyao":
-        "你真的要陪她走完那个日子吗？"
+        "你真要陪她走到那天？"
         menu:
             "是。":
                 jump ending_funeral_luyao
             "再想想。":
                 jump finale_choice_luyao
-    "你真的要这么做吗？"
+    "你真要这么做？"
     menu:
         "是。":
             jump ending_funeral
@@ -199,7 +199,7 @@ label ending_together:
     else:
         "我把模型底座重新封好。"
     if m10_signed:
-        "新租约已经签了。每个月的数字还在，但这次是我们一起算的。"
+        "新租约已经签了。每个月还是那个数，这次我们一起算的。"
     else:
         "续租还拖着。房东给了期限，我们没有再躲。"
     "琴盖打开着。"
@@ -210,7 +210,7 @@ label ending_together:
     "那天下午，店里放了那首《满天星》。"
     "一个月后，我们在店里办了一个很小的展览。"
     show cg exhibition with dissolve
-    "展柜里是那座模型、一罐纸星，和一本写满页边的星图册。"
+    "展柜里放着那座模型、一罐纸星，还有一本页边写满字的星图册。"
     hide cg exhibition with dissolve
     $ bgm("letter", fadein=2.5)
     call screen ending_title("一起开", "有些星星，要两个人一起抬头，才看得见。", "一")
@@ -224,8 +224,8 @@ label ending_xiaoman:
     $ unlock_record("end_xiaoman")
     scene cg ending xiaoman with paperdissolve
     if p_branch == "closed":
-        "店门的钥匙，是我从围裙口袋里拿出来的。"
-    "我把店门的钥匙放在她掌心。"
+        "我从围裙口袋里摸出店门钥匙。"
+    "我把钥匙放在她掌心。"
     xiaoman "老板。"
     shenlan "嗯。"
     xiaoman "店我给你留着。"
@@ -243,7 +243,7 @@ label ending_xiaoman:
     "她把门口的牌子翻到了「营业」。"
     "那天的阳光很好。"
     "我把日历上那个日子划掉了。"
-    "后来小满在店里办了一个小展，把模型放在最中间。"
+    "后来，小满在店里办了个小展。模型摆在最中间。"
     show cg exhibition with dissolve
     "展柜里还有一罐纸星，和一本写满页边的星图册。"
     hide cg exhibition with dissolve
@@ -264,11 +264,11 @@ label ending_with_him:
     luyao "不知道。"
     luyao "……跟我走。"
     shenlan "好。"
-    "这一次，是我自己决定的。"
+    "这回，是我自己选的。"
     "他只是把伞往我这边偏了一点。"
     if m8_hand:
-        "这一次，是我先牵住他的手。"
-    "进站的时候，我忽然想起来，我还没有告诉他，我给自己定的那个日子。"
+        "我先牵住他的手。"
+    "进站时，我才想起，那个日子还没告诉他。"
     "现在不用说了。"
     call screen ending_title("她和他走", "这一次，她不是逃跑，是出发。", "三")
     return
@@ -296,7 +296,7 @@ label ending_alone:
     else:
         "我把信留在了模型底座里。"
     "火车开动的时候，我一次也没有回头。"
-    "车窗上倒映着我的脸。我看了很久，还是没有认出她。"
+    "车窗上倒映着我的脸。我看了很久，像在看一个陌生人。"
     "后来听说，店一直开着。"
     "还听说，店里办过一个小展。模型放在最中间，底座是封着的。"
     if f_told == "truth" or f_told == "ask":
@@ -317,7 +317,7 @@ label ending_funeral:
     $ bgm("funeral")
     $ unlock_record("end_funeral")
     scene cg ending funeral with paperdissolve
-    "这是她留在信里的最后一段话。"
+    "这是我留在信里的最后一段话。"
     "那天之后，店里空了三天。"
     "第四天，小满把门打开了。"
     "她没有哭。她把每一张桌子都擦了一遍。"
@@ -329,7 +329,7 @@ label ending_funeral:
     else:
         "信的最后一行写着："
     "「不要学我。累了就关门，饿了就吃饭。」"
-    "可窗外的星星，其实一直亮着。"
+    "窗外的星星一直亮着。"
     "只是我没有看。"
     "日历上圈住的那天，我没有再划掉它。"
     "后来，店关了。玻璃门上原来挂牌子的地方，一直空着。"
@@ -346,18 +346,18 @@ label ending_white_night:
     $ unlock_record("end_white")
     scene cg ending together at cold_wash with paperdissolve
     "第二天，店照常开了。"
-    "那个日子，我划掉了。可我没有告诉她。"
+    "那个日子，我划掉了。可我没有告诉他。"
     "他把最后一笔夜班钱转给房东。租约上写的是我的名字，钱是他出的。"
     "我没有问他以后怎么办。他也没有说。"
     "他还是四点走，还是点最便宜的美式。"
     "我还是在碟子边放星，一颗，两颗。"
     "店里看起来和以前一样。"
-    "只有我知道，每一杯咖啡里，都有一半是他的夜班。"
+    "我知道，每杯咖啡里，都有他一半的夜班。"
     if a_broke:
         "那天晚上他走了。第二天，他还是回来了。"
         "我们谁也没有提钥匙的事。"
     "灯还亮着。"
-    "可有些东西，从那天晚上起就没有再平过。"
+    "可从那天晚上起，总有一块没平。"
     call screen ending_title("白夜", "灯还亮着，账没有算平。", "六")
     return
 
@@ -373,7 +373,7 @@ label ending_told:
     call screen chapter_card("第五章", "如果那天我说了", "距关店 1 天")
     scene cg ending told with paperdissolve
     if l_lease_told:
-        "她早就知道房租的事。所以这一晚不是揭穿，是一起算账。"
+        "她早就知道房租的事。所以这晚，我们把账摊开了。"
     else:
         "她把柜台里的收据摊开，什么都明白了。"
     "我把赔偿金、拒掉的 offer、夜班、睡在店里的那几晚，一次说完。"
@@ -388,13 +388,13 @@ label ending_told:
     xiaoman "……我在外面都听见了。"
     xiaoman "那店怎么办？"
     "我们三个人在柜台边，把账算了一遍又一遍。"
-    "最后决定：退掉一半座位，只留窗口和外带；我接远程的活；小满当店长。"
-    "店会变小，但不会再有人一个人扛。"
+    "最后，座位退一半，只留窗口和外带。我接远程的活，小满当店长。"
+    "店会变小。以后，事情分着做。"
     "那天下午，我们在门口挂了一块新的小木牌。"
     "上面写着：营业中。"
     "那天我说了。"
     "她把日历上那个日子折起来，放进了模型底座。"
-    "店还是小了，但我们都在。"
+    "店小了。我们都还在。"
     $ bgm("letter", fadein=2.5)
     call screen ending_title("如果那天我说了", "那天我说了。店还是小了，但我们都在。", "七")
     return
@@ -412,7 +412,7 @@ label luyao_pov_finale:
     call screen chapter_card("第五章", "琴盖合上", "距关店 1 天")
 
     scene bg street rain with paperdissolve
-    "最后一天，我在门外站了很久。"
+    "最后一天，我在门外站着，没进门。"
     "门里，小满在问她是不是在交代什么。"
     "雨停了。"
     "我伸手，推门。"
@@ -456,14 +456,14 @@ label ending_together_luyao:
     "第二天，我照常来。她照常开门。"
     "日历上圈住的那天，被她划掉了。"
     "阳光从玻璃门照进来，落在柜台的木纹上。"
-    "小满在柜台后面喊，说有人点了一杯最贵的。"
-    "我面前摊着一份新的招聘启事。我把 offer 折好，放进包里。"
+    "小满在柜台后面喊：「有人点了一杯最贵的！」"
+    "我面前摊着一份新的录用通知。我把它折好，放进包里。"
     luyao "这次，我先问你。"
     shenlan "问什么？"
     luyao "你愿不愿意，让我留下来。"
     "她把模型底座重新封好。"
     if l_lease_told:
-        "房租的事，我们已经一起算过了。"
+        "房租，我们一起算过了。"
     "琴盖打开着。"
     if m8_hand:
         "我牵住了她的手。"
@@ -472,7 +472,7 @@ label ending_together_luyao:
     "那天下午，店里放了那首《满天星》。"
     "一个月后，我们在店里办了一个很小的展览。"
     show cg exhibition with dissolve
-    "展柜里是那座模型、一罐纸星，和一本写满页边的星图册。"
+    "展柜里放着那座模型、一罐纸星，还有一本页边写满字的星图册。"
     hide cg exhibition with dissolve
     $ bgm("letter", fadein=2.5)
     call screen ending_title("一起开", "有些星星，要两个人一起抬头，才看得见。", "一")
@@ -487,18 +487,18 @@ label ending_white_night_luyao:
     scene cg ending together at cold_wash with paperdissolve
     "她留下了。"
     "我把最后一笔夜班钱转给房东。租约上是她的名字，钱是我出的。"
-    "那个日子，她划掉了。可她没有告诉我。"
+    "她把那个日子划掉了。没告诉我。"
     if l_lease_told:
         "房租的事，她早就知道。"
-    "我还是四点走，还是点最便宜的美式。"
-    "她还是在我桌上放星，一颗，两颗。"
+    "我还是四点走，点最便宜的美式。"
+    "她也照旧往我桌上放星，一颗，两颗。"
     "店里看起来和以前一样。"
-    "只有我知道，每一杯咖啡里，都有我的一半夜班。"
+    "我知道，每一杯里都有我熬过的夜。"
     if a_broke:
         "那天晚上她让我走。第二天，我还是回来了。"
         "我们谁也没有提钥匙的事。"
     "灯还亮着。"
-    "可有些东西，从那天晚上起就没有再平过。"
+    "可从那天晚上起，总有一块没平。"
     call screen ending_title("白夜", "灯还亮着，账没有算平。", "六")
     return
 
@@ -511,24 +511,24 @@ label ending_xiaoman_luyao:
     scene cg ending xiaoman with paperdissolve
     "我劝她把店交给小满。"
     if p_branch == "closed":
-        "店门的钥匙，是她从围裙口袋里拿出来的。"
-    "她把店门的钥匙放在小满掌心。"
+        "她从围裙口袋里摸出店门的钥匙。"
+    "她把钥匙放进小满掌心。"
     xiaoman "老板。"
     shenlan "嗯。"
     xiaoman "店我给你留着。"
-    "她没有问她要去哪。"
+    "小满没有问她要去哪。"
     "小满把那只缝歪耳朵的兔子摆在收银台上。"
     "她走到街口，回头看了一眼。"
     "小满把门口的牌子翻到了「营业」。"
     if l_truth:
         "小满知道她本来打算不在了。所以她没有问。"
     elif m9_told or p_branch == "xiaoman":
-        "小满早就知道店可能要关。所以她没有问。"
+        "小满早知道店可能会关，也没问。"
     else:
         "小满一直以为，店只是暂时关门。"
     "那天的阳光很好。"
     "她把日历上那个日子划掉了。"
-    "后来小满在店里办了一个小展，把模型放在最中间。"
+    "后来，小满在店里办了个小展。模型摆在最中间。"
     show cg exhibition with dissolve
     "展柜里还有一罐纸星，和一本写满页边的星图册。"
     hide cg exhibition with dissolve
@@ -548,7 +548,7 @@ label ending_with_him_luyao:
     "她把店交给小满，只带走一只杯子。"
     "我在车站等她。"
     "她来了。"
-    "这一次，不是她替我决定，是我们一起决定。"
+    "这次，决定是一起做的。"
     if m8_hand:
         "这一次，我先牵住她的手。"
     "进站的时候，她忽然说，她还没有告诉我，她给自己定的那个日子。"
@@ -567,13 +567,13 @@ label ending_alone_luyao:
     "她一个人走的。"
     "没有告诉我日期，也没有告诉小满。"
     if p_branch == "xiaoman":
-        "那封写给她的信，已经在小满手里。"
+        "她写给小满的那封信，已经在小满手里。"
     elif p_branch == "closed":
         "底座没有打开。她写给谁的信，谁也没有看见。"
     else:
         "信还在模型底座里。"
-    "火车开动的时候，她一次也没有回头。"
-    "车窗上倒映着她的脸。"
+    "后来我总想，火车开动的时候，她大概一次也没有回头。"
+    "我想象过，车窗上会倒映着她的脸。"
     "后来听说，店一直开着。"
     "还听说，店里办过一个小展。模型放在最中间，底座是封着的。"
     if l_truth:
@@ -583,7 +583,7 @@ label ending_alone_luyao:
     if m6_ask:
         "我划掉的那三个字，她问过了。"
     else:
-        "她没有问。"
+        "她没有问那三个字。"
     call screen ending_title("没有回头", "她走得很干脆，像从来没有来过。", "四")
     return
 
@@ -599,15 +599,15 @@ label ending_funeral_luyao:
     "第四天，小满把门打开了。"
     "她没有哭。她把每一张桌子都擦了一遍。"
     "我站在门口，手里拿着一束满天星。"
-    "我们并排站着，像来参加一场很安静的葬礼。"
+    "我们并排站着。没人说话。"
     "她的模型放在柜台上。墓碑前面，多了一只缝歪耳朵的兔子。"
     if p_branch == "closed":
         "底座后来被小满打开了。信的最后一行写着："
     else:
         "信的最后一行写着："
     "「不要学我。累了就关门，饿了就吃饭。」"
-    "可窗外的星星，其实一直亮着。"
-    "只是她没有看。"
+    "窗外的星星一直亮着。"
+    "她没抬头。"
     "日历上圈住的那天，她没有再划掉它。"
     "后来，店关了。玻璃门上原来挂牌子的地方，一直空着。"
     call screen ending_title("完成葬礼", "满天星开在她的墓碑前。这一次，是别人替她抬头。", "五")

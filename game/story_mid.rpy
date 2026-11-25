@@ -34,13 +34,13 @@ label scene_first_star:
     scene bg shop day with paperdissolve
     show fx lamp day
     if pov == "luyao":
-        "第二天，也是这样的雨。"
+        "第二天，还是这样的雨。"
         "我又走进这家店，点了最便宜的美式。"
         show screen doc_overlay("prop menu board") with dissolve
         "菜单上最便宜的是美式，18 元。"
         hide screen doc_overlay with dissolve
         show luyao sad_half at expr_right with dissolve
-        "电脑打开着，昨天的邮件还停在屏幕上。屏幕上那两个字，我不想再看第二眼。"
+        "电脑开着，昨天的邮件还在屏幕上。那两个字，我不想再看第二眼。"
         show screen doc_overlay("prop layoff mail") with dissolve
         "发件人是人事部。标题是「调整」。"
         hide screen doc_overlay with dissolve
@@ -51,7 +51,7 @@ label scene_first_star:
         show luyao sad_half at expr_right with dissolve
         "他背着一个旧电脑包，电脑开着。屏幕停在一封邮件上。"
         show screen doc_overlay("prop layoff mail") with dissolve
-        "屏幕上只有昨天的邮件，标题是「调整」。"
+        "屏幕上只有一封邮件，标题是「调整」。"
         hide screen doc_overlay with dissolve
         "离得很远，也能看见「裁员」两个字。"
         "他点了最便宜的美式，不加糖。"
@@ -114,7 +114,7 @@ label scene_first_star:
                 "我告诉她，从昨天开始，不用去了。"
                 shenlan "……那你还点最便宜的？"
                 luyao "习惯了。"
-                "我笑了一下。那个笑很轻，像随时会掉。"
+                "我笑了一下，嘴角很快又落下来。"
             "什么也不说。":
                 "她没有问。"
                 "我也没有说。"
@@ -129,7 +129,7 @@ label scene_first_star:
                 "他说得很平静，像在说天气。"
                 shenlan "……那你还点最便宜的？"
                 luyao "习惯了。"
-                "他笑了一下。那个笑很轻，像随时会掉。"
+                "他笑了一下，嘴角很快落下来。"
             "什么也不问。":
                 "我没有问。"
                 "他也没有说。"
@@ -213,7 +213,7 @@ label scene_card_reader:
                 "她退开半步，把位置让给我。"
                 xiaoman "老板，你就让他修嘛。"
                 "小满在旁边小声起哄。"
-                "我低头拧着什么，耳朵有点红。"
+                "我低头拧着什么，耳朵有点发烫。"
             "让她试试。":
                 "她说不用，自己来。"
                 "她把机器翻过来，学着我刚才的样子拔线，拔错了。"
@@ -244,7 +244,7 @@ label scene_card_reader:
     shenlan "程序员还修这个？"
     luyao "都是修东西。"
     if pov == "luyao":
-        "我说得很自然。"
+        "我答得很顺。"
         "她笑了一下。"
         show luyao warm_half at expr_left with dissolve
         "我抬头，正好看见。"
@@ -252,7 +252,7 @@ label scene_card_reader:
         "我的手背上贴着一块创可贴，边缘已经卷起来了。"
         "电脑包侧袋里，露出一角折起来的纸。那是猎头发来的面试通知。offer 还没影。"
     else:
-        "他说得很自然。"
+        "他说完，视线落到桌面上。"
         "我笑了一下。"
         show luyao warm_half at expr_left with dissolve
         "他抬头，正好看见。"
@@ -273,7 +273,7 @@ label scene_card_reader:
             "什么也不说。":
                 "她没有问。"
                 "我把工具收好，回窗边坐下。"
-                "那角折纸从我的包里露出一小截，像一句没说完的话。"
+                "那角折纸从包里露出一小截，他没有塞回去。"
     else:
         menu:
             "问他工作的事。":
@@ -282,12 +282,12 @@ label scene_card_reader:
                 luyao "说了你也不认识。"
                 "他把工具收进包里，动作停了一下。"
                 luyao "最近在休息。"
-                "他没有说「失业」。"
+                "他只说在休息，没有多讲。"
                 "我也没有再问。"
             "什么也不问。":
                 "我没有问。"
                 "他把工具收好，回窗边坐下。"
-                "那角折纸从包里露出一小截，像一句没说完的话。"
+                "那角折纸从包里露出一小截，他没有塞回去。"
 
     if pov == "luyao":
         "我走的时候，又点了一杯美式。"
@@ -328,7 +328,7 @@ label scene_useless_things:
         "打烊以后，她坐在后间捏一个泥人。"
         "我坐在旁边看，电脑包放在脚边。"
         "后间的架子上摆着小满做的兔子，耳朵是缝歪的。"
-        "墙上贴着她剪的星星，胶带都翘起来了。"
+        "墙上贴着小满剪的星星，胶带都翘起来了。"
         "这个店里到处都是小满。"
         "我手背上的创可贴是昨天搬货划的。她看了两次，没有问。"
     else:
@@ -393,7 +393,7 @@ label scene_useless_things:
         "我把牌子折好，塞进电脑包。"
         $ sign_removed = True
         "她没有问。"
-        "我知道这不是风大的事。"
+        "我把电脑包的拉链拉上。"
     else:
         "他站起来，看见玻璃门上的「转让」牌子。"
         "他伸手，把它摘了下来。"
@@ -417,7 +417,7 @@ label scene_useless_things:
                 shenlan "你每天四点走……是有事吗？"
                 "我把包带往肩上提了提。"
                 luyao "有点事。"
-                "四点我要去便利店换班。一小时多十二块。钱要留着。"
+                "四点去便利店换班，一小时多十二块。钱得留着。"
                 "我没有说。"
                 "她也没有再问。"
     else:
@@ -436,15 +436,15 @@ label scene_useless_things:
                 "最后只说了一句：「明天见。」"
 
     if pov == "luyao":
-        "我走的时候，她还在捏那个泥人。一个很小的、没有名字的人。"
+        "我走的时候，她还在捏那个没名字的小泥人。"
         "年糕跳上窗台，看着我。"
-        "我忽然意识到，这家店不只是她的。"
+        "这家店不只是她的。"
         "架子上有兔子，墙上有星星，猫碗上有一个歪歪扭扭的「年糕」。"
     else:
         "那天他走后，我把泥人捏完了。"
-        "一个很小的、没有名字的人。"
+        "泥人还没取名字。"
         "年糕从窗台上跳下来，蹭了蹭我的脚踝。"
-        "我忽然意识到，这家店不只是我的。"
+        "这家店不只是我的。"
         "架子上有兔子，墙上有星星，猫碗上有一个歪歪扭扭的「年糕」。"
     $ unlock_record("shop_cat")
 
@@ -453,7 +453,7 @@ label scene_useless_things:
         "那块牌子后来一直在我的电脑包里。"
         "我没有告诉她。"
     else:
-        "后来我常常想，那天他摘牌子，真的是因为风大吗。"
+        "后来每次看见那块牌子，我都想起他那句：「风大。」"
     jump piano_scene
 
 
@@ -501,7 +501,7 @@ label scene_book_margin:
             $ m6_write = True
             if pov == "luyao":
                 "她拿起铅笔，在下面写：「你数错了，是四颗。」"
-                "写完又觉得太认真，想擦掉，最后没擦。"
+                "她写完，铅笔在那行字上停了一下，最后没擦。"
             else:
                 "我拿起铅笔，在下面写：「你数错了，是四颗。」"
                 "写完又觉得太认真，想擦掉，最后没擦。"
@@ -523,7 +523,7 @@ label scene_book_margin:
         if pov == "luyao":
             "写完之后，我盯着那行字，笑了很久。"
         else:
-            "我看着那行字，笑了很久。"
+            "我看着那行字，没忍住笑了。"
     else:
         "「你那次没写。」"
         if pov == "luyao":
@@ -532,7 +532,7 @@ label scene_book_margin:
             "我盯着那四个字，不知道该怎么回。"
 
     "书里夹着一朵压干的满天星。"
-    "花瓣很脆，像一碰就会碎。"
+    "花瓣很脆。我翻页时放轻了手。"
     "再往后翻，有一行被划掉的字。划得很轻，还是看得见。"
     if pov == "luyao":
         "那是我写的。写完之后，又划掉了。"
@@ -546,8 +546,8 @@ label scene_book_margin:
                 show luyao awkward_half at expr_right with dissolve
                 luyao "……写错了。"
                 "我把书拿过去，用手指按住那一行。"
-                "她看见我的耳朵红了。"
-                "她还是看见了。那三个字是：留下来。"
+                "我觉得耳朵一阵发烫。"
+                "可她大概还是看见了。那三个字是：留下来。"
                 "她没有再问。"
             else:
                 "我把书推回他面前。"
@@ -561,10 +561,10 @@ label scene_book_margin:
         "不问。":
             if pov == "luyao":
                 "她把书合上。"
-                "那行被划掉的字，像一句没有说出口的话。"
+                "那行字划得很轻，还是没有盖住。"
             else:
                 "我把书合上。"
-                "那行被划掉的字，像一句没有说出口的话。"
+                "那行字划得很轻，还是没有盖住。"
 
     if pov == "luyao":
         "那天晚上，她把书放在柜台上，压在欠款单上面。"
@@ -593,7 +593,7 @@ label scene_book_margin:
 
     scene black with warmfade
     "后来那本书一直在柜台上。"
-    "我们谁也没有再提页边的事。"
+    "页边的事，后来没人再提。"
     jump scene_door_light
 
 
@@ -622,7 +622,7 @@ label scene_door_light:
         "我把后间的梯子搬出来。"
         "他爬上去，把灯罩拆下来，换了一根线。"
         "雨落在他的肩上。"
-    "灯亮的时候，整条街都亮了一下。"
+    "灯亮起来，雨里的街面亮了一片。"
     shenlan "……好了。"
     show luyao warm_half at expr_right with dissolve
     luyao "好了。"
@@ -674,7 +674,7 @@ label scene_door_light:
         "我回去的时候，头发全湿了。"
         if m7_star:
             "我摸了摸电脑包拉链上的那颗星。"
-            "我想，再想想，也许就是不用想了。"
+            "我想，先不回了。"
     else:
         "他的手机响了。"
         "他看了一眼屏幕，走到街对面去接。"
@@ -718,7 +718,7 @@ label scene_door_light:
     xiaoman "老板，你看。"
     "暖黄色的小灯从柜台一直挂到窗边。"
     xiaoman "这样晚上也像有人等。"
-    "她说这话的时候，没有看我们。"
+    "她没抬头，继续理那串小灯。"
     $ unlock_record("door_light")
 
     scene black with warmfade
@@ -817,16 +817,16 @@ label scene_umbrella:
                 "他抬头看了看楼上。"
                 luyao "……下次吧。"
                 "他说完，又补了一句：「你早点睡。」"
-                "我知道他不是不想，是不敢。"
+                "我猜他不是不想，是不敢。"
             "说晚安。":
                 "我说：「谢谢你送我。」"
                 luyao "顺路。"
-                "他又说了那个谎。"
+                "这次也不是顺路。"
                 "我笑了笑，说晚安。"
                 "他站在楼下，看我上楼，才走。"
 
     scene black with dissolve
-    "那之后的日子，像被人偷偷调亮了。"
+    "那之后，日子好过了一点。"
     scene bg shop day with dissolve
     if pov == "luyao":
         "我每天下午来，点一杯最便宜的美式。"
@@ -929,7 +929,7 @@ label scene_lease:
             landlord "行。十五号之前给我个准话。"
             "他把文件袋收好，走了。"
             hide landlord with dissolve
-            "那张报价单留在柜台上，像一块烫手的铁。"
+            "那张报价单留在柜台上。我没有收。"
 
     scene bg shop night with paperdissolve
     show fx lamp night
@@ -941,7 +941,7 @@ label scene_lease:
     shenlan "嗯？"
     xiaoman "……没事。"
     "她把一杯温水放在我手边，转身去擦桌子。"
-    "她看见了。她没有问。"
+    "她擦着桌子，没问。"
 
     menu:
         "告诉陆遥。":
@@ -981,7 +981,7 @@ label scene_three_am:
     "那天夜里，我落了东西在店里。"
     "回来的时候，已经过了三点。"
     if m10_told:
-        "白天他没有来。夜里，他却在这里。"
+        "白天没见到他。夜里回来，他已经在店里。"
     "店门没有锁。"
     "他趴在柜台上睡着了。"
     "电脑还亮着。"
@@ -1004,7 +1004,7 @@ label scene_three_am:
             "我把外套脱下来，盖在他肩上。"
             "他动了一下，没有醒。"
             "屏幕的光照着他的侧脸。"
-            "有些事，不看也能猜到。"
+            "我把视线移开。"
 
     "他睡得很沉，眉头还皱着。"
     "柜台上放着一杯凉透的美式，只喝了一半。"
@@ -1027,7 +1027,7 @@ label scene_three_am:
 
     scene bg shop day with paperdissolve
     show fx lamp day
-    "天亮以后，他像什么都没发生过一样，点了一杯美式。"
+    "天亮以后，他照常点了一杯美式。"
     luyao "昨晚……谢谢你。"
     shenlan "谢什么？"
     luyao "……外套。"
@@ -1043,8 +1043,8 @@ label scene_three_am:
 
     $ unlock_record("truth_347")
     scene black with warmfade
-    "后来我常常想起 3:47 这个时间。"
-    "那是我从来没有醒着见过的时刻。"
+    "后来我总会看一眼 3:47。"
+    "我没在清醒的时候见过它。"
     "他替我在那个时刻，守了很久。"
     jump puzzle_scene
 
@@ -1060,7 +1060,7 @@ label scene_notebook:
     show fx lamp day
     show xiaoman neutral_bust at expr_right with dissolve
     "下午没什么客人，小满趴在柜台上写东西。"
-    "她写得很快，写两笔就抬头数一遍罐子里的星星。"
+    "她写两笔，就抬头数一遍罐子里的星星。"
     shenlan "在写什么？"
     xiaoman "秘密。"
     "她把本子合上，又忍不住翻开给我看。"
@@ -1072,7 +1072,7 @@ label scene_notebook:
     hide screen doc_overlay with dissolve
 
     "她的手机响了。"
-    "她看了一眼屏幕，脸上的笑收了一点。"
+    "她看了一眼屏幕，笑意停了。"
     xiaoman "……我妈。"
     "她走到后间门口去接。"
     "门没有关严。"
@@ -1108,8 +1108,8 @@ label scene_notebook:
     xiaoman "老板。"
     shenlan "嗯？"
     xiaoman "如果有一天你不想开了，我可以当店长。"
-    "她说完，自己先愣住了。"
-    "我也愣住了。"
+    "她说完，手指在本子边上停了停。"
+    "我没有接话。"
 
     menu:
         "告诉她店的事。":
@@ -1125,7 +1125,7 @@ label scene_notebook:
             "我没有说。"
             "我说：「好啊。」"
             "她笑了，把本子抱在怀里。"
-            "那个笑让我更难受。"
+            "我没有再看她。"
 
     scene bg shop day with paperdissolve
     show fx lamp day
@@ -1134,7 +1134,7 @@ label scene_notebook:
     "傍晚，陆遥来了。"
     "小满给他端咖啡，顺口问了一句：「陆哥，听说你找到工作了？」"
     luyao "……嗯。找到了。"
-    "他说得很自然。"
+    "他说完，视线落到桌面上。"
     xiaoman "那挺好的。"
     "她端着托盘走了。"
     "陆遥低头喝咖啡。"
@@ -1174,28 +1174,28 @@ label luyao_pov_book:
     "第二天，她把书还给我。"
     if m6_write:
         "页边多了一行：「四颗就四颗。那第四颗是哪一颗？」"
-        "我看着那行字，笑了很久。"
+        "我看着那行字，没忍住笑了。"
     else:
         "页边没有新的字。"
         "我写下：「你那次没写。」"
 
     "书里夹着一朵压干的满天星。"
-    "花瓣很脆，像一碰就会碎。"
+    "花瓣很脆。我翻页时放轻了手。"
     "再往后翻，有一行被划掉的字。"
     "那是我写的。写完之后，又划掉了。"
 
     menu:
-        "告诉她那三个字。":
+        "把书推给她。":
             $ m6_ask = True
             "我把书推到她面前。"
             shenlan "这行划掉的是什么？"
             show luyao awkward_half at expr_right with dissolve
             luyao "……写错了。"
             "我把书拿回来，用手指按住那一行。"
-            "她看见我的耳朵红了。"
+            "我觉得耳朵有点发烫。"
         "把书合上。":
             "我把书合上。"
-            "那行被划掉的字，像一句没有说出口的话。"
+            "那行字划得很轻，还是没有盖住。"
 
     "那天晚上，她把书放在柜台上，压在欠款单上面。"
     "书页里那朵满天星，被她夹回了原来的位置。"
@@ -1212,7 +1212,7 @@ label luyao_pov_book:
 
     scene black with warmfade
     "后来那本书一直在柜台上。"
-    "我们谁也没有再提页边的事。"
+    "页边的事，后来没人再提。"
     jump scene_door_light
 
 
@@ -1247,7 +1247,7 @@ label luyao_pov_notebook:
     "她回来的时候，眼睛有点红。"
     "她给沈岚倒了一杯水，又给我端来咖啡。"
     xiaoman "陆哥，如果有一天老板不想开了，我可以当店长。"
-    "她说完，自己先愣住了。"
+    "她说完，手指在本子边上停了停。"
 
     menu:
         "说「你可以」。":
@@ -1262,8 +1262,8 @@ label luyao_pov_notebook:
 
     xiaoman "陆哥，听说你找到工作了？"
     luyao "……嗯。找到了。"
-    "我说得很自然。"
-    "其实我还没有。"
+    "我答得很顺。"
+    "其实还没签。"
     "offer 在包里，我还没有签。"
     show screen doc_overlay("prop offer letter") with dissolve
     "职位、薪水、入职日期，都写得很清楚。"
@@ -1275,7 +1275,7 @@ label luyao_pov_notebook:
     luyao "房东最近来过吗？"
     shenlan "……怎么突然问这个？"
     luyao "随便问问。"
-    "我在算。算她欠多少，算我还能付多少。"
+    "我在心里过账：她欠多少，我还能付多少。"
     "我没有说。"
 
     $ unlock_record("notebook")
@@ -1318,7 +1318,7 @@ label luyao_pov_landlord:
     $ unlock_record("lease")
     scene black with warmfade
     "那张报价单一直压在柜台最里面。"
-    "纸很薄，压在她手里却很重。"
+    "纸很薄，她却一直没舍得扔。"
     jump scene_three_am
 
 
@@ -1372,6 +1372,6 @@ label luyao_pov_347:
     "我们谁也没有提电脑。"
     $ unlock_record("truth_347")
     scene black with warmfade
-    "后来我常常想起 3:47 这个时间。"
+    "后来我总会看一眼 3:47。"
     "那是我第一次希望天不要亮。"
     jump puzzle_scene

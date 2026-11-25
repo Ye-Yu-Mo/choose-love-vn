@@ -128,7 +128,7 @@ label argument_scene:
         elif l_lease_told:
             "她早就知道我付了租约。所以今晚，她没有问钱从哪来。"
         else:
-            "她还不知道。她以为我只是每天来喝咖啡。"
+            "她应该还不知道。在她眼里，我大概只是每天来喝咖啡。"
         if m7_star:
             "我电脑包的拉链上，还挂着那颗写着「留下」的星。"
         if l_four_told:
@@ -148,11 +148,11 @@ label argument_scene:
         if f_asked:
             "他第一次来的时候，说自己只是「路过」。"
         if f_piano == "teach":
-            "我想起她教他时，说手腕放松一点。"
+            "我想起我教他时，说手腕放松一点。"
         elif f_piano == "tease":
-            "我想起她说他在敲代码。"
+            "我想起自己说他在敲代码。"
         elif f_piano == "try":
-            "我想起她退后半步，让他自己按对。"
+            "我想起自己退后半步，让他自己按对。"
         "我把他叫回来的时候，他连伞都没拿。"
         luyao "……你看见了。"
         "他站在门口，头发上还是雨。"
@@ -218,10 +218,10 @@ label argument_scene:
         $ a_choices.append(("什么也不做" if pov == "luyao" else "什么也不拿", 0, "你坐在对面，等她先开口。"))
         if pov == "luyao":
             "我在她对面坐下，什么也没拿。"
-            "雨声填满了我们中间的空隙。"
+            "雨声很大。我们隔着桌子坐了一会儿。"
         else:
             "我在他对面坐下，什么也没拿。"
-            "雨声填满了我们中间的空隙。"
+            "雨声很大。我们隔着桌子坐了一会儿。"
 
     show screen argue_meter
     if pov == "luyao":
@@ -282,8 +282,8 @@ label argument_scene:
     if pov == "luyao":
         "我说，晚上在便利店做兼职。"
         "我说，等店缓过来，再去找工作。"
-        "我说，我什么都不需要她做。"
-        "我只是不想让她走。"
+        "我说，你不用替我做什么。"
+        "我就是不想让你走。"
     else:
         "他说，晚上在便利店做兼职。"
         "他说，等店缓过来，再去找工作。"
@@ -341,7 +341,7 @@ label argument_scene:
                 luyao "我不是想让你欠我。我是怕你走。"
                 shenlan "……你为什么不早说？"
                 luyao "因为说了，你就走了。"
-                "这句话一出口，我自己也听见了它有多自私。"
+                "说完，我把视线移开。"
             "用「我只是想帮你」挡。":
                 luyao "我只是想帮你。"
                 "她没有说话。"
@@ -387,7 +387,10 @@ label argument_calm:
     luyao "下次……我先问你。"
     shenlan "嗯。"
     "窗外的雨小了一点。"
-    $ a_review = "你停下来的时候，他也停下来了。"
+    if pov == "luyao":
+        $ a_review = "你停下来的时候，她也停下来了。"
+    else:
+        $ a_review = "你停下来的时候，他也停下来了。"
     jump argument_review_scene
 
 
@@ -396,9 +399,9 @@ label argument_stuck:
     show luyao sad_half at expr_right with dissolve
     "我们谁也没有说服谁。"
     if pov == "luyao":
-        "我把手机扣在桌上，像认错，又像不服。"
+        "我把手机扣在桌上，屏幕朝下。先不看了。"
     else:
-        "他把手机扣在桌上，像认错，又像不服。"
+        "他把手机扣在桌上，屏幕朝下。没再说话。"
     "雨还在下。"
     $ a_review = "你们都说了话，但没有一句真正落到对方那里。"
     jump argument_review_scene
@@ -412,13 +415,16 @@ label argument_break:
     if pov == "luyao":
         "我把钥匙放在桌上。"
         "门铃响了一声。"
-        "雨声把我吞掉了。"
+        "我推门出去，雨落在肩上。"
     else:
         "他把钥匙放在桌上。"
         "门铃响了一声。"
-        "雨声把他吞掉了。"
+        "他推门出去，雨落在肩上。"
     $ a_broke = True
-    $ a_review = "那天晚上，你赢了。你也把他推远了。"
+    if pov == "luyao":
+        $ a_review = "那天晚上，你赢了。你也把她推远了。"
+    else:
+        $ a_review = "那天晚上，你赢了。你也把他推远了。"
     jump argument_review_scene
 
 

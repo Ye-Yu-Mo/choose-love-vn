@@ -1,0 +1,32 @@
+{
+  "shenlan": {
+    "text": "今天店里没什么客人。先把灯关了吧。",
+    "instruct": "一位声音偏低、温柔的年轻女性，语速慢，气息轻，像很累但仍在照顾别人。",
+    "path": "/Users/jasxu/Documents/choose_love/assets/voice_refs/shenlan.wav",
+    "duration": 5.52
+  },
+  "luyao": {
+    "text": "我看看。这个应该能修。",
+    "instruct": "一位温和低沉的年轻男性，语速中等，咬字清楚，声音克制，像程序员在解释一件重要的事。",
+    "path": "/Users/jasxu/Documents/choose_love/assets/voice_refs/luyao.wav",
+    "duration": 2.08
+  },
+  "xiaoman": {
+    "text": "老板，你看，今天送出去十七颗星。",
+    "instruct": "一位明亮轻快的年轻女性，语速偏快，带一点笑意，像二十二岁的店员在撒娇。",
+    "path": "/Users/jasxu/Documents/choose_love/assets/voice_refs/xiaoman.wav",
+    "duration": 2.8
+  },
+  "landlord": {
+    "text": "按合同来，下个月十五号之前。",
+    "instruct": "一位四十多岁的中年男性，语气客气、实际，语速中等，像在谈合同。",
+    "path": "/Users/jasxu/Documents/choose_love/assets/voice_refs/landlord.wav",
+    "duration": 2.16
+  },
+  "zhou": {
+    "text": "琴不用调得太准，人也是。",
+    "instruct": "一位六十多岁的老年男性，声音慢、低，话不多。",
+    "path": "/Users/jasxu/Documents/choose_love/assets/voice_refs/zhou.wav",
+    "duration": 2.56
+  }
+}
