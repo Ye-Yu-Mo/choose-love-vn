@@ -21,6 +21,7 @@
 | `tools/make_paper_ui.py` | 生成暗角、纸质按钮、翻页遮罩 |
 | `tools/make_documents.py` | 程序化生成邮件、租约、offer、信、本子、3:47 屏幕 |
 | `tools/make_object_props.py` | 程序化生成菜单板、转让牌、咖啡+纸星静物 |
+| `tools/remove_transfer_sign.py` | 生成无「转让」牌的店铺背景变体 |
 
 ## 音乐
 
@@ -48,29 +49,33 @@
 
 | 名称 | 文件 | 状态 |
 |---|---|---|
-| `bg shop day` | `images/bg shop day.png` | 已有 |
-| `bg shop night` | `images/bg shop night.png` | 已有 |
+| `bg shop day` | `images/bg shop day.png` | 已有；`sign_removed` 后切无牌变体 |
+| `bg shop night` | `images/bg shop night.png` | 已有；`sign_removed` 后切无牌变体 |
 | `bg back room` | `images/bg back room.png` | 已有 |
 | `bg piano corner` | `images/bg piano corner.png` | 已有 |
 | `bg street rain` | `images/bg street rain.png` | 已有 |
 | `bg starry sky` | `images/bg/bg_starry_sky.png` | 已有（星图） |
+| `bg shop day no sign` | `images/bg shop day no sign.png` | 已生成（记录 4 摘牌后） |
+| `bg shop night no sign` | `images/bg shop night no sign.png` | 已生成（记录 4 摘牌后） |
 
 ## CG
 
 | 名称 | 文件 | 用途 |
 |---|---|---|
 | `cg piano lesson` | `images/cg piano lesson.png` | 教琴全景 |
-| `cg 347` | `images/cg/cg_347.png` | 凌晨 3:47，陆遥睡在柜台 |
-| `cg base inside` | `images/cg/cg_base_inside.png` | 底座内部：钥匙 + 信 |
+| `cg 347` | `images/cg/cg_347.png` | 凌晨 3:47，陆遥睡在柜台（已去掉错误挂钟） |
+| `cg base inside` | `images/cg/cg_base_inside.png` | 底座内部：钥匙 + 信（墓园模型，与道具一致） |
 | `cg shenlan piano` | `images/cg shenlan piano.png` | 沈岚弹琴 |
 | `cg luyao piano` | `images/cg luyao piano.png` | 陆遥学琴 |
 | `cg ending together` | `images/cg/ending_together.png` | 一起开 |
 | `cg ending xiaoman` | `images/cg/ending_xiaoman.png` | 朋友一个人开 |
 | `cg ending depart` | `images/cg/ending_with_him.png` | 她和他走 |
-| `cg ending alone` | `images/cg/ending_alone.png` | 没有回头 |
+| `cg ending alone` | `images/cg/ending_alone.png` | 没有回头（沈岚造型已对齐立绘） |
 | `cg ending funeral` | `images/cg/ending_funeral.png` | 完成葬礼 |
 | `cg ending together`（冷色调复用） | `images/cg/ending_together.png` | 白夜（暂不新出图） |
-| `cg ending told` | `images/cg/cg_ending_told.png` | 如果那天我说了（三个人在柜台，清晨） |
+| `cg ending told` | `images/cg/cg_ending_told.png` | 如果那天我说了（三个人在柜台，清晨；模型已改为墓园） |
+| `cg coffee star` | `images/cg/cg_coffee_star.png` | 美式 + 纸星近景（记录 2） |
+| `cg exhibition` | `images/cg/cg_exhibition.png` | 小展：模型、纸星罐、星图册（一起开 / 朋友一个人开） |
 
 ## 文档 / 屏幕特写（程序化生成）
 
@@ -85,7 +90,7 @@
 | `prop notebook page` | `images/props/notebook_page.png` | 小满的本子 |
 | `prop menu board` | `images/props/menu_board.png` | 菜单（美式 18 / 拿铁 22 / 手冲 28） |
 | `prop transfer sign` | `images/props/transfer_sign.png` | 玻璃门上的「转让」牌 |
-| `prop coffee star` | `images/props/coffee_star.png` | 咖啡 + 纸星静物 |
+| `prop coffee star` | `images/props/coffee_star.png` | 旧合成图，已被 `cg coffee star` 取代 |
 
 > 这些图由 `tools/make_documents.py` 生成，中文由 `SourceHanSansLite.ttf` 渲染，避免 AI 出字糊字。数字以上海陆家嘴 2025 年租金/薪资为参考：58 平方米、原租 10,000 → 续租 18,000，offer 32,000×15 薪，N+1 约 96,000。
 
