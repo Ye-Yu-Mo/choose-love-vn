@@ -131,12 +131,14 @@ label piano_scene:
 
     menu:
         "认真教他":
+            $ f_piano = "teach"
             shenlan "手腕放松一点。"
             if pov == "luyao":
                 "我照做，还是弹错。"
             else:
                 "他照做，还是弹错。"
         "逗他":
+            $ f_piano = "tease"
             shenlan "陆同学，你这是在敲代码吗？"
             luyao "……差不多。"
             if pov == "luyao":
@@ -144,6 +146,7 @@ label piano_scene:
             else:
                 "她笑，他也笑。"
         "让他自己试":
+            $ f_piano = "try"
             "她没有说话，退后半步。"
             if pov == "luyao":
                 "我试了几次，终于按对。"

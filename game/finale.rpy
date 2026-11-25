@@ -198,6 +198,10 @@ label ending_together:
         "我把模型底座重新封好。里面那封给她的信，我没有动。"
     else:
         "我把模型底座重新封好。"
+    if m10_signed:
+        "新租约已经签了。每个月的数字还在，但这次是我们一起算的。"
+    else:
+        "续租还拖着。房东给了期限，我们没有再躲。"
     "琴盖打开着。"
     if m8_hand:
         "他先伸出手。我牵住了。"
@@ -205,7 +209,9 @@ label ending_together:
         "年糕还是喜欢跳上他的膝盖。"
     "那天下午，店里放了那首《满天星》。"
     "一个月后，我们在店里办了一个很小的展览。"
+    show cg exhibition with dissolve
     "展柜里是那座模型、一罐纸星，和一本写满页边的星图册。"
+    hide cg exhibition with dissolve
     $ bgm("letter", fadein=2.5)
     call screen ending_title("一起开", "有些星星，要两个人一起抬头，才看得见。", "一")
     return
@@ -222,6 +228,12 @@ label ending_xiaoman:
     shenlan "嗯。"
     xiaoman "店我给你留着。"
     "她没有问我去哪。"
+    if f_told == "truth":
+        "她知道我本来打算不在了。"
+    elif f_told == "lie":
+        "她到最后还以为我只是累了。"
+    elif f_told == "ask":
+        "她说，她早就知道。"
     "她把那只缝歪耳朵的兔子摆在收银台上。"
     "我走到街口，回头看了一眼。"
     "她把门口的牌子翻到了「营业」。"
@@ -232,6 +244,9 @@ label ending_xiaoman:
     "那天的阳光很好。"
     "我把日历上那个日子划掉了。"
     "后来小满在店里办了一个小展，把模型放在最中间。"
+    show cg exhibition with dissolve
+    "展柜里还有一罐纸星，和一本写满页边的星图册。"
+    hide cg exhibition with dissolve
     "她没有改店名。"
     call screen ending_title("朋友一个人开", "店还亮着。她替你留了一盏灯。", "二")
     return
@@ -444,12 +459,18 @@ label ending_together_luyao:
     shenlan "问什么？"
     luyao "你愿不愿意，让我留下来。"
     "她把模型底座重新封好。"
+    if l_lease_told:
+        "房租的事，我们已经一起算过了。"
     "琴盖打开着。"
     if m8_hand:
         "她先伸出手。我牵住了。"
     if m4_feed:
         "年糕还是喜欢跳上我的膝盖。"
     "那天下午，店里放了那首《满天星》。"
+    "一个月后，我们在店里办了一个很小的展览。"
+    show cg exhibition with dissolve
+    "展柜里是那座模型、一罐纸星，和一本写满页边的星图册。"
+    hide cg exhibition with dissolve
     $ bgm("letter", fadein=2.5)
     call screen ending_title("一起开", "有些星星，要两个人一起抬头，才看得见。", "一")
     return
@@ -464,6 +485,8 @@ label ending_white_night_luyao:
     "她留下了。"
     "我把最后一笔夜班钱转给房东。租约上是她的名字，钱是我出的。"
     "那个日子，她划掉了。可她没有告诉我。"
+    if l_lease_told:
+        "房租的事，她早就知道。"
     "她还是四点走，还是点最便宜的美式。"
     "她还是在我桌上放星，一颗，两颗。"
     "店里看起来和以前一样。"
@@ -499,6 +522,9 @@ label ending_xiaoman_luyao:
     "那天的阳光很好。"
     "她把日历上那个日子划掉了。"
     "后来小满在店里办了一个小展，把模型放在最中间。"
+    show cg exhibition with dissolve
+    "展柜里还有一罐纸星，和一本写满页边的星图册。"
+    hide cg exhibition with dissolve
     "她没有改店名。"
     call screen ending_title("朋友一个人开", "店还亮着。小满替她留了一盏灯。", "二")
     return

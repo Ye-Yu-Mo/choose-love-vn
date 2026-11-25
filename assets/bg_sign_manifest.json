@@ -1,0 +1,9 @@
+[
+  {
+    "name": "bg_shop_night_no_sign",
+    "ref": "game/images/bg shop night.png",
+    "size": "1536x1024",
+    "transparent": false,
+    "prompt": "Same image, same composition, same lighting, same colors. Remove the small wooden hanging sign and its ropes from the glass door on the right. Fill that area seamlessly with the same rain-streaked glass and night street reflections. Keep every other detail identical. No text, no logos."
+  }
+]

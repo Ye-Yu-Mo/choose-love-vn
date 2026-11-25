@@ -6,14 +6,19 @@ image bg konbini pixel = "images/bg konbini pixel.png"
 image bg konbini ai = "images/bg konbini ai.png"
 
 # 《满天星》场景
-image bg shop day = "images/bg shop day.png"
-image bg shop night = "images/bg shop night.png"
+image bg shop day = ConditionSwitch(
+    "sign_removed", "images/bg shop day no sign.png",
+    "True", "images/bg shop day.png")
+image bg shop night = ConditionSwitch(
+    "sign_removed", "images/bg shop night no sign.png",
+    "True", "images/bg shop night.png")
 image bg back room = "images/bg back room.png"
 image bg piano corner = "images/bg piano corner.png"
 image bg street rain = "images/bg street rain.png"
 image prop model funeral = "images/prop model funeral.png"
 image cg 347 = "images/cg/cg_347.png"
 image cg base inside = "images/cg/cg_base_inside.png"
+image cg coffee star = "images/cg/cg_coffee_star.png"
 
 # 结局 CG
 image cg ending together = "images/cg/ending_together.png"
@@ -22,6 +27,7 @@ image cg ending depart = "images/cg/ending_with_him.png"
 image cg ending alone = "images/cg/ending_alone.png"
 image cg ending funeral = "images/cg/ending_funeral.png"
 image cg ending told = "images/cg/cg_ending_told.png"
+image cg exhibition = "images/cg/cg_exhibition.png"
 
 
 # 文档 / 屏幕特写（程序化生成，中文清晰）

@@ -78,9 +78,9 @@ label scene_first_star:
                 "我把咖啡放下，收走了托盘。"
 
     if m2_star:
-        show prop coffee star at doc_center with dissolve
+        show cg coffee star with dissolve
         "咖啡的热气把纸星的边角吹得微微翘起来。"
-        hide prop coffee star with dissolve
+        hide cg coffee star with dissolve
 
     if pov == "luyao":
         if m2_star:
@@ -381,6 +381,7 @@ label scene_useless_things:
         shenlan "……你干嘛？"
         luyao "风大。"
         "我把牌子折好，塞进电脑包。"
+        $ sign_removed = True
         "她没有问。"
         "我知道这不是风大的事。"
     else:
@@ -389,6 +390,7 @@ label scene_useless_things:
         shenlan "……你干嘛？"
         luyao "风大。"
         "他把牌子折好，塞进自己的电脑包。"
+        $ sign_removed = True
         "我没有问。"
 
     if pov == "luyao":

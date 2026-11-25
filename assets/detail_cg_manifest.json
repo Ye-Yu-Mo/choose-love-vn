@@ -1,12 +1,9 @@
 [
   {
-    "name": "cg_base_inside",
+    "name": "ending_alone_v2",
+    "ref": "game/images/cg/ending_alone.png",
     "size": "1536x1024",
-    "prompt": "Visual novel CG close-up, top-down view into the opened thick base of a handmade miniature funeral model, a small brass key and a folded handwritten letter lying inside a shallow wooden drawer lined with dark velvet, tiny paper stars and dried flowers around the drawer, warm amber desk lamp light, shallow depth of field, cinematic anime, soft watercolor texture, no readable text, no logos."
-  },
-  {
-    "name": "cg_ending_told",
-    "size": "1536x1024",
-    "prompt": "Visual novel ending CG, interior of a small Chinese coffee shop at dawn, a 24-year-old Chinese woman with shoulder-length messy hair in a beige shirt and dark apron and a 25-year-old Chinese man with messy hair, glasses and a dark hoodie sitting side by side at a wooden counter, lease papers, an offer letter and an open handwritten letter spread on the counter, an opened handmade miniature funeral model base with a small brass key beside it, a 22-year-old Chinese woman with a short ponytail and paint-stained apron standing at the door holding a broom, warm early morning light through the glass door, quiet and hopeful, cinematic anime, soft watercolor texture, warm amber palette, 16:9 composition, no readable text, no logos."
+    "transparent": false,
+    "prompt": "Same image, same composition, same pose, same lighting, same train interior and star. Change only the woman to match the game's protagonist: short messy shoulder-length hair instead of long hair, no glasses, same dark coat and scarf, same face and quiet expression. Keep everything else identical. No text, no logos."
   }
 ]

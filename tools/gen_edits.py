@@ -33,9 +33,10 @@ def generate(job, out_dir, retries=3):
             "-F", f"image=@{job['ref']}",
             "-F", f"prompt={job['prompt']}",
             "-F", f"size={job.get('size', '1024x1536')}",
-            "-F", "background=transparent",
             "-F", "output_format=png",
         ]
+        if job.get("transparent", True):
+            cmd += ["-F", "background=transparent"]
         try:
             res = subprocess.run(cmd, capture_output=True, text=True, timeout=320)
             payload = json.loads(res.stdout)
