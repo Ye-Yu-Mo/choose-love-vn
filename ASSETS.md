@@ -82,7 +82,7 @@
 | `prop screen 347` | `images/props/screen_347.png` | 3:47 店铺后台 |
 | `prop notebook page` | `images/props/notebook_page.png` | 小满的本子 |
 
-> 这些图由 `tools/make_documents.py` 生成，中文由 `SourceHanSansLite.ttf` 渲染，避免 AI 出字糊字。
+> 这些图由 `tools/make_documents.py` 生成，中文由 `SourceHanSansLite.ttf` 渲染，避免 AI 出字糊字。数字以上海陆家嘴 2025 年租金/薪资为参考：58 平方米、原租 10,000 → 续租 18,000，offer 32,000×15 薪，N+1 约 96,000。
 
 ## 立绘
 
