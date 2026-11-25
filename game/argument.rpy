@@ -42,6 +42,24 @@ screen argue_table():
                 textbutton "水杯" action Return("cup") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
                 textbutton "什么也不拿" action Return("nothing") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
 
+# 二周目：桌面选择（陆遥的视角）
+screen argue_table_luyao():
+    modal True
+    frame:
+        xalign 0.5
+        yalign 0.88
+        background "#00000090"
+        padding (26, 16)
+        vbox:
+            spacing 12
+            text "桌上摊着三样东西。" size 18 color "#e8c7a8" xalign 0.5
+            hbox:
+                spacing 18
+                textbutton "把租约推过去" action Return("lease") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
+                textbutton "拿起手机" action Return("phone") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
+                textbutton "给她倒杯水" action Return("cup") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
+                textbutton "什么也不做" action Return("nothing") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
+
 # 复盘：像翻开一本笔记本
 screen argue_review():
     modal True
@@ -53,7 +71,7 @@ screen argue_review():
         padding (44, 34)
         vbox:
             spacing 20
-            text "那天晚上，我记下的三句话。" size 26 color "#3a3226"
+            text ("那天晚上，她记下的三句话。" if pov == "luyao" else "那天晚上，我记下的三句话。") size 26 color "#3a3226"
             for title, delta, echo in a_choices:
                 $ dcolor = "#b0453a" if delta > 0 else ("#3f6b52" if delta < 0 else "#6b5d4a")
                 $ dtext = ("+%d" % delta) if delta > 0 else ("%d" % delta)
@@ -66,7 +84,7 @@ screen argue_review():
                     text echo size 18 color "#6b5d4a"
             if a_review:
                 text a_review size 22 color "#3a3226"
-            textbutton "合上本子" action Return() text_size 20 xalign 1.0
+            textbutton "合上本子" action Return() text_size 20 text_color "#3a2c1e" text_hover_color "#8a4a20" xalign 1.0
 
 
 label argument_scene:
@@ -77,7 +95,7 @@ label argument_scene:
     $ a_review = ""
     $ a_broke = False
     scene black with warmfade
-    call screen chapter_card("第四章", "争吵", "D-7")
+    call screen chapter_card("第四章", "争吵", "距关店 7 天")
 
     scene bg shop night with paperdissolve
     show fx lamp night
@@ -90,6 +108,8 @@ label argument_scene:
         "最后一次修改，是凌晨三点四十七分。"
         if p_branch == "luyao_seen":
             "三天前，我先打开了模型。我知道她打算走。"
+        if f_asked:
+            "我第一次来的时候，说自己只是「路过」。她没有拆穿。"
         "她把我叫回来。我连伞都没拿。"
         luyao "……你看见了。"
         "我站在门口，头发上还是雨。"
@@ -113,6 +133,8 @@ label argument_scene:
         if p_branch == "luyao":
             "三天前，他先看见了那封信。"
             "所以他知道，我本来打算走。"
+        if f_asked:
+            "他第一次来的时候，说自己只是「路过」。"
         "我把他叫回来的时候，他连伞都没拿。"
         luyao "……你看见了。"
         "他站在门口，头发上还是雨。"
@@ -131,12 +153,15 @@ label argument_scene:
         if m2_talk or m3_ask:
             "他早就告诉过我：「今天开始不用去了」，「最近在休息」。我那时候没有听懂。"
 
-    call screen argue_table
+    if pov == "luyao":
+        call screen argue_table_luyao
+    else:
+        call screen argue_table
     $ r = _return
 
     if r == "lease":
         $ a_heat += 2
-        $ a_choices.append(("先把租约推过去", 2, "你把最疼的那根刺先递了过去。"))
+        $ a_choices.append(("把租约推过去" if pov == "luyao" else "先把租约推过去", 2, "你把最疼的那根刺先递了过去。"))
         shenlan "你什么时候签的？"
         luyao "上个月。"
         shenlan "用你的钱？"
@@ -146,10 +171,10 @@ label argument_scene:
             "他没有否认。"
     elif r == "phone":
         $ a_heat += 1
-        $ a_choices.append(("先拿起他的手机", 1, "你想问他几点睡，出口却成了另一句话。"))
+        $ a_choices.append(("拿起手机" if pov == "luyao" else "先拿起他的手机", 1, "你想问他几点睡，出口却成了另一句话。"))
         if pov == "luyao":
-            "她拿起我的手机。"
-            "凌晨三点四十七分，我还在改店里的菜单。"
+            "我把手机翻过来，屏幕还停在 3:47。"
+            "店铺后台的提交记录一条一条往下排。"
         else:
             "我拿起他的手机。"
             "凌晨三点四十七分，他还在改店里的菜单。"
@@ -157,60 +182,79 @@ label argument_scene:
         luyao "……记不清了。"
     elif r == "cup":
         $ a_heat -= 1
-        $ a_choices.append(("先给他倒一杯水", -1, "你先把水递过去，才把问题递过去。"))
+        $ a_choices.append(("给她倒了一杯水" if pov == "luyao" else "先给他倒一杯水", -1, "你先把水递过去，才把问题递过去。"))
         if pov == "luyao":
-            "她起身，给自己倒水，也给我倒了一杯。"
-            "我的手很凉。"
+            "我起身，给她倒了一杯水。"
+            "她的手很凉。"
+            shenlan "……谢谢。"
         else:
             "我起身，给自己倒水，也给他倒了一杯。"
             "他的手很凉。"
-        luyao "……谢谢。"
+            luyao "……谢谢。"
     else:
-        $ a_choices.append(("什么也不拿", 0, "你坐在他对面，等他先开口。"))
+        $ a_choices.append(("什么也不做" if pov == "luyao" else "什么也不拿", 0, "你坐在对面，等他先开口。"))
         if pov == "luyao":
-            "她在我对面坐下，什么也没拿。"
+            "我在她对面坐下，什么也没拿。"
             "雨声填满了我们中间的空隙。"
         else:
             "我在他对面坐下，什么也没拿。"
             "雨声填满了我们中间的空隙。"
 
     show screen argue_meter
-    "他先开口了。"
+    if pov == "luyao":
+        "我先开口了。"
+    else:
+        "他先开口了。"
     luyao "钱是我自己的。工作也是我自己的决定。"
     luyao "我没有动店里的钱。"
     shenlan "那是你的全部。"
     luyao "……我知道。"
     luyao "我只是不想让你走。"
 
-    menu:
-        "“你为什么不告诉我？”":
-            $ a_heat += 1
-            $ a_choices.append(("追问他为什么瞒着", 1, "你要的不是解释，是一个你在里面的位置。"))
-            shenlan "你为什么不告诉我？"
-            luyao "告诉你，你就不会要。"
-            shenlan "所以你就替我决定了？"
-        "“你把工作也推了？”":
-            $ a_heat += 2
-            $ a_choices.append(("质问他推掉的工作", 2, "你听见的不是牺牲，是代价。"))
-            shenlan "你连工作都推了？"
-            luyao "那个 offer 可以等。"
-            shenlan "等不了的是我吗？"
-            if pov == "luyao":
+    if pov == "luyao":
+        menu:
+            "说「我没有动店里的钱」。":
+                $ a_heat += 1
+                $ a_choices.append(("说钱是你自己的", 1, "你把最硬的那句话先说了出去。"))
+                luyao "我没有动店里的钱。"
+                shenlan "那是你的全部。"
+                luyao "……我知道。"
+                shenlan "所以你就替我决定了？"
+            "先解释那个 offer。":
+                $ a_heat += 2
+                $ a_choices.append(("先解释 offer", 2, "你听见的不是牺牲，是代价。"))
+                luyao "那个 offer 可以等。"
+                shenlan "等不了的是我吗？"
                 "我张了张嘴，没有声音。"
-            else:
+            "先听她说完。":
+                $ a_heat -= 1
+                $ a_choices.append(("先听她说完", -1, "你没有打断她。她第一次把账算到了自己身上。"))
+                "我没有打断她。"
+                "她把每个月的账算给我听，像在汇报一个 bug。"
+                "算到最后，她自己停住了。"
+                luyao "……我不是想让你欠我。"
+    else:
+        menu:
+            "“你为什么不告诉我？”":
+                $ a_heat += 1
+                $ a_choices.append(("追问他为什么瞒着", 1, "你要的不是解释，是一个你在里面的位置。"))
+                shenlan "你为什么不告诉我？"
+                luyao "告诉你，你就不会要。"
+                shenlan "所以你就替我决定了？"
+            "“你把工作也推了？”":
+                $ a_heat += 2
+                $ a_choices.append(("质问他推掉的工作", 2, "你听见的不是牺牲，是代价。"))
+                shenlan "你连工作都推了？"
+                luyao "那个 offer 可以等。"
+                shenlan "等不了的是我吗？"
                 "他张了张嘴，没有声音。"
-        "“你继续说，我听。”":
-            $ a_heat -= 1
-            $ a_choices.append(("听他把话说完", -1, "你没有打断他。他第一次把账算到了自己身上。"))
-            if pov == "luyao":
-                "她没有打断我。"
-                "我把每个月的账算给她听，像在汇报一个 bug。"
-                "算到最后，我自己停住了。"
-            else:
+            "“你继续说，我听。”":
+                $ a_heat -= 1
+                $ a_choices.append(("听他把话说完", -1, "你没有打断他。他第一次把账算到了自己身上。"))
                 "我没有打断他。"
                 "他把每个月的账算给我听，像在汇报一个 bug。"
                 "算到最后，他自己停住了。"
-            luyao "……我不是想让你欠我。"
+                luyao "……我不是想让你欠我。"
 
     if pov == "luyao":
         "我说，晚上在便利店做兼职。"
@@ -223,30 +267,48 @@ label argument_scene:
         "他说，他什么都不需要我做。"
         "他只是不想让我走。"
 
-    menu:
-        "“你有没有想过，我想不想留？”":
-            $ a_heat += 1
-            $ a_choices.append(("问他有没有问过我", 1, "你终于问出了那句最该早些问的话。"))
-            shenlan "你有没有想过，我想不想留？"
-            luyao "……"
-            shenlan "你留下我，是因为店，还是因为我？"
-        "“你凭什么替我决定。”":
-            $ a_heat += 2
-            $ a_choices.append(("把决定权拍回他脸上", 2, "你想夺回自己的人生，却先伤了他。"))
-            shenlan "你凭什么替我决定我的人生？"
-            luyao "我没有——"
-            shenlan "你有。"
-        "“我不知道。”":
-            $ a_heat -= 1
-            $ a_choices.append(("承认自己也不知道", -1, "你没有把刀递出去。你把手摊开了。"))
-            shenlan "我不知道。"
-            if pov == "luyao":
-                "这是那天晚上，她说的唯一一句真话。"
-            else:
-                "这是那天晚上，我说的唯一一句真话。"
-            luyao "……我也是。"
-
     if pov == "luyao":
+        menu:
+            "问她愿不愿意留下。":
+                $ a_heat += 1
+                $ a_choices.append(("问她愿不愿意留下", 1, "你终于问出了那句最该早些问的话。"))
+                luyao "你有没有想过，你愿不愿意留？"
+                shenlan "……"
+                luyao "你留下，是因为店，还是因为我？"
+            "说「我只是想帮你」。":
+                $ a_heat += 2
+                $ a_choices.append(("说「我只是想帮你」", 2, "你想把决定权拿回来，却先伤了她。"))
+                luyao "我只是想帮你。"
+                shenlan "我没有让你帮。"
+                "她说完，自己先愣住了。"
+            "承认不知道。":
+                $ a_heat -= 1
+                $ a_choices.append(("承认不知道", -1, "你没有把刀递出去。你把手摊开了。"))
+                luyao "我不知道。"
+                shenlan "……我也是。"
+                "这是那天晚上，我们说的唯一一句真话。"
+    else:
+        menu:
+            "“你有没有想过，我想不想留？”":
+                $ a_heat += 1
+                $ a_choices.append(("问他有没有问过我", 1, "你终于问出了那句最该早些问的话。"))
+                shenlan "你有没有想过，我想不想留？"
+                luyao "……"
+                shenlan "你留下我，是因为店，还是因为我？"
+            "“你凭什么替我决定。”":
+                $ a_heat += 2
+                $ a_choices.append(("把决定权拍回他脸上", 2, "你想夺回自己的人生，却先伤了他。"))
+                shenlan "你凭什么替我决定我的人生？"
+                luyao "我没有——"
+                shenlan "你有。"
+            "“我不知道。”":
+                $ a_heat -= 1
+                $ a_choices.append(("承认自己也不知道", -1, "你没有把刀递出去。你把手摊开了。"))
+                shenlan "我不知道。"
+                "这是那天晚上，我说的唯一一句真话。"
+                luyao "……我也是。"
+
+    if pov == "luyao" and not a_broke:
         menu:
             "说真话。":
                 $ l_truth = True
@@ -262,12 +324,15 @@ label argument_scene:
                 "她没有说话。"
                 "我知道这句话挡不住什么。"
 
-    if m9_told or m11_looked or l_truth:
+    if m9_told or m11_looked or l_truth or p_branch == "xiaoman":
         "门被推开了一条缝。"
         "小满站在门口，没有进来。"
         xiaoman "……我在外面都听见了。"
         if m9_support:
-            xiaoman "老板，你说过我可以当店长的。"
+            if pov == "luyao":
+                xiaoman "陆哥，你说过我可以当店长的。"
+            else:
+                xiaoman "老板，你说过我可以当店长的。"
         xiaoman "陆哥，你把自己押上去，我拿什么还？"
         if pov == "luyao":
             "我没有看她。"

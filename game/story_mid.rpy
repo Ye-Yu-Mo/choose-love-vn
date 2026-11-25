@@ -29,29 +29,29 @@ label story_days_early:
 label scene_first_star:
     $ bgm("rain")
     scene black with warmfade
-    call screen time_card("那天")
+    call screen time_card("第二天")
 
     scene bg shop day with paperdissolve
     show fx lamp day
     if pov == "luyao":
-        "那天，也是这样的雨。"
-        "我没有地方去，就走进这家店，点了最便宜的美式。"
+        "第二天，也是这样的雨。"
+        "我又走进这家店，点了最便宜的美式。"
         show prop menu board at doc_center with dissolve
         "菜单上最便宜的是美式，18 元。"
         hide prop menu board with dissolve
         show luyao sad_half at expr_right with dissolve
-        "电脑打开着，屏幕停在那封邮件上。「裁员」两个字，隔着半个店也看得见。"
+        "电脑打开着，昨天的邮件还停在屏幕上。「裁员」两个字，隔着半个店也看得见。"
         show prop layoff mail at doc_center with dissolve
         "发件人是人事部。标题是「调整」。"
         hide prop layoff mail with dissolve
         "她端来咖啡，什么也没说。"
     else:
-        "那天下雨。"
+        "第二天，雨还没停。"
         "店里没有客人，只有窗边坐了一个人。"
         show luyao sad_half at expr_right with dissolve
         "他背着一个旧电脑包，电脑开着。屏幕停在一封邮件上。"
         show prop layoff mail at doc_center with dissolve
-        "屏幕上只有一封邮件，标题是「调整」。"
+        "屏幕上只有昨天的邮件，标题是「调整」。"
         hide prop layoff mail with dissolve
         "离得很远，也能看见「裁员」两个字。"
         "他点了最便宜的美式，不加糖。"
@@ -111,7 +111,7 @@ label scene_first_star:
             $ m2_talk = True
             shenlan "……工作的事？"
             luyao "嗯。"
-            luyao "今天开始，不用去了。"
+            luyao "从昨天开始，不用去了。"
             if pov == "luyao":
                 "我说得很平静，像在说天气。"
             else:
@@ -134,24 +134,20 @@ label scene_first_star:
 
     if pov == "luyao":
         "那天我坐到打烊。"
-        "第二天，我又来了。还是最便宜的美式，还是窗边。"
         "从那以后，我几乎每天都来。"
-        "她每天在碟子边放一颗星。"
         if m2_star:
-            "我把每一颗都收进口袋。"
+            "她每天在碟子边放一颗星。我把每一颗都收进口袋。"
         else:
-            "我每天在柜台放一枚硬币，自己拿一颗星。"
+            "她不再放星。我每天在柜台放一枚硬币，自己拿一颗星。"
         "下午四点，我会合上电脑离开。"
         "她从来没有问过我要去哪。"
     else:
         "那天他坐到打烊。"
-        "第二天，他又来了。还是最便宜的美式，还是窗边。"
         "从那以后，他几乎每天都来。"
-        "我每天在碟子边放一颗星。"
         if m2_star:
-            "他把每一颗都收进口袋。"
+            "我每天在碟子边放一颗星。他把每一颗都收进口袋。"
         else:
-            "他每天在柜台放一枚硬币，自己拿一颗星。"
+            "我不再放星。他每天在柜台放一枚硬币，自己拿一颗星。"
         "下午四点，他会合上电脑离开。"
         "我从来没有问过他要去哪。"
 
@@ -656,7 +652,7 @@ label scene_door_light:
         "我的手机响了。"
         "我看了一眼屏幕，走到街对面去接。"
         "是阿哲。他问 offer 考虑得怎么样。"
-        "那份 offer 在包里放了一个月。我还没有回。"
+        "那份 offer 在包里放了快三周。我还没有回。"
         "我说：再想想。"
         "雨还在下。我没有打伞。"
         "挂掉电话，我回头看了一眼。她还站在灯下。"
@@ -1157,6 +1153,20 @@ label luyao_pov_notebook:
     show xiaoman worried_half at expr_right with dissolve
     "她回来的时候，眼睛有点红。"
     "她给沈岚倒了一杯水，又给我端来咖啡。"
+    xiaoman "陆哥，如果有一天老板不想开了，我可以当店长。"
+    "她说完，自己先愣住了。"
+
+    menu:
+        "说「你可以」。":
+            $ m9_support = True
+            "她笑了，眼睛还是红的。"
+        "告诉她店可能要关。":
+            $ m9_told = True
+            "她看着我，很久没有说话。"
+            "然后她说：「那我更得把本子记好。」"
+        "说「别把自己搭进去」。":
+            "她低下头，把本子合上。"
+
     xiaoman "陆哥，听说你找到工作了？"
     luyao "……嗯。找到了。"
     "我说得很自然。"
@@ -1188,7 +1198,7 @@ label luyao_pov_landlord:
 
     "房东的办公室在隔壁街，招牌很小。"
     "我把赔偿金转了过去。卡里只剩下这个月的房租。"
-    "这个月我每天只喝一杯最便宜的美式。剩下的钱，够她多开一个月。"
+    "这个月我每天只喝一杯最便宜的美式。剩下的钱，只够撑到月底。"
     "房东问我：「你跟她什么关系？」"
     "我说：「我是她店里的客人。」"
     "他看了我一会儿，没有再问。"

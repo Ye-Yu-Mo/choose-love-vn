@@ -52,7 +52,7 @@ init python:
         {"id": "end_white", "title": "结局 — 白夜", "short": "白夜", "x": 1150, "y": 190, "obj": "mem cup",
          "text": "店保住了，债在他身上。灯还亮着，可有些东西从那天晚上起就没有再平过。"},
         {"id": "end_told", "title": "结局 — 如果那天我说了", "short": "说出口", "x": 830, "y": 120, "obj": "mem letter key",
-         "text": "那天我把赔偿金、offer、夜班和睡在店里的夜晚一次说完。店小了，但我们都在。"},
+         "text": "那天他把赔偿金、offer、夜班一次说完。店小了，但我们都在。"},
     ]
 
     RECORD_BY_ID = {r["id"]: r for r in RECORDS}
@@ -67,13 +67,13 @@ init python:
         "door_light": "灯亮的时候，她在灯下看我。电话是阿哲打来的，我说再想想。包上那颗星，让我第一次觉得可以不用想。",
         "umbrella": "我只带了一把伞，往她那边偏。我在店里睡了两晚，不敢上去。",
         "lease": "房东的办公室在隔壁街。我用赔偿金付了欠租。他问我跟她什么关系，我说，我是她店里的客人。",
-        "truth_347": "三点四十我就醒了。她给我盖外套，我听见她哭。我没有睁眼——睁眼就得告诉她，我看见了租约。",
+        "truth_347": "三点四十我就醒了。她回来过，我听见了。",
         "notebook": "我骗小满说找到了工作。我问房东最近来过没有，是在算还能替她付多少。",
         "piano": "最后一个音我是故意按错的。我想让她再教一次。",
         "model": "我拨开土，打开抽屉。信上写着：如果我不在了，店交给你。她真的要走。",
         "keys": "抽屉里是店的钥匙，和一封写给她的信。我把信放回去，手一直在抖。",
         "argument": "我用自己的全部换她多留一天。她问「你为什么不告诉我」。因为告诉了她，她就走了。",
-        "finale": "最后一天，我拿着那封信站在门外。雨停了，我还是不敢推门。",
+        "finale": "最后一天，我拿着信站在门外。雨停了。",
         "end_together": "她留下了。这一次，我先问她愿不愿意让我留。",
         "end_xiaoman": "她把钥匙交给小满。我没有拦她，只是把伞留在了门口。",
         "end_depart": "她跟我走了。这一次，她没有逃，是出发。",
@@ -144,7 +144,7 @@ screen star_map(standalone=False):
         text "星图" size 40 color "#f2ede4" outlines [(3, "#00000088", 0, 0)]
         text "已点亮 [len(persistent.records)] / [len(RECORDS)]" size 18 color "#c9b9a3" outlines [(2, "#00000088", 0, 0)]
 
-    if persistent.cleared_once:
+    if persistent.cleared_pov:
         hbox:
             xalign 0.5
             ypos 42
@@ -183,7 +183,7 @@ screen record_detail(rec):
     modal True
     zorder 160
     $ owned = rec["id"] in persistent.records
-    $ alt_view = persistent.cleared_once and persistent.star_view == "him"
+    $ alt_view = persistent.cleared_pov and persistent.star_view == "him"
     $ body = RECORD_ALT.get(rec["id"], rec["text"]) if alt_view else rec["text"]
 
     add Solid("#040814bb")

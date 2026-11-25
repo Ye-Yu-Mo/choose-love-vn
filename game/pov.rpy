@@ -4,9 +4,11 @@
 # ============================================================
 
 default persistent.cleared_once = False
+default persistent.cleared_pov = False
 
 default pov = "shenlan"
 default l_prologue = ""
+default f_asked = False
 default l_four_told = False
 default l_lease_told = False
 default l_awake = False
@@ -15,6 +17,8 @@ default l_truth = False
 init python:
 
     def mark_cleared():
-        """任意结局播放时写入，主菜单据此显示二周目入口。"""
+        """任意结局播放时写入；二周目结局额外解锁星图「他没说的」。"""
         persistent.cleared_once = True
+        if getattr(renpy.store, "pov", None) == "luyao":
+            persistent.cleared_pov = True
         renpy.save_persistent()

@@ -6,7 +6,7 @@
 label start:
     $ bgm("funeral")
     scene black with warmfade
-    call screen chapter_card("第一章", "葬礼", "D-60")
+    call screen chapter_card("第一章", "葬礼", "距关店 60 天")
 
     scene prop model funeral with paperdissolve
     if pov == "luyao":
@@ -49,6 +49,8 @@ label start:
     else:
         "因为我也给自己定了一个日子。"
         "只是我没告诉她。"
+        "我在日历上圈了一个日子。"
+        "圈住的那天，我打算不在了。"
 
         "门铃响了。"
         show luyao awkward_half at expr_left with dissolve
@@ -62,6 +64,7 @@ label start:
     if pov == "luyao":
         menu:
             "老实说「路过」。":
+                $ f_asked = True
                 shenlan "你……怎么找到这里的？"
                 luyao "……路过。"
                 "她看了我一眼。那个眼神告诉我，她不信。"
@@ -71,6 +74,7 @@ label start:
     else:
         menu:
             "问他为什么来":
+                $ f_asked = True
                 shenlan "你……怎么找到这里的？"
                 luyao "……路过。"
                 "他说谎的样子很笨。"
@@ -95,16 +99,14 @@ label start:
 label piano_scene:
     stop music fadeout 2.0
     scene black with warmfade
-    call screen chapter_card("第二章", "满天星", "D-45")
+    call screen chapter_card("第二章", "满天星", "距关店 45 天")
 
     scene bg piano corner with paperdissolve
     "打烊前，老周来调琴。"
     "他把音叉放在琴盖上，听了很久。"
     zhou "琴不用调得太准，人也是。"
     "他收好工具，走了。"
-    show prop transfer sign at doc_center with dissolve
-    "玻璃门上那张「转让」，被开门的风带得轻轻响。"
-    hide prop transfer sign with dissolve
+    "门上原来挂牌子的地方，留着一块浅色的印子。"
     show mem cat at cat_sit with dissolve
     "年糕跳上琴凳，趴下来。"
     "打烊以后，店里只剩钢琴上的那盏灯。"

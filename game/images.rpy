@@ -38,5 +38,5 @@ image prop coffee star = "images/props/coffee_star.png"
 
 transform doc_center:
     xalign 0.5
-    yalign 0.06
-    zoom 0.72
+    yalign 0.02
+    zoom 0.64

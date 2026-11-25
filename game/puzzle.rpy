@@ -94,7 +94,7 @@ label puzzle_scene:
     $ quick_menu = False
     $ bgm("night")
     scene black with warmfade
-    call screen chapter_card("第三章", "底座", "D-10")
+    call screen chapter_card("第三章", "底座", "距关店 10 天")
 
     $ unlock_record("model")
     if pov == "luyao":
