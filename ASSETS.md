@@ -104,6 +104,14 @@
 
 源图在 `game/images/sprites/raw/`，处理后的成品在 `game/images/sprites/`。
 
+## 语音
+
+- 引擎：Breeze-TTS 2（MLX，本机），voice design + voice direction，**不用 `tts_her` 克隆**。
+- 参考音：`assets/voice_refs/`（沈岚 / 陆遥 / 小满 / 房东 / 老周各一条合成参考音，seed 42）。
+- 生成脚本：`tools/make_voice.py`；只给角色对白配音，旁白不配音。
+- 成品：`game/audio/voice/<file>_<line>.ogg`，清单 `game/audio/voice/manifest.json`，统一 -18 LUFS。
+- 生成时在对白前插入 `voice "..."`；同一角色 + 同一句文本复用同一段音频。
+
 ## UI / 星图
 
 | 文件 | 用途 |

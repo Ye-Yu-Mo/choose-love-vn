@@ -64,6 +64,8 @@ def dialogue_lines(lines, start, end):
             continue
         if s.startswith("centered "):
             continue
+        if s.startswith(("voice ", "play ", "queue ", "stop ")):
+            continue
         m = DIALOGUE_RE.match(line)
         if not m:
             continue

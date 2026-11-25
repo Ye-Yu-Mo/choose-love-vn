@@ -90,6 +90,7 @@ label scene_first_star:
         "我抬头看了她一眼。"
     else:
         "他抬头看了我一眼。"
+    voice "audio/voice/story_mid_93.ogg"
     luyao "……谢谢。"
     if m2_star:
         if pov == "luyao":
@@ -110,9 +111,12 @@ label scene_first_star:
         menu:
             "告诉她工作的事。":
                 $ m2_talk = True
+                voice "audio/voice/story_mid_113.ogg"
                 luyao "……工作的事。"
                 "我告诉她，从昨天开始，不用去了。"
+                voice "audio/voice/story_mid_115.ogg"
                 shenlan "……那你还点最便宜的？"
+                voice "audio/voice/story_mid_116.ogg"
                 luyao "习惯了。"
                 "我笑了一下，嘴角很快又落下来。"
             "什么也不说。":
@@ -123,11 +127,16 @@ label scene_first_star:
         menu:
             "问他屏幕上是什么。":
                 $ m2_talk = True
+                voice "audio/voice/story_mid_126.ogg"
                 shenlan "……工作的事？"
+                voice "audio/voice/story_mid_127.ogg"
                 luyao "嗯。"
+                voice "audio/voice/story_mid_128.ogg"
                 luyao "从昨天开始，不用去了。"
                 "他说得很平静，像在说天气。"
+                voice "audio/voice/story_mid_130.ogg"
                 shenlan "……那你还点最便宜的？"
+                voice "audio/voice/story_mid_131.ogg"
                 luyao "习惯了。"
                 "他笑了一下，嘴角很快落下来。"
             "什么也不问。":
@@ -186,11 +195,15 @@ label scene_card_reader:
     else:
         "几天后，刷卡机坏了。"
         "客人排到门口，机器一直响，屏幕上跳出一行看不懂的字。"
+    voice "audio/voice/story_mid_189.ogg"
     shenlan "……等一下，马上好。"
+    voice "audio/voice/story_mid_190.ogg"
     xiaoman "老板，你按那个红色的——"
+    voice "audio/voice/story_mid_191.ogg"
     shenlan "哪个红色？"
     "小满凑过来，按了两下，机器响得更凶了。"
     show xiaoman pout_half at expr_right with dissolve
+    voice "audio/voice/story_mid_194.ogg"
     xiaoman "……不是我。"
     if pov == "luyao":
         "我站起来，走过去。"
@@ -198,6 +211,7 @@ label scene_card_reader:
         "我正要拔电源，窗边那位常客站了起来。"
 
     show luyao awkward_half at expr_left with dissolve
+    voice "audio/voice/story_mid_201.ogg"
     luyao "我看看。"
     if pov == "luyao":
         "我蹲到柜台后面，把线拔了，又插回去。"
@@ -211,6 +225,7 @@ label scene_card_reader:
             "我来。":
                 $ m3_fix = True
                 "她退开半步，把位置让给我。"
+                voice "audio/voice/story_mid_214.ogg"
                 xiaoman "老板，你就让他修嘛。"
                 "小满在旁边小声起哄。"
                 "我低头拧着什么，耳朵有点发烫。"
@@ -218,6 +233,7 @@ label scene_card_reader:
                 "她说不用，自己来。"
                 "她把机器翻过来，学着我刚才的样子拔线，拔错了。"
                 "我伸手，按住她的手。"
+                voice "audio/voice/story_mid_221.ogg"
                 luyao "这根。"
                 "她的手指很凉。"
     else:
@@ -225,6 +241,7 @@ label scene_card_reader:
             "让他修。":
                 $ m3_fix = True
                 "我退开半步，把位置让给他。"
+                voice "audio/voice/story_mid_228.ogg"
                 xiaoman "老板，你就让他修嘛。"
                 "小满在旁边小声起哄。"
                 "他低头拧着什么，耳朵有点红。"
@@ -232,16 +249,24 @@ label scene_card_reader:
                 "我说不用，自己来。"
                 "我把机器翻过来，学着他的样子拔线，拔错了。"
                 "他伸手，按住我的手。"
+                voice "audio/voice/story_mid_235.ogg"
                 luyao "这根。"
                 "他的手指很凉。"
 
     "几分钟后，机器吐出一张长长的小票。"
+    voice "audio/voice/story_mid_239.ogg"
     shenlan "……好了？"
+    voice "audio/voice/story_mid_240.ogg"
     luyao "好了。"
+    voice "audio/voice/story_mid_241.ogg"
     xiaoman "哇。"
+    voice "audio/voice/story_mid_242.ogg"
     shenlan "你是做什么的？"
+    voice "audio/voice/story_mid_243.ogg"
     luyao "程序员。"
+    voice "audio/voice/story_mid_244.ogg"
     shenlan "程序员还修这个？"
+    voice "audio/voice/story_mid_245.ogg"
     luyao "都是修东西。"
     if pov == "luyao":
         "我答得很顺。"
@@ -264,9 +289,12 @@ label scene_card_reader:
         menu:
             "告诉她以前的事。":
                 $ m3_ask = True
+                voice "audio/voice/story_mid_267.ogg"
                 shenlan "你以前……在哪家公司？"
+                voice "audio/voice/story_mid_268.ogg"
                 luyao "说了你也不认识。"
                 "我把工具收进包里，动作停了一下。"
+                voice "audio/voice/story_mid_270.ogg"
                 luyao "最近在休息。"
                 "我没有说「失业」。"
                 "她也没有再问。"
@@ -278,9 +306,12 @@ label scene_card_reader:
         menu:
             "问他工作的事。":
                 $ m3_ask = True
+                voice "audio/voice/story_mid_281.ogg"
                 shenlan "你以前……在哪家公司？"
+                voice "audio/voice/story_mid_282.ogg"
                 luyao "说了你也不认识。"
                 "他把工具收进包里，动作停了一下。"
+                voice "audio/voice/story_mid_284.ogg"
                 luyao "最近在休息。"
                 "他只说在休息，没有多讲。"
                 "我也没有再问。"
@@ -337,10 +368,15 @@ label scene_useless_things:
         "后间的架子上摆着小满做的兔子，耳朵是缝歪的。"
         "墙上贴着她剪的星星，胶带都翘起来了。"
         "这个店里到处都是她。"
+    voice "audio/voice/story_mid_340.ogg"
     luyao "你做的这些，有人买吗？"
+    voice "audio/voice/story_mid_341.ogg"
     shenlan "没有。"
+    voice "audio/voice/story_mid_342.ogg"
     luyao "那你为什么还做？"
+    voice "audio/voice/story_mid_343.ogg"
     shenlan "……那你写的代码，有人用吗？"
+    voice "audio/voice/story_mid_344.ogg"
     luyao "以前有。现在没了。"
     show luyao warm_half at expr_right with dissolve
     "我们同时笑了一下。"
@@ -351,8 +387,11 @@ label scene_useless_things:
     show mem cat at cat_sit with dissolve
     "它脖子上挂着一个小小的牌子，上面写着：年糕。"
     "是小满的字。"
+    voice "audio/voice/story_mid_354.ogg"
     luyao "……它叫年糕？"
+    voice "audio/voice/story_mid_355.ogg"
     shenlan "小满取的。"
+    voice "audio/voice/story_mid_356.ogg"
     luyao "挺合适的。"
     "年糕看了我们一会儿，慢吞吞地走过来。"
 
@@ -388,7 +427,9 @@ label scene_useless_things:
     if pov == "luyao":
         "我站起来，看见玻璃门上的「转让」牌子。"
         "她每天进门都会先看它一眼。我把它摘了下来。"
+        voice "audio/voice/story_mid_391.ogg"
         shenlan "……你干嘛？"
+        voice "audio/voice/story_mid_392.ogg"
         luyao "风大。"
         "我把牌子折好，塞进电脑包。"
         $ sign_removed = True
@@ -397,7 +438,9 @@ label scene_useless_things:
     else:
         "他站起来，看见玻璃门上的「转让」牌子。"
         "他伸手，把它摘了下来。"
+        voice "audio/voice/story_mid_400.ogg"
         shenlan "……你干嘛？"
+        voice "audio/voice/story_mid_401.ogg"
         luyao "风大。"
         "他把牌子折好，塞进自己的电脑包。"
         $ sign_removed = True
@@ -407,15 +450,21 @@ label scene_useless_things:
         menu:
             "告诉她四点去哪。":
                 $ l_four_told = True
+                voice "audio/voice/story_mid_410.ogg"
                 shenlan "你每天四点走……是有事吗？"
+                voice "audio/voice/story_mid_411.ogg"
                 luyao "四点便利店换班。晚班一小时多十二块。"
                 "她看了我很久。"
+                voice "audio/voice/story_mid_413.ogg"
                 shenlan "……你很缺钱？"
+                voice "audio/voice/story_mid_414.ogg"
                 luyao "嗯。"
                 "她没有再问。"
             "说「有点事」。":
+                voice "audio/voice/story_mid_417.ogg"
                 shenlan "你每天四点走……是有事吗？"
                 "我把包带往肩上提了提。"
+                voice "audio/voice/story_mid_419.ogg"
                 luyao "有点事。"
                 "四点去便利店换班，一小时多十二块。钱得留着。"
                 "我没有说。"
@@ -424,8 +473,10 @@ label scene_useless_things:
         menu:
             "问他为什么四点走。":
                 $ m4_ask = True
+                voice "audio/voice/story_mid_427.ogg"
                 shenlan "你每天四点走……是有事吗？"
                 "他把包带往肩上提了提。"
+                voice "audio/voice/story_mid_429.ogg"
                 luyao "有点事。"
                 "他没有说是什么事。"
                 "我也没有再问。"
@@ -477,8 +528,11 @@ label scene_book_margin:
     else:
         "他每天下午都坐在窗边，对着电脑上同一个页面。"
         "有一天，我从柜台下面翻出一本旧星图册。"
+    voice "audio/voice/story_mid_480.ogg"
     shenlan "你总看电脑，眼睛会坏。"
+    voice "audio/voice/story_mid_481.ogg"
     luyao "……这是给我的？"
+    voice "audio/voice/story_mid_482.ogg"
     shenlan "借你的。看完还我。"
     if pov == "luyao":
         "我接过去，翻了两页，停在一张星图上。"
@@ -542,8 +596,10 @@ label scene_book_margin:
             $ m6_ask = True
             if pov == "luyao":
                 "她把书推回我面前。"
+                voice "audio/voice/story_mid_545.ogg"
                 shenlan "这行划掉的是什么？"
                 show luyao awkward_half at expr_right with dissolve
+                voice "audio/voice/story_mid_547.ogg"
                 luyao "……写错了。"
                 "我把书拿过去，用手指按住那一行。"
                 "我觉得耳朵一阵发烫。"
@@ -551,8 +607,10 @@ label scene_book_margin:
                 "她没有再问。"
             else:
                 "我把书推回他面前。"
+                voice "audio/voice/story_mid_554.ogg"
                 shenlan "这行划掉的是什么？"
                 show luyao awkward_half at expr_right with dissolve
+                voice "audio/voice/story_mid_556.ogg"
                 luyao "……写错了。"
                 "他把书拿过去，用手指按住那一行。"
                 "我看见他的耳朵红了。"
@@ -580,12 +638,14 @@ label scene_book_margin:
     show xiaoman neutral_bust at expr_right with dissolve
     if pov == "luyao":
         "第二天，小满借走了那本书。还回来的时候，最后一页多了一颗星。"
+        voice "audio/voice/story_mid_583.ogg"
         xiaoman "老板，这书挺好看的。"
         "她什么也没问。"
         "她把书放回柜台，压在收据下面。"
     else:
         "第二天，小满借走了那本书。"
         "还回来的时候，她在最后一页画了一颗星。"
+        voice "audio/voice/story_mid_589.ogg"
         xiaoman "老板，这书挺好看的。"
         "她什么也没问。"
         "我把书放回柜台，压在收据下面。"
@@ -611,8 +671,11 @@ label scene_door_light:
         "我站在门口，仰头看了一会儿。"
     else:
         "他站在门口，仰头看了一会儿。"
+    voice "audio/voice/story_mid_614.ogg"
     luyao "有梯子吗？"
+    voice "audio/voice/story_mid_615.ogg"
     shenlan "……你要修？"
+    voice "audio/voice/story_mid_616.ogg"
     luyao "试试。"
     if pov == "luyao":
         "她把后间的梯子搬出来。"
@@ -623,8 +686,10 @@ label scene_door_light:
         "他爬上去，把灯罩拆下来，换了一根线。"
         "雨落在他的肩上。"
     "灯亮起来，雨里的街面亮了一片。"
+    voice "audio/voice/story_mid_626.ogg"
     shenlan "……好了。"
     show luyao warm_half at expr_right with dissolve
+    voice "audio/voice/story_mid_628.ogg"
     luyao "好了。"
 
     if pov == "luyao":
@@ -640,8 +705,11 @@ label scene_door_light:
             "接过那颗星。":
                 $ m7_star = True
                 "她把星递过来。"
+                voice "audio/voice/story_mid_643.ogg"
                 shenlan "给你。"
+                voice "audio/voice/story_mid_644.ogg"
                 luyao "……这上面写的什么？"
+                voice "audio/voice/story_mid_645.ogg"
                 shenlan "你自己看。"
                 "我低头看了很久。"
                 "然后把它挂在了电脑包的拉链上。"
@@ -653,8 +721,11 @@ label scene_door_light:
             "把星给他。":
                 $ m7_star = True
                 "我把星递过去。"
+                voice "audio/voice/story_mid_656.ogg"
                 shenlan "给你。"
+                voice "audio/voice/story_mid_657.ogg"
                 luyao "……这上面写的什么？"
+                voice "audio/voice/story_mid_658.ogg"
                 shenlan "你自己看。"
                 "他低头看了很久。"
                 "然后把它挂在了电脑包的拉链上。"
@@ -686,9 +757,13 @@ label scene_door_light:
         menu:
             "告诉她电话的事。":
                 $ m7_phone = True
+                voice "audio/voice/story_mid_689.ogg"
                 shenlan "谁的电话？"
+                voice "audio/voice/story_mid_690.ogg"
                 luyao "……工作的事。"
+                voice "audio/voice/story_mid_691.ogg"
                 shenlan "这么晚？"
+                voice "audio/voice/story_mid_692.ogg"
                 luyao "嗯。"
                 "我把湿头发往后拨了一下，没有看她。"
                 "她没有再问。"
@@ -700,9 +775,13 @@ label scene_door_light:
         menu:
             "问他刚才的电话。":
                 $ m7_phone = True
+                voice "audio/voice/story_mid_703.ogg"
                 shenlan "谁的电话？"
+                voice "audio/voice/story_mid_704.ogg"
                 luyao "……工作的事。"
+                voice "audio/voice/story_mid_705.ogg"
                 shenlan "这么晚？"
+                voice "audio/voice/story_mid_706.ogg"
                 luyao "嗯。"
                 "他把湿头发往后拨了一下，没有看我。"
                 "我没有再问。"
@@ -715,8 +794,10 @@ label scene_door_light:
     show fx lamp night
     show xiaoman neutral_bust at expr_right with dissolve
     "回到店里，小满正踩在凳子上挂一串小灯。"
+    voice "audio/voice/story_mid_718.ogg"
     xiaoman "老板，你看。"
     "暖黄色的小灯从柜台一直挂到窗边。"
+    voice "audio/voice/story_mid_720.ogg"
     xiaoman "这样晚上也像有人等。"
     "她没抬头，继续理那串小灯。"
     $ unlock_record("door_light")
@@ -749,7 +830,9 @@ label scene_umbrella:
         "我撑着一把黑色的伞，站在门口等她。"
     else:
         "他撑着一把黑色的伞，站在门口等我。"
+    voice "audio/voice/story_mid_752.ogg"
     shenlan "你还没走？"
+    voice "audio/voice/story_mid_753.ogg"
     luyao "顺路。"
     if pov == "luyao":
         "我住在相反的方向。"
@@ -797,14 +880,18 @@ label scene_umbrella:
         menu:
             "问她能不能上去。":
                 $ m8_invite = True
+                voice "audio/voice/story_mid_800.ogg"
                 luyao "要不要上去坐一会儿？"
                 "她抬头看了看楼上。"
+                voice "audio/voice/story_mid_802.ogg"
                 shenlan "……下次吧。"
                 "她说完，又补了一句：「你早点睡。」"
                 "我不是不想，是不敢。"
                 "我一身湿，包里还放着没交的工牌。"
             "说晚安。":
+                voice "audio/voice/story_mid_807.ogg"
                 shenlan "谢谢你送我。"
+                voice "audio/voice/story_mid_808.ogg"
                 luyao "顺路。"
                 "我又说了那个谎。"
                 "她笑了笑，说晚安。"
@@ -813,13 +900,16 @@ label scene_umbrella:
         menu:
             "问他要不要上来。":
                 $ m8_invite = True
+                voice "audio/voice/story_mid_816.ogg"
                 shenlan "要不要上来坐一会儿？"
                 "他抬头看了看楼上。"
+                voice "audio/voice/story_mid_818.ogg"
                 luyao "……下次吧。"
                 "他说完，又补了一句：「你早点睡。」"
                 "我猜他不是不想，是不敢。"
             "说晚安。":
                 "我说：「谢谢你送我。」"
+                voice "audio/voice/story_mid_823.ogg"
                 luyao "顺路。"
                 "这次也不是顺路。"
                 "我笑了笑，说晚安。"
@@ -856,15 +946,21 @@ label scene_umbrella:
     show xiaoman neutral_bust at expr_right with dissolve
     if pov == "luyao":
         "第二天，小满一边擦杯子一边问她。"
+        voice "audio/voice/story_mid_859.ogg"
         xiaoman "老板，昨晚谁送你回来的？"
+        voice "audio/voice/story_mid_860.ogg"
         shenlan "顺路。"
+        voice "audio/voice/story_mid_861.ogg"
         xiaoman "哦——"
         "她拖长了声音，什么也没再问。"
         "但她笑了。"
     else:
         "第二天，小满一边擦杯子一边问我。"
+        voice "audio/voice/story_mid_866.ogg"
         xiaoman "老板，昨晚谁送你回来的？"
+        voice "audio/voice/story_mid_867.ogg"
         shenlan "顺路。"
+        voice "audio/voice/story_mid_868.ogg"
         xiaoman "哦——"
         "她拖长了声音，什么也没再问。"
         "但她笑了。"
@@ -901,18 +997,26 @@ label scene_lease:
     show screen doc_overlay("prop lease doc") with dissolve
     "上面写着新的租金和期限。"
     hide screen doc_overlay with dissolve
+    voice "audio/voice/story_mid_904.ogg"
     landlord "楼要卖了。新房东要重新签，租金按市价。"
+    voice "audio/voice/story_mid_905.ogg"
     shenlan "……多少？"
     "他说了一个数。"
     "我在心里算了一遍，又算了一遍。"
     "还是不够。"
 
+    voice "audio/voice/story_mid_910.ogg"
     landlord "我也不想涨。可新房东按合同来，我也没办法。"
+    voice "audio/voice/story_mid_911.ogg"
     shenlan "……期限呢？"
+    voice "audio/voice/story_mid_912.ogg"
     landlord "下个月十五号之前。签了，就按新价；不签，十五号之后腾房。"
     "他说完，看了我一眼。"
+    voice "audio/voice/story_mid_914.ogg"
     landlord "小沈，你这店开了几年了？"
+    voice "audio/voice/story_mid_915.ogg"
     shenlan "三年。"
+    voice "audio/voice/story_mid_916.ogg"
     landlord "嗯。"
     "他没有再说别的。"
 
@@ -922,10 +1026,12 @@ label scene_lease:
             "我拿起笔，签了。"
             "笔尖在纸上停了一下，还是落下去了。"
             "房东把属于我的那份推回来。"
+            voice "audio/voice/story_mid_925.ogg"
             landlord "十五号之前把第一笔打过来就行。"
             "我点头。"
         "先拖一拖。":
             "我说：「我再想想。」"
+            voice "audio/voice/story_mid_929.ogg"
             landlord "行。十五号之前给我个准话。"
             "他把文件袋收好，走了。"
             hide landlord with dissolve
@@ -937,8 +1043,11 @@ label scene_lease:
     "打烊以后，我把报价单和欠款单叠在一起，塞进柜台最里面。"
     "欠款单从抽屉里露出一角。"
     "小满站在门口，看着我。"
+    voice "audio/voice/story_mid_940.ogg"
     xiaoman "老板。"
+    voice "audio/voice/story_mid_941.ogg"
     shenlan "嗯？"
+    voice "audio/voice/story_mid_942.ogg"
     xiaoman "……没事。"
     "她把一杯温水放在我手边，转身去擦桌子。"
     "她擦着桌子，没问。"
@@ -949,8 +1058,11 @@ label scene_lease:
             "我给陆遥发了消息，只说了一句：店可能要关了。"
             "他回得很快：「我马上过来。」"
             "那天晚上，他来了，站在柜台外面，没有坐。"
+            voice "audio/voice/story_mid_952.ogg"
             luyao "差多少？"
+            voice "audio/voice/story_mid_953.ogg"
             shenlan "……不用你管。"
+            voice "audio/voice/story_mid_954.ogg"
             luyao "我问差多少。"
             "我没有回答。"
             "他站了一会儿，走了。"
@@ -959,8 +1071,11 @@ label scene_lease:
             "我没有告诉他。"
             "第二天下午，他照常来，点了一杯最便宜的美式。"
             "他把电脑打开，又合上。"
+            voice "audio/voice/story_mid_962.ogg"
             luyao "房东最近来过吗？"
+            voice "audio/voice/story_mid_963.ogg"
             shenlan "……怎么突然问这个？"
+            voice "audio/voice/story_mid_964.ogg"
             luyao "随便问问。"
             "他低头喝咖啡，没有再看我。"
 
@@ -1014,7 +1129,9 @@ label scene_three_am:
             $ m11_confront = True
             "我伸手，碰到他的肩膀。"
             "他猛地醒了，第一反应是去合电脑。"
+            voice "audio/voice/story_mid_1017.ogg"
             luyao "……你怎么在这？"
+            voice "audio/voice/story_mid_1018.ogg"
             shenlan "这是我想问的。"
             "他看了一眼屏幕，又看我。"
             "他张了张嘴，最后什么也没说。"
@@ -1028,8 +1145,11 @@ label scene_three_am:
     scene bg shop day with paperdissolve
     show fx lamp day
     "天亮以后，他照常点了一杯美式。"
+    voice "audio/voice/story_mid_1031.ogg"
     luyao "昨晚……谢谢你。"
+    voice "audio/voice/story_mid_1032.ogg"
     shenlan "谢什么？"
+    voice "audio/voice/story_mid_1033.ogg"
     luyao "……外套。"
     "他低头喝咖啡。"
     "我们谁也没有提电脑。"
@@ -1061,7 +1181,9 @@ label scene_notebook:
     show xiaoman neutral_bust at expr_right with dissolve
     "下午没什么客人，小满趴在柜台上写东西。"
     "她写两笔，就抬头数一遍罐子里的星星。"
+    voice "audio/voice/story_mid_1064.ogg"
     shenlan "在写什么？"
+    voice "audio/voice/story_mid_1065.ogg"
     xiaoman "秘密。"
     "她把本子合上，又忍不住翻开给我看。"
     "「今天送出去 17 颗星。」"
@@ -1073,40 +1195,57 @@ label scene_notebook:
 
     "她的手机响了。"
     "她看了一眼屏幕，笑意停了。"
+    voice "audio/voice/story_mid_1076.ogg"
     xiaoman "……我妈。"
     "她走到后间门口去接。"
     "门没有关严。"
 
+    voice "audio/voice/story_mid_1080.ogg"
     xiaoman "……嗯，在上班。"
+    voice "audio/voice/story_mid_1081.ogg"
     xiaoman "不是玩，是工作。"
+    voice "audio/voice/story_mid_1082.ogg"
     xiaoman "……我知道。"
+    voice "audio/voice/story_mid_1083.ogg"
     xiaoman "妈，我会想的。"
     "她挂了电话，站在那里没有动。"
 
     show xiaoman worried_half at expr_right with dissolve
     "她回来的时候，眼睛有点红。"
+    voice "audio/voice/story_mid_1088.ogg"
     xiaoman "我妈说，让我回老家考编。"
+    voice "audio/voice/story_mid_1089.ogg"
     shenlan "……你怎么说？"
+    voice "audio/voice/story_mid_1090.ogg"
     xiaoman "我说我再干一年。"
     "她低头，把本子翻到新的一页。"
+    voice "audio/voice/story_mid_1092.ogg"
     xiaoman "老板，我是不是很没出息？"
 
     menu:
         "支持她当店长。":
             $ m9_support = True
+            voice "audio/voice/story_mid_1097.ogg"
             shenlan "不会。你比我认真。"
             "她愣了一下。"
+            voice "audio/voice/story_mid_1099.ogg"
             xiaoman "……真的？"
+            voice "audio/voice/story_mid_1100.ogg"
             shenlan "本子都记了小半本了。"
             "她笑了，眼睛还是红的。"
         "劝她走。":
+            voice "audio/voice/story_mid_1103.ogg"
             shenlan "你妈说得也有道理。"
             "她低下头，把本子合上。"
+            voice "audio/voice/story_mid_1105.ogg"
             xiaoman "……嗯。"
             "她没有再说话。"
 
+    voice "audio/voice/story_mid_1108.ogg"
     xiaoman "老板。"
+    voice "audio/voice/story_mid_1109.ogg"
     shenlan "嗯？"
+    voice "audio/voice/story_mid_1110.ogg"
     xiaoman "如果有一天你不想开了，我可以当店长。"
     "她说完，手指在本子边上停了停。"
     "我没有接话。"
@@ -1114,10 +1253,14 @@ label scene_notebook:
     menu:
         "告诉她店的事。":
             $ m9_told = True
+            voice "audio/voice/story_mid_1117.ogg"
             shenlan "……店可能要关了。"
             "她看着我，很久没有说话。"
+            voice "audio/voice/story_mid_1119.ogg"
             xiaoman "什么时候的事？"
+            voice "audio/voice/story_mid_1120.ogg"
             shenlan "下个月十五号之前。"
+            voice "audio/voice/story_mid_1121.ogg"
             xiaoman "……那你刚才还让我当店长。"
             "她的声音很轻。"
             "我没有回答。"
@@ -1133,13 +1276,17 @@ label scene_notebook:
     show luyao quiet_half at expr_left with dissolve
     "傍晚，陆遥来了。"
     "小满给他端咖啡，顺口问了一句：「陆哥，听说你找到工作了？」"
+    voice "audio/voice/story_mid_1136.ogg"
     luyao "……嗯。找到了。"
     "他说完，视线落到桌面上。"
+    voice "audio/voice/story_mid_1138.ogg"
     xiaoman "那挺好的。"
     "她端着托盘走了。"
     "陆遥低头喝咖啡。"
+    voice "audio/voice/story_mid_1141.ogg"
     luyao "房东最近来过吗？"
     "我看着他。"
+    voice "audio/voice/story_mid_1143.ogg"
     luyao "……随便问问。"
 
     $ unlock_record("notebook")
@@ -1188,8 +1335,10 @@ label luyao_pov_book:
         "把书推给她。":
             $ m6_ask = True
             "我把书推到她面前。"
+            voice "audio/voice/story_mid_1191.ogg"
             shenlan "这行划掉的是什么？"
             show luyao awkward_half at expr_right with dissolve
+            voice "audio/voice/story_mid_1193.ogg"
             luyao "……写错了。"
             "我把书拿回来，用手指按住那一行。"
             "我觉得耳朵有点发烫。"
@@ -1205,6 +1354,7 @@ label luyao_pov_book:
     show fx lamp day
     show xiaoman neutral_bust at expr_right with dissolve
     "第二天，小满借走了那本书。还回来的时候，最后一页多了一颗星。"
+    voice "audio/voice/story_mid_1208.ogg"
     xiaoman "老板，这书挺好看的。"
     "她什么也没问。"
     "她把书放回柜台，压在收据下面。"
@@ -1246,6 +1396,7 @@ label luyao_pov_notebook:
     show xiaoman worried_half at expr_right with dissolve
     "她回来的时候，眼睛有点红。"
     "她给沈岚倒了一杯水，又给我端来咖啡。"
+    voice "audio/voice/story_mid_1249.ogg"
     xiaoman "陆哥，如果有一天老板不想开了，我可以当店长。"
     "她说完，手指在本子边上停了停。"
 
@@ -1260,7 +1411,9 @@ label luyao_pov_notebook:
         "说「别把自己搭进去」。":
             "她低下头，把本子合上。"
 
+    voice "audio/voice/story_mid_1263.ogg"
     xiaoman "陆哥，听说你找到工作了？"
+    voice "audio/voice/story_mid_1264.ogg"
     luyao "……嗯。找到了。"
     "我答得很顺。"
     "其实还没签。"
@@ -1268,12 +1421,16 @@ label luyao_pov_notebook:
     show screen doc_overlay("prop offer letter") with dissolve
     "职位、薪水、入职日期，都写得很清楚。"
     hide screen doc_overlay with dissolve
+    voice "audio/voice/story_mid_1271.ogg"
     xiaoman "那挺好的。"
     "她端着托盘走了。"
     "沈岚看了我一眼。"
     "我低头喝咖啡。"
+    voice "audio/voice/story_mid_1275.ogg"
     luyao "房东最近来过吗？"
+    voice "audio/voice/story_mid_1276.ogg"
     shenlan "……怎么突然问这个？"
+    voice "audio/voice/story_mid_1277.ogg"
     luyao "随便问问。"
     "我在心里过账：她欠多少，我还能付多少。"
     "我没有说。"
@@ -1295,6 +1452,7 @@ label luyao_pov_landlord:
     "房东问我：「你跟她什么关系？」"
     "我说：「我是她店里的客人。」"
     "他看了我一会儿，没有再问。"
+    voice "audio/voice/story_mid_1298.ogg"
     landlord "十五号之前把第一笔打过来就行。"
     "我说好。"
     "从办公室出来，天在下雨。"
@@ -1347,11 +1505,15 @@ label luyao_pov_347:
         "让她知道我醒着。":
             $ l_awake = True
             "我睁开眼。"
+            voice "audio/voice/story_mid_1350.ogg"
             luyao "……我没睡。"
             "她愣住了，手还停在外套上。"
+            voice "audio/voice/story_mid_1352.ogg"
             shenlan "你什么时候醒的？"
+            voice "audio/voice/story_mid_1353.ogg"
             luyao "你进门的时候。"
             "她看着我，眼睛是红的。"
+            voice "audio/voice/story_mid_1355.ogg"
             luyao "别哭。"
             "她没说话，坐在旁边的椅子上。"
             "我们隔着一台电脑，坐到天亮。"
@@ -1365,8 +1527,11 @@ label luyao_pov_347:
     scene bg shop day with paperdissolve
     show fx lamp day
     "天亮以后，她像什么都没发生过一样，给我倒了一杯美式。"
+    voice "audio/voice/story_mid_1368.ogg"
     luyao "昨晚……谢谢你。"
+    voice "audio/voice/story_mid_1369.ogg"
     shenlan "谢什么？"
+    voice "audio/voice/story_mid_1370.ogg"
     luyao "……外套。"
     "她低头擦杯子。"
     "我们谁也没有提电脑。"

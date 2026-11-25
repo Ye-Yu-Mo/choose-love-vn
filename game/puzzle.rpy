@@ -170,6 +170,7 @@ label puzzle_xiaoman:
     show fx lamp back
     show xiaoman neutral_bust at expr_right with dissolve
     "小满来得很快。她看见桌上的模型，又看见我手里的螺丝刀。"
+    voice "audio/voice/puzzle_173.ogg"
     xiaoman "老板，这是什么？"
     "她打开抽屉。里面是店的钥匙，和一封写给她的信。"
     show cg base inside with dissolve
@@ -179,9 +180,11 @@ label puzzle_xiaoman:
     "信封上写着「小满」。"
     hide screen doc_overlay with dissolve
     $ unlock_record("keys")
+    voice "audio/voice/puzzle_182.ogg"
     xiaoman "……给我的？"
     "我没有说话。"
     "她把信读了一遍，又读了一遍。"
+    voice "audio/voice/puzzle_185.ogg"
     xiaoman "你早就想好了？"
     "那天晚上，她把信折好，放进口袋，什么也没再问。"
     scene black with warmfade
@@ -204,8 +207,10 @@ label puzzle_luyao:
     "信封上写着「小满」。"
     hide screen doc_overlay with dissolve
     $ unlock_record("keys")
+    voice "audio/voice/puzzle_207.ogg"
     luyao "你早就想好了？"
     "我没有回答。"
+    voice "audio/voice/puzzle_209.ogg"
     luyao "……你至少应该告诉我。"
     "他没有等到我的回答。"
     scene black with warmfade

@@ -146,9 +146,14 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--limit", type=int)
+    ap.add_argument("--insert-only", action="store_true", help="不生成音频，只按已有 manifest 插入 voice")
     args = ap.parse_args()
 
     refs = json.loads((REF_DIR / "refs.json").read_text(encoding="utf-8"))
+    if args.insert_only:
+        manifest = json.loads((OUT / "manifest.json").read_text(encoding="utf-8"))
+        insert_voice(manifest)
+        return
     jobs = collect()
     if args.limit:
         jobs = jobs[: args.limit]
@@ -169,6 +174,18 @@ def main():
     for n, job in enumerate(jobs, 1):
         key = hashlib.sha1((job["speaker"] + "\0" + job["text"]).encode()).hexdigest()[:12]
         target = OUT / f"{Path(job['file']).stem}_{job['line']}.ogg"
+        if target.exists() and target.stat().st_size > 1000:
+            manifest.append(
+                {
+                    "file": job["file"],
+                    "line": job["line"],
+                    "speaker": job["speaker"],
+                    "text": job["text"],
+                    "audio": str(target.relative_to(GAME)),
+                }
+            )
+            cache.setdefault(key, target)
+            continue
         if key in cache and cache[key].exists():
             shutil.copyfile(cache[key], target)
         else:
@@ -196,6 +213,11 @@ def main():
     )
 
     # 插入 voice 语句（从后往前，避免行号漂移）
+    insert_voice(manifest)
+    print(f"完成，总耗时 {round(time.time() - started, 1)} 秒")
+
+
+def insert_voice(manifest):
     by_file = {}
     for item in manifest:
         by_file.setdefault(item["file"], []).append(item)
@@ -210,10 +232,9 @@ def main():
             prev = lines[i - 1].strip() if i >= 1 else ""
             if prev.startswith("voice "):
                 continue
-            lines.insert(i, f'{item["indent"]}voice "{item["audio"]}"')
+            lines.insert(i, f'{m.group(1)}voice "{item["audio"]}"')
         path.write_text("\n".join(lines) + "\n", encoding="utf-8")
         print(f"插入 {len(items)} 条 voice: {fname}")
-    print(f"完成，总耗时 {round(time.time() - started, 1)} 秒")
 
 
 if __name__ == "__main__":
