@@ -6,10 +6,11 @@
     "duration": 5.52
   },
   "luyao": {
-    "text": "我看看。这个应该能修。",
-    "instruct": "一位温和低沉的年轻男性，语速中等，咬字清楚，声音克制，像程序员在解释一件重要的事。",
+    "text": "我看看。这个应该能修。房租的事，我来想办法。你先别关门。",
+    "instruct": "一位二十五岁的普通年轻男性，声音放松、口语化，不磁性、不低沉，像日常和朋友说话。",
     "path": "/Users/jasxu/Documents/choose_love/assets/voice_refs/luyao.wav",
-    "duration": 2.08
+    "duration": 7.36,
+    "seed": 7
   },
   "xiaoman": {
     "text": "老板，你看，今天送出去十七颗星。",
