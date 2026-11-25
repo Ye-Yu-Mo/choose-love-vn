@@ -39,6 +39,9 @@ label start:
         "小满看了我一眼。"
         "我说没事。"
     show xiaoman neutral_half at half_right with dissolve
+    show prop transfer sign at doc_center with dissolve
+    "玻璃门上贴着一张「转让」，边角已经卷起来了。"
+    hide prop transfer sign with dissolve
     if pov == "luyao":
         "我站在门口，电脑包还在滴水。"
         show luyao awkward_half at expr_left with dissolve
@@ -94,8 +97,19 @@ label piano_scene:
     scene black with warmfade
     call screen chapter_card("第二章", "满天星", "D-45")
 
-    scene cg piano lesson with paperdissolve
+    scene bg piano corner with paperdissolve
+    "打烊前，老周来调琴。"
+    "他把音叉放在琴盖上，听了很久。"
+    zhou "琴不用调得太准，人也是。"
+    "他收好工具，走了。"
+    show prop transfer sign at doc_center with dissolve
+    "玻璃门上那张「转让」，被开门的风带得轻轻响。"
+    hide prop transfer sign with dissolve
+    show mem cat at cat_sit with dissolve
+    "年糕跳上琴凳，趴下来。"
     "打烊以后，店里只剩钢琴上的那盏灯。"
+
+    scene cg piano lesson with paperdissolve
     "她在琴前坐下，手指落在键上。"
     play music "audio/piano_touch_the_starlight.ogg" fadein 1.0
     "是那首她自己写的曲子。"
