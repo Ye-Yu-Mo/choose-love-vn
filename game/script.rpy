@@ -4,6 +4,8 @@
 # ============================================================
 
 label start:
+    if pov == "shenlan":
+        $ persistent.star_view = "her"
     $ bgm("funeral")
     scene black with warmfade
     call screen chapter_card("第一章", "葬礼", "距关店 60 天")
@@ -39,9 +41,9 @@ label start:
         "小满看了我一眼。"
         "我说没事。"
     show xiaoman neutral_half at half_right with dissolve
-    show prop transfer sign at doc_center with dissolve
-    "玻璃门上贴着一张「转让」，边角已经卷起来了。"
-    hide prop transfer sign with dissolve
+    show screen doc_overlay("prop transfer sign") with dissolve
+    "玻璃门上挂着一张「转让」，边角已经卷起来了。"
+    hide screen doc_overlay with dissolve
     if pov == "luyao":
         "我站在门口，电脑包还在滴水。"
         show luyao awkward_half at expr_left with dissolve
@@ -106,15 +108,21 @@ label piano_scene:
     "他把音叉放在琴盖上，听了很久。"
     zhou "琴不用调得太准，人也是。"
     "他收好工具，走了。"
-    "门上原来挂牌子的地方，留着一块浅色的印子。"
+    "玻璃门上（原来挂牌子的地方），留着一块浅色的印子。"
     show mem cat at cat_sit with dissolve
     "年糕跳上琴凳，趴下来。"
     "打烊以后，店里只剩钢琴上的那盏灯。"
 
     scene cg piano lesson with paperdissolve
-    "她在琴前坐下，手指落在键上。"
+    if pov == "luyao":
+        "她在琴前坐下，手指落在键上。"
+    else:
+        "我在琴前坐下，手指落在键上。"
     play music "audio/piano_touch_the_starlight.ogg" fadein 1.0
-    "是那首她自己写的曲子。"
+    if pov == "luyao":
+        "是那首她自己写的曲子。"
+    else:
+        "是那首我自己写的曲子。"
 
     shenlan "你想学吗？"
     luyao "我五音不全。"
@@ -124,45 +132,54 @@ label piano_scene:
     else:
         "她把他的手放在琴键上。"
 
-    menu:
-        "认真教他":
-            $ f_piano = "teach"
-            shenlan "手腕放松一点。"
-            if pov == "luyao":
+    if pov == "luyao":
+        menu:
+            "认真学。":
+                $ f_piano = "teach"
+                shenlan "手腕放松一点。"
                 "我照做，还是弹错。"
-            else:
-                "他照做，还是弹错。"
-        "逗他":
-            $ f_piano = "tease"
-            shenlan "陆同学，你这是在敲代码吗？"
-            luyao "……差不多。"
-            if pov == "luyao":
+            "逗她。":
+                $ f_piano = "tease"
+                luyao "……这样？"
+                shenlan "你这是在敲代码吗？"
                 "她笑，我也笑。"
-            else:
-                "她笑，他也笑。"
-        "让他自己试":
-            $ f_piano = "try"
-            "她没有说话，退后半步。"
-            if pov == "luyao":
+            "自己试。":
+                $ f_piano = "try"
+                "她没有说话，退后半步。"
                 "我试了几次，终于按对。"
-            else:
+                shenlan "你看，你可以的。"
+    else:
+        menu:
+            "认真教他":
+                $ f_piano = "teach"
+                shenlan "手腕放松一点。"
+                "他照做，还是弹错。"
+            "逗他":
+                $ f_piano = "tease"
+                shenlan "陆同学，你这是在敲代码吗？"
+                luyao "……差不多。"
+                "她笑，他也笑。"
+            "让他自己试":
+                $ f_piano = "try"
+                "我没有说话，退后半步。"
                 "他试了几次，终于按对。"
-            shenlan "你看，你可以的。"
+                shenlan "你看，你可以的。"
 
     if pov == "luyao":
         "我按了四个音，错了两个。最后一个音，我是故意的。"
         "她没有纠正，只是把手覆在我手上。"
         "我想让她再教一次。"
     else:
-        "他按了四个音，错了两个。她没有纠正，只是把手覆在他手上。"
+        "他按了四个音，错了两个。我没有纠正，只是把手覆在他手上。"
     luyao "……这样？"
     shenlan "嗯。"
     if pov == "luyao":
         "我闻到她袖口的咖啡味。窗外还在下雨。"
         "那天我学会了一句旋律。她没有告诉我名字。后来我才知道，那是她自己写的，叫《满天星》。"
     else:
-        "他闻到她袖口的咖啡味。窗外还在下雨。"
-        "那天他学会了一句旋律。后来他才知道，那是她自己写的，叫《满天星》。"
+        "他闻到我袖口的咖啡味。窗外还在下雨。"
+        "那天他学会了一句旋律。后来他才知道，那是我自己写的，叫《满天星》。"
+        "我没有告诉他名字。"
     $ unlock_record("piano")
 
     stop music fadeout 2.0

@@ -29,35 +29,35 @@ label story_days_early:
 label scene_first_star:
     $ bgm("rain")
     scene black with warmfade
-    call screen time_card("第二天", "记录 2 · 一杯咖啡，一颗星")
+    call screen time_card("第二天", "记录 2 — 一杯咖啡，一颗星")
 
     scene bg shop day with paperdissolve
     show fx lamp day
     if pov == "luyao":
         "第二天，也是这样的雨。"
         "我又走进这家店，点了最便宜的美式。"
-        show prop menu board at doc_center with dissolve
+        show screen doc_overlay("prop menu board") with dissolve
         "菜单上最便宜的是美式，18 元。"
-        hide prop menu board with dissolve
+        hide screen doc_overlay with dissolve
         show luyao sad_half at expr_right with dissolve
-        "电脑打开着，昨天的邮件还停在屏幕上。「裁员」两个字，隔着半个店也看得见。"
-        show prop layoff mail at doc_center with dissolve
+        "电脑打开着，昨天的邮件还停在屏幕上。屏幕上那两个字，我不想再看第二眼。"
+        show screen doc_overlay("prop layoff mail") with dissolve
         "发件人是人事部。标题是「调整」。"
-        hide prop layoff mail with dissolve
+        hide screen doc_overlay with dissolve
         "她端来咖啡，什么也没说。"
     else:
         "第二天，雨还没停。"
         "店里没有客人，只有窗边坐了一个人。"
         show luyao sad_half at expr_right with dissolve
         "他背着一个旧电脑包，电脑开着。屏幕停在一封邮件上。"
-        show prop layoff mail at doc_center with dissolve
+        show screen doc_overlay("prop layoff mail") with dissolve
         "屏幕上只有昨天的邮件，标题是「调整」。"
-        hide prop layoff mail with dissolve
+        hide screen doc_overlay with dissolve
         "离得很远，也能看见「裁员」两个字。"
         "他点了最便宜的美式，不加糖。"
-        show prop menu board at doc_center with dissolve
+        show screen doc_overlay("prop menu board") with dissolve
         "菜单上最便宜的是美式，18 元。"
-        hide prop menu board with dissolve
+        hide screen doc_overlay with dissolve
         "我做好咖啡，端过去。"
         "柜台上放着一罐纸星，每一颗上面都写着一句话。"
         "有一颗写着：撑住。"
@@ -106,28 +106,31 @@ label scene_first_star:
             "他把咖啡挪到电脑旁边，继续盯着那封邮件。"
             "走的时候，他在碟子下面压了一枚硬币。正好是一颗纸星的钱。"
 
-    menu:
-        "问他屏幕上是什么。":
-            $ m2_talk = True
-            shenlan "……工作的事？"
-            luyao "嗯。"
-            luyao "从昨天开始，不用去了。"
-            if pov == "luyao":
-                "我说得很平静，像在说天气。"
-            else:
-                "他说得很平静，像在说天气。"
-            shenlan "……那你还点最便宜的？"
-            luyao "习惯了。"
-            if pov == "luyao":
+    if pov == "luyao":
+        menu:
+            "告诉她工作的事。":
+                $ m2_talk = True
+                luyao "……工作的事。"
+                "我告诉她，从昨天开始，不用去了。"
+                shenlan "……那你还点最便宜的？"
+                luyao "习惯了。"
                 "我笑了一下。那个笑很轻，像随时会掉。"
-            else:
-                "他笑了一下。那个笑很轻，像随时会掉。"
-        "什么也不问。":
-            if pov == "luyao":
+            "什么也不说。":
                 "她没有问。"
                 "我也没有说。"
                 "我们隔着一张桌子，听了一下午的雨。"
-            else:
+    else:
+        menu:
+            "问他屏幕上是什么。":
+                $ m2_talk = True
+                shenlan "……工作的事？"
+                luyao "嗯。"
+                luyao "从昨天开始，不用去了。"
+                "他说得很平静，像在说天气。"
+                shenlan "……那你还点最便宜的？"
+                luyao "习惯了。"
+                "他笑了一下。那个笑很轻，像随时会掉。"
+            "什么也不问。":
                 "我没有问。"
                 "他也没有说。"
                 "我们隔着一张桌子，听了一下午的雨。"
@@ -154,7 +157,7 @@ label scene_first_star:
     $ unlock_record("first_star")
     scene black with warmfade
     if pov == "luyao":
-        "后来店里的人都说，那个每天坐在窗边的人很奇怪。"
+        "后来小满说，我那时候很奇怪。"
         "只点最便宜的美式，从来不笑，走的时候电脑包总是鼓的。"
         if m2_star:
             "他们不知道，我口袋里有一颗写着「撑住」的星。"
@@ -172,7 +175,7 @@ label scene_first_star:
 
 label scene_card_reader:
     scene black with warmfade
-    call screen time_card("几天后", "记录 3 · 刷卡机")
+    call screen time_card("几天后", "记录 3 — 刷卡机")
 
     scene bg shop day with paperdissolve
     show fx lamp day
@@ -203,27 +206,29 @@ label scene_card_reader:
         "他蹲到柜台后面，把线拔了，又插回去。"
         "手指很稳。"
 
-    menu:
-        "让他修。":
-            $ m3_fix = True
-            if pov == "luyao":
+    if pov == "luyao":
+        menu:
+            "我来。":
+                $ m3_fix = True
                 "她退开半步，把位置让给我。"
-            else:
-                "我退开半步，把位置让给他。"
-            xiaoman "老板，你就让他修嘛。"
-            "小满在旁边小声起哄。"
-            if pov == "luyao":
+                xiaoman "老板，你就让他修嘛。"
+                "小满在旁边小声起哄。"
                 "我低头拧着什么，耳朵有点红。"
-            else:
-                "他低头拧着什么，耳朵有点红。"
-        "自己修。":
-            if pov == "luyao":
+            "让她试试。":
                 "她说不用，自己来。"
                 "她把机器翻过来，学着我刚才的样子拔线，拔错了。"
                 "我伸手，按住她的手。"
                 luyao "这根。"
                 "她的手指很凉。"
-            else:
+    else:
+        menu:
+            "让他修。":
+                $ m3_fix = True
+                "我退开半步，把位置让给他。"
+                xiaoman "老板，你就让他修嘛。"
+                "小满在旁边小声起哄。"
+                "他低头拧着什么，耳朵有点红。"
+            "自己修。":
                 "我说不用，自己来。"
                 "我把机器翻过来，学着他的样子拔线，拔错了。"
                 "他伸手，按住我的手。"
@@ -245,7 +250,7 @@ label scene_card_reader:
         "我抬头，正好看见。"
         "然后我低下头，去收工具。"
         "我的手背上贴着一块创可贴，边缘已经卷起来了。"
-        "电脑包侧袋里，露出一角折起来的纸。那是猎头发来的 offer，我还没有回。"
+        "电脑包侧袋里，露出一角折起来的纸。那是猎头发来的面试通知。offer 还没影。"
     else:
         "他说得很自然。"
         "我笑了一下。"
@@ -255,28 +260,31 @@ label scene_card_reader:
         "手背上贴着一块创可贴，边缘已经卷起来了。"
         "电脑包侧袋里，露出一角折起来的纸。"
 
-    menu:
-        "问他工作的事。":
-            $ m3_ask = True
-            shenlan "你以前……在哪家公司？"
-            luyao "说了你也不认识。"
-            if pov == "luyao":
+    if pov == "luyao":
+        menu:
+            "告诉她以前的事。":
+                $ m3_ask = True
+                shenlan "你以前……在哪家公司？"
+                luyao "说了你也不认识。"
                 "我把工具收进包里，动作停了一下。"
-            else:
-                "他把工具收进包里，动作停了一下。"
-            luyao "最近在休息。"
-            if pov == "luyao":
+                luyao "最近在休息。"
                 "我没有说「失业」。"
                 "她也没有再问。"
-            else:
-                "他没有说「失业」。"
-                "我也没有再问。"
-        "什么也不问。":
-            if pov == "luyao":
+            "什么也不说。":
                 "她没有问。"
                 "我把工具收好，回窗边坐下。"
                 "那角折纸从我的包里露出一小截，像一句没说完的话。"
-            else:
+    else:
+        menu:
+            "问他工作的事。":
+                $ m3_ask = True
+                shenlan "你以前……在哪家公司？"
+                luyao "说了你也不认识。"
+                "他把工具收进包里，动作停了一下。"
+                luyao "最近在休息。"
+                "他没有说「失业」。"
+                "我也没有再问。"
+            "什么也不问。":
                 "我没有问。"
                 "他把工具收好，回窗边坐下。"
                 "那角折纸从包里露出一小截，像一句没说完的话。"
@@ -311,7 +319,7 @@ label scene_card_reader:
 label scene_useless_things:
     $ bgm("night")
     scene black with warmfade
-    call screen time_card("又一个打烊的晚上", "记录 4 · 两个做没用东西的人")
+    call screen time_card("又一个打烊的晚上", "记录 4 — 两个做没用东西的人")
 
     scene bg back room with paperdissolve
     show fx lamp back
@@ -348,33 +356,35 @@ label scene_useless_things:
     luyao "挺合适的。"
     "年糕看了我们一会儿，慢吞吞地走过来。"
 
-    menu:
-        "一起喂它。":
-            $ m4_feed = True
-            if pov == "luyao":
+    if pov == "luyao":
+        menu:
+            "和她一起喂。":
+                $ m4_feed = True
                 "她把猫粮倒在手心，我把手伸过去，和她一起托着。"
                 "年糕低头吃，胡须扫过我们的手指。"
                 "她的手很暖。"
-            else:
-                "我把猫粮倒在手心，他把手伸过来，和我一起托着。"
-                "年糕低头吃，胡须扫过我们的手指。"
-                "他的手很暖。"
-        "让他自己喂。":
-            if pov == "luyao":
+            "自己喂。":
                 "她把猫粮递给我。"
                 "我蹲下去，手心摊开，很认真地等。"
                 "年糕闻了闻，才低头吃。"
                 "我笑得很轻，像怕吓到它。"
-            else:
+    else:
+        menu:
+            "一起喂它。":
+                $ m4_feed = True
+                "我把猫粮倒在手心，他把手伸过来，和我一起托着。"
+                "年糕低头吃，胡须扫过我们的手指。"
+                "他的手很暖。"
+            "让他自己喂。":
                 "我把猫粮递给他。"
                 "他蹲下去，手心摊开，很认真地等。"
                 "年糕闻了闻，才低头吃。"
                 "他笑得很轻，像怕吓到它。"
 
     "年糕吃完，跳上窗台，团成一团。"
-    show prop transfer sign at doc_center with dissolve
+    show screen doc_overlay("prop transfer sign") with dissolve
     "玻璃门上那张「转让」，边角已经被雨泡白了。"
-    hide prop transfer sign with dissolve
+    hide screen doc_overlay with dissolve
     if pov == "luyao":
         "我站起来，看见玻璃门上的「转让」牌子。"
         "她每天进门都会先看它一眼。我把它摘了下来。"
@@ -452,9 +462,11 @@ label story_days_middle:
 
 
 label scene_book_margin:
+    if pov == "luyao":
+        jump luyao_pov_book
     $ bgm("night")
     scene black with warmfade
-    call screen time_card("又过了一阵子", "记录 6 · 书页边")
+    call screen time_card("又过了一阵子", "记录 6 — 书页边")
 
     scene bg shop night with paperdissolve
     show fx lamp night
@@ -476,13 +488,13 @@ label scene_book_margin:
     if pov == "luyao":
         "我在页边写了一行字，第二天把书还回去。"
         "「猎户座腰带的三颗星，和柜台上的三颗星排列一样。」"
-        "那是她第一天摆的三颗星。我一直记得。"
+        "那是她刚开店时摆的三颗星。我一直记得。"
     else:
         "第二天，他把书还了回来。"
         "书页的空白处，多了一行铅笔字。"
         "「猎户座腰带的三颗星，和柜台上的三颗星排列一样。」"
         "我愣了一下。"
-        "那是他第一天来，我在碟子边摆的三颗星。"
+        "那是他刚来的那几天，我在碟子边摆的三颗星。"
 
     menu:
         "在页边回他。":
@@ -555,8 +567,7 @@ label scene_book_margin:
                 "那行被划掉的字，像一句没有说出口的话。"
 
     if pov == "luyao":
-        "那天晚上，她把书带回家。"
-        "我看见柜台上摊着店里的欠款单。书压在它上面。"
+        "那天晚上，她把书放在柜台上，压在欠款单上面。"
         "书页里那朵满天星，被她夹回了原来的位置。"
         "我没有问欠款单的事。"
     else:
@@ -589,7 +600,7 @@ label scene_book_margin:
 label scene_door_light:
     $ bgm("rain")
     scene black with warmfade
-    call screen time_card("入秋以后", "记录 7 · 门口的灯")
+    call screen time_card("入秋以后", "记录 7 — 门口的灯")
 
     scene bg street rain with paperdissolve
     show fx rain slow
@@ -624,28 +635,30 @@ label scene_door_light:
         "上面写着两个字：留下。"
         "我在柜台里写了很多颗星，这一颗，我一直没放回罐子里。"
 
-    menu:
-        "把星给他。":
-            $ m7_star = True
-            if pov == "luyao":
+    if pov == "luyao":
+        menu:
+            "接过那颗星。":
+                $ m7_star = True
                 "她把星递过来。"
                 shenlan "给你。"
                 luyao "……这上面写的什么？"
                 shenlan "你自己看。"
                 "我低头看了很久。"
                 "然后把它挂在了电脑包的拉链上。"
-            else:
+            "没有接。":
+                "她把手缩回口袋。"
+                "我没有问。"
+    else:
+        menu:
+            "把星给他。":
+                $ m7_star = True
                 "我把星递过去。"
                 shenlan "给你。"
                 luyao "……这上面写的什么？"
                 shenlan "你自己看。"
                 "他低头看了很久。"
                 "然后把它挂在了电脑包的拉链上。"
-        "把星收回来。":
-            if pov == "luyao":
-                "她把手缩回口袋。"
-                "我没有问。"
-            else:
+            "把星收回来。":
                 "我把手缩回口袋。"
                 "他没有看见。"
                 "那颗星后来一直放在我的围裙口袋里。"
@@ -669,25 +682,31 @@ label scene_door_light:
         "我站在灯下，看见他的背影越来越远。"
         "他回来的时候，头发全湿了。"
 
-    menu:
-        "问他刚才的电话。":
-            $ m7_phone = True
-            shenlan "谁的电话？"
-            luyao "……工作的事。"
-            shenlan "这么晚？"
-            luyao "嗯。"
-            if pov == "luyao":
+    if pov == "luyao":
+        menu:
+            "告诉她电话的事。":
+                $ m7_phone = True
+                shenlan "谁的电话？"
+                luyao "……工作的事。"
+                shenlan "这么晚？"
+                luyao "嗯。"
                 "我把湿头发往后拨了一下，没有看她。"
                 "她没有再问。"
-            else:
-                "他把湿头发往后拨了一下，没有看我。"
-                "我没有再问。"
-        "不问。":
-            if pov == "luyao":
+            "什么也不说。":
                 "她没有问。"
                 "我也没有说。"
                 "灯下只有雨声。"
-            else:
+    else:
+        menu:
+            "问他刚才的电话。":
+                $ m7_phone = True
+                shenlan "谁的电话？"
+                luyao "……工作的事。"
+                shenlan "这么晚？"
+                luyao "嗯。"
+                "他把湿头发往后拨了一下，没有看我。"
+                "我没有再问。"
+            "不问。":
                 "我没有问。"
                 "他也没有说。"
                 "灯下只有雨声。"
@@ -720,7 +739,7 @@ label scene_door_light:
 
 label scene_umbrella:
     scene black with warmfade
-    call screen time_card("那之后", "记录 8 · 雨里的伞")
+    call screen time_card("那之后", "记录 8 — 雨里的伞")
 
     scene bg street rain with paperdissolve
     show fx rain slow
@@ -744,23 +763,25 @@ label scene_umbrella:
         "走进雨里以后，伞一点一点往我这边偏。"
         "他的右肩很快就湿了。"
 
-    menu:
-        "牵住他的手。":
-            $ m8_hand = True
-            if pov == "luyao":
-                "她把手从口袋里拿出来，碰了碰我的手背。"
-                "我愣了一下，然后把伞换到另一只手。"
+    if pov == "luyao":
+        menu:
+            "牵住她的手。":
+                $ m8_hand = True
+                "我把手从口袋里拿出来，碰了碰她的手背。"
+                "她愣了一下，然后把伞换到另一只手。"
                 "她的手很凉，但握得很稳。"
-            else:
+            "把手插回口袋。":
+                "我把手插回口袋。"
+                "伞还是往她那边偏。"
+                "我们隔着一小段距离，走得很慢。"
+    else:
+        menu:
+            "牵住他的手。":
+                $ m8_hand = True
                 "我把手从口袋里拿出来，碰了碰他的手背。"
                 "他愣了一下，然后把伞换到另一只手。"
                 "他的手很凉，但握得很稳。"
-        "把手插回口袋。":
-            if pov == "luyao":
-                "她把手插回口袋。"
-                "伞还是往她那边偏。"
-                "我们隔着一小段距离，走得很慢。"
-            else:
+            "把手插回口袋。":
                 "我把手插回口袋。"
                 "伞还是往我这边偏。"
                 "我们隔着一小段距离，走得很慢。"
@@ -772,29 +793,32 @@ label scene_umbrella:
         "他站在台阶下面，没有往上走。"
     "楼道的灯坏了一盏，亮一盏。"
 
-    menu:
-        "问他要不要上来。":
-            $ m8_invite = True
-            shenlan "要不要上来坐一会儿？"
-            if pov == "luyao":
-                "我抬头看了看楼上。"
-                luyao "……下次吧。"
-                "我说完，又补了一句：「你早点睡。」"
+    if pov == "luyao":
+        menu:
+            "问她能不能上去。":
+                $ m8_invite = True
+                luyao "要不要上去坐一会儿？"
+                "她抬头看了看楼上。"
+                shenlan "……下次吧。"
+                "她说完，又补了一句：「你早点睡。」"
                 "我不是不想，是不敢。"
-                "我一身湿，包里还放着没拆的工牌。"
-            else:
-                "他抬头看了看楼上。"
-                luyao "……下次吧。"
-                "他说完，又补了一句：「你早点睡。」"
-                "我知道他不是不想，是不敢。"
-        "说晚安。":
-            if pov == "luyao":
-                "她说：「谢谢你送我。」"
+                "我一身湿，包里还放着没交的工牌。"
+            "说晚安。":
+                shenlan "谢谢你送我。"
                 luyao "顺路。"
                 "我又说了那个谎。"
                 "她笑了笑，说晚安。"
                 "我站在楼下，看她上楼，才走。"
-            else:
+    else:
+        menu:
+            "问他要不要上来。":
+                $ m8_invite = True
+                shenlan "要不要上来坐一会儿？"
+                "他抬头看了看楼上。"
+                luyao "……下次吧。"
+                "他说完，又补了一句：「你早点睡。」"
+                "我知道他不是不想，是不敢。"
+            "说晚安。":
                 "我说：「谢谢你送我。」"
                 luyao "顺路。"
                 "他又说了那个谎。"
@@ -864,19 +888,19 @@ label scene_lease:
     if pov == "luyao":
         jump luyao_pov_landlord
     scene black with warmfade
-    call screen time_card("月底", "记录 10 · 租约")
+    call screen time_card("还有二十天", "记录 10 — 租约")
 
     scene bg shop day with paperdissolve
     show fx lamp day
     show xiaoman worried_half at expr_right with dissolve
-    "月底，房东来了。"
+    "房东来了。"
     show landlord neutral_half at expr_left with dissolve
     "他站在柜台外面，手里拿着一个牛皮纸文件袋。"
     "小满给他倒了水，然后退到后间门口，没有走。"
     "房东把一张纸推过来。"
-    show prop lease doc at doc_center with dissolve
+    show screen doc_overlay("prop lease doc") with dissolve
     "上面写着新的租金和期限。"
-    hide prop lease doc with dissolve
+    hide screen doc_overlay with dissolve
     landlord "楼要卖了。新房东要重新签，租金按市价。"
     shenlan "……多少？"
     "他说了一个数。"
@@ -885,7 +909,7 @@ label scene_lease:
 
     landlord "我也不想涨。可新房东按合同来，我也没办法。"
     shenlan "……期限呢？"
-    landlord "下个月十五号之前。签了，就按新价；不签，月底腾房。"
+    landlord "下个月十五号之前。签了，就按新价；不签，十五号之后腾房。"
     "他说完，看了我一眼。"
     landlord "小沈，你这店开了几年了？"
     shenlan "三年。"
@@ -898,7 +922,7 @@ label scene_lease:
             "我拿起笔，签了。"
             "笔尖在纸上停了一下，还是落下去了。"
             "房东把属于我的那份推回来。"
-            landlord "月底之前把第一笔打过来就行。"
+            landlord "十五号之前把第一笔打过来就行。"
             "我点头。"
         "先拖一拖。":
             "我说：「我再想想。」"
@@ -951,7 +975,7 @@ label scene_three_am:
     if pov == "luyao":
         jump luyao_pov_347
     scene black with warmfade
-    call screen time_card("那天夜里", "记录 11 · 凌晨 3:47")
+    call screen time_card("那天夜里", "记录 11 — 凌晨 3:47")
 
     scene cg 347 with paperdissolve
     "那天夜里，我落了东西在店里。"
@@ -968,12 +992,12 @@ label scene_three_am:
         "看。":
             $ m11_looked = True
             "我把屏幕转过来一点。"
-            show prop screen 347 at doc_center with dissolve
+            show screen doc_overlay("prop screen 347") with dissolve
             "店铺的支付后台，一行一行的提交记录。"
             "最新一条，三点四十六分。"
             "旁边开着一个文件夹：offer 信、租约、押金收据。"
             "付款人那一栏，是他的名字。"
-            hide prop screen 347 with dissolve
+            hide screen doc_overlay with dissolve
             "我看了很久，才把屏幕合上。"
         "不看，只给他盖外套。":
             "我没有看。"
@@ -1030,7 +1054,7 @@ label scene_notebook:
         jump luyao_pov_notebook
     $ bgm("night")
     scene black with warmfade
-    call screen time_card("离月底还有几天", "记录 9 · 小满的本子")
+    call screen time_card("还有二十五天", "记录 9 — 小满的本子")
 
     scene bg shop day with paperdissolve
     show fx lamp day
@@ -1040,12 +1064,12 @@ label scene_notebook:
     shenlan "在写什么？"
     xiaoman "秘密。"
     "她把本子合上，又忍不住翻开给我看。"
-    "「今天送出去 17 个星星。」"
+    "「今天送出去 17 颗星。」"
     "下面还有一行小字：「第 4 位客人问能不能多要一颗，给了。」"
     "本子已经写了小半本。"
-    show prop notebook page at doc_center with dissolve
+    show screen doc_overlay("prop notebook page") with dissolve
     "字迹很密，最后一行还没写完。"
-    hide prop notebook page with dissolve
+    hide screen doc_overlay with dissolve
 
     "她的手机响了。"
     "她看了一眼屏幕，脸上的笑收了一点。"
@@ -1093,7 +1117,7 @@ label scene_notebook:
             shenlan "……店可能要关了。"
             "她看着我，很久没有说话。"
             xiaoman "什么时候的事？"
-            shenlan "月底之前。"
+            shenlan "下个月十五号之前。"
             xiaoman "……那你刚才还让我当店长。"
             "她的声音很轻。"
             "我没有回答。"
@@ -1125,6 +1149,73 @@ label scene_notebook:
     jump scene_lease
 
 
+label luyao_pov_book:
+    $ bgm("night")
+    scene black with warmfade
+    call screen time_card("又过了一阵子", "记录 6 — 书页边")
+
+    scene bg shop night with paperdissolve
+    show fx lamp night
+    show luyao quiet_half at expr_right with dissolve
+    "她借给我一本旧星图册。"
+    "我在页边写了一行字，第二天把书还回去。"
+    "「猎户座腰带的三颗星，和柜台上的三颗星排列一样。」"
+    "那是她刚开店时摆的三颗星。我一直记得。"
+
+    menu:
+        "在页边再写一句。":
+            $ m6_write = True
+            "我写下：「你数错了，是四颗。」"
+            "写完又觉得太认真，想擦掉，最后没擦。"
+        "只把书还回去。":
+            "我把书合上，放回柜台。"
+            "那一页的铅笔字，我没有动。"
+
+    "第二天，她把书还给我。"
+    if m6_write:
+        "页边多了一行：「四颗就四颗。那第四颗是哪一颗？」"
+        "我看着那行字，笑了很久。"
+    else:
+        "页边没有新的字。"
+        "我写下：「你那次没写。」"
+
+    "书里夹着一朵压干的满天星。"
+    "花瓣很脆，像一碰就会碎。"
+    "再往后翻，有一行被划掉的字。"
+    "那是我写的。写完之后，又划掉了。"
+
+    menu:
+        "告诉她那三个字。":
+            $ m6_ask = True
+            "我把书推到她面前。"
+            shenlan "这行划掉的是什么？"
+            show luyao awkward_half at expr_right with dissolve
+            luyao "……写错了。"
+            "我把书拿回来，用手指按住那一行。"
+            "她看见我的耳朵红了。"
+        "把书合上。":
+            "我把书合上。"
+            "那行被划掉的字，像一句没有说出口的话。"
+
+    "那天晚上，她把书放在柜台上，压在欠款单上面。"
+    "书页里那朵满天星，被她夹回了原来的位置。"
+    "我没有问欠款单的事。"
+
+    scene bg shop day with paperdissolve
+    show fx lamp day
+    show xiaoman neutral_half at half_right with dissolve
+    "第二天，小满借走了那本书。还回来的时候，最后一页多了一颗星。"
+    xiaoman "老板，这书挺好看的。"
+    "她什么也没问。"
+    "她把书放回柜台，压在收据下面。"
+    $ unlock_record("book_margin")
+
+    scene black with warmfade
+    "后来那本书一直在柜台上。"
+    "我们谁也没有再提页边的事。"
+    jump scene_door_light
+
+
 # ============================================================
 # 二周目 · 陆遥视角 · 记录 9–11
 # 这三场他不在沈岚的现场，用单独的标签，不复制一周目分支
@@ -1133,7 +1224,7 @@ label scene_notebook:
 label luyao_pov_notebook:
     $ bgm("night")
     scene black with warmfade
-    call screen time_card("离月底还有几天", "记录 9 · 小满的本子")
+    call screen time_card("还有二十五天", "记录 9 — 小满的本子")
 
     scene bg shop day with paperdissolve
     show fx lamp day
@@ -1141,12 +1232,12 @@ label luyao_pov_notebook:
     show luyao quiet_half at expr_left with dissolve
     "傍晚，我到店里的时候，小满正趴在柜台上写东西。"
     "她看见我，把本子合上，又忍不住翻开给我看。"
-    "「今天送出去 17 个星星。」"
+    "「今天送出去 17 颗星。」"
     "下面还有一行小字：「第 4 位客人问能不能多要一颗，给了。」"
     "本子已经写了小半本。"
-    show prop notebook page at doc_center with dissolve
+    show screen doc_overlay("prop notebook page") with dissolve
     "字迹很密，最后一行还没写完。"
-    hide prop notebook page with dissolve
+    hide screen doc_overlay with dissolve
 
     "我在门口听见她妈妈在电话里说：「你不能一辈子在咖啡店。」"
     "她没有顶嘴，只说：「妈，我会想的。」"
@@ -1174,9 +1265,9 @@ label luyao_pov_notebook:
     "我说得很自然。"
     "其实我还没有。"
     "offer 在包里，我还没有签。"
-    show prop offer letter at doc_center with dissolve
+    show screen doc_overlay("prop offer letter") with dissolve
     "职位、薪水、入职日期，都写得很清楚。"
-    hide prop offer letter with dissolve
+    hide screen doc_overlay with dissolve
     xiaoman "那挺好的。"
     "她端着托盘走了。"
     "沈岚看了我一眼。"
@@ -1196,7 +1287,7 @@ label luyao_pov_notebook:
 
 label luyao_pov_landlord:
     scene black with warmfade
-    call screen time_card("月底", "记录 10 · 租约")
+    call screen time_card("还有二十天", "记录 10 — 租约")
 
     "房东的办公室在隔壁街，招牌很小。"
     "我把赔偿金转了过去。卡里只剩下这个月的房租。"
@@ -1204,7 +1295,7 @@ label luyao_pov_landlord:
     "房东问我：「你跟她什么关系？」"
     "我说：「我是她店里的客人。」"
     "他看了我一会儿，没有再问。"
-    landlord "月底之前把第一笔打过来就行。"
+    landlord "十五号之前把第一笔打过来就行。"
     "我说好。"
     "从办公室出来，天在下雨。"
 
@@ -1227,13 +1318,13 @@ label luyao_pov_landlord:
     $ unlock_record("lease")
     scene black with warmfade
     "那张报价单一直压在柜台最里面。"
-    "纸很薄，压在我手里却很重。"
+    "纸很薄，压在她手里却很重。"
     jump scene_three_am
 
 
 label luyao_pov_347:
     scene black with warmfade
-    call screen time_card("那天夜里", "记录 11 · 凌晨 3:47")
+    call screen time_card("那天夜里", "记录 11 — 凌晨 3:47")
 
     scene bg shop night with paperdissolve
     show fx lamp night

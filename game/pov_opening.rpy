@@ -11,10 +11,10 @@ label luyao_pov_start:
     call screen time_card("那天上午")
 
     "上午十点，我收到一封邮件。"
-    show prop layoff mail at doc_center with dissolve
+    show screen doc_overlay("prop layoff mail") with dissolve
     "主题只有两个字：调整。"
     "附件里是一份名单。第一行是我的名字。"
-    hide prop layoff mail with dissolve
+    hide screen doc_overlay with dissolve
     "我把工位上的东西装进纸箱。键盘、杯子、一盆养死的绿萝。"
     "HR 说，赔偿会按 N+1 打到卡上。"
     "我说好。"

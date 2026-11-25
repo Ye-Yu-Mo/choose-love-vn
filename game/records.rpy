@@ -12,7 +12,7 @@ init python:
         {"id": "funeral", "title": "模型葬礼", "short": "葬礼", "x": 230, "y": 430, "obj": "mem rabbit",
          "text": "小满给自己办了一场葬礼。她说，二十二岁的她太乖了，想把她埋掉。"},
         {"id": "first_star", "title": "一杯咖啡，一颗星", "short": "第一颗星", "x": 150, "y": 330, "obj": "mem paper star",
-         "text": "他点了最便宜的美式，不加糖。我在碟子边放了一颗写着「撑住」的纸星。他把它放进了口袋。"},
+         "text": "他第一次来的时候，店里在下雨。后来他每天都点最便宜的美式。"},
         {"id": "card_reader", "title": "刷卡机", "short": "刷卡机", "x": 100, "y": 470, "obj": "mem screwdriver",
          "text": "刷卡机坏了。他蹲下去，把线拔了又插回去。「程序员还修这个？」「都是修东西。」"},
         {"id": "shop_cat", "title": "两个做没用东西的人", "short": "年糕", "x": 280, "y": 540, "obj": "mem cat",
@@ -20,13 +20,13 @@ init python:
         {"id": "book_margin", "title": "书页边", "short": "书页边", "x": 360, "y": 210, "obj": "mem book",
          "text": "他把书还回来时，页边多了一行铅笔字。书里夹着一朵压干的满天星，还有一行被划掉的「留下来」。"},
         {"id": "door_light", "title": "门口的灯", "short": "门口的灯", "x": 520, "y": 260, "obj": "mem paper star",
-         "text": "他修好了店招的灯。我给了他一颗写着「留下」的星，他挂在了电脑包上。我们谁也没有说破。"},
+         "text": "他修好了店招的灯。灯亮以后，整条街都亮了一下。"},
         {"id": "umbrella", "title": "雨里的伞", "short": "伞", "x": 450, "y": 470, "obj": "mem umbrella",
-         "text": "他撑着伞送我回家，伞一直往我这边偏。到楼下，他站了很久，只说了一句「你早点睡」。"},
+         "text": "他撑着伞送她回家，伞一直往她那边偏。到楼下，他站了很久。"},
         {"id": "lease", "title": "租约", "short": "租约", "x": 620, "y": 380, "obj": "mem lease",
          "text": "房东说楼要卖了，租金按市价，下个月十五号之前给准话。我把报价单和欠款单叠在一起，压在柜台最里面。"},
         {"id": "truth_347", "title": "凌晨 3:47", "short": "3:47", "x": 700, "y": 480, "obj": "mem laptop",
-         "text": "他趴在柜台上睡着了，电脑亮着 3:47。支付后台、提交记录、offer、租约收据——付款人那一栏是他的名字。"},
+         "text": "他趴在柜台上睡着了，电脑亮着 3:47。屏幕上是店铺后台和提交记录。"},
         {"id": "notebook", "title": "小满的本子", "short": "本子", "x": 560, "y": 540, "obj": "mem notebook",
          "text": "「今天送出去 17 个星星。」她记了小半本。挂掉妈妈的电话以后，她说：「如果有一天你不想开了，我可以当店长。」"},
         {"id": "piano", "title": "满天星", "short": "满天星", "x": 390, "y": 330, "obj": "mem paper star",
@@ -75,9 +75,9 @@ init python:
         "argument": "我用自己的全部换她多留一天。她问「你为什么不告诉我」。因为告诉了她，她就走了。",
         "finale": "最后一天，我拿着信站在门外。雨停了。",
         "end_together": "她留下了。这一次，我先问她愿不愿意让我留。",
-        "end_xiaoman": "她把钥匙交给小满。我没有拦她，只是把伞留在了门口。",
+        "end_xiaoman": "我劝她把店交给小满。她没有问我。",
         "end_depart": "她跟我走了。这一次，她没有逃，是出发。",
-        "end_alone": "她一个人走的。我在车站等到最后一班车开走。",
+        "end_alone": "她一个人走的。我没有去送。",
         "end_funeral": "我没能把她留下。那天之后，店里空了三天。",
         "end_white": "她留下了。可账还在我身上，我们都假装没有看见。",
         "end_told": "那天我把所有的事都说了。她没有走。店小了，但我们第一次站在同一边。",
@@ -136,13 +136,14 @@ screen star_map(standalone=False):
     zorder 150
     add "bg starry sky"
     add Solid("#050a1499")
+    $ owned_count = len([i for i in persistent.records if i in RECORD_BY_ID])
 
     vbox:
         xpos 48
         ypos 36
         spacing 4
         text "星图" size 40 color "#f2ede4" outlines [(3, "#00000088", 0, 0)]
-        text "已点亮 [len(persistent.records)] / [len(RECORDS)]" size 18 color "#c9b9a3" outlines [(2, "#00000088", 0, 0)]
+        text "已点亮 [owned_count] / [len(RECORDS)]" size 18 color "#c9b9a3" outlines [(2, "#00000088", 0, 0)]
 
     if persistent.cleared_pov:
         hbox:

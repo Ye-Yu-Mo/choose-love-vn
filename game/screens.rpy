@@ -276,7 +276,7 @@ style quick_button_text is button_text
 
 style quick_menu:
     xalign 0.5
-    yalign 1.0
+    yalign 0.965
 
 style quick_button:
     properties gui.button_properties("quick_button")
@@ -306,39 +306,39 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            textbutton _("开始游戏") action Start()
 
         else:
 
-            textbutton _("History") action ShowMenu("history")
+            textbutton _("历史") action ShowMenu("history")
 
-            textbutton _("Save") action ShowMenu("save")
+            textbutton _("存档") action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+        textbutton _("读档") action ShowMenu("load")
 
         textbutton _("星图") action Show("star_map")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        textbutton _("设置") action ShowMenu("preferences")
 
         if _in_replay:
 
-            textbutton _("End Replay") action EndReplay(confirm=True)
+            textbutton _("结束回放") action EndReplay(confirm=True)
 
         elif not main_menu:
 
-            textbutton _("Main Menu") action MainMenu()
+            textbutton _("主菜单") action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
+        textbutton _("关于") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+            textbutton _("帮助") action ShowMenu("help")
 
         if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            textbutton _("退出") action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -483,7 +483,7 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     use navigation
 
-    textbutton _("Return"):
+    textbutton _("返回"):
         style "return_button"
 
         action Return()
@@ -561,7 +561,7 @@ screen about():
     ## This use statement includes the game_menu screen inside this one.
     ## The vbox child is then included inside the viewport inside the
     ## game_menu screen.
-    use game_menu(_("About"), scroll="viewport"):
+    use game_menu(_("关于"), scroll="viewport"):
 
         style_prefix "about"
 
@@ -598,19 +598,19 @@ screen save():
 
     tag menu
 
-    use file_slots(_("Save"))
+    use file_slots(_("存档"))
 
 
 screen load():
 
     tag menu
 
-    use file_slots(_("Load"))
+    use file_slots(_("读档"))
 
 
 screen file_slots(title):
 
-    default page_name_value = FilePageNameInputValue(pattern=_("Page {}"), auto=_("Automatic saves"), quick=_("Quick saves"))
+    default page_name_value = FilePageNameInputValue(pattern=_("第 {} 页"), auto=_("自动存档"), quick=_("快速存档"))
 
     use game_menu(title):
 
@@ -743,7 +743,7 @@ screen preferences():
 
     tag menu
 
-    use game_menu(_("Preferences"), scroll="viewport"):
+    use game_menu(_("设置"), scroll="viewport"):
 
         vbox:
 
@@ -754,16 +754,16 @@ screen preferences():
 
                     vbox:
                         style_prefix "radio"
-                        label _("Display")
-                        textbutton _("Window") action Preference("display", "window")
-                        textbutton _("Fullscreen") action Preference("display", "fullscreen")
+                        label _("显示")
+                        textbutton _("窗口") action Preference("display", "window")
+                        textbutton _("全屏") action Preference("display", "fullscreen")
 
                 vbox:
                     style_prefix "check"
-                    label _("Skip")
-                    textbutton _("Unseen Text") action Preference("skip", "toggle")
-                    textbutton _("After Choices") action Preference("after choices", "toggle")
-                    textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
+                    label _("跳过")
+                    textbutton _("未读文本") action Preference("skip", "toggle")
+                    textbutton _("选择之后") action Preference("after choices", "toggle")
+                    textbutton _("转场") action InvertSelected(Preference("transitions", "toggle"))
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be added here, to
                 ## add additional creator-defined preferences.
@@ -776,46 +776,46 @@ screen preferences():
 
                 vbox:
 
-                    label _("Text Speed")
+                    label _("文字速度")
 
                     bar value Preference("text speed")
 
-                    label _("Auto-Forward Time")
+                    label _("自动前进时间")
 
                     bar value Preference("auto-forward time")
 
                 vbox:
 
                     if config.has_music:
-                        label _("Music Volume")
+                        label _("音乐音量")
 
                         hbox:
                             bar value Preference("music volume")
 
                     if config.has_sound:
 
-                        label _("Sound Volume")
+                        label _("音效音量")
 
                         hbox:
                             bar value Preference("sound volume")
 
                             if config.sample_sound:
-                                textbutton _("Test") action Play("sound", config.sample_sound)
+                                textbutton _("试听") action Play("sound", config.sample_sound)
 
 
                     if config.has_voice:
-                        label _("Voice Volume")
+                        label _("语音音量")
 
                         hbox:
                             bar value Preference("voice volume")
 
                             if config.sample_voice:
-                                textbutton _("Test") action Play("voice", config.sample_voice)
+                                textbutton _("试听") action Play("voice", config.sample_voice)
 
                     if config.has_music or config.has_sound or config.has_voice:
                         null height gui.pref_spacing
 
-                        textbutton _("Mute All"):
+                        textbutton _("全部静音"):
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
 
@@ -906,7 +906,7 @@ screen history():
     ## Avoid predicting this screen, as it can be very large.
     predict False
 
-    use game_menu(_("History"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0, spacing=gui.history_spacing):
+    use game_menu(_("历史"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0, spacing=gui.history_spacing):
 
         style_prefix "history"
 
@@ -993,7 +993,7 @@ screen help():
 
     default device = "keyboard"
 
-    use game_menu(_("Help"), scroll="viewport"):
+    use game_menu(_("帮助"), scroll="viewport"):
 
         style_prefix "help"
 
@@ -1181,8 +1181,8 @@ screen confirm(message, yes_action, no_action):
                 xalign 0.5
                 spacing gui.scale(100)
 
-                textbutton _("Yes") action yes_action
-                textbutton _("No") action no_action
+                textbutton _("是") action yes_action
+                textbutton _("否") action no_action
 
     ## Right-click and escape answer "no".
     key "game_menu" action no_action
@@ -1540,7 +1540,7 @@ screen quick_menu():
             style_prefix "quick"
 
             textbutton _("Back") action Rollback()
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+            textbutton _("跳过") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Menu") action ShowMenu()
 

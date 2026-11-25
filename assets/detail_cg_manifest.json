@@ -1,9 +1,9 @@
 [
   {
-    "name": "ending_with_him_v2",
-    "ref": "game/images/cg/ending_with_him.png",
+    "name": "cg_piano_lesson_v2",
+    "ref": "game/images/cg piano lesson.png",
     "size": "1536x1024",
     "transparent": false,
-    "prompt": "Same image, same composition, same two people seen from behind, same train platform, umbrella, suitcase, sunset and town. Change only the woman's hair: short messy shoulder-length hair instead of long hair. Keep her coat, posture, suitcase and the man identical. No text, no logos."
+    "prompt": "Same image, same composition, same pose, same lighting, same man at the piano, same cat, sheet music and cafe background. Change only the woman's hair to short messy shoulder-length hair, no glasses, matching a 24-year-old coffee shop owner; keep her face, apron, posture and hands identical. No text, no logos."
   }
 ]

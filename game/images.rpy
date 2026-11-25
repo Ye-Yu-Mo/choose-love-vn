@@ -46,3 +46,9 @@ transform doc_center:
     xalign 0.5
     yalign 0.02
     zoom 0.64
+
+
+screen doc_overlay(img):
+    zorder -1
+    add Solid("#00000055")
+    add img xalign 0.5 yalign 0.04 zoom 0.64

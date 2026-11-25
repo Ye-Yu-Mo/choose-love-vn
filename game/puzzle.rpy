@@ -103,7 +103,6 @@ label puzzle_scene:
     scene prop model funeral with paperdissolve
     "打烊以后，模型还在桌上。"
     "底座比看上去厚。小满说，里面本来不该有东西。"
-    $ unlock_record("model")
 
 label puzzle_loop:
     $ quick_menu = False
@@ -176,9 +175,9 @@ label puzzle_xiaoman:
     show cg base inside with dissolve
     "抽屉里铺着深色绒布。钥匙和一封信并排放着。"
     hide cg base inside with dissolve
-    show prop letter xiaoman at doc_center with dissolve
+    show screen doc_overlay("prop letter xiaoman") with dissolve
     "信封上写着「小满」。"
-    hide prop letter xiaoman with dissolve
+    hide screen doc_overlay with dissolve
     $ unlock_record("keys")
     xiaoman "……给我的？"
     "我没有说话。"
@@ -201,9 +200,9 @@ label puzzle_luyao:
     show cg base inside with dissolve
     "抽屉里铺着深色绒布。钥匙和一封信并排放着。"
     hide cg base inside with dissolve
-    show prop letter xiaoman at doc_center with dissolve
+    show screen doc_overlay("prop letter xiaoman") with dissolve
     "信封上写着「小满」。"
-    hide prop letter xiaoman with dissolve
+    hide screen doc_overlay with dissolve
     $ unlock_record("keys")
     luyao "你早就想好了？"
     "我没有回答。"
@@ -221,9 +220,9 @@ label puzzle_alone:
     show cg base inside with dissolve
     "抽屉里铺着深色绒布。钥匙和一封信并排放着。"
     hide cg base inside with dissolve
-    show prop letter xiaoman at doc_center with dissolve
+    show screen doc_overlay("prop letter xiaoman") with dissolve
     "信封上写着「小满」。"
-    hide prop letter xiaoman with dissolve
+    hide screen doc_overlay with dissolve
     $ unlock_record("keys")
     "我看了一遍，又放回去。"
     "我把模型盖好，放回柜台。"
@@ -236,8 +235,11 @@ label puzzle_put_away:
     $ quick_menu = True
     $ p_branch = "closed"
     "我把模型端起来，放回柜台最里面。"
-    "底座还是封着的。"
-    "有些东西，不知道也没关系。"
+    if p_base_open:
+        "底座松着，但我没有打开。"
+    else:
+        "底座还是封着的。"
+    "我把模型转了个方向，让墓碑朝墙。"
     scene black with warmfade
     "三天后。"
     jump argument_scene
@@ -263,10 +265,10 @@ label luyao_pov_model:
     show cg base inside with dissolve
     "抽屉里铺着深色绒布。钥匙和一封信并排放着。"
     hide cg base inside with dissolve
-    show prop letter xiaoman at doc_center with dissolve
+    show screen doc_overlay("prop letter xiaoman") with dissolve
     "信封上写着「小满」。"
     "信上写着：如果我不在了，店交给你。"
-    hide prop letter xiaoman with dissolve
+    hide screen doc_overlay with dissolve
     "我把信读了两遍。"
     "她不是随便说说。她真的要走。"
     "我把信放回去，把抽屉推回去。"

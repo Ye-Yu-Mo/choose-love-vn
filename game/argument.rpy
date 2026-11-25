@@ -34,7 +34,7 @@ screen argue_table():
         padding (26, 16)
         vbox:
             spacing 12
-            text "桌上摊着三样东西。" size 18 color "#e8c7a8" xalign 0.5
+            text "桌上摊着几样东西。" size 18 color "#e8c7a8" xalign 0.5
             hbox:
                 spacing 18
                 textbutton "租约" action Return("lease") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
@@ -52,7 +52,7 @@ screen argue_table_luyao():
         padding (26, 16)
         vbox:
             spacing 12
-            text "桌上摊着三样东西。" size 18 color "#e8c7a8" xalign 0.5
+            text "桌上摊着几样东西。" size 18 color "#e8c7a8" xalign 0.5
             hbox:
                 spacing 18
                 textbutton "把租约推过去" action Return("lease") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
@@ -63,6 +63,10 @@ screen argue_table_luyao():
 # 复盘：像翻开一本笔记本
 screen argue_review():
     modal True
+    button:
+        xysize (1280, 720)
+        background None
+        action Return()
     frame:
         xalign 0.5
         yalign 0.5
@@ -71,7 +75,7 @@ screen argue_review():
         padding (44, 34)
         vbox:
             spacing 20
-            text ("那天晚上，她记下的三句话。" if pov == "luyao" else "那天晚上，我记下的三句话。") size 26 color "#3a3226"
+            text ("那天晚上，她记下的三个选择。" if pov == "luyao" else "那天晚上，我做的三个选择。") size 26 color "#3a3226"
             for title, delta, echo in a_choices:
                 $ dcolor = "#b0453a" if delta > 0 else ("#3f6b52" if delta < 0 else "#6b5d4a")
                 $ dtext = ("+%d" % delta) if delta > 0 else ("%d" % delta)
@@ -129,8 +133,10 @@ label argument_scene:
             "我电脑包的拉链上，还挂着那颗写着「留下」的星。"
         if l_four_told:
             "她知道我四点去便利店。"
-        if m2_talk or m3_ask:
-            "我早就告诉过她：「今天开始不用去了」，「最近在休息」。她那时候没有听懂。"
+        if m2_talk:
+            "我早就告诉过她：「从昨天开始，不用去了」。"
+        if m3_ask:
+            "我早就告诉过她：「最近在休息」。"
     else:
         "打烊以后，雨一直没有停。"
         "柜台上摊着一张租约。缴费人一栏，是他的名字。"
@@ -162,8 +168,10 @@ label argument_scene:
             "那天夜里我叫醒了他。我们隔着一台电脑，谁也没有把话说开。"
         if m10_signed:
             "我签了续租。每个月的数字压在那里，像另一张脸。"
-        if m2_talk or m3_ask:
-            "他早就告诉过我：「今天开始不用去了」，「最近在休息」。我那时候没有听懂。"
+        if m2_talk:
+            "他早就告诉过我：「从昨天开始，不用去了」。"
+        if m3_ask:
+            "他早就告诉过我：「最近在休息」。"
 
     if pov == "luyao":
         call screen argue_table_luyao
@@ -176,14 +184,17 @@ label argument_scene:
         $ a_choices.append(("把租约推过去" if pov == "luyao" else "先把租约推过去", 2, "你把最疼的那根刺先递了过去。"))
         shenlan "你什么时候签的？"
         luyao "上个月。"
-        shenlan "用你的钱？"
+        if pov == "luyao" and l_lease_told:
+            shenlan "你把钱都垫进去了？"
+        else:
+            shenlan "用你的钱？"
         if pov == "luyao":
             "我没有否认。"
         else:
             "他没有否认。"
     elif r == "phone":
         $ a_heat += 1
-        $ a_choices.append(("拿起手机" if pov == "luyao" else "先拿起他的手机", 1, "你想问他几点睡，出口却成了另一句话。"))
+        $ a_choices.append(("拿起手机" if pov == "luyao" else "先拿起他的手机", 1, "你想说「我没睡」，出口却成了另一句话。"))
         if pov == "luyao":
             "我把手机翻过来，屏幕还停在 3:47。"
             "店铺后台的提交记录一条一条往下排。"
@@ -204,7 +215,7 @@ label argument_scene:
             "他的手很凉。"
             luyao "……谢谢。"
     else:
-        $ a_choices.append(("什么也不做" if pov == "luyao" else "什么也不拿", 0, "你坐在对面，等他先开口。"))
+        $ a_choices.append(("什么也不做" if pov == "luyao" else "什么也不拿", 0, "你坐在对面，等她先开口。"))
         if pov == "luyao":
             "我在她对面坐下，什么也没拿。"
             "雨声填满了我们中间的空隙。"
@@ -225,12 +236,12 @@ label argument_scene:
 
     if pov == "luyao":
         menu:
-            "说「我没有动店里的钱」。":
+            "说「我不会走」。":
                 $ a_heat += 1
-                $ a_choices.append(("说钱是你自己的", 1, "你把最硬的那句话先说了出去。"))
-                luyao "我没有动店里的钱。"
-                shenlan "那是你的全部。"
-                luyao "……我知道。"
+                $ a_choices.append(("说「我不会走」", 1, "你把最硬的那句话先说了出去。"))
+                luyao "我不会走。"
+                shenlan "你拿什么保证？"
+                luyao "……我不知道。"
                 shenlan "所以你就替我决定了？"
             "先解释那个 offer。":
                 $ a_heat += 2
@@ -298,7 +309,7 @@ label argument_scene:
                 $ a_choices.append(("承认不知道", -1, "你没有把刀递出去。你把手摊开了。"))
                 luyao "我不知道。"
                 shenlan "……我也是。"
-                "这是那天晚上，我们说的唯一一句真话。"
+                "这是那天晚上，她第一次没有绕开。"
     else:
         menu:
             "“你有没有想过，我想不想留？”":
@@ -320,7 +331,7 @@ label argument_scene:
                 "这是那天晚上，我说的唯一一句真话。"
                 luyao "……我也是。"
 
-    if pov == "luyao" and not a_broke:
+    if pov == "luyao" and a_heat <= 3:
         menu:
             "说真话。":
                 $ l_truth = True
@@ -349,7 +360,7 @@ label argument_scene:
         if pov == "luyao":
             "我没有看她。"
         else:
-            "陆遥没有看她。"
+            "他没有看她。"
         "她把那本记星星的本子放在门口的地上。"
         "然后转身走了，门没有关。"
     else:
@@ -415,9 +426,9 @@ label argument_review_scene:
     $ unlock_record("argument")
     scene black with warmfade
     if pov == "luyao":
-        "那天晚上，她在本子上记了三句话。"
+        "那天晚上，她在本子上记了三个选择。"
     else:
-        "那天晚上，我在本子上记了三句话。"
+        "那天晚上，我在本子上记了三个选择。"
     call screen argue_review
     $ quick_menu = True
     if a_broke:
