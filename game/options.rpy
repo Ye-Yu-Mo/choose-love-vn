@@ -203,6 +203,8 @@ init python:
     build.classify('*.md', None)
     build.classify('*.txt', None)
     build.classify('project.json', None)
+    build.classify('game/guisupport.rpy', None)
+    build.classify('game/guisupport.rpyc', None)
 
     ## To archive files, classify them as 'archive'.
 

@@ -10,21 +10,26 @@ init 100 python in gui:
 
         import sys
         import os
-        sys.path.insert(0, os.path.join(config.renpy_base, "launcher", "game"))
 
-        from gui7.parameters import GuiParameters
-        from gui7.images import ImageGenerator
-        from gui7 import generate_gui
+        gui7_dir = os.path.join(config.renpy_base, "launcher", "game", "gui7")
 
-        p = GuiParameters(
-            config.gamedir, config.gamedir,
-            config.screen_width, config.screen_height,
-            accent_color, "#000000", False, None,
-            True, False, False, "gui")
+        # gui7 只存在于开发环境；发行包里不重新生成 GUI。
+        if os.path.isdir(gui7_dir):
+            sys.path.insert(0, os.path.join(config.renpy_base, "launcher", "game"))
 
-        p.skip_backup = True
+            from gui7.parameters import GuiParameters
+            from gui7.images import ImageGenerator
+            from gui7 import generate_gui
 
-        generate_gui(p)
+            p = GuiParameters(
+                config.gamedir, config.gamedir,
+                config.screen_width, config.screen_height,
+                accent_color, "#000000", False, None,
+                True, False, False, "gui")
 
-        _skip_backup = True
-        _gui_images()
+            p.skip_backup = True
+
+            generate_gui(p)
+
+            _skip_backup = True
+            _gui_images()
