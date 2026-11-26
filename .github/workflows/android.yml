@@ -42,6 +42,17 @@ jobs:
             key.alias.password=android
             key.store=${{ github.workspace }}/android.keystore
 
+      - name: Configure Android signing properties
+        run: |
+          cat > "$HOME/.renpy_exec/rapt/project/local.properties" <<EOF
+          sdk.dir=$HOME/.renpy_exec/rapt/Sdk
+          key.store=$GITHUB_WORKSPACE/android.keystore
+          key.store.password=android
+          key.alias=android
+          key.alias.password=android
+          EOF
+          cp "$HOME/.renpy_exec/rapt/project/local.properties" "$HOME/.renpy_exec/rapt/project/bundle.properties"
+
       - name: Build APK
         uses: Ayowel/renpy-setup-action@v3.0.0
         with:
