@@ -2049,5 +2049,383 @@
     "speaker": "luyao",
     "text": "……外套。",
     "audio": "audio/voice/story_mid_1370.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 191,
+    "speaker": "shenlan",
+    "text": "这笔钱你什么时候付的？",
+    "audio": "audio/voice/shenlan_b174878cbe08c868fdf2.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 193,
+    "speaker": "luyao",
+    "text": "上个月，房东给我开的收据。",
+    "audio": "audio/voice/luyao_14aaec7237c2c242bbb0.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 245,
+    "speaker": "luyao",
+    "text": "欠的房租，我用补偿金垫了。那份工作，我也已经回绝了。",
+    "audio": "audio/voice/luyao_9e1b10ad07af7c8feb34.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 247,
+    "speaker": "luyao",
+    "text": "新合同那边，我只问过房东，首期那笔能不能缓几天。",
+    "audio": "audio/voice/luyao_a9e239c6ec71cf26f684.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 249,
+    "speaker": "shenlan",
+    "text": "你以后拿什么交自己的房租？",
+    "audio": "audio/voice/shenlan_0d0a280383fcacd7e7a5.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 251,
+    "speaker": "luyao",
+    "text": "便利店那边还能排班。",
+    "audio": "audio/voice/luyao_52dcabcfb9cea89d4d1c.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 272,
+    "speaker": "luyao",
+    "text": "我当时就想，工作以后还可以再找。",
+    "audio": "audio/voice/luyao_e692571cce5a44f6e239.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 274,
+    "speaker": "shenlan",
+    "text": "那你自己怎么办？",
+    "audio": "audio/voice/shenlan_6ab40cad24dfa1d1b46f.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 299,
+    "speaker": "shenlan",
+    "text": "那份工作，你为什么非得推掉？",
+    "audio": "audio/voice/shenlan_16fcd7c503f7724be9b8.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 330,
+    "speaker": "luyao",
+    "text": "你自己呢？你还想把店开下去吗？",
+    "audio": "audio/voice/luyao_2464ce7e2cf0261a7505.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 334,
+    "speaker": "luyao",
+    "text": "你倒是说句话。我这么做，到底有没有帮到你？",
+    "audio": "audio/voice/luyao_692f80d8f8d73686259d.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 339,
+    "speaker": "luyao",
+    "text": "剩下那笔钱，我再想办法。",
+    "audio": "audio/voice/luyao_efcb2149086b6660e591.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 341,
+    "speaker": "shenlan",
+    "text": "我问的是你打算怎么办，没问你还能拿多少钱出来。",
+    "audio": "audio/voice/shenlan_42b1edc341d7b701607e.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 361,
+    "speaker": "shenlan",
+    "text": "你跑去跟房东谈之前，怎么不先问问我？",
+    "audio": "audio/voice/shenlan_d566cad907946d2f9417.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 366,
+    "speaker": "shenlan",
+    "text": "房东的电话你能打，我就在店里，你怎么一句都不跟我说？",
+    "audio": "audio/voice/shenlan_0dd09c3ddba149086c9c.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 387,
+    "speaker": "luyao",
+    "text": "那份工作是我自己推的，可我没说我其实挺想去。",
+    "audio": "audio/voice/luyao_7de6b981294c0008aaa1.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 389,
+    "speaker": "luyao",
+    "text": "有两晚我在窗边那把椅子上睡。醒过来早了，就起来改店里的网页。",
+    "audio": "audio/voice/luyao_24812d571c9c5c6d01f1.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 391,
+    "speaker": "luyao",
+    "text": "我不敢告诉你。你知道了，就更有理由不要我管。",
+    "audio": "audio/voice/luyao_db31723af45251cb0001.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 395,
+    "speaker": "luyao",
+    "text": "我想等我把钱凑够了再说。后来才知道，怎么凑都不够。",
+    "audio": "audio/voice/luyao_20de8bde40f358956a61.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 412,
+    "speaker": "xiaoman",
+    "text": "陆哥，你那天说我能当店长。现在还算吗？",
+    "audio": "audio/voice/xiaoman_fb70e0cd362b67902914.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 415,
+    "speaker": "xiaoman",
+    "text": "老板，我那天跟你说想当店长。你还记得吗？",
+    "audio": "audio/voice/xiaoman_fc95857a3c207511ed0f.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 417,
+    "speaker": "xiaoman",
+    "text": "你们商量了半天，怎么一个都没叫我？",
+    "audio": "audio/voice/xiaoman_0c0bc5f6fd4e1270c70a.ogg"
+  },
+  {
+    "file": "argument.rpy",
+    "line": 424,
+    "speaker": "xiaoman",
+    "text": "后间那几张桌子一直空着。明天我拿这个去问问，能不能只租前面。",
+    "audio": "audio/voice/xiaoman_4c82ab004c97f0cb072d.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 66,
+    "speaker": "shenlan",
+    "text": "那天以后，我就不想再活了。",
+    "audio": "audio/voice/shenlan_da203005ed46d3ddcf23.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 69,
+    "speaker": "xiaoman",
+    "text": "这么大的事，你怎么连我都不告诉？",
+    "audio": "audio/voice/xiaoman_dc36dfc5acef50081703.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 253,
+    "speaker": "shenlan",
+    "text": "我想歇一阵。店里的事，你愿意接着做吗？",
+    "audio": "audio/voice/shenlan_cdbc3ddea092f977c945.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 255,
+    "speaker": "xiaoman",
+    "text": "那封信我收好了。今天你坐在这儿，我想听你当面说。",
+    "audio": "audio/voice/xiaoman_46c82f7d43268eb6c112.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 256,
+    "speaker": "shenlan",
+    "text": "好。你也可以慢慢想。",
+    "audio": "audio/voice/shenlan_11e6c547f21a354be5de.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 259,
+    "speaker": "xiaoman",
+    "text": "我带着这个去见过房东了。他肯谈首期怎么付。我算下来，先只开白天，能省一些。",
+    "audio": "audio/voice/xiaoman_10fa2f93d767d7d6d6ed.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 260,
+    "speaker": "xiaoman",
+    "text": "我想接。等房东把新条件写下来，我自己去谈。",
+    "audio": "audio/voice/xiaoman_e5ad5c8d60e0e86db0b6.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 263,
+    "speaker": "xiaoman",
+    "text": "这几天我可以先替你开门。我得看看账，也得想想自己愿不愿意做。给我一周，好吗？",
+    "audio": "audio/voice/xiaoman_3b40f60843683849a303.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 264,
+    "speaker": "shenlan",
+    "text": "好。我先问问房东，能不能给我们一周。",
+    "audio": "audio/voice/shenlan_c4bbaceeea4376525cf4.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 268,
+    "speaker": "xiaoman",
+    "text": "钥匙给我吧。明天我来开门。",
+    "audio": "audio/voice/xiaoman_409a73b6853b6afffc90.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 281,
+    "speaker": "xiaoman",
+    "text": "我想再开一个月。下个月续不续，我去跟房东谈完再定。",
+    "audio": "audio/voice/xiaoman_ea395bc0021532d3873e.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 305,
+    "speaker": "luyao",
+    "text": "你有想去的地方吗？",
+    "audio": "audio/voice/luyao_678daf243a1698d144d9.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 307,
+    "speaker": "luyao",
+    "text": "咱们去看看下一班车去哪儿吧。",
+    "audio": "audio/voice/luyao_1cfaddf38d233b80d7ae.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 432,
+    "speaker": "xiaoman",
+    "text": "我在后间听见了。你们算到哪儿了？上个月的水电费是我记的。",
+    "audio": "audio/voice/xiaoman_faa782801c61a109afe8.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 435,
+    "speaker": "xiaoman",
+    "text": "后间那几桌平时坐不满。我拿账本问过房东，他愿意谈只租前面的价钱。",
+    "audio": "audio/voice/xiaoman_7b27d660f8ce3c126d8b.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 437,
+    "speaker": "xiaoman",
+    "text": "后间那几桌平时坐不满。要是只租前面呢？先等我算算。",
+    "audio": "audio/voice/xiaoman_87d47b00c84f5995c54e.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 438,
+    "speaker": "shenlan",
+    "text": "铺子要是能留下，小满，你想管店吗？",
+    "audio": "audio/voice/shenlan_5dacd81ba9f68edc9197.ogg"
+  },
+  {
+    "file": "finale.rpy",
+    "line": 439,
+    "speaker": "xiaoman",
+    "text": "我想先试一个月。到时候咱们再坐下来看看。",
+    "audio": "audio/voice/xiaoman_73d7dbb155a439f795f1.ogg"
+  },
+  {
+    "file": "script.rpy",
+    "line": 108,
+    "speaker": "zhou",
+    "text": "这就够了。你弹两下，有哪个音听着别扭，再叫我来。",
+    "audio": "audio/voice/zhou_7612462ec272a5255ce0.ogg"
+  },
+  {
+    "file": "story_mid.rpy",
+    "line": 88,
+    "speaker": "luyao",
+    "text": "我昨天被裁了。",
+    "audio": "audio/voice/luyao_8f76001c5b3d719753e6.ogg"
+  },
+  {
+    "file": "story_mid.rpy",
+    "line": 90,
+    "speaker": "shenlan",
+    "text": "那以后还来喝咖啡吗？",
+    "audio": "audio/voice/shenlan_8c8621756a82c05cf0ac.ogg"
+  },
+  {
+    "file": "story_mid.rpy",
+    "line": 108,
+    "speaker": "luyao",
+    "text": "来吧。明天也有空。",
+    "audio": "audio/voice/luyao_8a8f4a6eb33a816d425f.ogg"
+  },
+  {
+    "file": "story_mid.rpy",
+    "line": 238,
+    "speaker": "luyao",
+    "text": "那家公司你可能没听过。",
+    "audio": "audio/voice/luyao_3d87ac9a4f06aa37e200.ogg"
+  },
+  {
+    "file": "story_mid.rpy",
+    "line": 420,
+    "speaker": "shenlan",
+    "text": "你要不要歇会儿？我这儿有本书。",
+    "audio": "audio/voice/shenlan_a29b87ac82a056dbeca9.ogg"
+  },
+  {
+    "file": "story_mid.rpy",
+    "line": 562,
+    "speaker": "luyao",
+    "text": "是阿哲。有份工作，他在等我回话。",
+    "audio": "audio/voice/luyao_daf6491bd00744001aaf.ogg"
+  },
+  {
+    "file": "story_mid.rpy",
+    "line": 563,
+    "speaker": "shenlan",
+    "text": "那你有空先回吧。我来收梯子。",
+    "audio": "audio/voice/shenlan_84040f9eae8f9fd936a1.ogg"
+  },
+  {
+    "file": "story_mid.rpy",
+    "line": 593,
+    "speaker": "xiaoman",
+    "text": "老板，晚上就开这串吧，外头也能看见。",
+    "audio": "audio/voice/xiaoman_7acb0d79e7c4a7338f41.ogg"
+  },
+  {
+    "file": "story_mid.rpy",
+    "line": 713,
+    "speaker": "shenlan",
+    "text": "他正好顺路。",
+    "audio": "audio/voice/shenlan_d0ac7bc45c8acc901894.ogg"
+  },
+  {
+    "file": "story_mid.rpy",
+    "line": 1002,
+    "speaker": "xiaoman",
+    "text": "你刚才还说我比你认真。我还以为……",
+    "audio": "audio/voice/xiaoman_063a03081e163a76be3d.ogg"
+  },
+  {
+    "file": "story_mid.rpy",
+    "line": 1006,
+    "speaker": "xiaoman",
+    "text": "那我还能看看店里的账吗？我想知道还差多少。",
+    "audio": "audio/voice/xiaoman_7a12ba3b03aa1353982a.ogg"
+  },
+  {
+    "file": "story_mid.rpy",
+    "line": 1145,
+    "speaker": "xiaoman",
+    "text": "那我去问问老板，能不能给我也看看账。水电费我手上有。",
+    "audio": "audio/voice/xiaoman_e219c7ed9456431abf2f.ogg"
   }
 ]
