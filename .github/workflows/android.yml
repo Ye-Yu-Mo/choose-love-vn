@@ -30,7 +30,7 @@ jobs:
             -dname "CN=ChooseLove, OU=Personal, O=Personal, L=Shanghai, ST=Shanghai, C=CN"
 
       - name: Install Ren'Py 8.5.2 + RAPT + Android SDK
-        uses: Ayowel/renpy-setup-action@v1.1.0
+        uses: Ayowel/renpy-setup-action@v3.0.0
         with:
           action: install
           version: 8.5.2
@@ -43,7 +43,7 @@ jobs:
             key.store=${{ github.workspace }}/android.keystore
 
       - name: Build APK
-        uses: Ayowel/renpy-setup-action@v1.1.0
+        uses: Ayowel/renpy-setup-action@v3.0.0
         with:
           action: android_build
           build_type: apk
