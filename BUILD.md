@@ -28,5 +28,6 @@ cd ~/Applications/renpy-8.5.2-sdk
 - 仓库：<https://github.com/Ye-Yu-Mo/choose-love-vn>
 - 工作流：`.github/workflows/android.yml`
 - 打开 Actions → Build Android APK → Run workflow；跑完在 Artifacts 里下载 `ChooseLove-1.1-apk`。
+- 本机已下载：`build/ChooseLove-1.1-android.apk`（约 292 MB，已签名）。
 - 包名：`com.yeyumo.chooselove`；图标：`game/android-icon_foreground.png` / `background.png`。
 - CI 里会生成一个临时 debug 签名 keystore，不会提交。
