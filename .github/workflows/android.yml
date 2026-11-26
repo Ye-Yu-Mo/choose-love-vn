@@ -1,0 +1,58 @@
+name: Build Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+env:
+  ANDROID_NDK_HOME: ""
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Create debug signing keystore
+        run: |
+          keytool -genkeypair -v \
+            -keystore android.keystore \
+            -alias android \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -storepass android -keypass android \
+            -dname "CN=ChooseLove, OU=Personal, O=Personal, L=Shanghai, ST=Shanghai, C=CN"
+
+      - name: Install Ren'Py 8.5.2 + RAPT + Android SDK
+        uses: Ayowel/renpy-setup-action@v1.1.0
+        with:
+          action: install
+          version: 8.5.2
+          dlc: rapt
+          android_sdk: true
+          android_properties: |
+            key.alias=android
+            key.store.password=android
+            key.alias.password=android
+            key.store=${{ github.workspace }}/android.keystore
+
+      - name: Build APK
+        uses: Ayowel/renpy-setup-action@v1.1.0
+        with:
+          action: android_build
+          build_type: apk
+          game: .
+          out_dir: target
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: ChooseLove-1.1-apk
+          path: target/*.apk
+          if-no-files-found: error

@@ -19,3 +19,5 @@ assets/audio_src/
 assets/archive/
 assets/backups/
 build/
+# Android signing
+android.keystore

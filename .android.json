@@ -1,0 +1,21 @@
+{
+    "expansion": false,
+    "heap_size": "3",
+    "icon_name": "满天星",
+    "include_pil": false,
+    "include_sqlite": false,
+    "layout": null,
+    "name": "满天星",
+    "numeric_version": 1,
+    "orientation": "sensorLandscape",
+    "package": "com.yeyumo.chooselove",
+    "permissions": [
+        "VIBRATE"
+    ],
+    "source": false,
+    "store": "all",
+    "update_always": true,
+    "update_icons": true,
+    "update_keystores": true,
+    "version": "1.1"
+}
