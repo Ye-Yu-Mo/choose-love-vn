@@ -42,7 +42,7 @@ screen main_menu():
         spacing 12
         at menu_in
         text "满天星" size 88 color "#f2e5cf" outlines [(5, "#2a1908aa", 0, 0)]
-        text "一杯咖啡，一件小手工，和一个抬头看星星的夜晚。" size 17 color "#d9c4a6" xmaximum 500 outlines [(2, "#24150588", 0, 0)]
+        text "沈岚准备关店的时候，窗边多了个每天来喝咖啡的人。" size 17 color "#d9c4a6" xmaximum 500 outlines [(2, "#24150588", 0, 0)]
 
     vbox:
         xpos 92

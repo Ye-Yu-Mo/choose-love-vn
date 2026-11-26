@@ -211,8 +211,16 @@ screen choice(items):
     style_prefix "choice"
 
     vbox:
-        for i in items:
-            textbutton i.caption action i.action
+        if len(items) <= 3:
+            for item in items:
+                textbutton item.caption action item.action xsize gui.scale(600)
+        else:
+            for start in range(0, len(items), 2):
+                hbox:
+                    xalign 0.5
+                    spacing gui.scale(16)
+                    for item in items[start:start + 2]:
+                        textbutton item.caption action item.action xsize gui.scale(480)
 
 
 style choice_vbox is vbox
@@ -221,16 +229,16 @@ style choice_button_text is button_text
 
 style choice_vbox:
     xalign 0.5
-    ypos gui.scale(270)
-    yanchor 0.5
-
-    spacing gui.choice_spacing
+    yalign 1.0
+    yoffset -gui.scale(64)
+    spacing gui.scale(9)
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
     background Frame("images/ui/paper_tag_idle.png", 24, 16)
     hover_background Frame("images/ui/paper_tag_hover.png", 24, 16)
-    padding (30, 12)
+    xalign 0.5
+    padding (gui.scale(22), gui.scale(9))
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
@@ -1130,6 +1138,20 @@ style help_label_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#confirm
 
+define confirm_messages = {
+    "Are you sure?": "确定要继续吗？",
+    "Are you sure you want to delete this save?": "确定要删除这个存档吗？",
+    "Are you sure you want to overwrite your save?": "确定要覆盖这个存档吗？",
+    "Loading will lose unsaved progress.\nAre you sure you want to do this?": "读档会丢失未保存的进度。\n要继续吗？",
+    "Are you sure you want to quit?": "确定要退出游戏吗？",
+    "Are you sure you want to return to the main menu?\nThis will lose unsaved progress.": "确定要回到标题画面吗？\n未保存的进度会丢失。",
+    "Are you sure you want to continue where you left off?": "要从上次的位置继续吗？",
+    "Are you sure you want to end the replay?": "确定要结束回放吗？",
+    "Are you sure you want to begin skipping?": "要开始快进吗？",
+    "Are you sure you want to skip to the next choice?": "要快进到下一组选项吗？",
+    "Are you sure you want to skip unseen dialogue to the next choice?": "要跳过未读对白，直接到下一组选项吗？",
+}
+
 screen confirm(message, yes_action, no_action):
 
     ## Ensure other screens do not get input while this screen is displayed.
@@ -1148,7 +1170,7 @@ screen confirm(message, yes_action, no_action):
             yalign .5
             spacing gui.scale(30)
 
-            label _(message):
+            label confirm_messages.get(message, message):
                 style "confirm_prompt"
                 xalign 0.5
 

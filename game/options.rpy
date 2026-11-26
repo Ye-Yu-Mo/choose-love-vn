@@ -36,9 +36,7 @@ define config.version = "1.0"
 ## the triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
-《满天星》是一个关于留下、抬头和看见星星的短篇故事。
-
-一杯咖啡，一件小手工，和一个愿意陪你坐到打烊的人。
+离咖啡店关门还有六十天。小满在桌上给二十二岁的自己办了一场葬礼，陆遥推门进来，点了杯美式。
 """)
 
 

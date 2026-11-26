@@ -8,6 +8,7 @@ default a_heat = 0
 default a_choices = []
 default a_review = ""
 default a_broke = False
+define a_truth_entry = ("说清楚我为什么瞒着她", "你说你其实想接那份工作，也终于说了自己为什么一直等。")
 
 # 争执温度（三颗小点）
 screen argue_meter():
@@ -37,7 +38,7 @@ screen argue_table():
             text "桌上摊着几样东西。" size 18 color "#e8c7a8" xalign 0.5
             hbox:
                 spacing 18
-                textbutton "租约" action Return("lease") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
+                textbutton "房租收据" action Return("lease") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
                 textbutton "他的手机" action Return("phone") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
                 textbutton "水杯" action Return("cup") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
                 textbutton "什么也不拿" action Return("nothing") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
@@ -55,14 +56,17 @@ screen argue_table_luyao():
             text "桌上摊着几样东西。" size 18 color "#e8c7a8" xalign 0.5
             hbox:
                 spacing 18
-                textbutton "把租约推过去" action Return("lease") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
+                textbutton "把收据推过去" action Return("lease") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
                 textbutton "拿起手机" action Return("phone") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
                 textbutton "给她倒杯水" action Return("cup") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
-                textbutton "什么也不做" action Return("nothing") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
+                textbutton "先坐一会儿" action Return("nothing") text_size 22 text_color "#f2ede4" text_hover_color "#e8c7a8"
 
 # 复盘：像翻开一本笔记本
 screen argue_review():
     modal True
+    $ entries = a_choices
+    if l_truth and len(a_choices) == 3:
+        $ entries = a_choices + [a_truth_entry]
     button:
         xysize (1280, 720)
         background None
@@ -70,22 +74,19 @@ screen argue_review():
     frame:
         xalign 0.5
         yalign 0.5
-        xmaximum 820
+        xsize 810
         background "#f2ede4f2"
-        padding (44, 34)
+        padding (42, 30)
         vbox:
-            spacing 20
-            text ("那天晚上，她记下的三个选择。" if pov == "luyao" else "那天晚上，我做的三个选择。") size 26 color "#3a3226"
-            for title, delta, echo in a_choices:
-                $ dcolor = "#b0453a" if delta > 0 else ("#3f6b52" if delta < 0 else "#6b5d4a")
-                $ dtext = ("+%d" % delta) if delta > 0 else ("%d" % delta)
+            xfill True
+            spacing 15
+            text "那天晚上" size 26 color "#3a3226"
+            # 旧存档的条目在标题和正文之间还有一项分数。
+            for entry in entries:
                 vbox:
                     spacing 3
-                    hbox:
-                        spacing 12
-                        text title size 21 color "#3a3226"
-                        text dtext size 17 color dcolor
-                    text echo size 18 color "#6b5d4a"
+                    text entry[0] size 21 color "#3a3226"
+                    text entry[-1] size 18 color "#6b5d4a"
             if a_review:
                 text a_review size 22 color "#3a3226"
             textbutton "合上本子" action Return() text_size 20 text_color "#3a2c1e" text_hover_color "#8a4a20" xalign 1.0
@@ -106,74 +107,78 @@ label argument_scene:
     show shenlan quiet_half at expr_left with dissolve
     show luyao guilty_half at expr_right with dissolve
     if pov == "luyao":
-        "打烊以后，雨一直没有停。"
-        "柜台上摊着一张租约。缴费人一栏，是我的名字。"
-        "旁边是我的手机。屏幕还亮着，停在一份菜单草稿上。"
-        "最后一次修改，是凌晨三点四十七分。"
+        voice ("audio/voice/narr_shenlan_d997e708a6afe2b3490c.ogg" if pov == "shenlan" else "audio/voice/narr_luyao_d997e708a6afe2b3490c.ogg")
+        "她发消息让我回店里一趟。我以为又有东西坏了，出门时连伞都没拿。"
+        voice ("audio/voice/narr_shenlan_7367123106115006670c.ogg" if pov == "shenlan" else "audio/voice/narr_luyao_7367123106115006670c.ogg")
+        "一进门，我就看见了房东开的收据。付款人一栏是我的名字。"
+        "柜台上还有我忘拿的手机。我认得那份菜单草稿，手机是我刚才拿来对版用的。"
+        "上面显示上次修改是 3:47。"
         if p_branch == "luyao_seen":
-            "三天前，我先打开了模型。我知道她打算走。"
+            "我前几天看过模型里那封信。到现在也没敢问她，日历上到底圈的是哪一天。"
         if f_asked:
-            "我第一次来的时候，说自己只是「路过」。她没有拆穿。"
+            "第一天我还跟她说，自己是路过。"
         if f_piano == "teach":
-            "我想起她教我时，说手腕放松一点。"
+            "学琴那天，她一遍遍叫我把手腕放松。我这会儿才发现我一直攥着包带。"
         elif f_piano == "tease":
-            "我想起她说我在敲代码。"
+            "她笑我弹琴像敲代码那天，我们也是打烊以后才开始说话。"
         elif f_piano == "try":
-            "我想起她退后半步，让我自己按对。"
-        "她把我叫回来。我连伞都没拿。"
+            "我想起学琴那天，她在旁边等我自己把音找出来。那回她肯等我。"
+        "我把电脑包放下来，湿了的包带在柜台上印了道水痕。"
         voice "audio/voice/argument_124.ogg"
         luyao "……你看见了。"
-        "我站在门口，头发上还是雨。"
+        "我往屋里走了一步。她没过来接我的包。"
         if l_awake:
-            "那天夜里她看见我醒着。我们坐到天亮，谁也没有把话说透。"
+            "上次她半夜回来，我们好歹一起坐到了天亮。这回她一直站在柜台那一边。"
         elif l_lease_told:
-            "她早就知道我付了租约。所以今晚，她没有问钱从哪来。"
+            "我早跟她说过欠租的事。她现在才看到具体数目。"
         else:
-            "她应该还不知道。在她眼里，我大概只是每天来喝咖啡。"
+            "我本来打算等房东那边有了准话再说。现在也用不着挑时间了。"
         if m7_star:
-            "我电脑包的拉链上，还挂着那颗写着「留下」的星。"
+            "包上那颗「留下」蹭到了桌沿，我下意识把它扶了一下。"
         if l_four_told:
-            "她知道我四点去便利店。"
+            "便利店的事她知道，只是不知道我把工钱攒下来做什么。"
+        if m7_phone:
+            "阿哲的电话我告诉过她。后来拒掉那份工作，我也只给阿哲回了一条消息。"
         if m2_talk:
-            "我早就告诉过她：「从昨天开始，不用去了」。"
+            "我头一回和她提起被裁的时候，她问我以后还来不来喝咖啡。"
         if m3_ask:
-            "我早就告诉过她：「最近在休息」。"
+            "修机器那天，我还跟她说，我最近在休息。"
     else:
-        "打烊以后，雨一直没有停。"
-        "柜台上摊着一张租约。缴费人一栏，是他的名字。"
-        "旁边是他的手机。屏幕还亮着，停在一份菜单草稿上。"
-        "最后一次修改，是凌晨三点四十七分。"
+        "打烊前房东送了收据来，说之前欠的那笔已经有人付过了。"
+        "我盯着付款人那一栏找了半天，才敢认是陆遥的名字。"
+        "他手机落在柜台上，屏幕还没灭。我看见上面开着店里的菜单草稿。"
+        "他改到凌晨 3:47。手机上标着时间。"
         if p_branch == "luyao":
-            "三天前，他先看见了那封信。"
-            "所以他知道，我本来打算走。"
+            "前几天陆遥已经看过我写给小满的信。"
+            "他那天说，我至少应该告诉他。今天我要问他的也是这句。"
         if f_asked:
-            "他第一次来的时候，说自己只是「路过」。"
+            "第一天我问他怎么找到这儿的，他说路过。后来我就没怎么问过。"
         if f_piano == "teach":
-            "我想起我教他时，说手腕放松一点。"
+            "我想起让他放松手腕那天。他按错一个音，还抬头等我说话。"
         elif f_piano == "tease":
-            "我想起自己说他在敲代码。"
+            "那天在琴边我笑他敲代码。原来他后来真的在这儿敲了一整夜。"
         elif f_piano == "try":
-            "我想起自己退后半步，让他自己按对。"
-        "我把他叫回来的时候，他连伞都没拿。"
+            "学琴那天，我往后让了让，让他自己找第一个音。那会儿倒没这么难开口。"
+        "我发了条消息让他回来拿手机。他离店还没多久，一会儿就到了。"
         voice "audio/voice/argument_157.ogg"
         luyao "……你看见了。"
-        "他站在门口，头发上还是雨。"
+        "他站在门口，袖口往下滴着水。"
         if m11_looked:
-            "我想起那天凌晨 3:47 的屏幕。付款人那一栏，是他的名字。"
+            "半夜我在电脑上瞥到过这张收据。那时候我还盼着自己看错了。"
         if m10_told:
-            "那天晚上我告诉他店可能要关了。第二天，他没有来。"
+            "上次我说店可能要关，他第二天就没来。我以为这事过去了。"
         if m7_star:
-            "他电脑包的拉链上，还挂着那颗写着「留下」的星。"
+            "他往里走的时候，我看见包上还挂着那颗「留下」。"
         if m4_ask:
-            "我一直在想，他每天四点走，到底去了哪。"
+            "要是上回多问一句，说不定我早就知道他为什么非得四点走。"
         if m11_confront:
-            "那天夜里我叫醒了他。我们隔着一台电脑，谁也没有把话说开。"
+            "我上次半夜把他叫醒，也没问出什么。今天倒是连问哪一句都想好了。"
         if m10_signed:
-            "我签了续租。每个月的数字压在那里，像另一张脸。"
+            "我自己签的那份合同还压在抽屉里。下个月该交的，和这张收据是两笔钱。"
         if m2_talk:
-            "他早就告诉过我：「从昨天开始，不用去了」。"
+            "他跟我提过，公司不要他了。那回我们还聊了句咖啡。"
         if m3_ask:
-            "他早就告诉过我：「最近在休息」。"
+            "修机器的时候，他说他最近在休息。我那时候就该问问，怎么才算休息。"
 
     if pov == "luyao":
         call screen argue_table_luyao
@@ -183,11 +188,11 @@ label argument_scene:
 
     if r == "lease":
         $ a_heat += 2
-        $ a_choices.append(("把租约推过去" if pov == "luyao" else "先把租约推过去", 2, "你把最疼的那根刺先递了过去。"))
-        voice "audio/voice/argument_185.ogg"
-        shenlan "你什么时候签的？"
-        voice "audio/voice/argument_186.ogg"
-        luyao "上个月。"
+        $ a_choices.append(("摊开房租收据", "收据放到了桌子中间，两个人都低头看那一栏。"))
+        voice "audio/voice/shenlan_b174878cbe08c868fdf2.ogg"
+        shenlan "这笔钱你什么时候付的？"
+        voice "audio/voice/luyao_14aaec7237c2c242bbb0.ogg"
+        luyao "上个月，房东给我开的收据。"
         if pov == "luyao" and l_lease_told:
             voice "audio/voice/argument_188.ogg"
             shenlan "你把钱都垫进去了？"
@@ -195,65 +200,65 @@ label argument_scene:
             voice "audio/voice/argument_190.ogg"
             shenlan "用你的钱？"
         if pov == "luyao":
-            "我没有否认。"
+            "我点了下头。"
         else:
-            "他没有否认。"
+            "他点了点头，手还按着纸的另一端。"
     elif r == "phone":
         $ a_heat += 1
-        $ a_choices.append(("拿起手机" if pov == "luyao" else "先拿起他的手机", 1, "你想说「我没睡」，出口却成了另一句话。"))
+        $ a_choices.append(("拿起手机" if pov == "luyao" else "拿起他的手机", "手机一亮，昨晚留在店里的事也瞒不住了。"))
         if pov == "luyao":
-            "我把手机翻过来，屏幕还停在 3:47。"
-            "店铺后台的提交记录一条一条往下排。"
+            "我把手机往她那边转了转。"
+            "草稿下面还连着店铺后台。我手指一碰，就翻出来一长串修改记录。"
         else:
-            "我拿起他的手机。"
-            "凌晨三点四十七分，他还在改店里的菜单。"
+            "我把他的手机拿起来，点开草稿下面的修改记录。"
+            "那么多条，往前滑了两下才滑到头。"
         voice "audio/voice/argument_204.ogg"
         shenlan "你几点睡的？"
         voice "audio/voice/argument_205.ogg"
         luyao "……记不清了。"
     elif r == "cup":
         $ a_heat -= 1
-        $ a_choices.append(("给她倒了一杯水" if pov == "luyao" else "先给他倒一杯水", -1, "你先把水递过去，才把问题递过去。"))
+        $ a_choices.append(("给她倒水" if pov == "luyao" else "给他倒水", "接水的人没急着说话，先把杯子握在手里。"))
         if pov == "luyao":
             "我起身，给她倒了一杯水。"
-            "她的手很凉。"
+            "她接了杯子，没喝，手一直贴着杯壁。"
             voice "audio/voice/argument_212.ogg"
             shenlan "……谢谢。"
         else:
             "我起身，给自己倒水，也给他倒了一杯。"
-            "他的手很凉。"
+            "他手上都是雨水，接杯子前先在裤腿上蹭了一下。"
             voice "audio/voice/argument_216.ogg"
             luyao "……谢谢。"
     else:
-        $ a_choices.append(("什么也不做" if pov == "luyao" else "什么也不拿", 0, "你坐在对面，等她先开口。"))
+        $ a_choices.append(("先坐一会儿", "桌上的东西谁也没碰。后来是陆遥先开口。"))
         if pov == "luyao":
             "我在她对面坐下，什么也没拿。"
-            "雨声很大。我们隔着桌子坐了一会儿。"
+            "桌上那张收据的边角有点翘，我伸手压了一下。"
         else:
             "我在他对面坐下，什么也没拿。"
-            "雨声很大。我们隔着桌子坐了一会儿。"
+            "他盯着那张收据，拉了把椅子坐下来。"
 
     show screen argue_meter
     if pov == "luyao":
-        "我先开口了。"
+        "我开口的时候，还在压那张纸。"
     else:
-        "他先开口了。"
-    voice "audio/voice/argument_231.ogg"
-    luyao "钱是我自己的。工作也是我自己的决定。"
-    voice "audio/voice/argument_232.ogg"
-    luyao "我没有动店里的钱。"
-    voice "audio/voice/argument_233.ogg"
-    shenlan "那是你的全部。"
-    voice "audio/voice/argument_234.ogg"
-    luyao "……我知道。"
+        "最后是他先开口的。"
+    voice "audio/voice/luyao_9e1b10ad07af7c8feb34.ogg"
+    luyao "欠的房租，我用补偿金垫了。那份工作，我也已经回绝了。"
+    voice "audio/voice/luyao_a9e239c6ec71cf26f684.ogg"
+    luyao "新合同那边，我只问过房东，首期那笔能不能缓几天。"
+    voice "audio/voice/shenlan_0d0a280383fcacd7e7a5.ogg"
+    shenlan "你以后拿什么交自己的房租？"
+    voice "audio/voice/luyao_52dcabcfb9cea89d4d1c.ogg"
+    luyao "便利店那边还能排班。"
     voice "audio/voice/argument_235.ogg"
     luyao "我只是不想让你走。"
 
     if pov == "luyao":
         menu:
-            "说「我不会走」。":
+            "保证我会留下":
                 $ a_heat += 1
-                $ a_choices.append(("说「我不会走」", 1, "你把最硬的那句话先说了出去。"))
+                $ a_choices.append(("说我会留下", "她问了一句怎么保证，你没答上来。"))
                 voice "audio/voice/argument_242.ogg"
                 luyao "我不会走。"
                 voice "audio/voice/argument_243.ogg"
@@ -262,163 +267,169 @@ label argument_scene:
                 luyao "……我不知道。"
                 voice "audio/voice/argument_245.ogg"
                 shenlan "所以你就替我决定了？"
-            "先解释那个 offer。":
+            "跟她解释为什么推掉工作":
                 $ a_heat += 2
-                $ a_choices.append(("先解释 offer", 2, "你听见的不是牺牲，是代价。"))
-                voice "audio/voice/argument_249.ogg"
-                luyao "那个 offer 可以等。"
-                voice "audio/voice/argument_250.ogg"
-                shenlan "等不了的是我吗？"
-                "我张了张嘴，没有声音。"
-            "先听她说完。":
+                $ a_choices.append(("说起推掉的工作", "她问起你往后的打算，你还没想过那么远。"))
+                voice "audio/voice/luyao_e692571cce5a44f6e239.ogg"
+                luyao "我当时就想，工作以后还可以再找。"
+                voice "audio/voice/shenlan_6ab40cad24dfa1d1b46f.ogg"
+                shenlan "那你自己怎么办？"
+                "我一时想不到能拿什么话让她放心。"
+            "先听她说完":
                 $ a_heat -= 1
-                $ a_choices.append(("先听她说完", -1, "你没有打断她。她第一次把账算到了自己身上。"))
-                "我没有打断她。"
-                "她把每个月的账算给我听，像在汇报一个 bug。"
-                "算到最后，她自己停住了。"
+                $ a_choices.append(("先听她说完", "她把每个月得交的钱都写了下来。"))
+                "我本来想接一句。看她摊开那本账，就等她先说完。"
+                "她从下个月要交的租金说起，一笔一笔往下划。"
+                "划到最后两栏，她用笔点了点，说光靠我一个人垫没用。"
                 voice "audio/voice/argument_258.ogg"
                 luyao "……我不是想让你欠我。"
     else:
         menu:
-            "“你为什么不告诉我？”":
+            "问他为什么不告诉我":
                 $ a_heat += 1
-                $ a_choices.append(("追问他为什么瞒着", 1, "你要的不是解释，是一个你在里面的位置。"))
+                $ a_choices.append(("问他为什么瞒着", "他说，你知道了肯定不会让他垫。"))
                 voice "audio/voice/argument_264.ogg"
                 shenlan "你为什么不告诉我？"
                 voice "audio/voice/argument_265.ogg"
                 luyao "告诉你，你就不会要。"
                 voice "audio/voice/argument_266.ogg"
                 shenlan "所以你就替我决定了？"
-            "“你把工作也推了？”":
+            "问他为什么推掉那份工作":
                 $ a_heat += 2
-                $ a_choices.append(("质问他推掉的工作", 2, "你听见的不是牺牲，是代价。"))
-                voice "audio/voice/argument_270.ogg"
-                shenlan "你连工作都推了？"
-                voice "audio/voice/argument_271.ogg"
-                luyao "那个 offer 可以等。"
-                voice "audio/voice/argument_272.ogg"
-                shenlan "等不了的是我吗？"
-                "他张了张嘴，没有声音。"
-            "“你继续说，我听。”":
+                $ a_choices.append(("问他为什么推掉工作", "他说以后还可以再找。你问他这段时间怎么办。"))
+                voice "audio/voice/shenlan_16fcd7c503f7724be9b8.ogg"
+                shenlan "那份工作，你为什么非得推掉？"
+                voice "audio/voice/luyao_e692571cce5a44f6e239.ogg"
+                luyao "我当时就想，工作以后还可以再找。"
+                voice "audio/voice/shenlan_6ab40cad24dfa1d1b46f.ogg"
+                shenlan "那你自己怎么办？"
+                "他张了下嘴，又低头看那张收据。"
+            "让他把话说完":
                 $ a_heat -= 1
-                $ a_choices.append(("听他把话说完", -1, "你没有打断他。他第一次把账算到了自己身上。"))
-                "我没有打断他。"
-                "他把每个月的账算给我听，像在汇报一个 bug。"
-                "算到最后，他自己停住了。"
+                $ a_choices.append(("听他把话说完", "他给你看了排班，这还是头一回。"))
+                "他去拿纸的时候，我帮他把杯子移开了一点。"
+                "他在纸背上把钱一笔笔列出来，又给我看手机里的排班。"
+                "我才看清他得上几次夜班，才够填上那一行。"
                 voice "audio/voice/argument_280.ogg"
                 luyao "……我不是想让你欠我。"
 
     if pov == "luyao":
-        "我说，晚上在便利店做兼职。"
-        "我说，等店缓过来，再去找工作。"
-        "我说，你不用替我做什么。"
-        "我就是不想让你走。"
+        "我说我每天下午四点去便利店，夜里回来帮店里改网页。"
+        "本来还想说等店缓过来，一切就都好了。"
+        "可想想刚才那一张张账单，我没再说下去。"
     else:
-        "他说，晚上在便利店做兼职。"
-        "他说，等店缓过来，再去找工作。"
-        "他说，他什么都不需要我做。"
-        "他只是不想让我走。"
+        "他说四点以后他在便利店，半夜回来改店里的网页。"
+        "我以前见他困得趴在柜台上，还以为只是睡得晚。"
+        "听他说完，我才想起来问他，这么晚回店里，到底是在哪儿睡。"
+        "他低头往窗边那张椅子看了一眼。"
 
     if pov == "luyao":
         menu:
-            "问她愿不愿意留下。":
+            "问她到底想不想留下":
                 $ a_heat += 1
-                $ a_choices.append(("问她愿不愿意留下", 1, "你终于问出了那句最该早些问的话。"))
-                voice "audio/voice/argument_298.ogg"
-                luyao "你有没有想过，你愿不愿意留？"
+                $ a_choices.append(("问她的打算", "她还没答，你就忍不住又问了一句。"))
+                voice "audio/voice/luyao_2464ce7e2cf0261a7505.ogg"
+                luyao "你自己呢？你还想把店开下去吗？"
                 voice "audio/voice/argument_299.ogg"
                 shenlan "……"
-                voice "audio/voice/argument_300.ogg"
-                luyao "你留下，是因为店，还是因为我？"
-            "说「我会把钱还上」。":
+                voice "audio/voice/luyao_692f80d8f8d73686259d.ogg"
+                luyao "你倒是说句话。我这么做，到底有没有帮到你？"
+            "坚持我会自己想办法凑钱":
                 $ a_heat += 2
-                $ a_choices.append(("说「我会把钱还上」", 2, "你想把关系算清，却先把她推远。"))
-                voice "audio/voice/argument_304.ogg"
-                luyao "钱我会还上。"
-                voice "audio/voice/argument_305.ogg"
-                shenlan "我不是在跟你要钱。"
-                "她说完，自己先愣住了。"
-            "承认不知道。":
+                $ a_choices.append(("说我会再凑钱", "你接着说房租，她问的是你自己。"))
+                voice "audio/voice/luyao_efcb2149086b6660e591.ogg"
+                luyao "剩下那笔钱，我再想办法。"
+                voice "audio/voice/shenlan_42b1edc341d7b701607e.ogg"
+                shenlan "我问的是你打算怎么办，没问你还能拿多少钱出来。"
+                "她说得急，手一松，杯子碰在桌面上响了一下。"
+            "承认我也没想好怎么办":
                 $ a_heat -= 1
-                $ a_choices.append(("承认不知道", -1, "你没有把刀递出去。你把手摊开了。"))
+                $ a_choices.append(("承认没想好", "她也说没想好。这回两个人都没急着接话。"))
                 voice "audio/voice/argument_310.ogg"
                 luyao "我不知道。"
                 voice "audio/voice/argument_311.ogg"
                 shenlan "……我也是。"
-                "这是那天晚上，她第一次没有绕开。"
+                "她捧着杯子，慢慢坐了下来。"
     else:
         menu:
-            "“你有没有想过，我想不想留？”":
+            "问他有没有想过我愿不愿意留下":
                 $ a_heat += 1
-                $ a_choices.append(("问他有没有问过我", 1, "你终于问出了那句最该早些问的话。"))
+                $ a_choices.append(("问他有没有想过我的打算", "他没说话，你等了一会儿。"))
                 voice "audio/voice/argument_318.ogg"
                 shenlan "你有没有想过，我想不想留？"
                 voice "audio/voice/argument_319.ogg"
                 luyao "……"
-                voice "audio/voice/argument_320.ogg"
-                shenlan "你留下我，是因为店，还是因为我？"
-            "“你凭什么替我决定。”":
+                voice "audio/voice/shenlan_d566cad907946d2f9417.ogg"
+                shenlan "你跑去跟房东谈之前，怎么不先问问我？"
+            "质问他凭什么替我决定":
                 $ a_heat += 2
-                $ a_choices.append(("把决定权拍回他脸上", 2, "你想夺回自己的人生，却先伤了他。"))
-                voice "audio/voice/argument_324.ogg"
-                shenlan "你凭什么替我决定我的人生？"
+                $ a_choices.append(("问他凭什么替我决定", "他刚开口解释，你就打断了他。"))
+                voice "audio/voice/shenlan_0dd09c3ddba149086c9c.ogg"
+                shenlan "房东的电话你能打，我就在店里，你怎么一句都不跟我说？"
                 voice "audio/voice/argument_325.ogg"
                 luyao "我没有——"
                 voice "audio/voice/argument_326.ogg"
                 shenlan "你有。"
-            "“我不知道。”":
+            "承认我也没想好":
                 $ a_heat -= 1
-                $ a_choices.append(("承认自己也不知道", -1, "你没有把刀递出去。你把手摊开了。"))
+                $ a_choices.append(("承认没想好", "他也说没想好。你这次听见他说完了。"))
                 voice "audio/voice/argument_330.ogg"
                 shenlan "我不知道。"
-                "这是那天晚上，我说的唯一一句真话。"
+                "我在心里想了好几遍才说出口。"
                 voice "audio/voice/argument_332.ogg"
                 luyao "……我也是。"
 
     if pov == "luyao" and a_heat <= 3:
         menu:
-            "说真话。":
+            "说清楚我为什么瞒着她":
                 $ l_truth = True
                 $ a_heat -= 1
-                voice "audio/voice/argument_339.ogg"
-                luyao "租约是我付的。offer 我也推了。"
-                voice "audio/voice/argument_340.ogg"
-                luyao "我每天晚上在这里改菜单，白天去便利店。"
-                voice "audio/voice/argument_341.ogg"
-                luyao "我不是想让你欠我。我是怕你走。"
+                $ a_choices.append(a_truth_entry)
+                voice "audio/voice/luyao_7de6b981294c0008aaa1.ogg"
+                luyao "那份工作是我自己推的，可我没说我其实挺想去。"
+                voice "audio/voice/luyao_24812d571c9c5c6d01f1.ogg"
+                luyao "有两晚我在窗边那把椅子上睡。醒过来早了，就起来改店里的网页。"
+                voice "audio/voice/luyao_db31723af45251cb0001.ogg"
+                luyao "我不敢告诉你。你知道了，就更有理由不要我管。"
                 voice "audio/voice/argument_342.ogg"
                 shenlan "……你为什么不早说？"
-                voice "audio/voice/argument_343.ogg"
-                luyao "因为说了，你就走了。"
-                "说完，我把视线移开。"
-            "用「我只是想帮你」挡。":
+                voice "audio/voice/luyao_20de8bde40f358956a61.ogg"
+                luyao "我想等我把钱凑够了再说。后来才知道，怎么凑都不够。"
+                "我说到这儿才敢看她一眼。"
+            "只说「我只是想帮你」":
+                $ a_choices.append(("只说「我只是想帮你」", "她合上了一半的账本，等你把后面的话说出来。"))
                 voice "audio/voice/argument_346.ogg"
                 luyao "我只是想帮你。"
-                "她没有说话。"
-                "我知道这句话挡不住什么。"
+                "她把账本合上一半，手还压在封面上。"
+                "她在等我说下去。我端起水杯，发现里面是空的。"
 
-    if m9_told or m11_looked or l_truth or p_branch == "xiaoman":
-        "门被推开了一条缝。"
-        "小满站在门口，没有进来。"
+    if not l_truth and (m9_told or m11_looked or p_branch == "xiaoman"):
+        "门被推开了一点，外面的风先灌进来。"
+        "小满就站在门缝外面，手还扶着把手。"
         voice "audio/voice/argument_353.ogg"
         xiaoman "……我在外面都听见了。"
         if m9_support:
             if pov == "luyao":
-                voice "audio/voice/argument_356.ogg"
-                xiaoman "陆哥，你说过我可以当店长的。"
+                voice "audio/voice/xiaoman_fb70e0cd362b67902914.ogg"
+                xiaoman "陆哥，你那天说我能当店长。现在还算吗？"
             else:
-                voice "audio/voice/argument_358.ogg"
-                xiaoman "老板，你说过我可以当店长的。"
-        voice "audio/voice/argument_359.ogg"
-        xiaoman "陆哥，你把自己押上去，我拿什么还？"
+                voice "audio/voice/xiaoman_fc95857a3c207511ed0f.ogg"
+                xiaoman "老板，我那天跟你说想当店长。你还记得吗？"
+        voice "audio/voice/xiaoman_0c0bc5f6fd4e1270c70a.ogg"
+        xiaoman "你们商量了半天，怎么一个都没叫我？"
         if pov == "luyao":
-            "我没有看她。"
+            "我往旁边拉了把椅子给她，她没坐。"
         else:
-            "他没有看她。"
-        "她把那本记星星的本子放在门口的地上。"
-        "然后转身走了，门没有关。"
+            "陆遥往旁边拉了把椅子。小满没过来。"
+        if m9_told and a_heat <= 1:
+            "小满把本子翻到记水电费的那页，指了指最底下那一栏。她已经算过一次了。"
+            voice "audio/voice/xiaoman_4c82ab004c97f0cb072d.ogg"
+            xiaoman "后间那几张桌子一直空着。明天我拿这个去问问，能不能只租前面。"
+        else:
+            "她把记纸星的本子放在最近那张桌子上。"
+            "等我们抬头的时候，她已经走了，门还半开着。"
     else:
-        "门外有脚步声停了一下，又走远了。"
+        "门外的脚步停了一下，又走远了。"
 
     hide screen argue_meter
     if a_heat <= 1:
@@ -433,33 +444,30 @@ label argument_calm:
     show shenlan hurt_half at expr_left with dissolve
     show luyao sad_half at expr_right with dissolve
     if pov == "luyao":
-        "她坐到我旁边，没有再解释。"
-        "我们第一次把话说完。"
+        "她挪到我旁边，抽了张纸递过来。我这才想起来擦擦袖口。"
+        "我们把摊在柜台上的纸翻回第一页，从头对了一遍。"
     else:
-        "他坐到我旁边，没有再解释。"
-        "我们第一次把话说完。"
+        "他坐到我旁边，我找了几张纸给他擦袖口。"
+        "他没急着再去拿手机。我们把柜台上那几张纸翻回第一页，从头对了一遍。"
     voice "audio/voice/argument_387.ogg"
     luyao "下次……我先问你。"
     voice "audio/voice/argument_388.ogg"
     shenlan "嗯。"
-    "窗外的雨小了一点。"
-    if pov == "luyao":
-        $ a_review = "你停下来的时候，她也停下来了。"
-    else:
-        $ a_review = "你停下来的时候，他也停下来了。"
+    "她把压住收据的杯子拿开，纸上留下了一小圈水印。"
+    $ a_review = "散场前，你们一起把账对了一遍。"
     jump argument_review_scene
 
 
 label argument_stuck:
     show shenlan quiet_half at expr_left with dissolve
     show luyao sad_half at expr_right with dissolve
-    "我们谁也没有说服谁。"
+    "说到最后，桌上的收据还摊在原处。"
     if pov == "luyao":
-        "我把手机扣在桌上，屏幕朝下。先不看了。"
+        "我伸手把手机扣过去，推到离自己远一点的地方。"
     else:
-        "他把手机扣在桌上，屏幕朝下。没再说话。"
-    "雨还在下。"
-    $ a_review = "你们都说了话，但没有一句真正落到对方那里。"
+        "他把手机扣过去，推到桌子中间。"
+    "过了一会儿，我们才各自起身收东西。"
+    $ a_review = "账本摊了一晚上，最后一页的数字还没合上。"
     jump argument_review_scene
 
 
@@ -471,28 +479,22 @@ label argument_break:
     voice "audio/voice/argument_414.ogg"
     luyao "……"
     if pov == "luyao":
-        "我把钥匙放在桌上。"
-        "门铃响了一声。"
-        "我推门出去，雨落在肩上。"
+        "我摸了摸兜里，把她借我用的那把钥匙放在桌上。"
+        "临走的时候我还没想好该说什么。"
+        "后来门铃一响，我已经站在外头了。"
     else:
-        "他把钥匙放在桌上。"
-        "门铃响了一声。"
-        "他推门出去，雨落在肩上。"
+        "他把我借给他的那把钥匙放在桌上。"
+        "我看着他走到门口，也没叫他回来。"
+        "门一开，外头的雨声一下大了。"
     $ a_broke = True
-    if pov == "luyao":
-        $ a_review = "那天晚上，你赢了。你也把她推远了。"
-    else:
-        $ a_review = "那天晚上，你赢了。你也把他推远了。"
+    $ a_review = "门铃响了一声，桌上还留着一把钥匙。"
     jump argument_review_scene
 
 
 label argument_review_scene:
     $ unlock_record("argument")
     scene black with warmfade
-    if pov == "luyao":
-        "那天晚上，她在本子上记了三个选择。"
-    else:
-        "那天晚上，我在本子上记了三个选择。"
+    "后来回想起来，那晚有几句话我记得特别清楚。"
     call screen argue_review
     $ quick_menu = True
     if a_broke:
@@ -502,9 +504,9 @@ label argument_review_scene:
             "钥匙还在桌上。"
     else:
         if pov == "luyao":
-            "我还在。"
+            "她还没赶我走，我就留下来收了桌子。"
         else:
-            "他还在。"
+            "陆遥还没走，站在桌边收那几只杯子。"
     if pov == "luyao" and l_truth:
         jump ending_told
     jump finale_scene
