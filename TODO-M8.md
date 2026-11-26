@@ -25,8 +25,10 @@
 - [x] 生成全部 293 句对白（`game/audio/voice/`，6.0 MB）。
 - [x] 插入 `voice` 语句；`voice` 与下一句对白逐条校验，0 条错位。
 - [x] 陆遥声线改为 `c_plain_seed7`，重新生成 116 条。
-- [x] lint 通过。
+- [x] 手动润色后重配改动的 57 处角色台词。
+- [x] 旁白改成双 POV：820 句 × 沈岚/陆遥两版，共 1620 段；运行时用 `voice (... if pov == "shenlan" else ...)`。
+- [x] lint 通过；角色 voice 284 条、旁白 820 条均与当前文本对上。
 - [x] 用户试听候选，选定陆遥声线（C 自然口语 / seed7）。
 - [x] 试听最终版五角色样带，确认放在一起不串。
-- [x] 打包：Mac `build/ChooseLove-1.0-mac.zip`，PC `build/ChooseLove-1.0-pc.zip`；开发文件已排除出发行包。
+- [x] 打包：Mac `build/ChooseLove-1.1-mac.zip`，PC `build/ChooseLove-1.1-pc.zip`；开发文件已排除出发行包。
 - [ ] 用户实际通关测试（一周目 / 二周目 / 真话 / 白夜 / 底座五分支 / 星图）。

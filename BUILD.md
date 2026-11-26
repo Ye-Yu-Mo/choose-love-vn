@@ -1,9 +1,9 @@
-# BUILD · 满天星 1.0
+# BUILD · 满天星 1.1
 
 ## 分发文件
 
-- Mac：`build/ChooseLove-1.0-mac.zip`（解压后得到 `ChooseLove.app`）
-- Windows / PC：`build/ChooseLove-1.0-pc.zip`（解压后运行 `ChooseLove.exe`；Mac/Linux 也可用 `ChooseLove.sh`）
+- Mac：`build/ChooseLove-1.1-mac.zip`（解压后得到 `ChooseLove.app`）
+- Windows / PC：`build/ChooseLove-1.1-pc.zip`（解压后运行 `ChooseLove.exe`；Mac/Linux 也可用 `ChooseLove.sh`）
 
 `build/` 不进入 git，只保留在本机。开发用文件（`assets/`、`tools/`、`docs/`、`*.md`）不会被打进发行包。
 
