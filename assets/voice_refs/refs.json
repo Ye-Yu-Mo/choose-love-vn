@@ -29,5 +29,12 @@
     "instruct": "一位六十多岁的老年男性，声音慢、低，话不多。",
     "path": "/Users/jasxu/Documents/choose_love/assets/voice_refs/zhou.wav",
     "duration": 2.56
+  },
+  "narrator": {
+    "text": "那天下午，小满在店里给自己办了一场葬礼。窗外一直在下雨。",
+    "instruct": "一位声音温和、偏低、克制的中性叙述者，语速稍慢，像在很近的地方讲一个安静的故事，不播音腔，不煽情。",
+    "path": "/Users/jasxu/Documents/choose_love/assets/voice_refs/narrator.wav",
+    "duration": 5.52,
+    "seed": 42
   }
 }
